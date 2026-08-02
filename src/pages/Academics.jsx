@@ -1,7 +1,5 @@
 import PageHero from '../components/PageHero.jsx'
 
-// TODO: This page's design was not included in the mockups yet.
-// Replace this skeleton once the Academics mockup is shared.
 export default function Academics() {
   return (
     <>
