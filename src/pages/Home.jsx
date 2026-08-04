@@ -190,317 +190,331 @@ export default function Home() {
 
   return (
     <>
-      {/* ══ 1. HERO WITH GATE IMAGE BACKGROUND ══ */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-forest-dark">
-        {/* Background photo: school gate */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={images.gate}
-            alt="Kitui High School Main Gate"
-            className="w-full h-full object-cover object-center scale-100 animate-fade-in brightness-[0.88]"
-          />
-          {/* Subtle directional transparent scrim keeping the gate image clearly visible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-        </div>
+      {/* ══ FIXED FULL-PAGE BACKGROUND (ADMIN BUILDING IMAGE) ══ */}
+      {/* This fixed background stays static while all sections float/scroll over it */}
+      <div
+        className="fixed inset-0 z-0 bg-cover bg-center pointer-events-none brightness-[0.80]"
+        style={{ backgroundImage: `url(${images.admin})` }}
+      >
+        {/* Global background tint: adjust /25 down for more transparency or up for darker */}
+        <div className="absolute inset-0 bg-forest-dark/25" />
+      </div>
 
-        {/* Gold accent bar */}
-        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
-
-        <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md">
-          <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School — Since 1938</p>
-          <div className="gold-bar mb-5 shadow-sm" />
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight max-w-3xl animate-fade-up-200 drop-shadow-lg">
-            Building Character.{' '}
-            <span className="text-gold-light">Inspiring Excellence.</span>
-          </h1>
-          <p className="text-white/95 mt-6 max-w-xl text-lg leading-relaxed animate-fade-up-400 font-sans drop-shadow-md">
-            Since 1938, Kitui High School has been shaping generations of young men of integrity,
-            discipline and service to the nation.
-          </p>
-          <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-600">
-            <Link to="/about" className="btn-primary-lg">
-              Discover Our Story <ArrowRight size={18} />
-            </Link>
-            <Link to="/3d-tour" className="btn-outline flex items-center gap-2 !px-7 !py-4 backdrop-blur-sm bg-white/10 hover:bg-white/20">
-              <Play size={16} className="fill-white" /> Explore Campus in 3D
-            </Link>
+      <div className="relative z-10">
+        {/* ══ 1. HERO WITH GATE IMAGE BACKGROUND (SOLID / OPAQUE) ══ */}
+        <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-forest-dark">
+          {/* Background photo: school gate */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={images.gate}
+              alt="Kitui High School Main Gate"
+              className="w-full h-full object-cover object-center scale-100 animate-fade-in brightness-[0.88]"
+            />
+            {/* Subtle directional transparent scrim keeping the gate image clearly visible */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
           </div>
 
-          {/* Scroll cue */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50 animate-bounce">
-            <p className="text-[10px] uppercase tracking-widest font-sans">Scroll to explore</p>
-            <ChevronDown size={16} />
-          </div>
-        </div>
-      </section>
+          {/* Gold accent bar */}
+          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
-      {/* ══ 2. STATS BAR ══ */}
-      <section className="bg-forest-dark relative z-10 border-t border-white/10">
-        <div className="container-page py-0">
-          <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/10">
-            {stats.map(({ value, label, icon: Icon }) => (
-              <div key={label} className="flex flex-col items-center md:items-start gap-1 py-7 px-4 first:pl-0 last:pr-0">
-                <Icon size={18} className="text-gold/70 mb-1" />
-                <p className="stat-value">{value}</p>
-                <p className="stat-label">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* gold accent line */}
-        <div className="h-0.5 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
-      </section>
-
-      {/* ══ 3. STORY / PRINCIPAL ══ */}
-      <section className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-5 gap-12 items-center">
-          {/* Left — Our Story */}
-          <div className="lg:col-span-2">
-            <p className="section-eyebrow mb-3">Our Story</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">
-              A Legacy of Excellence Since 1938
-            </h2>
-            <p className="section-sub mb-4">
-              From humble beginnings as one of Kenya's earliest national schools, our journey
-              has been defined by a commitment to academic excellence, discipline, character
-              and service.
+          <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md">
+            <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School — Since 1938</p>
+            <div className="gold-bar mb-5 shadow-sm" />
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight max-w-3xl animate-fade-up-200 drop-shadow-lg">
+              Building Character.{' '}
+              <span className="text-gold-light">Inspiring Excellence.</span>
+            </h1>
+            <p className="text-white/95 mt-6 max-w-xl text-lg leading-relaxed animate-fade-up-400 font-sans drop-shadow-md">
+              Since 1938, Kitui High School has been shaping generations of young men of integrity,
+              discipline and service to the nation.
             </p>
-            <p className="section-sub mb-6">
-              For over eight decades, we have continued to build leaders who make a difference
-              in their communities and the nation.
-            </p>
-            <Link to="/about" className="btn-ghost">
-              Read Our History <ArrowRight size={16} />
-            </Link>
-          </div>
+            <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-600">
+              <Link to="/about" className="btn-primary-lg">
+                Discover Our Story <ArrowRight size={18} />
+              </Link>
+              <Link to="/3d-tour" className="btn-outline flex items-center gap-2 !px-7 !py-4 backdrop-blur-sm bg-white/10 hover:bg-white/20">
+                <Play size={16} className="fill-white" /> Explore Campus in 3D
+              </Link>
+            </div>
 
-          {/* Center — School Tower Photo */}
-          <div className="lg:col-span-1 flex items-center justify-center">
-            <div className="aspect-[3/4] w-full max-w-[240px] mx-auto rounded-2xl overflow-hidden shadow-xl relative group">
-              <img
-                src={images.campus.adminTower}
-                alt="Kitui High School Campus"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
+            {/* Scroll cue */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50 animate-bounce">
+              <p className="text-[10px] uppercase tracking-widest font-sans">Scroll to explore</p>
+              <ChevronDown size={16} />
             </div>
           </div>
+        </section>
 
-          {/* Right — Principal */}
-          <div className="lg:col-span-2">
-            <p className="section-eyebrow mb-3">From the Principal</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-4">
-              Welcome to Kitui High School
-            </h2>
-            <p className="section-sub mb-6">
-              We nurture minds, shape character and inspire our students to serve with integrity
-              and purpose. Our school is more than a place of learning — it is a community that
-              builds tomorrow's leaders.
-            </p>
-            {/* Principal Signature & Photo */}
-            <div className="flex items-center gap-4">
-              <img
-                src={images.people.principal}
-                alt="Mr. Patrick Mutiso, Principal"
-                className="w-16 h-16 rounded-full object-cover border-2 border-gold/40 shadow-md shrink-0"
-              />
-              <div>
-                <p className="font-serif font-semibold text-forest text-base">Mr. Bernard M. Mutua, Chief Principal</p>
-                <p className="text-xs text-slate-500 font-sans">Chief Principal, Kitui High School</p>
-                <Link to="/management#principal" className="btn-ghost text-xs mt-1 inline-flex">
-                  Principal's Message <ArrowRight size={12} />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 4. HIGHLIGHTS OF EXCELLENCE ══ */}
-      <section className="section-pad bg-cream">
-        <div className="container-page">
-          <div className="text-center mb-12">
-            <p className="section-eyebrow mb-3">Highlights of Excellence</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">Where Achievement Meets Purpose</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
-            {highlights.map((h) => (
-              <div
-                key={h.num}
-                className={`rounded-xl border ${h.border} bg-gradient-to-br ${h.color} p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <span className="text-[10px] uppercase tracking-widest font-semibold text-gold font-sans">
-                    {h.tag}
-                  </span>
-                  <span className="text-3xl font-serif font-bold text-forest/15">{h.num}</span>
+        {/* ══ 2. STATS BAR (TRANSPARENT FLOATING SECTION OVER FIXED ADMIN BG) ══ */}
+        <section className="relative z-10 border-t border-white/15 bg-transparent">
+          {/* Subtle translucent bar scrim to make stat numbers pop over the floating background */}
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
+          <div className="container-page relative z-10 py-0">
+            <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/10">
+              {stats.map(({ value, label, icon: Icon }) => (
+                <div key={label} className="flex flex-col items-center md:items-start gap-1 py-7 px-4 first:pl-0 last:pr-0">
+                  <Icon size={18} className="text-gold/70 mb-1" />
+                  <p className="stat-value">{value}</p>
+                  <p className="stat-label">{label}</p>
                 </div>
-                <h3 className="font-serif font-bold text-forest text-lg leading-snug mb-3">
-                  {h.title}
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed mb-4">{h.body}</p>
-                <ul className="space-y-1.5 mb-5">
-                  {h.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-forest font-sans">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link to={h.to} className="btn-ghost text-xs inline-flex">
-                  {h.cta} <ArrowRight size={12} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 5. LATEST NEWS ══ */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="section-eyebrow mb-2">Latest News & Events</p>
-              <div className="gold-bar mb-3" />
-              <h2 className="section-title">What's Happening at KHS</h2>
+              ))}
             </div>
-            <Link to="/gallery" className="btn-ghost hidden md:flex">
-              View All News <ArrowRight size={16} />
-            </Link>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {news.map((n) => (
-              <NewsCard key={n.title} item={n} />
-            ))}
-          </div>
-          <div className="text-center mt-8 md:hidden">
-            <Link to="/gallery" className="btn-outline-dark">View All News</Link>
-          </div>
-        </div>
-      </section>
+          {/* gold accent line */}
+          <div className="h-0.5 bg-gradient-to-r from-transparent via-gold/50 to-transparent relative z-10" />
+        </section>
 
-      {/* ══ 6. CAMPUS GALLERY STRIP ══ */}
-      <section className="section-pad-sm bg-cream">
-        <div className="container-page">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="section-eyebrow mb-2">Our Campus</p>
-              <div className="gold-bar mb-3" />
-              <h2 className="section-title">A World-Class Learning Environment</h2>
+        {/* ══ 3. STORY / PRINCIPAL ══ */}
+        <section className="section-pad bg-white">
+          <div className="container-page grid lg:grid-cols-5 gap-12 items-center">
+            {/* Left — Our Story */}
+            <div className="lg:col-span-2">
+              <p className="section-eyebrow mb-3">Our Story</p>
+              <div className="gold-bar mb-4" />
+              <h2 className="section-title mb-5">
+                A Legacy of Excellence Since 1938
+              </h2>
+              <p className="section-sub mb-4">
+                From humble beginnings as one of Kenya's earliest national schools, our journey
+                has been defined by a commitment to academic excellence, discipline, character
+                and service.
+              </p>
+              <p className="section-sub mb-6">
+                For over eight decades, we have continued to build leaders who make a difference
+                in their communities and the nation.
+              </p>
+              <Link to="/about" className="btn-ghost">
+                Read Our History <ArrowRight size={16} />
+              </Link>
             </div>
-            <Link to="/gallery" className="btn-ghost hidden md:flex">
-              View Gallery <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {campus.map((c) => (
-              <div
-                key={c.label}
-                className="rounded-xl overflow-hidden aspect-square group cursor-pointer relative shadow-card hover:shadow-card-hover transition-all duration-300"
-              >
+
+            {/* Center — School Tower Photo */}
+            <div className="lg:col-span-1 flex items-center justify-center">
+              <div className="aspect-[3/4] w-full max-w-[240px] mx-auto rounded-2xl overflow-hidden shadow-xl relative group">
                 <img
-                  src={c.image}
-                  alt={c.label}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  src={images.campus.adminTower}
+                  alt="Kitui High School Campus"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
-                <div className="absolute inset-0 flex items-end p-3">
-                  <p className="text-white text-xs font-sans font-medium leading-tight">
-                    {c.label}
-                  </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
+              </div>
+            </div>
+
+            {/* Right — Principal */}
+            <div className="lg:col-span-2">
+              <p className="section-eyebrow mb-3">From the Principal</p>
+              <div className="gold-bar mb-4" />
+              <h2 className="section-title mb-4">
+                Welcome to Kitui High School
+              </h2>
+              <p className="section-sub mb-6">
+                We nurture minds, shape character and inspire our students to serve with integrity
+                and purpose. Our school is more than a place of learning — it is a community that
+                builds tomorrow's leaders.
+              </p>
+              {/* Principal Signature & Photo */}
+              <div className="flex items-center gap-4">
+                <img
+                  src={images.people.principal}
+                  alt="Mr. Benard M. Mutua, Principal"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-gold/40 shadow-md shrink-0"
+                />
+                <div>
+                  <p className="font-serif font-semibold text-forest text-base">Mr. Bernard M. Mutua, Chief Principal</p>
+                  <p className="text-xs text-slate-500 font-sans">Chief Principal, Kitui High School</p>
+                  <Link to="/management#principal" className="btn-ghost text-xs mt-1 inline-flex">
+                    Principal's Message <ArrowRight size={12} />
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 7. WHY KHS ══ */}
-      <section className="section-pad bg-forest-gradient text-white relative overflow-hidden">
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5">
-          <div className="h-full w-full bg-gradient-to-l from-white to-transparent" />
-        </div>
-        <div className="container-page relative z-10">
-          <div className="text-center mb-12">
-            <p className="section-eyebrow mb-3">Why Choose Kitui High School</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title-white">More Than a School. A Community.</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Users, t: 'Holistic Development', b: 'Academic excellence balanced with character, service, sports and arts.' },
-              { icon: Trophy, t: 'Award-Winning Performance', b: 'Consistent top performers nationally in KCSE, sports and co-curriculars.' },
-              { icon: ShieldCheck, t: 'Safe Supervised Boarding', b: 'A home away from home — safe, structured and nurturing.' },
-              { icon: Microscope, t: 'Modern Facilities', b: 'Well-equipped labs, ICT centre, library and sports facilities.' },
-              { icon: BookOpen, t: 'Experienced Faculty', b: '120+ dedicated teachers committed to every learner\'s growth.' },
-              { icon: MapPin, t: 'Serene Campus', b: 'A peaceful, inspiring environment that fosters focus and learning.' },
-            ].map(({ icon: Icon, t, b }) => (
-              <div
-                key={t}
-                className="glass rounded-xl p-6 hover:border-gold/30 hover:-translate-y-1 transition-all duration-300 cursor-default"
-              >
-                <div className="w-12 h-12 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
-                  <Icon className="text-gold" size={22} />
-                </div>
-                <h3 className="font-serif font-semibold text-white mb-2">{t}</h3>
-                <p className="text-white/70 text-sm leading-relaxed font-sans">{b}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ 8. TESTIMONIALS ══ */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div className="text-center mb-12">
-            <p className="section-eyebrow mb-3">What Our Community Says</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">Voices from Our Community</h2>
-          </div>
-          {/* Desktop: 3 cards */}
-          <div className="hidden md:grid md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <TestimonialCard key={t.name} t={t} />
-            ))}
-          </div>
-          {/* Mobile: 1 card with arrows */}
-          <div className="md:hidden">
-            <TestimonialCard t={testimonials[tIdx]} />
-            <div className="flex justify-center gap-3 mt-6">
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full border border-forest/20 flex items-center justify-center hover:border-forest hover:bg-forest hover:text-white transition-all"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full border border-forest/20 flex items-center justify-center hover:border-forest hover:bg-forest hover:text-white transition-all"
-                aria-label="Next testimonial"
-              >
-                <ChevronRightIcon size={18} />
-              </button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ══ 9. CTA ══ */}
-      <CtaBanner
-        title="Begin Your Journey at Kitui High School"
-        subtitle="Discover our rich heritage, meet our community and experience excellence in education."
-        primaryLabel="Book a Visit"
-        primaryTo="/contact"
-        secondaryLabel="Explore Academics"
-        secondaryTo="/academics"
-      />
+        {/* ══ 4. HIGHLIGHTS OF EXCELLENCE (50% OPACITY OVER FIXED BG) ══ */}
+        {/* Adjust opacity: change /50 to /30 for more transparency, or /80 or bg-cream for more solid */}
+        <section className="section-pad bg-cream/80">
+          <div className="container-page">
+            <div className="text-center mb-12">
+              <p className="section-eyebrow mb-3">Highlights of Excellence</p>
+              <div className="gold-bar mx-auto mb-4" />
+              <h2 className="section-title">Where Achievement Meets Purpose</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+              {highlights.map((h) => (
+                <div
+                  key={h.num}
+                  className={`rounded-xl border ${h.border} bg-white/75 backdrop-blur-sm p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-[10px] uppercase tracking-widest font-semibold text-gold font-sans">
+                      {h.tag}
+                    </span>
+                    <span className="text-3xl font-serif font-bold text-forest/15">{h.num}</span>
+                  </div>
+                  <h3 className="font-serif font-bold text-forest text-lg leading-snug mb-3">
+                    {h.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-4">{h.body}</p>
+                  <ul className="space-y-1.5 mb-5">
+                    {h.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-xs text-forest font-sans">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to={h.to} className="btn-ghost text-xs inline-flex">
+                    {h.cta} <ArrowRight size={12} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 5. LATEST NEWS ══ */}
+        <section className="section-pad bg-white">
+          <div className="container-page">
+            <div className="flex items-end justify-between mb-10">
+              <div>
+                <p className="section-eyebrow mb-2">Latest News & Events</p>
+                <div className="gold-bar mb-3" />
+                <h2 className="section-title">What's Happening at KHS</h2>
+              </div>
+              <Link to="/gallery" className="btn-ghost hidden md:flex">
+                View All News <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {news.map((n) => (
+                <NewsCard key={n.title} item={n} />
+              ))}
+            </div>
+            <div className="text-center mt-8 md:hidden">
+              <Link to="/gallery" className="btn-outline-dark">View All News</Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 6. CAMPUS GALLERY STRIP ══ */}
+        <section className="section-pad-sm bg-cream">
+          <div className="container-page">
+            <div className="flex items-end justify-between mb-8">
+              <div>
+                <p className="section-eyebrow mb-2">Our Campus</p>
+                <div className="gold-bar mb-3" />
+                <h2 className="section-title">A World-Class Learning Environment</h2>
+              </div>
+              <Link to="/gallery" className="btn-ghost hidden md:flex">
+                View Gallery <ArrowRight size={16} />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              {campus.map((c) => (
+                <div
+                  key={c.label}
+                  className="rounded-xl overflow-hidden aspect-square group cursor-pointer relative shadow-card hover:shadow-card-hover transition-all duration-300"
+                >
+                  <img
+                    src={c.image}
+                    alt={c.label}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                  <div className="absolute inset-0 flex items-end p-3">
+                    <p className="text-white text-xs font-sans font-medium leading-tight">
+                      {c.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 7. WHY KHS (TRANSPARENT FLOATING SECTION OVER FIXED ADMIN BG) ══ */}
+        <section className="section-pad relative z-10 overflow-hidden bg-transparent text-white">
+          <div className="container-page relative z-10">
+            <div className="text-center mb-12">
+              <p className="section-eyebrow mb-3 text-gold-light">Why Choose Kitui High School</p>
+              <div className="gold-bar mx-auto mb-4" />
+              <h2 className="section-title-white">More Than a School. A Community.</h2>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { icon: Users, t: 'Holistic Development', b: 'Academic excellence balanced with character, service, sports and arts.' },
+                { icon: Trophy, t: 'Award-Winning Performance', b: 'Consistent top performers nationally in KCSE, sports and co-curriculars.' },
+                { icon: ShieldCheck, t: 'Safe Supervised Boarding', b: 'A home away from home — safe, structured and nurturing.' },
+                { icon: Microscope, t: 'Modern Facilities', b: 'Well-equipped labs, ICT centre, library and sports facilities.' },
+                { icon: BookOpen, t: 'Experienced Faculty', b: '120+ dedicated teachers committed to every learner\'s growth.' },
+                { icon: MapPin, t: 'Serene Campus', b: 'A peaceful, inspiring environment that fosters focus and learning.' },
+              ].map(({ icon: Icon, t, b }) => (
+                <div
+                  key={t}
+                  /* Transparent card: adjust bg-black/25 or border-white/20 for translucency */
+                  className="bg-black/30 border border-white/20 rounded-xl p-6 hover:bg-black/40 hover:border-gold/40 hover:-translate-y-1 transition-all duration-300 cursor-default"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-gold/15 border border-gold/30 flex items-center justify-center mb-4">
+                    <Icon className="text-gold" size={22} />
+                  </div>
+                  <h3 className="font-serif font-semibold text-white mb-2">{t}</h3>
+                  <p className="text-white/85 text-sm leading-relaxed font-sans">{b}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 8. TESTIMONIALS (SOLID BG-WHITE) ══ */}
+        <section className="section-pad bg-white relative z-10">
+          <div className="container-page">
+            <div className="text-center mb-12">
+              <p className="section-eyebrow mb-3">What Our Community Says</p>
+              <div className="gold-bar mx-auto mb-4" />
+              <h2 className="section-title">Voices from Our Community</h2>
+            </div>
+            {/* Desktop: 3 cards */}
+            <div className="hidden md:grid md:grid-cols-3 gap-6">
+              {testimonials.map((t) => (
+                <TestimonialCard key={t.name} t={t} />
+              ))}
+            </div>
+            {/* Mobile: 1 card with arrows */}
+            <div className="md:hidden">
+              <TestimonialCard t={testimonials[tIdx]} />
+              <div className="flex justify-center gap-3 mt-6">
+                <button
+                  onClick={prev}
+                  className="w-10 h-10 rounded-full border border-forest/20 flex items-center justify-center hover:border-forest hover:bg-forest hover:text-white transition-all"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  onClick={next}
+                  className="w-10 h-10 rounded-full border border-forest/20 flex items-center justify-center hover:border-forest hover:bg-forest hover:text-white transition-all"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRightIcon size={18} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══ 9. CTA (BEGIN YOUR JOURNEY - TRANSPARENT FLOATING SECTION) ══ */}
+        <CtaBanner
+          title="Begin Your Journey at Kitui High School"
+          subtitle="Discover our rich heritage, meet our community and experience excellence in education."
+          primaryLabel="Book a Visit"
+          primaryTo="/contact"
+          secondaryLabel="Explore Academics"
+          secondaryTo="/academics"
+          transparent
+        />
+      </div>
     </>
   )
 }

@@ -50,23 +50,12 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 shadow-md ${
-        scrolled
+      className={`sticky top-0 z-50 transition-all duration-300 shadow-md ${scrolled
           ? 'bg-forest-dark shadow-xl'
           : 'bg-forest-dark'
-      }`}
+        }`}
     >
-      {/* Top ribbon */}
-      <div className="bg-forest-dark/90 border-b border-white/10 hidden md:block">
-        <div className="container-page flex items-center justify-between py-1.5">
-          <p className="text-white/80 text-xs font-sans">
-            Kitui – Machakos Road, Kitui, Kenya &nbsp;|&nbsp; info@kituihigh.ac.ke
-          </p>
-          <p className="text-gold text-xs font-sans italic font-medium">
-            "Learn To Serve" — Est. 1938
-          </p>
-        </div>
-      </div>
+
 
       {/* Main nav */}
       <div className="container-page flex items-center justify-between h-[68px]">
@@ -95,10 +84,9 @@ export default function Navbar() {
                 <NavLink
                   to={link.to}
                   className={({ isActive }) =>
-                    `flex items-center gap-1 px-3.5 py-2 text-sm font-sans font-medium rounded transition-colors ${
-                      isActive
-                        ? 'text-gold font-bold'
-                        : 'text-white hover:text-gold'
+                    `flex items-center gap-1 px-3.5 py-2 text-sm font-sans font-medium rounded transition-colors ${isActive
+                      ? 'text-gold font-bold'
+                      : 'text-white hover:text-gold'
                     }`
                   }
                 >
@@ -119,8 +107,7 @@ export default function Navbar() {
                 to={link.to}
                 end={link.to === '/'}
                 className={({ isActive }) =>
-                  `px-3.5 py-2 text-sm font-sans font-medium rounded transition-colors relative group ${
-                    isActive ? 'text-gold font-bold' : 'text-white hover:text-gold'
+                  `px-3.5 py-2 text-sm font-sans font-medium rounded transition-colors relative group ${isActive ? 'text-gold font-bold' : 'text-white hover:text-gold'
                   }`
                 }
               >
@@ -128,9 +115,8 @@ export default function Navbar() {
                   <>
                     {link.label}
                     <span
-                      className={`absolute bottom-0 left-3 right-3 h-0.5 bg-gold rounded-full transition-all duration-200 ${
-                        isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'
-                      }`}
+                      className={`absolute bottom-0 left-3 right-3 h-0.5 bg-gold rounded-full transition-all duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'
+                        }`}
                     />
                   </>
                 )}
@@ -178,9 +164,8 @@ export default function Navbar() {
                     {link.label}
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-200 ${
-                        openDropdown === link.label ? 'rotate-180' : ''
-                      }`}
+                      className={`transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''
+                        }`}
                     />
                   </button>
                   {openDropdown === link.label && (
@@ -205,8 +190,7 @@ export default function Navbar() {
                   end={link.to === '/'}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `block px-3 py-2.5 rounded text-sm font-sans font-medium transition-colors ${
-                      isActive ? 'text-gold bg-forest-light' : 'text-white/80 hover:text-white hover:bg-forest-light'
+                    `block px-3 py-2.5 rounded text-sm font-sans font-medium transition-colors ${isActive ? 'text-gold bg-forest-light' : 'text-white/80 hover:text-white hover:bg-forest-light'
                     }`
                   }
                 >
