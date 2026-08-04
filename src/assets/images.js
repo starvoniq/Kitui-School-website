@@ -3,6 +3,7 @@ import logoImg from './logo.jpg'
 
 // Local authentic Kenyan secondary school photography
 import classroomImg from './photos/classroom.png'
+import academicsHeroImg from './photos/Academics-tab-heroes.jpeg'
 import scienceLabImg from './photos/science_lab.png'
 import principalImg from './photos/principal.png'
 import compoundImg from './photos/compound.png'
@@ -23,7 +24,7 @@ export const images = {
   heroes: {
     home: gateImg,
     about: compoundImg,
-    academics: classroomImg,
+    academics: academicsHeroImg,
     management: teachersImg,
     gallery: prizeGivingImg,
     tour3d: compoundImg,

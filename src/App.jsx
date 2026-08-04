@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
@@ -11,6 +12,20 @@ import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [location])
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />

@@ -82,12 +82,14 @@ const support = [
 
 /* ─── Grade distribution ─── */
 const grades = [
-  { grade: 'A', count: 40, pct: '16.1%' },
-  { grade: 'A-', count: 20, pct: '7.8%' },
-  { grade: 'B+', count: 80, pct: '32.3%' },
-  { grade: 'B', count: 70, pct: '28.2%' },
-  { grade: 'C+ & Below', count: 10, pct: '4.0%' },
-]
+  { grade: 'A', count: 17, pct: '4.80%' },
+  { grade: 'A-', count: 87, pct: '24.58%' },
+  { grade: 'B+', count: 109, pct: '30.79%' },
+  { grade: 'B', count: 83, pct: '23.45%' },
+  { grade: 'B-', count: 41, pct: '11.58%' },
+  { grade: 'C+', count: 12, pct: '3.39%' },
+  { grade: 'C', count: 5, pct: '1.41%' },
+  ]
 
 export default function Academics() {
   return (
@@ -101,7 +103,7 @@ export default function Academics() {
       />
 
       {/* ══ PHILOSOPHY ══ */}
-      <section className="section-pad bg-white">
+      <section id="overview" className="section-pad bg-white">
         <div className="container-page grid lg:grid-cols-2 gap-14 items-center">
           <div>
             <p className="section-eyebrow mb-3">Our Academic Philosophy</p>
@@ -299,13 +301,13 @@ export default function Academics() {
             {/* Big numbers */}
             <div className="card p-8 text-center hover:border-gold/30">
               <p className="section-eyebrow mb-2">KCSE 2025 Results</p>
-              <p className="text-7xl font-serif font-bold text-forest">9.80</p>
+              <p className="text-7xl font-serif font-bold text-forest">9.718</p>
               <p className="text-slate-400 text-sm font-sans mt-1">Mean Grade</p>
               <div className="h-px bg-slate-100 my-4" />
-              <p className="text-4xl font-serif font-bold text-gold">99.6%</p>
+              <p className="text-4xl font-serif font-bold text-gold">98.49%</p>
               <p className="text-slate-400 text-sm font-sans mt-1">University Transition</p>
               <div className="h-px bg-slate-100 my-4" />
-              <p className="text-3xl font-serif font-bold text-forest">260</p>
+              <p className="text-3xl font-serif font-bold text-forest">354</p>
               <p className="text-slate-400 text-sm font-sans mt-1">Candidates</p>
             </div>
 
@@ -332,7 +334,7 @@ export default function Academics() {
                   ))}
                   <tr className="font-semibold">
                     <td className="pt-3 text-forest">Total</td>
-                    <td className="pt-3 text-center text-forest">260</td>
+                    <td className="pt-3 text-center text-forest">354</td>
                     <td className="pt-3 text-right text-forest">100%</td>
                   </tr>
                 </tbody>

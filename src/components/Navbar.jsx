@@ -10,7 +10,7 @@ const navLinks = [
     label: 'Academics',
     to: '/academics',
     dropdown: [
-      { to: '/academics', label: 'Overview' },
+      { to: '/academics#overview', label: 'Overview' },
       { to: '/academics#departments', label: 'Departments' },
       { to: '/academics#facilities', label: 'Facilities' },
       { to: '/academics#results', label: 'KCSE Results' },
