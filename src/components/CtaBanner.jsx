@@ -12,6 +12,8 @@ import { ArrowRight } from 'lucide-react'
  *  - secondaryLabel  {string}
  *  - secondaryTo     {string}  route (default /about)
  *  - dark            {boolean} Use lighter (cream on forest) variant
+ *  - transparent     {boolean} Make background transparent
+ *  - className       {string}  Additional class names
  */
 export default function CtaBanner({
   title,
@@ -21,9 +23,16 @@ export default function CtaBanner({
   secondaryLabel,
   secondaryTo = '/about',
   dark,
+  transparent = false,
+  className = '',
 }) {
   return (
-    <section className="relative overflow-hidden bg-forest-gradient">
+    <section
+      className={`relative overflow-hidden ${
+        transparent ? 'bg-transparent' : 'bg-forest-gradient'
+      } ${className}`}
+    >
+
       {/* Large decorative quote mark */}
       <div className="absolute right-10 top-1/2 -translate-y-1/2 text-white/5 font-serif text-[180px] leading-none pointer-events-none select-none">
         &ldquo;
