@@ -5,6 +5,10 @@ import logoImg from './logo.jpg'
 import classroomImg from './photos/classroom.png'
 import academicsHeroImg from './photos/Academics-tab-heroes.jpeg'
 import scienceLabImg from './photos/science_lab.png'
+import bioLabImg from './photos/bio lab.jpg'
+import chemistryLabImg from './photos/chemisty lab.jpg'
+import physicsLabImg from './photos/phyc  lab.jpg'
+import compLabImg from './photos/comp lab.jpg'
 import principalImg from './photos/principal.png'
 import compoundImg from './photos/compound.png'
 import sportsImg from './photos/sports.png'
@@ -40,10 +44,10 @@ export const images = {
     diningHall: compoundImg,
   },
   academics: {
-    physicsLab: scienceLabImg,
-    chemistryLab: scienceLabImg,
-    biologyLab: scienceLabImg,
-    computerLab: computerLabImg,
+    physicsLab: physicsLabImg,
+    chemistryLab: chemistryLabImg,
+    biologyLab: bioLabImg,
+    computerLab: compLabImg,
     library: libraryImg,
     smartClass: classroomImg,
     ictCentre: computerLabImg,
