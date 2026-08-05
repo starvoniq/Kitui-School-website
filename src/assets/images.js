@@ -1,5 +1,6 @@
 import gateImg from './gate.jpg'
 import logoImg from './logo.jpg'
+import adminImg from './admin.jpg'
 
 // Local authentic Kenyan secondary school photography
 import classroomImg from './photos/classroom.png'
@@ -9,7 +10,7 @@ import bioLabImg from './photos/bio lab.jpg'
 import chemistryLabImg from './photos/chemisty lab.jpg'
 import physicsLabImg from './photos/phyc  lab.jpg'
 import compLabImg from './photos/comp lab.jpg'
-import principalImg from './photos/principal.png'
+import principalImg from './photos/principal.jpg'
 import compoundImg from './photos/compound.png'
 import sportsImg from './photos/sports.png'
 import libraryImg from './photos/library.png'
@@ -25,6 +26,7 @@ import alumniImg from './photos/alumni.png'
 export const images = {
   gate: gateImg,
   logo: logoImg,
+  admin: adminImg,
   heroes: {
     home: gateImg,
     about: compoundImg,
@@ -35,7 +37,7 @@ export const images = {
     contact: gateImg,
   },
   campus: {
-    adminTower: compoundImg,
+    adminTower: adminImg,
     aerialCampus: compoundImg,
     compound: compoundImg,
     boarding: compoundImg,
@@ -77,7 +79,7 @@ export const images = {
     chemistry: scienceLabImg,
     athletics: sportsImg,
     drama: dramaImg,
-    admin: compoundImg,
+    admin: adminImg,
     prizeGiving: prizeGivingImg,
     computerLab: computerLabImg,
     football: sportsImg,
