@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import PageHero from "../components/PageHero.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
-import LeadershipOrgChart from "../components/LeadershipOrgChart.jsx";
+import LeadershipOrgChart from "../components/Leadershiporgchart.jsx";
 import { images } from "../assets/images.js";
 
 /* ─── Data ─── */
