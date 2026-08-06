@@ -61,29 +61,29 @@ function OrgNode({ label, tone, person, size }) {
 
       {person && (
         <div
-          className="pointer-events-none absolute left-1/2 bottom-full z-30 mb-3 w-44
+          className="pointer-events-none absolute left-1/2 bottom-full z-30 mb-4 w-56
             -translate-x-1/2 translate-y-1 scale-95 opacity-0
             transition-all duration-200 ease-out
             group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100"
         >
-          <div className="relative rounded-xl border border-gold/25 bg-white p-4 shadow-2xl">
+          <div className="relative rounded-2xl border border-gold/25 bg-white p-5 shadow-2xl">
             {isGroup ? (
               <>
-                <div className="mb-2 flex justify-center -space-x-3">
+                <div className="mb-3 flex justify-center -space-x-4">
                   {person.slice(0, 5).map((p, i) => (
                     <img
                       key={p.name}
                       src={p.image}
                       alt={p.name}
                       style={{ zIndex: 10 - i }}
-                      className="h-10 w-10 rounded-full border-2 border-white object-cover shadow"
+                      className="h-14 w-14 rounded-full border-[3px] border-white object-cover shadow-md"
                     />
                   ))}
                 </div>
-                <p className="text-center font-serif text-xs font-bold text-forest leading-tight">
+                <p className="text-center font-serif text-sm font-bold text-forest leading-tight">
                   {person.length} Department Heads
                 </p>
-                <p className="mt-0.5 text-center font-sans text-[10px] text-slate-400">
+                <p className="mt-1 text-center font-sans text-[11px] text-slate-400">
                   See full list below
                 </p>
               </>
@@ -92,20 +92,20 @@ function OrgNode({ label, tone, person, size }) {
                 <img
                   src={person.image}
                   alt={person.name}
-                  className="mx-auto mb-2 h-16 w-16 rounded-full border-2 border-gold/40 object-cover shadow"
+                  className="mx-auto mb-3 h-24 w-24 rounded-full border-[3px] border-gold/40 object-cover shadow-md"
                 />
-                <p className="text-center font-serif text-xs font-bold text-forest leading-tight">
+                <p className="text-center font-serif text-sm font-bold text-forest leading-tight">
                   {person.name}
                 </p>
                 {person.title && (
-                  <p className="mt-0.5 text-center font-sans text-[10px] font-medium text-gold">
+                  <p className="mt-1 text-center font-sans text-[11px] font-medium text-gold">
                     {person.title}
                   </p>
                 )}
               </>
             )}
             {/* pointer arrow */}
-            <div className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-b border-r border-gold/25 bg-white" />
+            <div className="absolute -bottom-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border-b border-r border-gold/25 bg-white" />
           </div>
         </div>
       )}

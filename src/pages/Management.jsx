@@ -119,6 +119,25 @@ const adminOffice = [
   },
 ];
 
+const officeInfo = [
+  {
+    icon: Clock,
+    label: "Office Hours",
+    value: "Mon – Fri, 8:00 AM – 4:30 PM",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+254 720 302 123 / +254 722 323 456",
+  },
+  { icon: Mail, label: "Email", value: "info@kituihigh.ac.ke" },
+  {
+    icon: MapPin,
+    label: "Address",
+    value: "Kitui – Machakos Road, P.O. Box 71, Kitui, Kenya",
+  },
+];
+
 export default function Management() {
   return (
     <>
@@ -132,9 +151,24 @@ export default function Management() {
 
       {/* ══ LEADERSHIP PHILOSOPHY ══ */}
       <section className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-center">
-          {/* Photo */}
-          <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative group">
+        <div className="container-page">
+          <div className="text-center mb-10 max-w-3xl mx-auto">
+            <p className="section-eyebrow mb-3">Our Leadership Philosophy</p>
+            <div className="gold-bar mx-auto mb-4" />
+            <h2 className="section-title mb-5">
+              Guided by Values, Driven by Purpose
+            </h2>
+            <p className="section-sub">
+              Leadership at Kitui High School is founded on integrity,
+              accountability, service and teamwork. We are committed to
+              nurturing disciplined learners, empowering staff and working with
+              parents and the community to achieve our vision of academic
+              excellence and holistic development.
+            </p>
+          </div>
+
+          {/* Full-width banner image */}
+          <div className="rounded-2xl overflow-hidden shadow-xl aspect-[21/9] relative group mb-10">
             <img
               src={images.campus.adminTower}
               alt="Kitui High School Administration Building"
@@ -143,32 +177,24 @@ export default function Management() {
             <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
           </div>
 
-          <div>
-            <p className="section-eyebrow mb-3">Our Leadership Philosophy</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">
-              Guided by Values, Driven by Purpose
-            </h2>
-            <p className="section-sub mb-8">
-              Leadership at Kitui High School is founded on integrity,
-              accountability, service and teamwork. We are committed to
-              nurturing disciplined learners, empowering staff and working with
-              parents and the community to achieve our vision of academic
-              excellence and holistic development.
-            </p>
-            <div className="grid grid-cols-2 gap-5">
-              {values.map(({ icon: Icon, label, sub }) => (
-                <div key={label} className="flex gap-3 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                    <Icon className="text-gold" size={18} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-forest text-sm">{label}</p>
-                    <p className="text-xs text-slate-500 font-sans">{sub}</p>
-                  </div>
+          {/* Values grid, now full width */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {values.map(({ icon: Icon, label, sub }) => (
+              <div
+                key={label}
+                className="flex flex-col items-center text-center gap-3"
+              >
+                <div className="w-12 h-12 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                  <Icon className="text-gold" size={20} />
                 </div>
-              ))}
-            </div>
+                <div>
+                  <p className="font-semibold text-forest text-sm">{label}</p>
+                  <p className="text-xs text-slate-500 font-sans mt-0.5">
+                    {sub}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -253,13 +279,17 @@ export default function Management() {
         </div>
       </section>
 
-      {/* ══ ORG CHART + DEPT HEADS ══ */}
+      {/* ══ LEADERSHIP STRUCTURE (ORG CHART) — now its own full-width section ══ */}
       <section className="section-pad bg-cream">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-start">
-          {/* Org chart */}
-          <div>
+        <div className="container-page">
+          <div className="text-center mb-10">
             <p className="section-eyebrow mb-3">School Leadership Structure</p>
-            <div className="gold-bar mb-6" />
+            <div className="gold-bar mx-auto mb-4" />
+            <p className="section-sub max-w-2xl mx-auto">
+              Hover over any role to see who holds it.
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
             <LeadershipOrgChart
               principal={{
                 name: "Bernard M. Mutua, OGW",
@@ -271,113 +301,114 @@ export default function Management() {
               deptHeads={deptHeads}
             />
           </div>
+        </div>
+      </section>
 
-          {/* Dept Heads */}
-          <div>
+      {/* ══ HEADS OF DEPARTMENTS — own full-width section ══ */}
+      <section className="section-pad bg-white">
+        <div className="container-page">
+          <div className="text-center mb-10">
             <p className="section-eyebrow mb-3">
               Heads of Academic Departments
             </p>
-            <div className="gold-bar mb-6" />
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {deptHeads.map((h) => (
-                <div
-                  key={h.name}
-                  className="card p-4 text-center hover:border-gold/30"
-                >
-                  <img
-                    src={h.image}
-                    alt={h.name}
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/30 shadow"
-                  />
-                  <p className="font-semibold text-forest text-sm leading-tight">
-                    {h.name}
-                  </p>
-                  <p className="text-[11px] text-gold font-sans font-medium mt-1">
-                    {h.subject}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <div className="gold-bar mx-auto" />
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-5 max-w-5xl mx-auto">
+            {deptHeads.map((h) => (
+              <div
+                key={h.name}
+                className="card p-4 text-center hover:border-gold/30"
+              >
+                <img
+                  src={h.image}
+                  alt={h.name}
+                  className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/30 shadow"
+                />
+                <p className="font-semibold text-forest text-sm leading-tight">
+                  {h.name}
+                </p>
+                <p className="text-[11px] text-gold font-sans font-medium mt-1">
+                  {h.subject}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ══ BOARD OF MANAGEMENT ══ */}
-      <section id="board" className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-start">
-          <div>
+      {/* ══ BOARD OF MANAGEMENT — own full-width section ══ */}
+      <section id="board" className="section-pad bg-cream">
+        <div className="container-page">
+          <div className="text-center mb-10 max-w-2xl mx-auto">
             <p className="section-eyebrow mb-3">Board of Management</p>
-            <div className="gold-bar mb-4" />
-            <p className="section-sub mb-6">
+            <div className="gold-bar mx-auto mb-4" />
+            <p className="section-sub">
               The Board provides strategic governance and ensures the school is
               managed in the best interest of learners, staff and the wider
               community.
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              {board.map((b) => (
-                <div
-                  key={b.name}
-                  className="card p-4 text-center hover:border-gold/30"
-                >
-                  <img
-                    src={b.image}
-                    alt={b.name}
-                    className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/20 shadow"
-                  />
-                  <p className="font-semibold text-forest text-sm">{b.name}</p>
-                  <p className="text-[11px] text-slate-500 font-sans mt-0.5">
-                    {b.role}
-                  </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto">
+            {board.map((b) => (
+              <div
+                key={b.name}
+                className="card p-4 text-center hover:border-gold/30"
+              >
+                <img
+                  src={b.image}
+                  alt={b.name}
+                  className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/20 shadow"
+                />
+                <p className="font-semibold text-forest text-sm">{b.name}</p>
+                <p className="text-[11px] text-slate-500 font-sans mt-0.5">
+                  {b.role}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ ADMINISTRATION OFFICE — own full-width section ══ */}
+      <section className="section-pad bg-white">
+        <div className="container-page">
+          <div className="text-center mb-10">
+            <p className="section-eyebrow mb-3">Administration Office</p>
+            <div className="gold-bar mx-auto" />
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto mb-14">
+            {adminOffice.map((a) => (
+              <div
+                key={a.label}
+                className="flex gap-4 items-start bg-cream rounded-xl p-4 border border-parchment"
+              >
+                <div className="w-2 h-2 rounded-full bg-gold mt-2 shrink-0" />
+                <div>
+                  <p className="font-semibold text-forest text-sm">{a.label}</p>
+                  <p className="text-xs text-slate-500 font-sans">{a.desc}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* Admin Office */}
-          <div>
-            <p className="section-eyebrow mb-3">Administration Office</p>
-            <div className="gold-bar mb-4" />
-            <div className="space-y-3 mb-8">
-              {adminOffice.map((a) => (
-                <div
-                  key={a.label}
-                  className="flex gap-4 items-start bg-cream rounded-xl p-4 border border-parchment"
-                >
-                  <div className="w-2 h-2 rounded-full bg-gold mt-2 shrink-0" />
-                  <div>
-                    <p className="font-semibold text-forest text-sm">
-                      {a.label}
-                    </p>
-                    <p className="text-xs text-slate-500 font-sans">{a.desc}</p>
-                  </div>
+          {/* Office hours & contact — its own row of info tiles */}
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {officeInfo.map(({ icon: Icon, label, value }) => (
+              <div
+                key={label}
+                className="card p-5 text-center hover:border-gold/30"
+              >
+                <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-3">
+                  <Icon className="text-gold" size={18} />
                 </div>
-              ))}
-            </div>
-            {/* Office hours */}
-            <div className="card p-5 hover:border-gold/30">
-              <div className="flex items-center gap-2 mb-3">
-                <Clock className="text-gold" size={18} />
-                <p className="font-semibold text-forest">Office Hours</p>
+                <p className="font-semibold text-forest text-xs uppercase tracking-wide mb-1">
+                  {label}
+                </p>
+                <p className="text-sm text-slate-600 font-sans leading-snug">
+                  {value}
+                </p>
               </div>
-              <p className="text-sm text-slate-600 font-sans mb-1">
-                Monday – Friday: 8:00 AM – 4:30 PM
-              </p>
-              <div className="h-px bg-slate-100 my-3" />
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
-                  <Phone className="text-gold shrink-0" size={14} />
-                  +254 720 302 123 / +254 722 323 456
-                </div>
-                <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
-                  <Mail className="text-gold shrink-0" size={14} />
-                  info@kituihigh.ac.ke
-                </div>
-                <div className="flex items-start gap-2 text-sm text-slate-600 font-sans">
-                  <MapPin className="text-gold shrink-0 mt-0.5" size={14} />
-                  Kitui – Machakos Road, P.O. Box 71, Kitui, Kenya
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
