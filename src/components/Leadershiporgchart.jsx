@@ -1,22 +1,5 @@
 import PropTypes from "prop-types";
 
-/**
- * LeadershipOrgChart.jsx
- * Save as: src/components/LeadershipOrgChart.jsx
- *
- * Usage (inside Management.jsx):
- *
- *   import LeadershipOrgChart from '../components/LeadershipOrgChart.jsx'
- *
- *   <LeadershipOrgChart
- *     principal={{ name: 'Bernard M. Mutua, OGW', image: images.people.principal, title: 'Chief Principal' }}
- *     deputies={deputies}
- *     board={board}
- *     deptHeads={deptHeads}
- *   />
- */
-
-/* ─── Small gold joint dot at each branch split ─── */
 function OrgJoint() {
   return (
     <div className="relative flex h-3 w-3 items-center justify-center">
