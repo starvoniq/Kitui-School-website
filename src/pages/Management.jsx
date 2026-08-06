@@ -1,59 +1,129 @@
-import { HeartHandshake, Users, ShieldCheck, Target, ArrowRight, Clock, Phone, Mail, MapPin } from 'lucide-react'
-import PageHero from '../components/PageHero.jsx'
-import CtaBanner from '../components/CtaBanner.jsx'
-import { images } from '../assets/images.js'
+import {
+  HeartHandshake,
+  Users,
+  ShieldCheck,
+  Target,
+  Clock,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import PageHero from "../components/PageHero.jsx";
+import CtaBanner from "../components/CtaBanner.jsx";
+import LeadershipOrgChart from "../components/Leadershiporgchart.jsx";
+import { images } from "../assets/images.js";
 
 /* ─── Data ─── */
 const values = [
-  { icon: HeartHandshake, label: 'Integrity', sub: 'Doing what is right always' },
-  { icon: Users, label: 'Service', sub: 'Putting others before self' },
-  { icon: ShieldCheck, label: 'Accountability', sub: 'Taking responsibility for our actions' },
-  { icon: Target, label: 'Teamwork', sub: 'Together we achieve more' },
-]
+  {
+    icon: HeartHandshake,
+    label: "Integrity",
+    sub: "Doing what is right always",
+  },
+  { icon: Users, label: "Service", sub: "Putting others before self" },
+  {
+    icon: ShieldCheck,
+    label: "Accountability",
+    sub: "Taking responsibility for our actions",
+  },
+  { icon: Target, label: "Teamwork", sub: "Together we achieve more" },
+];
 
 const deputies = [
   {
-    name: 'Mr. Charles Nzau',
-    title: 'Deputy Principal (Academic Affairs)',
-    desc: 'Oversees academic programs, teaching and learning, national examinations and curriculum development.',
+    name: "Mr. Charles Nzau",
+    title: "Deputy Principal (Academic Affairs)",
+    desc: "Oversees academic programs, teaching and learning, national examinations and curriculum development.",
     image: images.people.deputyAcademics,
   },
   {
-    name: 'Mr. James Kyalo',
-    title: 'Deputy Principal (Discipline & Administration)',
-    desc: 'In charge of student discipline, welfare, boarding management and overall student character conduct.',
+    name: "Mr. James Kyalo",
+    title: "Deputy Principal (Discipline & Administration)",
+    desc: "In charge of student discipline, welfare, boarding management and overall student character conduct.",
     image: images.people.deputyAdmin,
   },
-]
+];
 
 const deptHeads = [
-  { name: 'Mr. John Mwangi', subject: 'Sciences', image: images.people.deptSciences },
-  { name: 'Mrs. Jane Wambui', subject: 'Mathematics', image: images.people.deptMath },
-  { name: 'Mr. Martin Mutua', subject: 'Languages', image: images.people.deptLanguages },
-  { name: 'Mrs. Mercy Nzilani', subject: 'Humanities', image: images.people.deptHumanities },
-  { name: 'Mr. Joseph Mula', subject: 'Technical & Applied', image: images.people.deptTechnical },
-  { name: 'Mrs. Beatrice Nduku', subject: 'Guidance & Counselling', image: images.people.deptGuidance },
-]
+  {
+    name: "Mr. John Mwangi",
+    subject: "Sciences",
+    image: images.people.deptSciences,
+  },
+  {
+    name: "Mrs. Jane Wambui",
+    subject: "Mathematics",
+    image: images.people.deptMath,
+  },
+  {
+    name: "Mr. Martin Mutua",
+    subject: "Languages",
+    image: images.people.deptLanguages,
+  },
+  {
+    name: "Mrs. Mercy Nzilani",
+    subject: "Humanities",
+    image: images.people.deptHumanities,
+  },
+  {
+    name: "Mr. Joseph Mula",
+    subject: "Technical & Applied",
+    image: images.people.deptTechnical,
+  },
+  {
+    name: "Mrs. Beatrice Nduku",
+    subject: "Guidance & Counselling",
+    image: images.people.deptGuidance,
+  },
+];
 
 const board = [
-  { name: 'Mr. David Musyoka', role: 'Chairperson, BOM', image: images.people.bomChair },
-  { name: 'Mrs. Lucy Muli', role: 'Vice Chairperson, BOM', image: images.people.bomVice },
-  { name: 'Mr. Bernard M. Mutua', role: 'Secretary / Chief Principal', image: images.people.principal },
-  { name: 'Eng. Ziporah Kilonzo', role: 'Treasurer, BOM', image: images.people.bomTreas },
-]
+  {
+    name: "Mr. David Musyoka",
+    role: "Chairperson, BOM",
+    image: images.people.bomChair,
+  },
+  {
+    name: "Mrs. Lucy Muli",
+    role: "Vice Chairperson, BOM",
+    image: images.people.bomVice,
+  },
+  {
+    name: "Mr. Bernard M. Mutua",
+    role: "Secretary / Chief Principal",
+    image: images.people.principal,
+  },
+  {
+    name: "Eng. Ziporah Kilonzo",
+    role: "Treasurer, BOM",
+    image: images.people.bomTreas,
+  },
+];
 
 const adminOffice = [
-  { label: 'Bursar', desc: 'Manages school finances, fee structures and procurement' },
-  { label: 'Admissions & Records', desc: 'Student enrollment, academic transcripts and certification' },
-  { label: 'ICT Office', desc: 'Technology infrastructure, network and digital portals' },
-  { label: 'Reception & Helpdesk', desc: 'Visitor management, parent inquiries and campus tours' },
-]
+  {
+    label: "Bursar",
+    desc: "Manages school finances, fee structures and procurement",
+  },
+  {
+    label: "Admissions & Records",
+    desc: "Student enrollment, academic transcripts and certification",
+  },
+  {
+    label: "ICT Office",
+    desc: "Technology infrastructure, network and digital portals",
+  },
+  {
+    label: "Reception & Helpdesk",
+    desc: "Visitor management, parent inquiries and campus tours",
+  },
+];
 
 export default function Management() {
   return (
     <>
       <PageHero
-        crumbs={['Home', 'Leadership & Administration']}
+        crumbs={["Home", "Leadership & Administration"]}
         eyebrow="School Leadership"
         title="Leadership & Governance"
         subtitle="Leading with integrity, service and excellence to create an inspiring environment where every learner thrives."
@@ -76,11 +146,14 @@ export default function Management() {
           <div>
             <p className="section-eyebrow mb-3">Our Leadership Philosophy</p>
             <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">Guided by Values, Driven by Purpose</h2>
+            <h2 className="section-title mb-5">
+              Guided by Values, Driven by Purpose
+            </h2>
             <p className="section-sub mb-8">
-              Leadership at Kitui High School is founded on integrity, accountability, service
-              and teamwork. We are committed to nurturing disciplined learners, empowering staff
-              and working with parents and the community to achieve our vision of academic
+              Leadership at Kitui High School is founded on integrity,
+              accountability, service and teamwork. We are committed to
+              nurturing disciplined learners, empowering staff and working with
+              parents and the community to achieve our vision of academic
               excellence and holistic development.
             </p>
             <div className="grid grid-cols-2 gap-5">
@@ -118,21 +191,28 @@ export default function Management() {
                 <h3 className="font-serif font-bold text-forest text-xl mt-5">
                   Mr. Bernard M. Mutua, OGW
                 </h3>
-                <p className="text-gold font-semibold text-sm mt-1 font-sans">Chief Principal</p>
-                <p className="text-xs text-slate-400 font-sans">Kitui High School</p>
+                <p className="text-gold font-semibold text-sm mt-1 font-sans">
+                  Chief Principal
+                </p>
+                <p className="text-xs text-slate-400 font-sans">
+                  Kitui High School
+                </p>
               </div>
 
               <div>
                 <p className="text-gold text-5xl font-serif mb-2">&ldquo;</p>
                 <p className="text-slate-600 leading-relaxed mb-5 italic">
-                  Welcome to Kitui High School. Our unwavering commitment is to nurture disciplined,
-                  responsible and academically excellent young men who will emerge as ethical leaders and
+                  Welcome to Kitui High School. Our unwavering commitment is to
+                  nurture disciplined, responsible and academically excellent
+                  young men who will emerge as ethical leaders and
                   transformative changemakers in Kenya and across the globe.
                 </p>
                 <div className="font-serif italic text-forest text-lg mb-4 border-b border-forest/20 pb-2 w-fit">
                   Bernard M. Mutua
                 </div>
-                <p className="text-xs text-slate-400 font-sans">Chief Principal & Secretary to BOM</p>
+                <p className="text-xs text-slate-400 font-sans">
+                  Chief Principal & Secretary to BOM
+                </p>
               </div>
             </div>
           </div>
@@ -156,9 +236,15 @@ export default function Management() {
                     className="w-20 h-20 rounded-full object-cover border-2 border-gold/30 shadow shrink-0"
                   />
                   <div>
-                    <h4 className="font-serif font-bold text-forest text-lg">{d.name}</h4>
-                    <p className="text-gold text-xs font-semibold font-sans mt-0.5 mb-2">{d.title}</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">{d.desc}</p>
+                    <h4 className="font-serif font-bold text-forest text-lg">
+                      {d.name}
+                    </h4>
+                    <p className="text-gold text-xs font-semibold font-sans mt-0.5 mb-2">
+                      {d.title}
+                    </p>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      {d.desc}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -174,65 +260,41 @@ export default function Management() {
           <div>
             <p className="section-eyebrow mb-3">School Leadership Structure</p>
             <div className="gold-bar mb-6" />
-            <div className="flex flex-col items-center gap-3 font-sans">
-              <div className="bg-forest text-white rounded-lg px-5 py-2.5 text-center text-xs font-semibold shadow">
-                Board of Management (BOM)
-              </div>
-              <div className="w-0.5 h-5 bg-gold/40" />
-              <div className="bg-gold text-forest rounded-lg px-6 py-2.5 text-center text-sm font-bold shadow">
-                Chief Principal
-              </div>
-              <div className="w-0.5 h-5 bg-gold/40" />
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-forest text-white rounded-lg px-3 py-2 text-center text-xs shadow">
-                    Deputy Principal (Academics)
-                  </div>
-                  <div className="w-0.5 h-3 bg-gold/40" />
-                  <div className="bg-forest/80 text-white rounded-lg px-3 py-1.5 text-center text-[11px]">
-                    Senior Master
-                  </div>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-forest text-white rounded-lg px-3 py-2 text-center text-xs shadow">
-                    Deputy Principal (Discipline)
-                  </div>
-                  <div className="w-0.5 h-3 bg-gold/40" />
-                  <div className="bg-forest/80 text-white rounded-lg px-3 py-1.5 text-center text-[11px]">
-                    Boarding Master
-                  </div>
-                </div>
-              </div>
-              <div className="w-0.5 h-4 bg-gold/40 mt-1" />
-              <div className="flex gap-3">
-                <div className="bg-forest text-white rounded-lg px-3 py-2 text-center text-xs">
-                  Heads of Departments
-                </div>
-                <div className="bg-forest text-white rounded-lg px-3 py-2 text-center text-xs">
-                  Teaching Faculty
-                </div>
-              </div>
-              <div className="w-0.5 h-4 bg-gold/40" />
-              <div className="bg-gold text-forest rounded-lg px-5 py-2 text-center text-xs font-bold shadow">
-                Student Body & Prefects Council
-              </div>
-            </div>
+            <LeadershipOrgChart
+              principal={{
+                name: "Bernard M. Mutua, OGW",
+                image: images.people.principal,
+                title: "Chief Principal",
+              }}
+              deputies={deputies}
+              board={board}
+              deptHeads={deptHeads}
+            />
           </div>
 
           {/* Dept Heads */}
           <div>
-            <p className="section-eyebrow mb-3">Heads of Academic Departments</p>
+            <p className="section-eyebrow mb-3">
+              Heads of Academic Departments
+            </p>
             <div className="gold-bar mb-6" />
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {deptHeads.map((h) => (
-                <div key={h.name} className="card p-4 text-center hover:border-gold/30">
+                <div
+                  key={h.name}
+                  className="card p-4 text-center hover:border-gold/30"
+                >
                   <img
                     src={h.image}
                     alt={h.name}
                     className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/30 shadow"
                   />
-                  <p className="font-semibold text-forest text-sm leading-tight">{h.name}</p>
-                  <p className="text-[11px] text-gold font-sans font-medium mt-1">{h.subject}</p>
+                  <p className="font-semibold text-forest text-sm leading-tight">
+                    {h.name}
+                  </p>
+                  <p className="text-[11px] text-gold font-sans font-medium mt-1">
+                    {h.subject}
+                  </p>
                 </div>
               ))}
             </div>
@@ -247,19 +309,25 @@ export default function Management() {
             <p className="section-eyebrow mb-3">Board of Management</p>
             <div className="gold-bar mb-4" />
             <p className="section-sub mb-6">
-              The Board provides strategic governance and ensures the school is managed in the best
-              interest of learners, staff and the wider community.
+              The Board provides strategic governance and ensures the school is
+              managed in the best interest of learners, staff and the wider
+              community.
             </p>
             <div className="grid grid-cols-2 gap-4">
               {board.map((b) => (
-                <div key={b.name} className="card p-4 text-center hover:border-gold/30">
+                <div
+                  key={b.name}
+                  className="card p-4 text-center hover:border-gold/30"
+                >
                   <img
                     src={b.image}
                     alt={b.name}
                     className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-gold/20 shadow"
                   />
                   <p className="font-semibold text-forest text-sm">{b.name}</p>
-                  <p className="text-[11px] text-slate-500 font-sans mt-0.5">{b.role}</p>
+                  <p className="text-[11px] text-slate-500 font-sans mt-0.5">
+                    {b.role}
+                  </p>
                 </div>
               ))}
             </div>
@@ -271,10 +339,15 @@ export default function Management() {
             <div className="gold-bar mb-4" />
             <div className="space-y-3 mb-8">
               {adminOffice.map((a) => (
-                <div key={a.label} className="flex gap-4 items-start bg-cream rounded-xl p-4 border border-parchment">
+                <div
+                  key={a.label}
+                  className="flex gap-4 items-start bg-cream rounded-xl p-4 border border-parchment"
+                >
                   <div className="w-2 h-2 rounded-full bg-gold mt-2 shrink-0" />
                   <div>
-                    <p className="font-semibold text-forest text-sm">{a.label}</p>
+                    <p className="font-semibold text-forest text-sm">
+                      {a.label}
+                    </p>
                     <p className="text-xs text-slate-500 font-sans">{a.desc}</p>
                   </div>
                 </div>
@@ -286,7 +359,9 @@ export default function Management() {
                 <Clock className="text-gold" size={18} />
                 <p className="font-semibold text-forest">Office Hours</p>
               </div>
-              <p className="text-sm text-slate-600 font-sans mb-1">Monday – Friday: 8:00 AM – 4:30 PM</p>
+              <p className="text-sm text-slate-600 font-sans mb-1">
+                Monday – Friday: 8:00 AM – 4:30 PM
+              </p>
               <div className="h-px bg-slate-100 my-3" />
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
@@ -312,9 +387,12 @@ export default function Management() {
         <div className="container-page relative z-10 max-w-3xl mx-auto">
           <p className="text-gold text-5xl font-serif mb-2">&ldquo;</p>
           <h2 className="text-white font-serif text-2xl md:text-3xl font-semibold mb-2">
-            Leadership is not about position, it is about service, sacrifice and impacting lives.
+            Leadership is not about position, it is about service, sacrifice and
+            impacting lives.
           </h2>
-          <p className="text-gold/70 text-sm font-sans mt-3 font-semibold tracking-wider uppercase">Learn To Serve — Since 1938</p>
+          <p className="text-gold/70 text-sm font-sans mt-3 font-semibold tracking-wider uppercase">
+            Learn To Serve — Since 1938
+          </p>
         </div>
       </section>
 
@@ -327,5 +405,5 @@ export default function Management() {
         secondaryTo="/contact"
       />
     </>
-  )
+  );
 }
