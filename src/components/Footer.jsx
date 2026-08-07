@@ -142,16 +142,18 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin size={14} className="text-gold shrink-0 mt-0.5" />
-                <span>Kitui – Machakos Road,<br />P.O. Box 71, Kitui, Kenya</span>
+                <span>Mbusyani Road,<br />P.O. Box 71, Kitui, Kenya</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="text-gold shrink-0" />
-                <span>+254 720 202 123<br />+254 722 123 456</span>
+                <a href="tel:+254723636536" className="hover:text-white transition-colors">
+                  +254 723 636 536
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={14} className="text-gold shrink-0" />
-                <a href="mailto:info@kituihigh.ac.ke" className="hover:text-white transition-colors">
-                  info@kituihigh.ac.ke
+                <a href="mailto:info@kituihighschool.sc.ke" className="hover:text-white transition-colors">
+                  info@kituihighschool.sc.ke
                 </a>
               </li>
             </ul>

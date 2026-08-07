@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
+import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
   admin: '/kitui school admin block.jpg',
@@ -143,8 +144,9 @@ export default function About() {
       {/* ══ HISTORY ══ */}
       <section className="section-pad bg-white">
         <div className="container-page grid lg:grid-cols-2 gap-14 items-start">
-          <div>
-            <p className="section-eyebrow mb-3">History of the School</p>
+          <Reveal>
+            <div>
+              <p className="section-eyebrow mb-3">History of the School</p>
             <div className="gold-bar mb-4" />
             <h2 className="section-title mb-6">A Century of Leadership and Service</h2>
             <p className="section-sub mb-4">
@@ -177,9 +179,10 @@ export default function About() {
             <Link to="/contact" className="btn-outline-dark inline-flex items-center">
               Get in Touch
             </Link>
-          </div>
+            </div>
+          </Reveal>
 
-          <div className="space-y-6">
+          <Reveal delay={0.15} className="space-y-6">
             <figure>
               <img
                 src={IMG.adminClose}
@@ -200,7 +203,7 @@ export default function About() {
                 Principals of Kitui High School through the years
               </figcaption>
             </figure>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -227,23 +230,25 @@ export default function About() {
           <div className="relative max-w-3xl mx-auto">
             <div className="absolute left-0 top-2 bottom-2 w-px bg-gold/30" />
             <div className="space-y-10">
-              {eras.map((era) => (
-                <div key={era.title} className="relative pl-10">
-                  <span className="absolute left-0 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow" />
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold font-sans">
-                    {era.period}
-                  </p>
-                  <h3 className="font-serif font-bold text-forest text-xl mt-1 mb-3">{era.title}</h3>
-                  <ul className="space-y-2.5">
-                    {era.events.map((e) => (
-                      <li key={e.year}>
-                        <p className="text-sm text-slate-600 font-sans leading-relaxed">
-                          <span className="font-semibold text-forest">{e.year}.</span> {e.text}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {eras.map((era, i) => (
+                <Reveal key={era.title} delay={(i % 2) * 0.1}>
+                  <div className="relative pl-10">
+                    <span className="absolute left-0 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow" />
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold font-sans">
+                      {era.period}
+                    </p>
+                    <h3 className="font-serif font-bold text-forest text-xl mt-1 mb-3">{era.title}</h3>
+                    <ul className="space-y-2.5">
+                      {era.events.map((e) => (
+                        <li key={e.year}>
+                          <p className="text-sm text-slate-600 font-sans leading-relaxed">
+                            <span className="font-semibold text-forest">{e.year}.</span> {e.text}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -253,12 +258,14 @@ export default function About() {
       {/* ══ MISSION / VISION / MOTTO ══ */}
       <section className="section-pad bg-white">
         <div className="container-page grid md:grid-cols-3 gap-10">
-          {identity.map((item) => (
-            <div key={item.label} className="border-t-2 border-gold pt-6">
-              <h3 className="font-serif font-bold text-forest text-xl mb-3">{item.label}</h3>
-              <p className="section-sub text-sm">{item.text}</p>
-              {item.sub && <p className="section-sub text-sm mt-3">{item.sub}</p>}
-            </div>
+          {identity.map((item, i) => (
+            <Reveal key={item.label} delay={i * 0.1}>
+              <div className="border-t-2 border-gold pt-6">
+                <h3 className="font-serif font-bold text-forest text-xl mb-3">{item.label}</h3>
+                <p className="section-sub text-sm">{item.text}</p>
+                {item.sub && <p className="section-sub text-sm mt-3">{item.sub}</p>}
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -277,7 +284,8 @@ export default function About() {
             </p>
           </div>
 
-          <div className="rounded-xl overflow-hidden shadow-lg border border-slate-200">
+          <Reveal>
+            <div className="rounded-xl overflow-hidden shadow-lg border border-slate-200">
             <div className="bg-forest-dark text-white px-6 py-4 flex flex-wrap items-baseline justify-between gap-2">
               <p className="font-serif font-bold text-lg md:text-xl">Kitui High School</p>
               <p className="text-xs uppercase tracking-widest text-gold-light font-sans font-semibold">
@@ -318,6 +326,7 @@ export default function About() {
               </table>
             </div>
           </div>
+          </Reveal>
 
           <p className="mt-4 text-xs text-slate-400 font-sans text-center">
             Figures as published by the school and national examination analysis. &ldquo;&ndash;&rdquo;
@@ -340,11 +349,13 @@ export default function About() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {alumni.map((a) => (
-              <div key={a.name} className="card p-6 hover:border-gold/30">
-                <h4 className="font-serif font-bold text-forest text-lg leading-snug">{a.name}</h4>
-                <p className="text-sm text-slate-500 font-sans leading-relaxed mt-1">{a.role}</p>
-              </div>
+            {alumni.map((a, i) => (
+              <Reveal key={a.name} delay={(i % 3) * 0.08}>
+                <div className="card p-6 hover:border-gold/30 h-full">
+                  <h4 className="font-serif font-bold text-forest text-lg leading-snug">{a.name}</h4>
+                  <p className="text-sm text-slate-500 font-sans leading-relaxed mt-1">{a.role}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -359,17 +370,19 @@ export default function About() {
             <h2 className="section-title">A Heritage. A Home. A Future.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {campusShots.map((shot) => (
-              <figure key={shot.src}>
-                <img
-                  src={shot.src}
-                  alt={shot.caption}
-                  className="rounded-xl w-full aspect-[4/3] object-cover shadow-lg"
-                />
-                <figcaption className="mt-3 text-xs text-slate-500 font-sans text-center">
-                  {shot.caption}
-                </figcaption>
-              </figure>
+            {campusShots.map((shot, i) => (
+              <Reveal key={shot.src} delay={(i % 3) * 0.08}>
+                <figure>
+                  <img
+                    src={shot.src}
+                    alt={shot.caption}
+                    className="rounded-xl w-full aspect-[4/3] object-cover shadow-lg"
+                  />
+                  <figcaption className="mt-3 text-xs text-slate-500 font-sans text-center">
+                    {shot.caption}
+                  </figcaption>
+                </figure>
+              </Reveal>
             ))}
           </div>
         </div>
