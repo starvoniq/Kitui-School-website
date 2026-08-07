@@ -6,6 +6,8 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Academics from './pages/Academics.jsx'
+import DepartmentDetail from './pages/DepartmentDetail.jsx'
+import StreamsDetail from './pages/StreamsDetail.jsx'
 import Management from './pages/Management.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Tour3D from './pages/Tour3D.jsx'
@@ -52,6 +54,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/academics" element={<Academics />} />
+              <Route path="/academics/streams/:label" element={<StreamsDetail />} />
+              <Route path="/academics/:name" element={<DepartmentDetail />} />
               <Route path="/management" element={<Management />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/3d-tour" element={<Tour3D />} />
@@ -62,6 +66,7 @@ function App() {
             </Routes>
           </motion.div>
         </AnimatePresence>
+>>>>>>> 83e3dfe (feat: enhance academics pages with stream and department details)
       </main>
       <Footer />
     </div>
