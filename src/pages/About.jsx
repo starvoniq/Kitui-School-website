@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ChevronRight, MapPin, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink } from 'lucide-react'
+import { ChevronRight, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
@@ -11,6 +11,8 @@ const IMG = {
   bus: '/kitui school bus.jpeg',
   rugby: '/kitui school rugby.jpeg',
   rugbyAction: '/kitui school rugby 1.jpeg',
+  rugbyCourt: '/kitui school rugby 2.jpeg',
+  basketballCourt: '/kitui school basketball.jpeg',
   football: '/kitui school football.jpeg',
   principals: '/kitui school list of principals.jpg',
 }
@@ -171,7 +173,9 @@ const campusShots = [
 const sportsShots = [
   { src: IMG.rugby, label: 'Rugby' },
   { src: IMG.basketball, label: 'Basketball' },
+  { src: IMG.rugbyCourt, label: 'Rugby' },
   { src: IMG.football, label: 'Football' },
+  { src: IMG.basketballCourt, label: 'Basketball' },
   { src: IMG.rugbyAction, label: 'Rugby Action' },
 ]
 
@@ -599,8 +603,7 @@ export default function About() {
                       className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
                   </div>
-                  <figcaption className="mt-3 text-xs text-neutral-500 text-center flex items-center justify-center gap-1.5">
-                    <MapPin size={12} className="text-forest" />
+                  <figcaption className="mt-3 text-xs text-neutral-500 text-center">
                     {shot.caption}
                   </figcaption>
                 </figure>
