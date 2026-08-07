@@ -164,9 +164,9 @@ export default function Footer() {
         <div className="container-page py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/30">
           <p>© {new Date().getFullYear()} Kitui High School. All Rights Reserved.</p>
           <div className="flex gap-5">
-            <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+            <Link to="/privacy-policy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
             <span className="opacity-30">|</span>
-            <a href="#" className="hover:text-white/60 transition-colors">Terms of Use</a>
+            <Link to="/terms-of-use" className="hover:text-white/60 transition-colors">Terms of Use</Link>
           </div>
         </div>
       </div>

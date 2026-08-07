@@ -9,6 +9,8 @@ import Management from './pages/Management.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Tour3D from './pages/Tour3D.jsx'
 import Contact from './pages/Contact.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import TermsOfUse from './pages/TermsOfUse.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/3d-tour" element={<Tour3D />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
