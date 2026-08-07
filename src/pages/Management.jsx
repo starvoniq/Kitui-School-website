@@ -360,21 +360,21 @@ export default function Management() {
                 <p className="font-semibold text-forest">Office Hours</p>
               </div>
               <p className="text-sm text-slate-600 font-sans mb-1">
-                Monday – Friday: 8:00 AM – 4:30 PM
+                Monday-Friday: 8:00 AM to 4:30 PM
               </p>
               <div className="h-px bg-slate-100 my-3" />
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
                   <Phone className="text-gold shrink-0" size={14} />
-                  +254 720 302 123 / +254 722 323 456
+                  +254 723 636 536
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
                   <Mail className="text-gold shrink-0" size={14} />
-                  info@kituihigh.ac.ke
+                  info@kituihighschool.sc.ke
                 </div>
                 <div className="flex items-start gap-2 text-sm text-slate-600 font-sans">
                   <MapPin className="text-gold shrink-0 mt-0.5" size={14} />
-                  Kitui – Machakos Road, P.O. Box 71, Kitui, Kenya
+                  Mbusyani Road, P.O. Box 71, Kitui, Kenya
                 </div>
               </div>
             </div>
@@ -391,7 +391,7 @@ export default function Management() {
             impacting lives.
           </h2>
           <p className="text-gold/70 text-sm font-sans mt-3 font-semibold tracking-wider uppercase">
-            Learn To Serve — Since 1938
+            Learn To Serve · Since 1938
           </p>
         </div>
       </section>
