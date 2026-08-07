@@ -9,6 +9,7 @@ import {
 import { useState } from 'react'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
+import Gate3DHeroBg from '../components/Gate3DHeroBg.jsx'
 
 /* ─── Data ─── */
 const stats = [
@@ -203,17 +204,8 @@ export default function Home() {
       <div className="relative z-10">
         {/* ══ 1. HERO WITH GATE IMAGE BACKGROUND (SOLID / OPAQUE) ══ */}
         <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-forest-dark">
-          {/* Background photo: school gate */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={images.gate}
-              alt="Kitui High School Main Gate"
-              className="w-full h-full object-cover object-center scale-100 animate-fade-in brightness-[0.88]"
-            />
-            {/* Subtle directional transparent scrim keeping the gate image clearly visible */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-          </div>
+          {/* 3D Model Background: School Gate */}
+          <Gate3DHeroBg />
 
           {/* Gold accent bar */}
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
