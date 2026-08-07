@@ -9,7 +9,7 @@ import Management from './pages/Management.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Tour3D from './pages/Tour3D.jsx'
 import Contact from './pages/Contact.jsx'
-import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import PrivacyPolicy from './pages/Privacy.jsx'
 import TermsOfUse from './pages/TermsOfUse.jsx'
 import NotFound from './pages/NotFound.jsx'
 
