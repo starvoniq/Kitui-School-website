@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom'
 import {
-  FlaskConical, Pi, Globe, BookText, Wrench, HeartHandshake,
-  CheckCircle, ArrowRight, BookOpen, Microscope, Monitor,
+  HeartHandshake,
+  CheckCircle, ArrowRight, Microscope, Monitor,
   Star, Users, TrendingUp, Trophy,
 } from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
+
+/* ─── Department & Pathway Photos ─── */
+import mathImg from '../assets/photos/Screenshot From 2026-08-07 21-50-45.png'
+import engImg from '../assets/photos/Screenshot From 2026-08-07 21-51-00.png'
+import technicalsImg from '../assets/photos/Screenshot From 2026-08-07 21-51-11.png'
+import sciencesImg from '../assets/photos/Screenshot From 2026-08-07 21-51-23.png'
+import humanitiesImg from '../assets/photos/Screenshot From 2026-08-07 21-51-33.png'
+import stemImg from '../assets/photos/Screenshot From 2026-08-07 21-52-16.png'
+import socialSciencesImg from '../assets/photos/Screenshot From 2026-08-07 21-52-35.png'
+import artsSportsImg from '../assets/photos/Screenshot From 2026-08-07 21-52-55.png'
 
 /* ─── Data ─── */
 const values = [
@@ -18,7 +28,7 @@ const values = [
 
 const streams = [
   {
-    icon: FlaskConical,
+    image: stemImg,
     label: 'STEM',
     full: 'Science, Technology, Engineering & Mathematics',
     desc: 'For learners passionate about innovation, problem solving and shaping the future through science and technology.',
@@ -26,7 +36,7 @@ const streams = [
     border: 'border-sky-200',
   },
   {
-    icon: Globe,
+    image: socialSciencesImg,
     label: 'Social Sciences',
     full: 'Humanities, Business & Social Sciences',
     desc: 'For learners interested in people, society, leadership, governance, business and making a difference in communities.',
@@ -34,7 +44,7 @@ const streams = [
     border: 'border-amber-200',
   },
   {
-    icon: BookText,
+    image: artsSportsImg,
     label: 'Arts & Sports Science',
     full: 'Creative Arts & Physical Education',
     desc: 'For learners with a creative heart and a passion for sports, performing arts and physical education.',
@@ -45,7 +55,7 @@ const streams = [
 
 const departments = [
   {
-    icon: Pi,
+    image: mathImg,
     name: 'Math',
     lead: 'Mrs Wambua',
     details: [
@@ -55,7 +65,7 @@ const departments = [
     ],
   },
   {
-    icon: BookOpen,
+    image: engImg,
     name: 'Eng',
     lead: 'Mr Kavele',
     details: [
@@ -65,7 +75,7 @@ const departments = [
     ],
   },
   {
-    icon: Wrench,
+    image: technicalsImg,
     name: 'Technicals',
     lead: 'Mrs Mbuva',
     details: [
@@ -75,7 +85,7 @@ const departments = [
     ],
   },
   {
-    icon: FlaskConical,
+    image: sciencesImg,
     name: 'Sciences',
     lead: 'Mrs Gabriel',
     details: [
@@ -85,7 +95,7 @@ const departments = [
     ],
   },
   {
-    icon: Globe,
+    image: humanitiesImg,
     name: 'Humanities',
     lead: 'Mr Tairus',
     details: [
@@ -139,7 +149,7 @@ const teachingMethods = [
 
 const support = [
   { icon: HeartHandshake, t: 'Guidance & Counselling', b: 'Emotional, academic and moral support for every learner.' },
-  { icon: BookOpen, t: 'Library & Research Hub', b: 'Over 20,000 physical volumes and access to e-resources.' },
+  { icon: CheckCircle, t: 'Library & Research Hub', b: 'Over 20,000 physical volumes and access to e-resources.' },
   { icon: Monitor, t: 'Digital Resource Centre', b: 'High-speed internet access for research and past paper revision.' },
   { icon: Users, t: 'Academic Mentorship', b: 'One-on-one coaching by experienced teachers for target achievement.' },
   { icon: Microscope, t: 'Career Guidance', b: 'Helping learners discover their career paths and university choices.' },
@@ -161,7 +171,7 @@ export default function Academics() {
 
   return (
     <>
-      <PageHero
+          <PageHero
         crumbs={['Home', 'Academics']}
         eyebrow="Academic Pathways & Excellence"
         title="Academics at Kitui High School"
@@ -174,12 +184,9 @@ export default function Academics() {
 ════════════════════════════════════════════════════════ */}
       <section
         id="overview"
-        className="relative overflow-hidden bg-gradient-to-b from-white via-cream/30 to-white py-28"
+        className="relative overflow-hidden bg-cream py-28"
       >
-        {/* Background decoration */}
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
-
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_45%)]" />
         <div className="container-page relative z-10 grid items-center gap-20 lg:grid-cols-2">
 
           {/* LEFT */}
@@ -189,7 +196,7 @@ export default function Academics() {
               Our Academic Philosophy
             </span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold leading-tight text-forest lg:text-6xl">
+            <h2 className="section-title mt-6">
               Nurturing
               <span className="text-gold"> Minds.</span>
               <br />
@@ -221,14 +228,15 @@ export default function Academics() {
               p-6
               shadow-lg
               transition
+              duration-500
               hover:-translate-y-2
               hover:border-gold/40
               hover:shadow-2xl
             "
                 >
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold to-yellow-300 scale-x-0 origin-left transition group-hover:scale-x-100" />
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold to-yellow-300 scale-x-0 origin-left transition duration-500 group-hover:scale-x-100" />
 
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition duration-500 group-hover:rotate-6 group-hover:scale-110">
                     <Icon size={24} className="text-gold" />
                   </div>
 
@@ -254,7 +262,7 @@ export default function Academics() {
               <img
                 src={images.academics.studentsClass}
                 alt="Students in Class"
-                className="h-full w-full object-cover transition group-hover:scale-110"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
@@ -292,11 +300,12 @@ export default function Academics() {
 ════════════════════════════════════════════════════════ */}
       <section
         id="departments"
-        className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-28"
+        className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(249,234,185,0.28),rgba(241,245,233,0.6))] py-28"
       >
         {/* Background Decorations */}
-        <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-sky-100/40 blur-3xl" />
-        <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-yellow-100/40 blur-3xl" />
+        <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-gold/20 blur-3xl" />
+        <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-forest/10 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,209,143,0.16),transparent_50%)]" />
 
         <div className="container-page relative">
           <div className="mx-auto mb-20 max-w-3xl text-center">
@@ -304,7 +313,7 @@ export default function Academics() {
               CBC Senior School (Grades 10–12)
             </span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">
+            <h2 className="section-title mt-6">
               Diverse Academic
               <span className="text-gold"> Pathways</span>
             </h2>
@@ -329,9 +338,11 @@ export default function Academics() {
             rounded-[32px]
             border
             border-slate-200
-            bg-white
+            bg-white/90
+            backdrop-blur-xl
             shadow-xl
             transition
+            duration-500
             hover:-translate-y-3
             hover:shadow-2xl
           "
@@ -345,34 +356,22 @@ export default function Academics() {
             `}
                 />
 
-                {/* Decorative Circle */}
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/40 blur-2xl" />
+                {/* Photo Banner */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.label}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/70 via-forest-dark/10 to-transparent" />
+                  <div className="absolute bottom-4 left-6">
+                    <p className="text-xs uppercase tracking-[0.25em] text-white/80">{s.full}</p>
+                    <h3 className="mt-1 text-3xl font-serif font-bold text-white">{s.label}</h3>
+                  </div>
+                </div>
 
                 <div className="p-8">
-                  <div className="
-                mb-8
-                flex
-                h-20
-                w-20
-                items-center
-                justify-center
-                rounded-3xl
-                bg-gradient-to-br
-                from-white
-                to-slate-100
-                shadow-lg
-                transition
-                group-hover:scale-110
-                group-hover:rotate-6
-              ">
-                    <s.icon size={38} className="text-forest" />
-                  </div>
-
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-400">{s.full}</p>
-
-                  <h3 className="mt-3 text-3xl font-serif font-bold text-forest">{s.label}</h3>
-
-                  <p className="mt-6 leading-8 text-slate-600">{s.desc}</p>
+                  <p className="leading-8 text-slate-600">{s.desc}</p>
 
                   <div className="my-8 h-px bg-slate-200" />
 
@@ -385,12 +384,13 @@ export default function Academics() {
                 font-semibold
                 text-forest
                 transition
+                duration-500
                 group-hover:text-gold
               "
                   >
                     Explore Pathway
                     <span
-                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 transition group-hover:bg-gold group-hover:text-white"
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 transition duration-500 group-hover:bg-gold group-hover:text-white"
                     >
                       <ArrowRight size={18} />
                     </span>
@@ -406,16 +406,16 @@ export default function Academics() {
       {/* ════════════════════════════════════════════════
     ACADEMIC DEPARTMENTS
 ═════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white py-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-slate-50 py-28">
         {/* Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#f8f6ef,transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,243,224,0.88),transparent_45%)]" />
         <div className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="container-page relative">
           <div className="mx-auto mb-20 max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Departments</span>
+            <span className="inline-flex rounded-full bg-forest/10 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Departments</span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Centres of <span className="text-gold"> Excellence</span></h2>
+            <h2 className="section-title mt-6">Centres of <span className="text-gold"> Excellence</span></h2>
 
             <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
 
@@ -434,34 +434,38 @@ export default function Academics() {
             border
             border-slate-200
             bg-white
-            p-8
             shadow-lg
             transition
+            duration-500
             hover:-translate-y-3
             hover:border-gold/40
             hover:shadow-2xl
           "
               >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
+                <div className="absolute left-0 top-0 z-10 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition duration-500 group-hover:w-full" />
 
-                <div className="absolute right-0 top-0 translate-x-10 -translate-y-8 opacity-5">
-                  <d.icon size={130} />
+                {/* Photo Banner */}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img
+                    src={d.image}
+                    alt={d.name}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
+                  <h3 className="absolute bottom-4 left-6 text-2xl font-serif font-bold text-white">{d.name}</h3>
                 </div>
 
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                  <d.icon size={38} className="text-gold" />
+                <div className="p-8">
+                  <p className="text-sm text-slate-500">Department Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
+
+                  <Link
+                    to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
+                    className="mt-6 inline-flex items-center gap-2 rounded-full border border-forest/20 bg-forest/5 px-4 py-2 text-sm font-semibold text-forest transition duration-500 hover:border-forest hover:bg-forest/10"
+                  >
+                    View all details
+                    <ArrowRight size={16} className="text-gold transition duration-500 group-hover:translate-x-1" />
+                  </Link>
                 </div>
-
-                <h3 className="text-2xl font-serif font-bold text-forest">{d.name}</h3>
-                <p className="mt-3 text-sm text-slate-500">Department Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
-
-                <Link
-                  to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-forest/20 bg-forest/5 px-4 py-2 text-sm font-semibold text-forest transition hover:border-forest hover:bg-forest/10"
-                >
-                  View all details
-                  <ArrowRight size={16} className="text-gold transition group-hover:translate-x-1" />
-                </Link>
               </div>
             ))}
           </div>
@@ -474,16 +478,17 @@ export default function Academics() {
 ════════════════════════════════════════════════════════ */}
       <section
         id="facilities"
-        className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-28"
+        className="relative overflow-hidden bg-cream py-28"
       >
-        <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,246,239,0.12),transparent_35%)]" />
+        <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+        <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-forest/10 blur-3xl" />
 
         <div className="container-page relative">
           <div className="mx-auto mb-20 max-w-3xl text-center">
             <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">Learning Facilities</span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Spaces Designed <span className="text-gold"> For Learning</span></h2>
+            <h2 className="section-title mt-6">Spaces Designed <span className="text-gold"> For Learning</span></h2>
 
             <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
 
@@ -497,20 +502,23 @@ export default function Academics() {
             relative
             overflow-hidden
             rounded-[30px]
-            shadow-xl
+            shadow-2xl
             cursor-pointer
             aspect-[4/5]
+            ring-1 ring-white/10
+            transition
+            duration-500
+            hover:-translate-y-2
+            hover:shadow-[0_25px_70px_rgba(15,23,42,0.22)]
           ">
-                <img src={facility.image} alt={facility.label} className="absolute inset-0 h-full w-full object-cover transition group-hover:scale-110" />
+                <img src={facility.image} alt={facility.label} className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110" />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-gold/20 opacity-0 transition group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-95 group-hover:opacity-80 transition-all duration-500" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <div className="mb-5 h-1 w-12 rounded-full bg-gold transition group-hover:w-24" />
+                  <div className="mb-5 h-1 w-12 rounded-full bg-gold transition duration-500 group-hover:w-24" />
                   <h3 className="text-2xl font-serif font-bold text-white">{facility.label}</h3>
-                  <p className="mt-3 max-h-0 overflow-hidden text-sm leading-7 text-white/90 transition group-hover:max-h-40">Modern facilities providing students with practical exposure and an engaging learning environment.</p>
+                  <p className="mt-3 max-h-0 overflow-hidden text-sm leading-7 text-white/80 transition-all duration-500 group-hover:max-h-40">Modern facilities providing students with practical exposure and an engaging learning environment.</p>
                 </div>
               </div>
             ))}
@@ -522,8 +530,8 @@ export default function Academics() {
       {/* ═══════════════════════════════════════════════════════
     TEACHING & LEARNING + ACADEMIC SUPPORT
 ════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#f8f6ef,transparent_45%)]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-slate-50 py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,246,239,0.9),transparent_45%)]" />
 
         <div className="container-page relative grid gap-20 lg:grid-cols-2">
 
@@ -531,7 +539,7 @@ export default function Academics() {
           <div>
             <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-gold">Teaching & Learning</span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest">Modern Learning <span className="text-gold"> Experience</span></h2>
+            <h2 className="section-title mt-6">Modern Learning <span className="text-gold"> Experience</span></h2>
 
             <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
 
@@ -541,10 +549,10 @@ export default function Academics() {
               <div className="absolute left-5 top-4 h-full w-px bg-gold/30" />
               {teachingMethods.map((method) => (
                 <div key={method} className="group relative mb-10 flex items-start gap-6">
-                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-gold shadow-lg transition group-hover:scale-110">
+                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-gold shadow-lg transition duration-500 group-hover:scale-110">
                     <CheckCircle size={18} className="text-white" />
                   </div>
-                  <div className="flex-1 rounded-2xl border bg-white p-5 shadow-sm transition group-hover:border-gold/30 group-hover:shadow-lg">
+                  <div className="flex-1 rounded-2xl border bg-white p-5 shadow-sm transition duration-500 group-hover:border-gold/30 group-hover:shadow-lg">
                     <p className="text-slate-700 leading-7">{method}</p>
                   </div>
                 </div>
@@ -552,7 +560,7 @@ export default function Academics() {
             </div>
 
             <div className="group relative mt-16 overflow-hidden rounded-[32px] shadow-2xl">
-              <img src={images.academics.teacherClass} alt="Teacher" className="h-full w-full object-cover transition group-hover:scale-110" />
+              <img src={images.academics.teacherClass} alt="Teacher" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           </div>
@@ -561,7 +569,7 @@ export default function Academics() {
           <div>
             <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Support</span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest">Every Student <span className="text-gold"> Matters</span></h2>
+            <h2 className="section-title mt-6">Every Student <span className="text-gold"> Matters</span></h2>
 
             <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
 
@@ -569,8 +577,8 @@ export default function Academics() {
 
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {support.map(({ icon: Icon, t, b }) => (
-                <div key={t} className="group rounded-[28px] border bg-white p-7 shadow-lg transition hover:-translate-y-2 hover:border-gold/30 hover:shadow-2xl">
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
+                <div key={t} className="group rounded-[28px] border bg-white p-7 shadow-lg transition duration-500 hover:-translate-y-2 hover:border-gold/30 hover:shadow-2xl">
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition duration-500 group-hover:rotate-6 group-hover:scale-110">
                     <Icon size={28} className="text-gold" />
                   </div>
                   <h3 className="text-lg font-bold text-forest">{t}</h3>
@@ -609,7 +617,7 @@ export default function Academics() {
             </div>
 
             {/* Grade distribution */}
-            <div className="card p-6 hover:border-gold/30 hover:bg-cream/50 transition">
+            <div className="card p-6 hover:border-gold/30 hover:bg-cream/50 transition duration-500">
               <h3 className="font-serif font-bold text-forest text-lg mb-5">Grade Distribution</h3>
               <table className="w-full text-sm font-sans">
                 <thead>
@@ -621,7 +629,7 @@ export default function Academics() {
                 </thead>
                 <tbody>
                   {grades.map((g) => (
-                    <tr key={g.grade} className="border-b border-slate-50 hover:bg-gold/5 transition-colors">
+                    <tr key={g.grade} className="border-b border-slate-50 hover:bg-gold/5 transition-colors duration-500">
                       <td className="py-2.5 font-semibold text-forest">{g.grade}</td>
                       <td className="py-2.5 text-center text-slate-500">{g.count}</td>
                       <td className="py-2.5 text-right">
@@ -640,18 +648,18 @@ export default function Academics() {
 
             {/* Top performers / quote */}
             <div className="flex flex-col gap-4">
-              <div className="card p-6 hover:border-gold/30 hover:bg-gold/5 transition">
+              <div className="card p-6 hover:border-gold/30 hover:bg-gold/5 transition duration-500">
                 <h4 className="font-serif font-bold text-forest mb-3 text-sm uppercase tracking-wide">Top Subject Performers</h4>
                 <ul className="space-y-2">
                   {['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English'].map((s) => (
-                    <li key={s} className="flex items-center gap-2 text-sm text-slate-600 font-sans group hover:text-forest hover:translate-x-1 transition">
-                      <span className="w-2 h-2 rounded-full bg-gold shrink-0 group-hover:scale-150 transition-transform" />
+                    <li key={s} className="flex items-center gap-2 text-sm text-slate-600 font-sans group hover:text-forest hover:translate-x-1 transition duration-500">
+                      <span className="w-2 h-2 rounded-full bg-gold shrink-0 group-hover:scale-150 transition-transform duration-500" />
                       {s} — <span className="text-gold font-semibold">Outstanding</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="card p-6 bg-forest-gradient text-white hover:border-gold/40 hover:shadow-card-hover transition">
+              <div className="card p-6 bg-forest-gradient text-white hover:border-gold/40 hover:shadow-card-hover transition duration-500">
                 <p className="text-gold text-3xl font-serif mb-2">&ldquo;</p>
                 <p className="text-white/85 text-sm italic leading-relaxed font-serif font-light">
                   Excellence is our tradition. The future is our destination.
