@@ -2,6 +2,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { FlaskConical, Globe, BookText, ArrowLeft, Lightbulb, Users, TrendingUp, Award, Rocket } from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
+import { images } from '../assets/images.js'
 
 const streams = [
   {
@@ -11,10 +12,10 @@ const streams = [
     desc: 'For learners passionate about innovation, problem solving and shaping the future through science and technology.',
     longDesc: 'The STEM pathway prepares students for careers at the forefront of innovation and technological advancement. Through rigorous coursework in science and mathematics, students develop critical thinking, analytical skills, and practical problem-solving abilities essential for success in today\'s technology-driven world.',
     subjects: [
-      { subject: 'Physics', focus: 'Mechanics & Electricity', details: 'Exploring fundamental laws of motion, energy, waves, electricity and magnetism through practical experiments.' },
-      { subject: 'Chemistry', focus: 'Organic & Inorganic', details: 'Understanding chemical reactions, bonding, periodic trends and real-world applications in industry and environment.' },
-      { subject: 'Biology', focus: 'Cell Biology & Ecology', details: 'Investigating living organisms, cellular processes, genetics, evolution and ecological relationships.' },
-      { subject: 'Mathematics', focus: 'Pure & Applied', details: 'Developing advanced mathematical concepts in calculus, algebra, statistics and their practical applications.' },
+      { subject: 'Physics', teacher: 'Mr Otieno', focus: 'Mechanics & Electricity', details: 'Exploring fundamental laws of motion, energy, waves, electricity and magnetism through practical experiments.', image: images.teachers.otieno },
+      { subject: 'Chemistry', teacher: 'Ms Waithera', focus: 'Organic & Inorganic', details: 'Understanding chemical reactions, bonding, periodic trends and real-world applications in industry and environment.', image: images.teachers.ombado },
+      { subject: 'Biology', teacher: 'Mr Mwangi', focus: 'Cell Biology & Ecology', details: 'Investigating living organisms, cellular processes, genetics, evolution and ecological relationships.', image: images.teachers.nzomo },
+      { subject: 'Mathematics', teacher: 'Mrs Wambua', focus: 'Pure & Applied', details: 'Developing advanced mathematical concepts in calculus, algebra, statistics and their practical applications.', image: images.teachers.wambua },
     ],
     careerPaths: [
       { career: 'Engineer', desc: 'Civil, Mechanical, Electrical, Software - building and innovating infrastructure and systems' },
@@ -39,9 +40,9 @@ const streams = [
     desc: 'For learners interested in people, society, leadership, governance, business and making a difference in communities.',
     longDesc: 'The Social Sciences pathway equips students with understanding of human behavior, societies, economics and governance. Students develop leadership skills, critical analysis of global issues, and entrepreneurial thinking for impactful careers in business, government, education and social sectors.',
     subjects: [
-      { subject: 'History', focus: 'Modern & African History', details: 'Analyzing historical events, cultural movements, political evolution and their impact on contemporary society.' },
-      { subject: 'Geography', focus: 'Physical & Human', details: 'Studying Earth\'s physical systems, population dynamics, economic activities and environmental sustainability.' },
-      { subject: 'Business Studies', focus: 'Commerce & Entrepreneurship', details: 'Learning business principles, management, marketing, finance and launching ventures.' },
+      { subject: 'History', teacher: 'Mr Tairus', focus: 'Modern & African History', details: 'Analyzing historical events, cultural movements, political evolution and their impact on contemporary society.', image: images.teachers.tairus },
+      { subject: 'Geography', teacher: 'Ms Nduta', focus: 'Physical & Human', details: 'Studying Earth\'s physical systems, population dynamics, economic activities and environmental sustainability.', image: images.teachers.njeri },
+      { subject: 'Business Studies', teacher: 'Ms Thuo', focus: 'Commerce & Entrepreneurship', details: 'Learning business principles, management, marketing, finance and launching ventures.', image: images.teachers.kagema },
     ],
     careerPaths: [
       { career: 'Entrepreneur', desc: 'Starting and managing successful business ventures' },
@@ -66,9 +67,9 @@ const streams = [
     desc: 'For learners with a creative heart and a passion for sports, performing arts and physical education.',
     longDesc: 'The Arts & Sports Science pathway nurtures creativity, physical excellence and artistic expression. Students develop confidence, discipline, collaboration and cultural awareness while pursuing excellence in the arts, sports and wellness.',
     subjects: [
-      { subject: 'Art', focus: 'Visual & Performing', details: 'Exploring visual art techniques, design principles, sculpture, painting, drama and performing arts.' },
-      { subject: 'Physical Education', focus: 'Sports Science', details: 'Understanding human physiology, sports performance, nutrition, fitness training and athletic development.' },
-      { subject: 'Music', focus: 'Ensemble & Theory', details: 'Learning music theory, instrument mastery, composition and ensemble performance.' },
+      { subject: 'Art', teacher: 'Mr Njuguna', focus: 'Visual & Performing', details: 'Exploring visual art techniques, design principles, sculpture, painting, drama and performing arts.', image: images.teachers.njuguna },
+      { subject: 'Physical Education', teacher: 'Mrs Mbuva', focus: 'Sports Science', details: 'Understanding human physiology, sports performance, nutrition, fitness training and athletic development.', image: images.teachers.mbuva },
+      { subject: 'Music', teacher: 'Mr Kavele', focus: 'Ensemble & Theory', details: 'Learning music theory, instrument mastery, composition and ensemble performance.', image: images.teachers.kavele },
     ],
     careerPaths: [
       { career: 'Professional Athlete', desc: 'Competing and excelling in various sports disciplines' },
@@ -174,12 +175,18 @@ export default function StreamsDetail() {
                   <FlaskConical size={130} />
                 </div>
 
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                  <span className="text-2xl font-bold text-gold">{idx + 1}</span>
+                {/* Teacher Image */}
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
+                  <img 
+                    src={sub.image}
+                    alt={sub.teacher}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <h3 className="text-2xl font-serif font-bold text-forest">{sub.subject}</h3>
-                <p className="mt-2 text-sm font-semibold text-gold">{sub.focus}</p>
+                <p className="mt-2 text-sm text-slate-600 font-semibold">{sub.teacher}</p>
+                <p className="mt-2 text-xs font-semibold text-gold uppercase tracking-[0.3em]">{sub.focus}</p>
                 <p className="mt-5 leading-7 text-slate-600">{sub.details}</p>
               </div>
             ))}

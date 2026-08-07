@@ -23,6 +23,20 @@ import femaleTeacherImg from './photos/female_teacher.png'
 import studentLeaderImg from './photos/student_leader.png'
 import alumniImg from './photos/alumni.png'
 
+// Teacher profile images
+import wambuaImg from './teachers-pics/mrs-wambua.jpg'
+import kaveleImg from './teachers-pics/mr-kavele.jpg'
+import mbuvuaImg from './teachers-pics/mrs-mbuva.jpg'
+import gabrielImg from './teachers-pics/mrs-gabriel.jpg'
+import tairusImg from './teachers-pics/mr-tairus.jpg'
+import aminaImg from './teachers-pics/miss-amina.jpg'
+import njeriImg from './teachers-pics/miss-njeri.jpg'
+import ombadoImg from './teachers-pics/ms-ombado.jpg'
+import njugunaImg from './teachers-pics/mr-njuguna.jpg'
+import nzomoImg from './teachers-pics/mr-nzomo.jpg'
+import kagemaImg from './teachers-pics/mrs-kagema.jpg'
+import otienoImg from './teachers-pics/mr-otieno.jpg'
+
 export const images = {
   gate: gateImg,
   logo: logoImg,
@@ -99,5 +113,19 @@ export const images = {
     alumni: alumniImg,
     parent: femaleTeacherImg,
     student: studentLeaderImg,
+  },
+  teachers: {
+    wambua: wambuaImg,
+    kavele: kaveleImg,
+    mbuva: mbuvuaImg,
+    gabriel: gabrielImg,
+    tairus: tairusImg,
+    amina: aminaImg,
+    njeri: njeriImg,
+    ombado: ombadoImg,
+    njuguna: njugunaImg,
+    nzomo: nzomoImg,
+    kagema: kagemaImg,
+    otieno: otienoImg,
   },
 }
