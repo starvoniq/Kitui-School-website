@@ -14,7 +14,6 @@ const IMG = {
   rugbyCourt: '/kitui school rugby 2.jpeg',
   basketballCourt: '/kitui school basketball.jpeg',
   football: '/kitui school football.jpeg',
-  principals: '/kitui school list of principals.jpg',
 }
 
 const glance = [
@@ -179,6 +178,23 @@ const sportsShots = [
   { src: IMG.rugbyAction, label: 'Rugby Action' },
 ]
 
+const principals = [
+  { name: 'Mr. H.N Alborne', from: '1957', to: '1963', notes: "Handled the late colonial era and Kenya's transition to independence." },
+  { name: 'Dr. M. Mukuni', from: '1964', to: '1965', notes: 'The first post-independence African head of the institution.' },
+  { name: 'Mr. Michael Drully', from: '1965', to: '1967', notes: '' },
+  { name: 'Mr. Marggowan', from: '1968', to: '1968', notes: 'Shortest recorded tenure on the board.' },
+  { name: 'Mr. B. Gatere', from: '1968', to: '1973', notes: 'Oversaw the introduction of the historic A-Level system in 1971.' },
+  { name: 'Mr. F.M Mcharo', from: '1978', to: '1980', notes: '' },
+  { name: 'Mr. J.A.K Babu', from: '1980', to: '1985', notes: 'Led the final years before the transition into the 8-4-4 curriculum.' },
+  { name: 'Mr. John F.M Mutahi', from: '1985', to: '1993', notes: 'Long-serving modern head across the late 80s and early 90s.' },
+  { name: 'Mr. S.K Kambuni', from: '1994', to: '1995', notes: '' },
+  { name: 'Mr. Malinga W. Mailu', from: '1995', to: '2002', notes: 'Steered the school through the late 90s into the new millennium.' },
+  { name: 'Mr. B.M Muthengi', from: '2002', to: '2008', notes: '' },
+  { name: 'Mr. W.M Mutua', from: '2009', to: '2010', notes: '' },
+  { name: 'Mr. Baraka Kasoa', from: '2010', to: '2013', notes: 'Served for a three-year contemporary block.' },
+  { name: 'Mr. Mutua B.M', from: '2013', to: 'Present', notes: 'The current long-serving Chief Principal who elevated it to National status.' },
+]
+
 function SportsMarquee() {
   const Group = () => (
     <div className="flex shrink-0 items-center gap-5 pr-5">
@@ -328,18 +344,65 @@ export default function About() {
                 The Administration Block at Kitui High School
               </figcaption>
             </figure>
-            <figure className="group transition-all duration-500 hover:-translate-y-1">
-              <div className="overflow-hidden rounded-xl shadow-md transition-shadow duration-500 group-hover:shadow-2xl">
-                <img
-                  src={IMG.principals}
-                  alt="List of Principals of Kitui High School"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══ PRINCIPALS ══ */}
+      <section className="section-pad bg-neutral-50">
+        <div className="container-page">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
+                School Leadership
+              </p>
+              <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
+                Our Principals
+              </h2>
+              <p className="text-neutral-500 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
+                The heads who have steered Kitui School since 1957, as recorded on the
+                official school registry board.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-5 sm:p-8">
+              <div className="table-scroll">
+                <table className="w-full text-xs md:text-sm border-collapse min-w-[560px]">
+                  <thead>
+                    <tr className="text-neutral-400">
+                      <th className="text-left font-semibold py-2.5 pr-4">Name</th>
+                      <th className="text-left font-semibold py-2.5 px-2">From</th>
+                      <th className="text-left font-semibold py-2.5 pl-4">To</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {principals.map((p, i) => {
+                      const current = p.to === 'Present'
+                      return (
+                        <tr
+                          key={p.name}
+                          className={current ? 'bg-forest/10' : i % 2 === 0 ? 'bg-neutral-50/40' : 'bg-white'}
+                        >
+                          <td className={`py-3 pr-4 font-semibold whitespace-nowrap ${current ? 'text-forest' : 'text-neutral-900'}`}>
+                            {p.name}
+                          </td>
+                          <td className={`py-3 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
+                            {p.from}
+                          </td>
+                          <td className={`py-3 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
+                            {p.to}
+                          </td>
+                          <td className={`py-3 pl-4 leading-snug ${current ? 'text-forest/80' : 'text-neutral-500'}`}>
+                            {p.notes || '-'}
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
               </div>
-              <figcaption className="mt-3 text-xs text-neutral-500">
-                Principals of Kitui High School through the years
-              </figcaption>
-            </figure>
+            </div>
           </Reveal>
         </div>
       </section>
