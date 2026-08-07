@@ -6,18 +6,35 @@ import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
 
+// Import teacher images
+const teacherImages = {
+  'Mrs Wambua': images.teachers.wambua,
+  'Mr Kavele': images.teachers.kavele,
+  'Mrs Mbuva': images.teachers.mbuva,
+  'Mrs Gabriel': images.teachers.gabriel,
+  'Mr Tairus': images.teachers.tairus,
+  'Miss Amina': images.teachers.amina,
+  'Miss Njeri': images.teachers.njeri,
+  'Ms Ombado': images.teachers.ombado,
+  'Mr Njuguna': images.teachers.njuguna,
+  'Mr Nzomo': images.teachers.nzomo,
+  'Mrs Kagema': images.teachers.kagema,
+  'Mr Otieno': images.teachers.otieno,
+}
+
 const departments = [
   {
     icon: Pi,
     name: 'Math',
     lead: 'Mrs Wambua',
+    leadImage: images.teachers.wambua,
     color: 'from-blue-50 to-blue-100',
     borderColor: 'border-blue-200',
     accentColor: 'text-blue-600 bg-blue-50',
     details: [
-      { subject: 'Pure Mathematics', teacher: 'Mrs Wambua', specialty: 'Calculus & Analysis' },
-      { subject: 'Applied Mathematics', teacher: 'Mr Kavele', specialty: 'Mechanics & Statistics' },
-      { subject: 'Statistics & Probability', teacher: 'Miss Amina', specialty: 'Data Analysis' },
+      { subject: 'Pure Mathematics', teacher: 'Mrs Wambua', image: images.teachers.wambua, specialty: 'Calculus & Analysis' },
+      { subject: 'Applied Mathematics', teacher: 'Mr Kavele', image: images.teachers.kavele, specialty: 'Mechanics & Statistics' },
+      { subject: 'Statistics & Probability', teacher: 'Miss Amina', image: images.teachers.amina, specialty: 'Data Analysis' },
     ],
     achievements: [
       'Top 5% performance in national mathematics examinations',
@@ -36,13 +53,14 @@ const departments = [
     icon: BookOpen,
     name: 'Eng',
     lead: 'Mr Kavele',
+    leadImage: images.teachers.kavele,
     color: 'from-purple-50 to-purple-100',
     borderColor: 'border-purple-200',
     accentColor: 'text-purple-600 bg-purple-50',
     details: [
-      { subject: 'English Literature', teacher: 'Mr Kavele', specialty: 'Literary Analysis' },
-      { subject: 'English Composition', teacher: 'Miss Njeri', specialty: 'Creative Writing' },
-      { subject: 'Communication Skills', teacher: 'Ms Ombado', specialty: 'Public Speaking' },
+      { subject: 'English Literature', teacher: 'Mr Kavele', image: images.teachers.kavele, specialty: 'Literary Analysis' },
+      { subject: 'English Composition', teacher: 'Miss Njeri', image: images.teachers.njeri, specialty: 'Creative Writing' },
+      { subject: 'Communication Skills', teacher: 'Ms Ombado', image: images.teachers.ombado, specialty: 'Public Speaking' },
     ],
     achievements: [
       'Consistent high performance in English language examinations',
@@ -61,13 +79,14 @@ const departments = [
     icon: Wrench,
     name: 'Technicals',
     lead: 'Mrs Mbuva',
+    leadImage: images.teachers.mbuva,
     color: 'from-amber-50 to-amber-100',
     borderColor: 'border-amber-200',
     accentColor: 'text-amber-600 bg-amber-50',
     details: [
-      { subject: 'Computer Studies', teacher: 'Mr Njuguna', specialty: 'Programming & Web Dev' },
-      { subject: 'Agriculture', teacher: 'Mr Nzomo', specialty: 'Sustainable Farming' },
-      { subject: 'Home Science', teacher: 'Mrs Kagema', specialty: 'Food & Nutrition' },
+      { subject: 'Computer Studies', teacher: 'Mr Njuguna', image: images.teachers.njuguna, specialty: 'Programming & Web Dev' },
+      { subject: 'Agriculture', teacher: 'Mr Nzomo', image: images.teachers.nzomo, specialty: 'Sustainable Farming' },
+      { subject: 'Home Science', teacher: 'Mrs Kagema', image: images.teachers.kagema, specialty: 'Food & Nutrition' },
     ],
     achievements: [
       'State-of-the-art computer labs with latest technology',
@@ -86,13 +105,14 @@ const departments = [
     icon: FlaskConical,
     name: 'Sciences',
     lead: 'Mrs Gabriel',
+    leadImage: images.teachers.gabriel,
     color: 'from-green-50 to-green-100',
     borderColor: 'border-green-200',
     accentColor: 'text-green-600 bg-green-50',
     details: [
-      { subject: 'Physics', teacher: 'Mr Otieno', specialty: 'Experimental Physics' },
-      { subject: 'Chemistry', teacher: 'Ms Waithera', specialty: 'Organic Chemistry' },
-      { subject: 'Biology', teacher: 'Mr Mwangi', specialty: 'Molecular Biology' },
+      { subject: 'Physics', teacher: 'Mr Otieno', image: images.teachers.otieno, specialty: 'Experimental Physics' },
+      { subject: 'Chemistry', teacher: 'Ms Waithera', image: images.teachers.ombado, specialty: 'Organic Chemistry' },
+      { subject: 'Biology', teacher: 'Mr Mwangi', image: images.teachers.njuguna, specialty: 'Molecular Biology' },
     ],
     achievements: [
       'Excellence in science practical examinations',
@@ -111,14 +131,15 @@ const departments = [
     icon: Globe,
     name: 'Humanities',
     lead: 'Mr Tairus',
+    leadImage: images.teachers.tairus,
     color: 'from-red-50 to-red-100',
     borderColor: 'border-red-200',
     accentColor: 'text-red-600 bg-red-50',
     details: [
-      { subject: 'History', teacher: 'Mr Tairus', specialty: 'African & World History' },
-      { subject: 'Geography', teacher: 'Ms Nduta', specialty: 'Physical & Human Geography' },
-      { subject: 'CRE', teacher: 'Mrs Wanjiru', specialty: 'Religious Studies & Ethics' },
-      { subject: 'Business Studies', teacher: 'Ms Thuo', specialty: 'Commerce & Entrepreneurship' },
+      { subject: 'History', teacher: 'Mr Tairus', image: images.teachers.tairus, specialty: 'African & World History' },
+      { subject: 'Geography', teacher: 'Ms Nduta', image: images.teachers.njeri, specialty: 'Physical & Human Geography' },
+      { subject: 'CRE', teacher: 'Mrs Wanjiru', image: images.teachers.kagema, specialty: 'Religious Studies & Ethics' },
+      { subject: 'Business Studies', teacher: 'Ms Thuo', image: images.teachers.ombado, specialty: 'Commerce & Entrepreneurship' },
     ],
     achievements: [
       'Excellent essay writing and analytical skills development',
@@ -196,10 +217,18 @@ export default function DepartmentDetail() {
               </div>
             </div>
 
-            {/* Icon */}
+          {/* Icon */}
             <div className="flex items-center justify-center">
-              <div className="flex h-48 w-48 items-center justify-center rounded-3xl bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20">
-                <Icon size={100} className="text-gold" />
+              <div className="relative flex flex-col items-center">
+                {/* Department Lead Image */}
+                <div className="mb-8 flex h-56 w-56 items-center justify-center rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border-4 border-gold overflow-hidden shadow-2xl">
+                  <img 
+                    src={dept.leadImage} 
+                    alt={dept.lead}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-center text-sm uppercase tracking-[0.3em] text-forest/60 font-semibold">Department Lead</p>
               </div>
             </div>
           </div>
@@ -234,8 +263,13 @@ export default function DepartmentDetail() {
                   <Pi size={130} />
                 </div>
 
-                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                  <span className="text-2xl font-bold text-gold">{idx + 1}</span>
+                {/* Teacher Image */}
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
+                  <img 
+                    src={item.image}
+                    alt={item.teacher}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <h3 className="text-2xl font-serif font-bold text-forest">{item.subject}</h3>
