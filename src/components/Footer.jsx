@@ -32,7 +32,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#000000] text-white/80 relative z-30">
+    <footer className="bg-forest-dark text-white/80 relative z-30">
       {/* Main footer body */}
       <div className="container-page py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand col */}
@@ -136,7 +136,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-[#000000]">
+      <div className="bg-forest-dark">
         <div className="container-page py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p className="flex items-center gap-1.5">
             <Landmark size={13} className="text-white/40" />
