@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, ArrowRight, Send } from 'lucide-react'
-import logo from '../assets/logo.jpg'
+const logo = '/kitui school logo.jpeg'
 
 const quickLinks = [
   { label: 'About Us', to: '/about' },

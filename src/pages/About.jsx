@@ -1,13 +1,22 @@
 import { Link } from 'react-router-dom'
-import {
-  Target, Eye, BookOpen, Calendar, MapPin, Users,
-  Quote, GraduationCap, BedDouble, Trophy, UsersRound,
-  ArrowRight, FlaskConical, Monitor,
-  Scale, Landmark, HeartHandshake, Radio,
-} from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
-import { images } from '../assets/images.js'
+
+const IMG = {
+  admin: '/kitui school admin block.jpg',
+  adminClose: '/kitui school admin close image.jpeg',
+  gate: '/kitui school gate.jpeg',
+  basketball: '/basketball kitui school.jpeg',
+  bus: '/kitui school bus.jpeg',
+  principals: '/kitui school list of principals.jpg',
+}
+
+const glance = [
+  { value: '1908', label: 'Established' },
+  { value: '1,500+', label: 'Students Enrolled' },
+  { value: '47', label: 'Counties Represented' },
+  { value: 'National', label: "Boys' Boarding School" },
+]
 
 const eras = [
   {
@@ -44,59 +53,83 @@ const eras = [
   },
 ]
 
-const glance = [
-  { label: 'Year Founded', value: '1908' },
-  { label: 'School Type', value: "Boys' National" },
-  { label: 'Location', value: 'Kitui Town' },
-  { label: 'Curriculum', value: 'CBC Senior' },
-  { label: 'Students', value: '1,500+' },
-  { label: 'Teaching Staff', value: '120+' },
-  { label: 'Boarding', value: 'Full Boarding' },
+const identity = [
+  {
+    label: 'Our Mission',
+    text: 'To provide quality education that nurtures holistic development, instils strong moral values and prepares students to excel and serve society.',
+  },
+  {
+    label: 'Our Vision',
+    text: 'To be a leading institution of academic excellence and character development, producing empowered leaders who transform the world.',
+  },
+  {
+    label: 'Our Motto',
+    text: '“Learn To Serve” - a commitment to service, integrity and excellence that defines everything we do at Kitui High School.',
+    sub: '“Umiisyo na Wia” (Perseverance and Work) - a Kamba saying reflecting our deep cultural roots and hard-working academic culture.',
+  },
+]
+
+const kcseHighlights = [
+  { value: '9.71', label: '2025 Mean Grade' },
+  { value: '13th', label: 'National Rank 2025' },
+  { value: '354', label: 'Candidates 2025' },
+  { value: '98.5%', label: 'University Transition' },
+]
+
+const kcseMean = [
+  { year: '2025', mean: '9.71' },
+  { year: '2024', mean: '9.52' },
+  { year: '2023', mean: '8.89' },
+  { year: '2022', mean: '9.31' },
+  { year: '2021', mean: '9.50' },
+  { year: '2020', mean: '9.15' },
+]
+
+const kcse2025 = [
+  { grade: 'A', count: 17 },
+  { grade: 'A-', count: 87 },
+  { grade: 'B+', count: 109 },
+  { grade: 'B', count: 83 },
+  { grade: 'B-', count: 41 },
+  { grade: 'C+', count: 12 },
+  { grade: 'C', count: 5 },
 ]
 
 const alumni = [
   {
-    icon: Scale,
     name: 'Willy Mutunga',
     role: 'Retired Chief Justice of Kenya; first Chief Justice under the 2010 Constitution',
   },
   {
-    icon: Landmark,
     name: 'Kalonzo Musyoka',
     role: '10th Vice-President of Kenya; diplomat and elder statesman',
   },
   {
-    icon: GraduationCap,
     name: 'Makau Mutua',
     role: 'Former Dean, University at Buffalo Law School; globally recognized legal scholar',
   },
   {
-    icon: UsersRound,
     name: 'Ngala Mwendwa',
     role: 'Independence-era politician; member of the Kenyan delegation to the 1960 Lancaster House Conference',
   },
   {
-    icon: Radio,
     name: 'Leonard Mambo Mbotela',
     role: 'Pioneering veteran Kenyan radio and broadcast journalist',
   },
   {
-    icon: Landmark,
     name: 'Muthomi Njuki',
     role: "Governor, Tharaka Nithi County; former Chuka-Igambang'ombe MP (taught Biology, coached rugby)",
   },
   {
-    icon: HeartHandshake,
     name: 'Benjamin Nzimbi',
     role: 'Retired Archbishop and Primate, Anglican Church of Kenya',
   },
 ]
 
-const facilities = [
-  { icon: FlaskConical, label: 'Modern Laboratories', desc: 'Well equipped for practical learning' },
-  { icon: BookOpen, label: 'Vast Library', desc: 'Resources for knowledge and research' },
-  { icon: Monitor, label: 'ICT Centre', desc: 'Technology driven learning and innovation' },
-  { icon: Trophy, label: 'Sports Facilities', desc: 'Nurturing talent, building champions' },
+const campusShots = [
+  { src: IMG.gate, caption: 'The main gate of Kitui High School' },
+  { src: IMG.basketball, caption: 'Sports and talent development on campus' },
+  { src: IMG.bus, caption: 'School transport for our students' },
 ]
 
 export default function About() {
@@ -107,51 +140,82 @@ export default function About() {
         eyebrow="About Kitui High School"
         title="Our Heritage & Legacy"
         subtitle="Over a century of nurturing young men of character, discipline, leadership and academic excellence."
-        bgImage={images.heroes.about}
+        bgImage={IMG.admin}
       />
 
-      {/* ══ OUR STORY ══ */}
+      {/* ══ HISTORY ══ */}
       <section className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-center">
-          {/* Photo */}
-          <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative group">
-            <img
-              src={images.campus.adminTower}
-              alt="Kitui High School Heritage"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
-          </div>
-
+        <div className="container-page grid lg:grid-cols-2 gap-14 items-start">
           <div>
-            <p className="section-eyebrow mb-3">Our Story</p>
+            <p className="section-eyebrow mb-3">History of the School</p>
             <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">A Legacy That Continues to Inspire</h2>
+            <h2 className="section-title mb-6">A Century of Leadership and Service</h2>
             <p className="section-sub mb-4">
               Kitui High School is a government-aided national boys' boarding secondary school
               in Kitui Central Sub-County, Kitui County, and the only national boys' school in
-              the entire county. For over a century it has served as a crucible for leadership,
-              academic excellence and character development, shaping some of East Africa's most
-              prominent public servants, legal minds and scholars.
+              the county. Located about two kilometres from Kitui town along the Kitui-Mbusyani
+              road, the school has for over a century served as a crucible for leadership,
+              academic excellence and character development.
             </p>
             <p className="section-sub mb-4">
-              Located about 2 kilometres from Kitui town along the Kitui-Mbusyani road, the campus
-              today accommodates a vibrant population of over 1,500 students drawn from all 47
-              counties of Kenya.
+              The story begins in 1908, when the British colonial government established a
+              school near the Kitui Police Station. It became the first secular Government
+              African School in the colony, built with the strong backing of local Akamba
+              communities, who volunteered land, food and labour.
             </p>
             <p className="section-sub mb-4">
-              The school is nationally recognized for its ultra-competitive academic environment,
-              with a strong focus on STEM subjects (Sciences and Mathematics) alongside holistic
-              growth through sports, arts and service.
+              By 1938 the school had outgrown its original site and was relocated to its
+              present permanent grounds, officially renamed Campbell Academy in honour of
+              Provincial Commissioner Mr. Campbell. It became a boarding school in 1948 and
+              a full secondary school in 1957, with its inaugural O-Level class graduating in
+              1960. The A-Level tier was introduced in 1971 and phased out in 1980 when the
+              school adopted the national 8-4-4 system.
             </p>
             <p className="section-sub mb-7">
-              Today, as a premier national school, we remain committed to academic excellence,
-              holistic development and building character anchored on our motto <em className="text-gold font-semibold not-italic">Learn To Serve</em>.
+              Today the school hosts a vibrant population of over 1,500 students drawn from
+              all 47 counties, and is recognised nationally for its ultra-competitive academic
+              environment with a strong focus on STEM alongside sports, arts and service,
+              anchored on our motto, <em className="text-gold font-semibold not-italic">Learn To Serve</em>.
             </p>
-            <Link to="/contact" className="btn-outline-dark inline-flex items-center gap-2">
-              Get in Touch <ArrowRight size={16} />
+            <Link to="/contact" className="btn-outline-dark inline-flex items-center">
+              Get in Touch
             </Link>
           </div>
+
+          <div className="space-y-6">
+            <figure>
+              <img
+                src={IMG.adminClose}
+                alt="The Administration Block of Kitui High School"
+                className="rounded-xl w-full aspect-[4/3] object-cover shadow-lg"
+              />
+              <figcaption className="mt-3 text-xs text-slate-500 font-sans">
+                The Administration Block at Kitui High School
+              </figcaption>
+            </figure>
+            <figure>
+              <img
+                src={IMG.principals}
+                alt="List of Principals of Kitui High School"
+                className="rounded-xl w-full aspect-[4/3] object-cover shadow-lg"
+              />
+              <figcaption className="mt-3 text-xs text-slate-500 font-sans">
+                Principals of Kitui High School through the years
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ AT A GLANCE ══ */}
+      <section className="bg-forest-dark text-white">
+        <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/10">
+          {glance.map((g) => (
+            <div key={g.label} className="py-10 px-6 text-center">
+              <p className="text-3xl md:text-4xl font-serif font-bold text-gold-light">{g.value}</p>
+              <p className="mt-1.5 text-xs uppercase tracking-widest text-white/60 font-sans">{g.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -164,23 +228,24 @@ export default function About() {
             <h2 className="section-title">Over a Century of History</h2>
           </div>
           <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gold/20" />
-            <div className="space-y-8">
+            <div className="absolute left-0 top-2 bottom-2 w-px bg-gold/30" />
+            <div className="space-y-10">
               {eras.map((era) => (
-                <div key={era.title} className="relative pl-12">
-                  <span className="absolute left-4 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-gold border-2 border-white shadow" />
-                  <div className="card p-6 md:p-7 hover:border-gold/30">
-                    <p className="section-eyebrow mb-1">{era.period}</p>
-                    <h3 className="font-serif font-bold text-forest text-xl mb-4">{era.title}</h3>
-                    <ul className="space-y-3">
-                      {era.events.map((e) => (
-                        <li key={e.year}>
-                          <p className="text-xs font-bold text-gold uppercase tracking-wide mb-0.5">{e.year}</p>
-                          <p className="text-sm text-slate-600 font-sans leading-relaxed">{e.text}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div key={era.title} className="relative pl-10">
+                  <span className="absolute left-0 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-gold border-2 border-white shadow" />
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold font-sans">
+                    {era.period}
+                  </p>
+                  <h3 className="font-serif font-bold text-forest text-xl mt-1 mb-3">{era.title}</h3>
+                  <ul className="space-y-2.5">
+                    {era.events.map((e) => (
+                      <li key={e.year}>
+                        <p className="text-sm text-slate-600 font-sans leading-relaxed">
+                          <span className="font-semibold text-forest">{e.year}.</span> {e.text}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -189,147 +254,135 @@ export default function About() {
       </section>
 
       {/* ══ MISSION / VISION / MOTTO ══ */}
-      <section className="section-pad bg-forest-gradient text-white">
-        <div className="container-page grid md:grid-cols-3 gap-8">
-          {[
-            { icon: Target, label: 'Our Mission', color: 'text-gold', text: 'To provide quality education that nurtures holistic development, instils strong moral values and prepares students to excel and serve the society.' },
-            { icon: Eye, label: 'Our Vision', color: 'text-sky-300', text: 'To be a leading institution of academic excellence and character development, producing empowered leaders who transform the world.' },
-            { icon: BookOpen, label: 'Our Motto', color: 'text-gold', text: '"Learn To Serve": A commitment to service, integrity and excellence that defines everything we do at Kitui High School.', sub: '"Umiisyo na Wia" (Perseverance and Work): A Kamba saying that reflects our deep cultural roots and hard-working academic culture.' },
-          ].map(({ icon: Icon, label, color, text, sub, italics }) => (
-            <div key={label} className="glass rounded-xl p-8 text-center hover:-translate-y-1 transition-all duration-300">
-              <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-5">
-                <Icon className={color} size={28} />
-              </div>
-              <h3 className="font-serif font-bold text-white text-xl mb-3">{label}</h3>
-              <p className={`text-white/70 leading-relaxed text-sm ${italics ? 'italic' : ''}`}>{text}</p>
-              {sub && <p className="text-white/70 leading-relaxed text-sm mt-3">{sub}</p>}
+      <section className="section-pad bg-white">
+        <div className="container-page grid md:grid-cols-3 gap-10">
+          {identity.map((item) => (
+            <div key={item.label} className="border-t-2 border-gold pt-6">
+              <h3 className="font-serif font-bold text-forest text-xl mb-3">{item.label}</h3>
+              <p className="section-sub text-sm">{item.text}</p>
+              {item.sub && <p className="section-sub text-sm mt-3">{item.sub}</p>}
             </div>
           ))}
         </div>
       </section>
 
-      {/* ══ AT A GLANCE ══ */}
-      <section className="section-pad-sm bg-white">
+      {/* ══ KCSE PERFORMANCE ══ */}
+      <section className="section-pad bg-cream">
         <div className="container-page">
-          <div className="text-center mb-10">
-            <p className="section-eyebrow mb-3">Kitui High School at a Glance</p>
-            <div className="gold-bar mx-auto" />
+          <div className="text-center mb-12">
+            <p className="section-eyebrow mb-3">Academic Performance</p>
+            <div className="gold-bar mx-auto mb-4" />
+            <h2 className="section-title">KCSE Performance</h2>
+            <p className="text-slate-500 mt-3 max-w-2xl mx-auto font-sans text-sm">
+              Kitui High School is consistently ranked among the top schools nationally. In the
+              2025 KCSE, the school was ranked 13th in Kenya with a mean grade of 9.71, building
+              on a 2024 mean of 9.52 and a national rank of 23rd, including 2nd in the country
+              for the best performance in Mathematics.
+            </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
-            {glance.map((g) => (
-              <div
-                key={g.label}
-                className="bg-cream rounded-xl p-4 text-center border border-parchment hover:border-gold/40 hover:shadow-card transition-all duration-200"
-              >
-                <p className="font-serif font-bold text-forest text-xl md:text-2xl">{g.value}</p>
-                <p className="text-xs text-slate-500 mt-1 font-sans uppercase tracking-wide leading-tight">{g.label}</p>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+            {kcseHighlights.map((s) => (
+              <div key={s.label} className="bg-white rounded-xl border border-parchment p-6 text-center">
+                <p className="text-3xl md:text-4xl font-serif font-bold text-forest">{s.value}</p>
+                <p className="mt-2 text-xs uppercase tracking-widest text-slate-500 font-sans">{s.label}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ══ CAMPUS TODAY ══ */}
-      <section className="section-pad bg-cream">
-        <div className="container-page grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="section-eyebrow mb-3">Campus Today</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-4">A Heritage. A Home. A Future.</h2>
-            <p className="section-sub mb-6">
-              Our serene and beautiful campus continues to grow, blending heritage with modern
-              facilities to create the best environment for learning, discovery and personal growth.
-            </p>
-            <div className="grid grid-cols-2 gap-5 mb-8">
-              {facilities.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="flex gap-3 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                    <Icon className="text-gold" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-forest text-sm">{label}</p>
-                    <p className="text-xs text-slate-500 font-sans leading-tight">{desc}</p>
-                  </div>
-                </div>
-              ))}
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            <div className="card p-6 md:p-8">
+              <h3 className="font-serif font-bold text-forest text-xl mb-5">Mean Grade by Year</h3>
+              <table className="w-full text-sm font-sans">
+                <thead>
+                  <tr className="border-b border-slate-200 text-left">
+                    <th className="pb-2.5 text-xs uppercase tracking-widest text-slate-400 font-semibold">Year</th>
+                    <th className="pb-2.5 text-right text-xs uppercase tracking-widest text-slate-400 font-semibold">Mean Grade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {kcseMean.map((r) => (
+                    <tr key={r.year} className="border-b border-slate-100">
+                      <td className="py-2.5 font-semibold text-forest">{r.year}</td>
+                      <td className="py-2.5 text-right font-semibold text-gold">{r.mean}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-4 text-xs text-slate-400 font-sans">
+                Source: KCSE results as reported by the school and national examination analysis.
+              </p>
             </div>
-            <Link to="/3d-tour" className="btn-outline-dark inline-flex items-center gap-2">
-              Explore Our Campus in 3D <ArrowRight size={16} />
-            </Link>
-          </div>
 
-          {/* Aerial photo */}
-          <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative group">
-            <img
-              src={images.campus.aerialCampus}
-              alt="Kitui High School Campus Today"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
-          </div>
-        </div>
-      </section>
-
-      {/* ══ ACHIEVEMENTS PREVIEW ══ */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div className="text-center mb-10">
-            <p className="section-eyebrow mb-3">Our Achievements</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">Excellence Is Our Tradition</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="card p-6 flex gap-4">
-              <div className="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                <Trophy className="text-gold" size={26} />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-forest text-lg mb-1">Sports Excellence</h4>
-                <p className="section-sub text-sm">
-                  We cultivate discipline, teamwork and resilience through a wide range of sports,
-                  producing champions at regional and national stages, including rugby, athletics, hockey and more.
-                </p>
-              </div>
-            </div>
-            <div className="card p-6 flex gap-4">
-              <div className="w-14 h-14 rounded-xl bg-forest/5 border border-forest/15 flex items-center justify-center shrink-0">
-                <UsersRound className="text-forest" size={26} />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-forest text-lg mb-1">Clubs & Societies</h4>
-                <p className="section-sub text-sm">
-                  Our vibrant clubs and societies nurture leadership, service and innovation
-                  among our students, from Science Club to Drama and Debate.
-                </p>
-              </div>
+            <div className="card p-6 md:p-8">
+              <h3 className="font-serif font-bold text-forest text-xl mb-5">2025 Grade Distribution</h3>
+              <table className="w-full text-sm font-sans">
+                <thead>
+                  <tr className="border-b border-slate-200 text-left">
+                    <th className="pb-2.5 text-xs uppercase tracking-widest text-slate-400 font-semibold">Grade</th>
+                    <th className="pb-2.5 text-right text-xs uppercase tracking-widest text-slate-400 font-semibold">Students</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {kcse2025.map((r) => (
+                    <tr key={r.grade} className="border-b border-slate-100">
+                      <td className="py-2.5 font-semibold text-forest">{r.grade}</td>
+                      <td className="py-2.5 text-right font-semibold text-gold">{r.count}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-4 text-xs text-slate-400 font-sans">
+                349 of 354 candidates (98.5%) qualified for university admission.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══ NOTABLE ALUMNI ══ */}
-      <section className="section-pad bg-cream">
+      <section className="section-pad bg-white">
         <div className="container-page">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <p className="section-eyebrow mb-3">Notable Alumni</p>
             <div className="gold-bar mx-auto mb-4" />
             <h2 className="section-title">The Kitui School Hall of Fame</h2>
             <p className="text-slate-500 mt-3 max-w-xl mx-auto font-sans text-sm">
-              The history of Kitui School is best mirrored by the caliber of leaders it has
+              The history of Kitui School is best mirrored by the calibre of leaders it has
               produced for the nation, from law and politics to education and the church.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {alumni.map((a) => (
-              <div key={a.name} className="card p-6 flex gap-4 hover:border-gold/30">
-                <div className="w-14 h-14 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                  <a.icon className="text-gold" size={26} />
-                </div>
-                <div>
-                  <h4 className="font-serif font-bold text-forest text-lg leading-snug">{a.name}</h4>
-                  <p className="text-sm text-slate-500 font-sans leading-relaxed mt-1">{a.role}</p>
-                </div>
+              <div key={a.name} className="card p-6 hover:border-gold/30">
+                <h4 className="font-serif font-bold text-forest text-lg leading-snug">{a.name}</h4>
+                <p className="text-sm text-slate-500 font-sans leading-relaxed mt-1">{a.role}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CAMPUS LIFE ══ */}
+      <section className="section-pad bg-cream">
+        <div className="container-page">
+          <div className="text-center mb-12">
+            <p className="section-eyebrow mb-3">Life at Kitui High School</p>
+            <div className="gold-bar mx-auto mb-4" />
+            <h2 className="section-title">A Heritage. A Home. A Future.</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {campusShots.map((shot) => (
+              <figure key={shot.src}>
+                <img
+                  src={shot.src}
+                  alt={shot.caption}
+                  className="rounded-xl w-full aspect-[4/3] object-cover shadow-lg"
+                />
+                <figcaption className="mt-3 text-xs text-slate-500 font-sans text-center">
+                  {shot.caption}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
@@ -337,11 +390,7 @@ export default function About() {
 
       {/* ══ QUOTE BANNER ══ */}
       <section className="bg-forest-dark py-16 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="text-center text-[400px] font-serif text-white leading-none select-none">&ldquo;</div>
-        </div>
         <div className="container-page relative z-10">
-          <p className="text-gold text-5xl font-serif mb-2">&ldquo;</p>
           <h2 className="text-white font-serif text-3xl md:text-4xl font-semibold mb-2">
             Learn To Serve.
           </h2>
