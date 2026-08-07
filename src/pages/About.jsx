@@ -2,20 +2,46 @@ import { Link } from 'react-router-dom'
 import {
   Target, Eye, BookOpen, Calendar, MapPin, Users,
   Quote, GraduationCap, BedDouble, Trophy, UsersRound,
-  ArrowRight, FlaskConical, Monitor, Star,
-  Scale, Landmark, HeartHandshake,
+  ArrowRight, FlaskConical, Monitor,
+  Scale, Landmark, HeartHandshake, Radio,
 } from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
 
-const milestones = [
-  { year: '1908', title: 'Founded', desc: 'Established as an intermediate school in Kitui.' },
-  { year: '1948', title: 'Boarding School', desc: 'Became a boarding school, then known as Campbell Academy.' },
-  { year: '1971', title: 'A-Level Classes', desc: 'Started offering advanced-level classes for the first time.' },
-  { year: '2000s', title: 'Modernisation', desc: 'Modern laboratories, library and ICT facilities introduced.' },
-  { year: '2010s', title: 'Growth & Innovation', desc: 'New infrastructure and co-curricular excellence nationally.' },
-  { year: 'Today', title: 'Forward Together', desc: 'Embracing CBC and global opportunities while upholding values.', highlight: true },
+const eras = [
+  {
+    period: '1908–1939',
+    title: 'Colonial Foundations',
+    events: [
+      { year: '1908', text: 'Established by the British colonial government as an intermediate school near the Kitui Police Station, the first secular Government African School in the colony, with strong backing from local Akamba communities.' },
+      { year: '1938–39', text: 'Outgrew its original site and was relocated to the current permanent grounds, officially renamed Campbell Academy in honour of Provincial Commissioner Mr. Campbell.' },
+    ],
+  },
+  {
+    period: '1940s–1950s',
+    title: 'Expansion & Co-Education',
+    events: [
+      { year: '1942', text: 'Temporarily operated as a co-educational facility, with girls also in attendance.' },
+      { year: '1947–49', text: 'Officially transitioned into a regional boarding school as the first permanent student dormitories were completed.' },
+      { year: '1957', text: 'Upgraded into a full secondary school; its inaugural class of O-Level students graduated in 1960.' },
+    ],
+  },
+  {
+    period: '1960s–1980s',
+    title: 'Post-Independence & Academic Elevation',
+    events: [
+      { year: '1971', text: 'Introduced the advanced A-Level tier (Forms 5 and 6) to meet the demands of a newly independent Kenya.' },
+      { year: '1980', text: 'Phased out A-Level classes and re-aligned into the standard 8-4-4 secondary system following nationwide reforms.' },
+    ],
+  },
+  {
+    period: 'Present',
+    title: 'National School Status',
+    events: [
+      { year: 'Today', text: 'Elevated by the Ministry of Education to a National School for its sterling KCSE performances, now hosting over 1,500 students drawn from all 47 counties of Kenya.' },
+    ],
+  },
 ]
 
 const glance = [
@@ -23,7 +49,7 @@ const glance = [
   { label: 'School Type', value: "Boys' National" },
   { label: 'Location', value: 'Kitui Town' },
   { label: 'Curriculum', value: 'CBC Senior' },
-  { label: 'Students', value: '1,500' },
+  { label: 'Students', value: '1,500+' },
   { label: 'Teaching Staff', value: '120+' },
   { label: 'Boarding', value: 'Full Boarding' },
 ]
@@ -32,22 +58,27 @@ const alumni = [
   {
     icon: Scale,
     name: 'Willy Mutunga',
-    role: 'Retired Chief Justice of Kenya',
+    role: 'Retired Chief Justice of Kenya; first Chief Justice under the 2010 Constitution',
   },
   {
     icon: Landmark,
     name: 'Kalonzo Musyoka',
-    role: '10th Vice-President of Kenya',
+    role: '10th Vice-President of Kenya; diplomat and elder statesman',
   },
   {
     icon: GraduationCap,
     name: 'Makau Mutua',
-    role: 'Former Dean, University of Buffalo Law School',
+    role: 'Former Dean, University at Buffalo Law School; globally recognized legal scholar',
   },
   {
     icon: UsersRound,
     name: 'Ngala Mwendwa',
-    role: 'Member, Kenyan delegation to the 1960 Lancaster House Conference',
+    role: 'Independence-era politician; member of the Kenyan delegation to the 1960 Lancaster House Conference',
+  },
+  {
+    icon: Radio,
+    name: 'Leonard Mambo Mbotela',
+    role: 'Pioneering veteran Kenyan radio and broadcast journalist',
   },
   {
     icon: Landmark,
@@ -57,7 +88,7 @@ const alumni = [
   {
     icon: HeartHandshake,
     name: 'Benjamin Nzimbi',
-    role: 'Retired Archbishop & Primate, Anglican Church of Kenya',
+    role: 'Retired Archbishop and Primate, Anglican Church of Kenya',
   },
 ]
 
@@ -97,14 +128,21 @@ export default function About() {
             <div className="gold-bar mb-4" />
             <h2 className="section-title mb-5">A Legacy That Continues to Inspire</h2>
             <p className="section-sub mb-4">
-              Kitui High School is a boys' boarding national secondary school in Kitui County, the
-              only national boys' secondary school in the county. It began as an intermediate school
-              in 1908 before becoming a boarding school in 1948, then known as Campbell Academy, and
-              started offering A-level classes in 1971.
+              Kitui High School is a government-aided national boys' boarding secondary school
+              in Kitui Central Sub-County, Kitui County, and the only national boys' school in
+              the entire county. For over a century it has served as a crucible for leadership,
+              academic excellence and character development, shaping some of East Africa's most
+              prominent public servants, legal minds and scholars.
             </p>
             <p className="section-sub mb-4">
-              Located about 2 kilometres from Kitui town along the Kitui-Mbusyani road, the school
-              today hosts a population of 1,500 students.
+              Located about 2 kilometres from Kitui town along the Kitui-Mbusyani road, the campus
+              today accommodates a vibrant population of over 1,500 students drawn from all 47
+              counties of Kenya.
+            </p>
+            <p className="section-sub mb-4">
+              The school is nationally recognized for its ultra-competitive academic environment,
+              with a strong focus on STEM subjects (Sciences and Mathematics) alongside holistic
+              growth through sports, arts and service.
             </p>
             <p className="section-sub mb-7">
               Today, as a premier national school, we remain committed to academic excellence,
@@ -125,30 +163,24 @@ export default function About() {
             <div className="gold-bar mx-auto mb-4" />
             <h2 className="section-title">Over a Century of History</h2>
           </div>
-          <div className="relative">
-            {/* Horizontal line */}
-            <div className="hidden md:block absolute top-6 left-0 right-0 h-0.5 bg-gold/20" />
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
-              {milestones.map((m, i) => (
-                <div key={m.year} className="relative flex flex-col items-center text-center">
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center mb-3 z-10 border-2 ${
-                      m.highlight
-                        ? 'bg-gold border-gold text-forest font-bold'
-                        : 'bg-white border-gold/40 text-forest font-semibold'
-                    }`}
-                  >
-                    {m.highlight ? (
-                      <Star size={16} className="text-forest fill-forest" />
-                    ) : (
-                      <span className="text-xs font-serif">{m.year.slice(-2) === 's' ? m.year : m.year.slice(-2)}</span>
-                    )}
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gold/20" />
+            <div className="space-y-8">
+              {eras.map((era) => (
+                <div key={era.title} className="relative pl-12">
+                  <span className="absolute left-4 top-6 -translate-x-1/2 w-4 h-4 rounded-full bg-gold border-2 border-white shadow" />
+                  <div className="card p-6 md:p-7 hover:border-gold/30">
+                    <p className="section-eyebrow mb-1">{era.period}</p>
+                    <h3 className="font-serif font-bold text-forest text-xl mb-4">{era.title}</h3>
+                    <ul className="space-y-3">
+                      {era.events.map((e) => (
+                        <li key={e.year}>
+                          <p className="text-xs font-bold text-gold uppercase tracking-wide mb-0.5">{e.year}</p>
+                          <p className="text-sm text-slate-600 font-sans leading-relaxed">{e.text}</p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${m.highlight ? 'text-gold font-bold' : 'text-forest'}`}>
-                    {m.year}
-                  </p>
-                  <p className="font-serif font-semibold text-forest text-sm mb-1">{m.title}</p>
-                  <p className="text-xs text-slate-500 font-sans leading-relaxed">{m.desc}</p>
                 </div>
               ))}
             </div>
@@ -162,14 +194,15 @@ export default function About() {
           {[
             { icon: Target, label: 'Our Mission', color: 'text-gold', text: 'To provide quality education that nurtures holistic development, instils strong moral values and prepares students to excel and serve the society.' },
             { icon: Eye, label: 'Our Vision', color: 'text-sky-300', text: 'To be a leading institution of academic excellence and character development, producing empowered leaders who transform the world.' },
-            { icon: BookOpen, label: 'Our Motto', color: 'text-gold', text: '"Learn To Serve": A commitment to service, integrity and excellence that defines everything we do at Kitui High School.', italics: true },
-          ].map(({ icon: Icon, label, color, text, italics }) => (
+            { icon: BookOpen, label: 'Our Motto', color: 'text-gold', text: '"Learn To Serve": A commitment to service, integrity and excellence that defines everything we do at Kitui High School.', sub: '"Umiisyo na Wia" (Perseverance and Work): A Kamba saying that reflects our deep cultural roots and hard-working academic culture.' },
+          ].map(({ icon: Icon, label, color, text, sub, italics }) => (
             <div key={label} className="glass rounded-xl p-8 text-center hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-5">
                 <Icon className={color} size={28} />
               </div>
               <h3 className="font-serif font-bold text-white text-xl mb-3">{label}</h3>
               <p className={`text-white/70 leading-relaxed text-sm ${italics ? 'italic' : ''}`}>{text}</p>
+              {sub && <p className="text-white/70 leading-relaxed text-sm mt-3">{sub}</p>}
             </div>
           ))}
         </div>
@@ -280,10 +313,10 @@ export default function About() {
           <div className="text-center mb-10">
             <p className="section-eyebrow mb-3">Notable Alumni</p>
             <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">Alumni Making a Difference</h2>
+            <h2 className="section-title">The Kitui School Hall of Fame</h2>
             <p className="text-slate-500 mt-3 max-w-xl mx-auto font-sans text-sm">
-              Our alumni have gone on to serve the nation and the world in law, politics,
-              education and the church.
+              The history of Kitui School is best mirrored by the caliber of leaders it has
+              produced for the nation, from law and politics to education and the church.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
