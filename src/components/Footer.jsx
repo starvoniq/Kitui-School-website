@@ -24,10 +24,10 @@ const resources = [
 ]
 
 const socials = [
-  { Icon: Facebook, href: '#', label: 'Facebook' },
-  { Icon: Twitter, href: '#', label: 'Twitter' },
-  { Icon: Instagram, href: '#', label: 'Instagram' },
-  { Icon: Youtube, href: '#', label: 'YouTube' },
+  { Icon: Facebook, href: 'https://www.facebook.com/groups/25972382395/', label: 'Facebook' },
+  { Icon: Twitter, href: 'https://kituihighschool.sc.ke/', label: 'Twitter' },
+  { Icon: Instagram, href: 'https://kituihighschool.sc.ke/', label: 'Instagram' },
+  { Icon: Youtube, href: 'https://kituihighschool.sc.ke/', label: 'YouTube' },
 ]
 
 export default function Footer() {
@@ -41,11 +41,13 @@ export default function Footer() {
         {/* Brand col */}
         <div className="lg:pr-8">
           <div className="flex items-center gap-3 mb-5">
-            <img
-              src={logo}
-              alt="Kitui High School Logo"
-              className="h-12 w-12 rounded-full object-cover border border-white/20"
-            />
+            <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white shadow ring-1 ring-white/20 shrink-0">
+              <img
+                src={logo}
+                alt="Kitui High School Logo"
+                className="h-10 w-10 rounded-full object-contain"
+              />
+            </span>
             <div>
               <p className="text-white font-semibold text-lg leading-tight tracking-tight">
                 Kitui High School
@@ -57,13 +59,15 @@ export default function Footer() {
             National boys' boarding school in Kitui County, Kenya. Building character,
             inspiring excellence and shaping future leaders since 1908.
           </p>
-          <div className="flex gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-8">
             {socials.map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-all duration-200"
+                className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 hover:-translate-y-0.5 transition-all duration-200"
               >
                 <Icon size={15} />
               </a>
@@ -128,7 +132,7 @@ export default function Footer() {
           <div className="mt-6 pt-6 border-t border-white/10">
             <p className="text-xs text-white/45 leading-relaxed">
               Office Hours
-              <br />Mon – Fri · 8:00 AM – 4:30 PM
+              <br />Mon-Fri · 8:00 AM to 4:30 PM
             </p>
           </div>
         </div>

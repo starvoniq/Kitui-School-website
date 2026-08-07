@@ -12,11 +12,11 @@ import { images } from '../assets/images.js'
 
 /* ─── Data ─── */
 const stats = [
-  { value: '1938', label: 'Year Founded', icon: Calendar },
+  { value: '1908', label: 'Year Founded', icon: Calendar },
   { value: 'National', label: 'School Category', icon: Star },
   { value: '2,300+', label: 'Students Enrolled', icon: Users },
   { value: '120+', label: 'Teaching Staff', icon: BookMarked },
-  { value: '9.80', label: 'KCSE Mean Grade 2025', icon: TrendingUp },
+  { value: '9.72', label: 'KCSE Mean Grade 2025', icon: TrendingUp },
 ]
 
 const highlights = [
@@ -24,8 +24,8 @@ const highlights = [
     tag: 'Academic Performance',
     num: '01',
     title: 'KCSE 2025 Results',
-    body: 'Mean grade 9.80 with 99.6% university transition, among the top nationally.',
-    items: ['260 Candidates', '40 scored A', '80 scored B+'],
+    body: 'Mean grade 9.72 with a 98.59% university transition, ranked 13th nationally.',
+    items: ['354 Candidates', '17 scored A', '87 scored A-'],
     cta: 'View Full Results',
     to: '/academics#results',
     color: 'from-gold/10 to-gold/5',
@@ -47,7 +47,7 @@ const highlights = [
     num: '03',
     title: 'Creating Solutions, Shaping the Future',
     body: '3 projects advanced to nationals at Kenya Science & Engineering Fair 2025.',
-    items: ['Kenya Science & Engineering Fair', 'Robotics Club: Coding, Innovating', 'Programming Club'],
+    items: ['Kenya Science & Engineering Fair', 'Coding & Programming Club', 'Mathematics & Innovation Camps'],
     cta: 'Explore Innovation',
     to: '/academics',
     color: 'from-sky-50 to-sky-100/50',
@@ -89,11 +89,11 @@ const news = [
     image: images.news.science,
   },
   {
-    tag: 'Innovation',
-    tagColor: 'bg-purple-600 text-white',
-    title: 'Innovation Week Highlights & Awards',
-    date: 'May 9, 2026',
-    image: images.news.robotics,
+    tag: 'Events',
+    tagColor: 'bg-sky-600 text-white',
+    title: 'Education CS Julius Migos Ogamba Opens 2025 KCSE Exams',
+    date: 'Nov 6, 2025',
+    image: images.news.exam,
   },
 ]
 
@@ -219,14 +219,14 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
           <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md">
-            <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School · Since 1938</p>
+            <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School · Since 1908</p>
             <div className="gold-bar mb-5 shadow-sm" />
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight max-w-3xl animate-fade-up-200 drop-shadow-lg">
               Building Character.{' '}
               <span className="text-gold-light">Inspiring Excellence.</span>
             </h1>
             <p className="text-white/95 mt-6 max-w-xl text-lg leading-relaxed animate-fade-up-400 font-sans drop-shadow-md">
-              Since 1938, Kitui High School has been shaping generations of young men of integrity,
+              Since 1908, Kitui High School has been shaping generations of young men of integrity,
               discipline and service to the nation.
             </p>
             <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-600">
@@ -273,7 +273,7 @@ export default function Home() {
               <p className="section-eyebrow mb-3">Our Story</p>
               <div className="gold-bar mb-4" />
               <h2 className="section-title mb-5">
-                A Legacy of Excellence Since 1938
+                A Legacy of Excellence Since 1908
               </h2>
               <p className="section-sub mb-4">
                 From humble beginnings as one of Kenya's earliest national schools, our journey

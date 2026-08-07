@@ -17,7 +17,7 @@ const infoCards = [
     title: 'Call Us',
     color: 'bg-gold/10 text-forest border-gold/30',
     iconBg: 'bg-gold',
-    lines: ['+254 723 636 536', 'Mon – Fri, 8:00 AM – 5:00 PM'],
+    lines: ['+254 723 636 536', 'Mon-Fri, 8:00 AM to 5:00 PM'],
   },
   {
     icon: Mail,
@@ -31,7 +31,7 @@ const infoCards = [
     title: 'Office Hours',
     color: 'bg-purple-50 text-forest border-purple-200',
     iconBg: 'bg-purple-700',
-    lines: ['Mon – Fri: 8:00 AM – 5:00 PM', 'Saturday: 9:00 AM – 1:00 PM', 'Sunday: Closed'],
+    lines: ['Mon-Fri: 8:00 AM to 5:00 PM', 'Saturday: 9:00 AM to 1:00 PM', 'Sunday: Closed'],
   },
 ]
 
@@ -202,7 +202,7 @@ export default function Contact() {
                   <MapPin className="text-forest" size={16} />
                 </div>
                 <p className="text-sm text-slate-600 font-sans">
-                  Located along the Kitui – Mbusyani Road, approximately 2 km from Kitui Town Centre.
+                  Located along the Kitui-Mbusyani Road, approximately 2 km from Kitui Town Centre.
                   Look for the prominent Kitui High School main entrance gate.
                 </p>
               </div>
