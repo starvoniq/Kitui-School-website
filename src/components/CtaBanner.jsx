@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 /**
- * CtaBanner — full-width call-to-action strip.
+ * CtaBanner: full-width call-to-action strip.
  *
  * Props:
  *  - title           {string}

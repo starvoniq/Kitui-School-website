@@ -10,21 +10,21 @@ const infoCards = [
     title: 'Visit Us',
     color: 'bg-forest/10 text-forest border-forest/20',
     iconBg: 'bg-forest',
-    lines: ['Kitui – Machakos Road', '~3km from Kitui Town Centre', 'P.O. Box 71, Kitui, Kenya'],
+    lines: ['Mbusyani Road, Kitui', '~2km from Kitui Town Centre', 'P.O. Box 71, Kitui, Kenya'],
   },
   {
     icon: Phone,
     title: 'Call Us',
     color: 'bg-gold/10 text-forest border-gold/30',
     iconBg: 'bg-gold',
-    lines: ['+254 720 202 123', '+254 722 123 456', 'Mon – Fri, 8:00 AM – 5:00 PM'],
+    lines: ['+254 723 636 536', 'Mon – Fri, 8:00 AM – 5:00 PM'],
   },
   {
     icon: Mail,
     title: 'Email Us',
     color: 'bg-sky-50 text-forest border-sky-200',
     iconBg: 'bg-sky-600',
-    lines: ['info@kituihigh.ac.ke', 'admissions@kituihigh.ac.ke', 'We respond within 24 hours.'],
+    lines: ['info@kituihighschool.sc.ke', 'We respond within 24 hours.'],
   },
   {
     icon: Clock,
@@ -59,7 +59,7 @@ export default function Contact() {
         crumbs={['Home', 'Contact']}
         eyebrow="Get in Touch"
         title="We'd Love to Hear From You"
-        subtitle="Whether you have an inquiry about academics, student life, campus visits or fee guidelines — our administration team is here to assist."
+        subtitle="Whether you have an inquiry about academics, student life, campus visits or fee guidelines. Our administration team is here to assist."
         bgImage={images.heroes.contact}
       />
 
@@ -182,7 +182,7 @@ export default function Contact() {
                 <div className="text-center p-6">
                   <MapPin className="text-forest mx-auto mb-2" size={36} />
                   <p className="text-forest font-serif font-bold text-lg">Kitui High School</p>
-                  <p className="text-forest/70 text-xs font-sans mt-1">Kitui – Machakos Road, Kitui County, Kenya</p>
+                  <p className="text-forest/70 text-xs font-sans mt-1">Mbusyani Road, Kitui County, Kenya</p>
                   <a
                     href="https://maps.google.com"
                     target="_blank"
@@ -202,7 +202,7 @@ export default function Contact() {
                   <MapPin className="text-forest" size={16} />
                 </div>
                 <p className="text-sm text-slate-600 font-sans">
-                  Located along the Kitui – Machakos Road, approximately 3 km from Kitui Town Centre.
+                  Located along the Kitui – Mbusyani Road, approximately 2 km from Kitui Town Centre.
                   Look for the prominent Kitui High School main entrance gate.
                 </p>
               </div>

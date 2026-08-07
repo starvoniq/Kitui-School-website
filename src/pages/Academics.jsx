@@ -349,7 +349,7 @@ export default function Academics() {
                   {['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English'].map((s) => (
                     <li key={s} className="flex items-center gap-2 text-sm text-slate-600 font-sans">
                       <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
-                      {s} — Outstanding results
+                      {s}: Outstanding results
                     </li>
                   ))}
                 </ul>
@@ -359,7 +359,7 @@ export default function Academics() {
                 <p className="text-white/80 text-sm italic leading-relaxed">
                   Excellence is our tradition. The future is our destination.
                 </p>
-                <p className="text-gold/70 text-xs mt-3 font-sans">— Kitui High School</p>
+                <p className="text-gold/70 text-xs mt-3 font-sans">Kitui High School</p>
               </div>
             </div>
           </div>

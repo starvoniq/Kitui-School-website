@@ -5,10 +5,10 @@ import { images } from '../assets/images.js'
 const locations = [
   { n: 1, icon: MapPin, title: 'Main Entrance Gate', text: 'Welcome to Kitui High School. The iconic school gate that has welcomed generations of national leaders.', image: images.gate },
   { n: 2, icon: MapPin, title: 'Administration Block', text: 'The heart of leadership and management where decisions are made, records kept and guidance given.', image: images.campus.adminTower },
-  { n: 3, icon: FlaskConical, title: 'Science Laboratories', text: 'Well-equipped labs for Physics, Chemistry and Biology — where curiosity meets practical discovery.', image: images.academics.physicsLab },
+  { n: 3, icon: FlaskConical, title: 'Science Laboratories', text: 'Well-equipped labs for Physics, Chemistry and Biology, where curiosity meets practical discovery.', image: images.academics.physicsLab },
   { n: 4, icon: BookOpen, title: 'School Library & Research', text: 'A quiet haven for research, reading and inspiration with thousands of volumes and digital resources.', image: images.academics.library },
   { n: 5, icon: Monitor, title: 'ICT Centre & Coding Lab', text: 'Modern technology for innovation, software development and 21st-century digital skills.', image: images.academics.computerLab },
-  { n: 6, icon: BedDouble, title: 'Boarding Houses', text: 'Safe, comfortable and conducive boarding environment — a true home away from home.', image: images.campus.boarding },
+  { n: 6, icon: BedDouble, title: 'Boarding Houses', text: 'Safe, comfortable and conducive boarding environment, a true home away from home.', image: images.campus.boarding },
   { n: 7, icon: Utensils, title: 'Dining Hall', text: 'Nutritious, balanced meals served in a clean, hygienic and spacious dining hall.', image: images.campus.dining },
   { n: 8, icon: Dumbbell, title: 'Sports Grounds', text: 'Where champions are made, teamwork thrives and national sporting trophies are won.', image: images.campus.sportsField },
 ]
