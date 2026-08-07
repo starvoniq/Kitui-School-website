@@ -1,70 +1,61 @@
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
 /**
- * Wraps children and reveals them (fade + rise) the first time they scroll
- * into view. Pass `delay` (seconds) to stagger siblings, and `as` to render
- * a different element than a <div> (e.g. "section", "li").
+ * Reveal: animated wrapper that slides + fades children into view.
+ *
+ * Props:
+ *  - direction  {'up'|'down'|'left'|'right'|'none'} slide origin (default 'up')
+ *  - delay      {number}  seconds before animation starts
+ *  - duration   {number}  animation duration in seconds
+ *  - y / x      {number}  custom travel distance override
+ *  - className  {string}  extra classes applied to wrapper
  */
+const OFFSET = 32;
+
 export default function Reveal({
   children,
-  className = "",
   delay = 0,
-  as: Tag = "div",
+  duration = 0.65,
+  direction = "up",
+  y,
+  x,
+  className = "",
 }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return undefined;
-
-    // If the user has already scrolled past this on a fast connection, or
-    // prefers reduced motion, just show it immediately.
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) {
-      setVisible(true);
-      return undefined;
+  const travel = (dir) => {
+    switch (dir) {
+      case "left":
+        return { x: x ?? OFFSET, y: y ?? 0 };
+      case "right":
+        return { x: x ?? -OFFSET, y: y ?? 0 };
+      case "down":
+        return { x: x ?? 0, y: y ?? -OFFSET };
+      case "none":
+        return { x: x ?? 0, y: y ?? 0 };
+      default:
+        return { x: x ?? 0, y: y ?? OFFSET };
     }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(node);
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  };
 
   return (
-    <Tag
-      ref={ref}
+    <motion.div
       className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transitionProperty: "opacity, transform",
-        transitionDuration: "700ms",
-        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-        transitionDelay: `${delay}s`,
-        willChange: "opacity, transform",
-      }}
+      initial={{ opacity: 0, ...travel(direction) }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
-    </Tag>
+    </motion.div>
   );
 }
 
 Reveal.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
   delay: PropTypes.number,
-  as: PropTypes.elementType,
+  duration: PropTypes.number,
+  direction: PropTypes.oneOf(["up", "down", "left", "right", "none"]),
+  y: PropTypes.number,
+  x: PropTypes.number,
+  className: PropTypes.string,
 };
