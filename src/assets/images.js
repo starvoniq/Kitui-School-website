@@ -6,6 +6,10 @@ import adminImg from './admin.jpg'
 import classroomImg from './photos/classroom.png'
 import academicsHeroImg from './photos/Academics-tab-heroes.jpeg'
 import scienceLabImg from './photos/science_lab.png'
+import bioLabImg from './photos/bio lab.jpg'
+import chemistryLabImg from './photos/chemisty lab.jpg'
+import physicsLabImg from './photos/phyc  lab.jpg'
+import compLabImg from './photos/comp lab.jpg'
 import principalImg from './photos/principal.jpg'
 import compoundImg from './photos/compound.png'
 import sportsImg from './photos/sports.png'
@@ -18,6 +22,20 @@ import deputyPrincipalImg from './photos/deputy_principal.png'
 import femaleTeacherImg from './photos/female_teacher.png'
 import studentLeaderImg from './photos/student_leader.png'
 import alumniImg from './photos/alumni.png'
+
+// Teacher profile images
+import wambuaImg from './teachers-pics/mrs-wambua.jpg'
+import kaveleImg from './teachers-pics/mr-kavele.jpg'
+import mbuvuaImg from './teachers-pics/mrs-mbuva.jpg'
+import gabrielImg from './teachers-pics/mrs-gabriel.jpg'
+import tairusImg from './teachers-pics/mr-tairus.jpg'
+import aminaImg from './teachers-pics/miss-amina.jpg'
+import njeriImg from './teachers-pics/miss-njeri.jpg'
+import ombadoImg from './teachers-pics/ms-ombado.jpg'
+import njugunaImg from './teachers-pics/mr-njuguna.jpg'
+import nzomoImg from './teachers-pics/mr-nzomo.jpg'
+import kagemaImg from './teachers-pics/mrs-kagema.jpg'
+import otienoImg from './teachers-pics/mr-otieno.jpg'
 
 export const images = {
   gate: gateImg,
@@ -42,10 +60,10 @@ export const images = {
     diningHall: compoundImg,
   },
   academics: {
-    physicsLab: scienceLabImg,
-    chemistryLab: scienceLabImg,
-    biologyLab: scienceLabImg,
-    computerLab: computerLabImg,
+    physicsLab: physicsLabImg,
+    chemistryLab: chemistryLabImg,
+    biologyLab: bioLabImg,
+    computerLab: compLabImg,
     library: libraryImg,
     smartClass: classroomImg,
     ictCentre: computerLabImg,
@@ -95,5 +113,19 @@ export const images = {
     alumni: alumniImg,
     parent: femaleTeacherImg,
     student: studentLeaderImg,
+  },
+  teachers: {
+    wambua: wambuaImg,
+    kavele: kaveleImg,
+    mbuva: mbuvuaImg,
+    gabriel: gabrielImg,
+    tairus: tairusImg,
+    amina: aminaImg,
+    njeri: njeriImg,
+    ombado: ombadoImg,
+    njuguna: njugunaImg,
+    nzomo: nzomoImg,
+    kagema: kagemaImg,
+    otieno: otienoImg,
   },
 }

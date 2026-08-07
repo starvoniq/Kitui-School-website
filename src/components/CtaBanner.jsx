@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import PropTypes from "prop-types";
 
 /**
- * CtaBanner — full-width call-to-action strip.
+ * CtaBanner: full-width call-to-action strip.
  *
  * Props:
  *  - title           {string}
