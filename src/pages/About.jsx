@@ -426,24 +426,23 @@ export default function About() {
                     {kcseRows.map((row, ri) => (
                       <tr
                         key={row.year}
-                        className={row.highlight ? 'bg-forest/[0.04]' : ri % 2 === 0 ? 'bg-white' : 'bg-neutral-50/40'}
+                        className={
+                          row.highlight
+                            ? 'bg-forest/10'
+                            : ri % 2 === 0 ? 'bg-white' : 'bg-neutral-50/40'
+                        }
                       >
-                        <td className="px-4 py-3.5 font-bold text-neutral-900 whitespace-nowrap">
+                        <td className={`px-4 py-3.5 font-bold whitespace-nowrap ${row.highlight ? 'text-forest' : 'text-neutral-900'}`}>
                           {row.year}
-                          {row.highlight && (
-                            <span className="ml-2 text-[10px] font-semibold uppercase tracking-wide text-forest bg-forest/10 px-2 py-0.5 rounded-full">
-                              Latest
-                            </span>
-                          )}
                         </td>
                         {kcseColumns.map((c, i) => (
-                          <td key={c} className="px-3 py-3.5 text-center text-neutral-700 tabular-nums">
+                          <td key={c} className={`px-3 py-3.5 text-center tabular-nums ${row.highlight ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
                             {row.grades[i]}
                           </td>
                         ))}
-                        <td className="px-3 py-3.5 text-center font-semibold text-neutral-700 tabular-nums">{row.entry}</td>
+                        <td className={`px-3 py-3.5 text-center font-semibold tabular-nums ${row.highlight ? 'text-forest' : 'text-neutral-700'}`}>{row.entry}</td>
                         <td className="px-3 py-3.5 text-center font-bold text-forest tabular-nums">{row.mean}</td>
-                        <td className="px-4 py-3.5 text-center font-semibold text-neutral-800 tabular-nums">{row.pass}</td>
+                        <td className={`px-4 py-3.5 text-center font-semibold tabular-nums ${row.highlight ? 'text-forest' : 'text-neutral-800'}`}>{row.pass}</td>
                       </tr>
                     ))}
                   </tbody>
