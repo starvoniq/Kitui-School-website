@@ -360,7 +360,7 @@ export default function Management() {
                 <p className="font-semibold text-forest">Office Hours</p>
               </div>
               <p className="text-sm text-slate-600 font-sans mb-1">
-                Monday – Friday: 8:00 AM – 4:30 PM
+                Monday-Friday: 8:00 AM to 4:30 PM
               </p>
               <div className="h-px bg-slate-100 my-3" />
               <div className="space-y-2">

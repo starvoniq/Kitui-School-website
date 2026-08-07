@@ -60,18 +60,20 @@ export default function Navbar() {
       {/* Main nav */}
       <div className="container-page flex items-center justify-between h-[68px]">
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-3 shrink-0">
-          <img
-            src={logo}
-            alt="Kitui High School Logo"
-            className="h-12 w-12 rounded-full object-cover border-2 border-gold/40 shadow-sm"
-          />
+        <NavLink to="/" className="group flex items-center gap-3 shrink-0">
+          <span className="relative inline-flex items-center justify-center h-[54px] w-[54px] rounded-full bg-white shadow-lg ring-2 ring-gold/60 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110 group-hover:shadow-xl">
+            <img
+              src={logo}
+              alt="Kitui High School Logo"
+              className="h-11 w-11 rounded-full object-contain"
+            />
+          </span>
           <div className="leading-tight">
             <p className="text-white font-serif font-bold text-base tracking-wide leading-none">
               Kitui High School
             </p>
             <p className="text-gold-light text-[11px] italic font-sans mt-0.5 leading-none font-medium">
-              Learn To Serve Since 1938
+              Learn To Serve Since 1908
             </p>
           </div>
         </NavLink>

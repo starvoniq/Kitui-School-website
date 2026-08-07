@@ -145,7 +145,7 @@ export default function Academics() {
       <section id="departments" className="section-pad bg-cream">
         <div className="container-page">
           <div className="text-center mb-12">
-            <p className="section-eyebrow mb-3">CBC Senior School (Grades 10 – 12)</p>
+            <p className="section-eyebrow mb-3">CBC Senior School (Grades 10-12)</p>
             <div className="gold-bar mx-auto mb-4" />
             <h2 className="section-title">Diverse Pathways for Every Learner</h2>
             <p className="text-slate-500 mt-3 max-w-2xl mx-auto font-sans text-sm">
