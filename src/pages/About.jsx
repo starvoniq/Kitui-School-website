@@ -69,30 +69,27 @@ const identity = [
   },
 ]
 
-const kcseHighlights = [
-  { value: '9.71', label: '2025 Mean Grade' },
-  { value: '13th', label: 'National Rank 2025' },
-  { value: '354', label: 'Candidates 2025' },
-  { value: '98.5%', label: 'University Transition' },
-]
+const kcseColumns = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'X', 'Y']
 
-const kcseMean = [
-  { year: '2025', mean: '9.71' },
-  { year: '2024', mean: '9.52' },
-  { year: '2023', mean: '8.89' },
-  { year: '2022', mean: '9.31' },
-  { year: '2021', mean: '9.50' },
-  { year: '2020', mean: '9.15' },
-]
-
-const kcse2025 = [
-  { grade: 'A', count: 17 },
-  { grade: 'A-', count: 87 },
-  { grade: 'B+', count: 109 },
-  { grade: 'B', count: 83 },
-  { grade: 'B-', count: 41 },
-  { grade: 'C+', count: 12 },
-  { grade: 'C', count: 5 },
+const kcseRows = [
+  {
+    year: '2025',
+    grades: [17, 87, 109, 83, 41, 12, 5, 0, 0, 0, 0, 0, 0, 0],
+    entry: 354,
+    mean: '9.72',
+    pass: '98.59',
+  },
+  { year: '2024', grades: null, entry: '–', mean: '9.53', pass: '–' },
+  {
+    year: '2023',
+    grades: [2, 24, 56, 65, 42, 17, 17, 1, 0, 0, 0, 0, 0, 0],
+    entry: 224,
+    mean: '8.91',
+    pass: '91.96',
+  },
+  { year: '2022', grades: null, entry: '–', mean: '9.31', pass: '–' },
+  { year: '2021', grades: null, entry: '–', mean: '9.50', pass: '–' },
+  { year: '2020', grades: null, entry: '–', mean: '9.15', pass: '–' },
 ]
 
 const alumni = [
@@ -275,68 +272,58 @@ export default function About() {
             <h2 className="section-title">KCSE Performance</h2>
             <p className="text-slate-500 mt-3 max-w-2xl mx-auto font-sans text-sm">
               Kitui High School is consistently ranked among the top schools nationally. In the
-              2025 KCSE, the school was ranked 13th in Kenya with a mean grade of 9.71, building
-              on a 2024 mean of 9.52 and a national rank of 23rd, including 2nd in the country
-              for the best performance in Mathematics.
+              2025 KCSE the school was ranked 13th in Kenya, building on a 2024 national rank of
+              23rd with the 2nd best performance in Mathematics in the country.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
-            {kcseHighlights.map((s) => (
-              <div key={s.label} className="bg-white rounded-xl border border-parchment p-6 text-center">
-                <p className="text-3xl md:text-4xl font-serif font-bold text-forest">{s.value}</p>
-                <p className="mt-2 text-xs uppercase tracking-widest text-slate-500 font-sans">{s.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
-            <div className="card p-6 md:p-8">
-              <h3 className="font-serif font-bold text-forest text-xl mb-5">Mean Grade by Year</h3>
-              <table className="w-full text-sm font-sans">
+          <div className="rounded-xl overflow-hidden shadow-lg border border-slate-200">
+            <div className="bg-forest-dark text-white px-6 py-4 flex flex-wrap items-baseline justify-between gap-2">
+              <p className="font-serif font-bold text-lg md:text-xl">Kitui High School</p>
+              <p className="text-xs uppercase tracking-widest text-gold-light font-sans font-semibold">
+                KCSE Performance
+              </p>
+            </div>
+            <div className="bg-white overflow-x-auto">
+              <table className="w-full text-xs font-sans border-collapse min-w-[860px]">
                 <thead>
-                  <tr className="border-b border-slate-200 text-left">
-                    <th className="pb-2.5 text-xs uppercase tracking-widest text-slate-400 font-semibold">Year</th>
-                    <th className="pb-2.5 text-right text-xs uppercase tracking-widest text-slate-400 font-semibold">Mean Grade</th>
+                  <tr className="bg-forest-dark text-white">
+                    <th className="px-3 py-2.5 text-left font-semibold tracking-wider whitespace-nowrap">YEAR</th>
+                    {kcseColumns.map((c) => (
+                      <th key={c} className="px-2.5 py-2.5 font-semibold text-center whitespace-nowrap">{c}</th>
+                    ))}
+                    <th className="px-2.5 py-2.5 font-semibold text-center whitespace-nowrap">ENTRY</th>
+                    <th className="px-2.5 py-2.5 font-semibold text-center whitespace-nowrap">MEAN</th>
+                    <th className="px-3 py-2.5 font-semibold text-center whitespace-nowrap">&gt;C+ %</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {kcseMean.map((r) => (
-                    <tr key={r.year} className="border-b border-slate-100">
-                      <td className="py-2.5 font-semibold text-forest">{r.year}</td>
-                      <td className="py-2.5 text-right font-semibold text-gold">{r.mean}</td>
+                  {kcseRows.map((row, ri) => (
+                    <tr
+                      key={row.year}
+                      className={`border-b border-slate-100 ${ri % 2 === 0 ? 'bg-white' : 'bg-cream/50'}`}
+                    >
+                      <td className="px-3 py-2 font-bold text-forest whitespace-nowrap">{row.year}</td>
+                      {kcseColumns.map((c, i) => (
+                        <td key={c} className="px-2.5 py-2 text-center text-slate-700 tabular-nums">
+                          {row.grades ? row.grades[i] : '–'}
+                        </td>
+                      ))}
+                      <td className="px-2.5 py-2 text-center font-semibold text-slate-700 tabular-nums">{row.entry}</td>
+                      <td className="px-2.5 py-2 text-center font-bold text-gold tabular-nums">{row.mean}</td>
+                      <td className="px-3 py-2 text-center font-semibold text-forest tabular-nums">{row.pass}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <p className="mt-4 text-xs text-slate-400 font-sans">
-                Source: KCSE results as reported by the school and national examination analysis.
-              </p>
-            </div>
-
-            <div className="card p-6 md:p-8">
-              <h3 className="font-serif font-bold text-forest text-xl mb-5">2025 Grade Distribution</h3>
-              <table className="w-full text-sm font-sans">
-                <thead>
-                  <tr className="border-b border-slate-200 text-left">
-                    <th className="pb-2.5 text-xs uppercase tracking-widest text-slate-400 font-semibold">Grade</th>
-                    <th className="pb-2.5 text-right text-xs uppercase tracking-widest text-slate-400 font-semibold">Students</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {kcse2025.map((r) => (
-                    <tr key={r.grade} className="border-b border-slate-100">
-                      <td className="py-2.5 font-semibold text-forest">{r.grade}</td>
-                      <td className="py-2.5 text-right font-semibold text-gold">{r.count}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="mt-4 text-xs text-slate-400 font-sans">
-                349 of 354 candidates (98.5%) qualified for university admission.
-              </p>
             </div>
           </div>
+
+          <p className="mt-4 text-xs text-slate-400 font-sans text-center">
+            Figures as published by the school and national examination analysis. &ldquo;&ndash;&rdquo;
+            denotes data not published for that year. In 2025, 349 of 354 candidates (98.59%)
+            qualified for university admission.
+          </p>
         </div>
       </section>
 
