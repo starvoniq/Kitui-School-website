@@ -366,15 +366,15 @@ export default function Management() {
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
                   <Phone className="text-gold shrink-0" size={14} />
-                  +254 720 302 123 / +254 722 323 456
+                  +254 723 636 536
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
                   <Mail className="text-gold shrink-0" size={14} />
-                  info@kituihigh.ac.ke
+                  info@kituihighschool.sc.ke
                 </div>
                 <div className="flex items-start gap-2 text-sm text-slate-600 font-sans">
                   <MapPin className="text-gold shrink-0 mt-0.5" size={14} />
-                  Kitui – Machakos Road, P.O. Box 71, Kitui, Kenya
+                  Mbusyani Road, P.O. Box 71, Kitui, Kenya
                 </div>
               </div>
             </div>

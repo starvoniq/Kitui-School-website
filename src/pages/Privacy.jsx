@@ -84,12 +84,12 @@ export default function PrivacyPolicy() {
             <div className="card p-6 text-center hover:border-gold/30">
               <Phone className="text-gold mx-auto mb-3" size={24} />
               <p className="font-serif font-bold text-forest mb-1">Call Us</p>
-              <p className="text-sm text-slate-600 font-sans">+254 720 202 123</p>
+              <p className="text-sm text-slate-600 font-sans">+254 723 636 536</p>
             </div>
             <div className="card p-6 text-center hover:border-gold/30">
               <Mail className="text-gold mx-auto mb-3" size={24} />
               <p className="font-serif font-bold text-forest mb-1">Email Us</p>
-              <p className="text-sm text-slate-600 font-sans">info@kituihigh.ac.ke</p>
+              <p className="text-sm text-slate-600 font-sans">info@kituihighschool.sc.ke</p>
             </div>
           </div>
         </div>

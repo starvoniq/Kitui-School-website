@@ -88,9 +88,27 @@ const kcseRows = [
     mean: '8.91',
     pass: '91.96',
   },
-  { year: '2022', grades: null, entry: '–', mean: '9.31', pass: '–' },
-  { year: '2021', grades: null, entry: '–', mean: '9.50', pass: '–' },
-  { year: '2020', grades: null, entry: '–', mean: '9.15', pass: '–' },
+  {
+    year: '2022',
+    grades: [5, 42, 48, 50, 29, 19, 6, 0, 0, 0, 0, 0, 0, 0],
+    entry: 199,
+    mean: '9.31',
+    pass: '96.98',
+  },
+  {
+    year: '2021',
+    grades: [2, 43, 52, 43, 27, 12, 1, 0, 0, 0, 0, 0, 0, 0],
+    entry: 180,
+    mean: '9.50',
+    pass: '99.44',
+  },
+  {
+    year: '2020',
+    grades: [2, 22, 40, 49, 32, 8, 6, 0, 0, 0, 0, 0, 0, 0],
+    entry: 159,
+    mean: '9.15',
+    pass: '96.23',
+  },
 ]
 
 const alumni = [
@@ -329,9 +347,9 @@ export default function About() {
           </Reveal>
 
           <p className="mt-4 text-xs text-slate-400 font-sans text-center">
-            Figures as published by the school and national examination analysis. &ldquo;&ndash;&rdquo;
-            denotes data not published for that year. In 2025, 349 of 354 candidates (98.59%)
-            qualified for university admission.
+            Figures as published by the school and national examination analysis. In
+            2025, 349 of 354 candidates (98.59%) qualified for university admission.
+            The 2024 candidate entry was not published.
           </p>
         </div>
       </section>
