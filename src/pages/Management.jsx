@@ -12,8 +12,8 @@ import PageHero from "../components/PageHero.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
 import LeadershipOrgChart from "../components/Leadershiporgchart.jsx";
 import Reveal from "../components/Reveal.jsx";
-import SectionDivider from "../components/SectionDivider.jsx";
-import AnimatedCounter from "../components/AnimatedCounter.jsx";
+import SectionDivider from "../components/Sectiondivider.jsx";
+import AnimatedCounter from "../components/Animatedcounter.jsx";
 import { images } from "../assets/images.js";
 import PropTypes from "prop-types";
 
