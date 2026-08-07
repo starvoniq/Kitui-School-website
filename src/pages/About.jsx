@@ -220,7 +220,6 @@ export default function About() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
                 History of the School
               </p>
-              <div className="w-14 h-[3px] bg-forest mb-6 rounded-full" />
               <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl leading-tight mb-6">
                 A Century of Leadership and Service
               </h2>
@@ -262,7 +261,7 @@ export default function About() {
 
           <Reveal direction="left" delay={0.15} className="space-y-6">
             <figure className="group">
-              <div className="overflow-hidden rounded-xl shadow-md border border-neutral-100">
+              <div className="overflow-hidden rounded-xl shadow-md">
                 <img
                   src={IMG.adminClose}
                   alt="The Administration Block of Kitui High School"
@@ -274,7 +273,7 @@ export default function About() {
               </figcaption>
             </figure>
             <figure className="group">
-              <div className="overflow-hidden rounded-xl shadow-md border border-neutral-100">
+              <div className="overflow-hidden rounded-xl shadow-md">
                 <img
                   src={IMG.principals}
                   alt="List of Principals of Kitui High School"
@@ -290,14 +289,13 @@ export default function About() {
       </section>
 
       {/* ══ AT A GLANCE ══ */}
-      <section className="bg-neutral-50 border-y border-neutral-100">
+      <section className="bg-neutral-50">
         <div className="container-page grid grid-cols-2 lg:grid-cols-4">
-          {glance.map((g, i) => (
+          {glance.map((g) => (
             <Reveal
               key={g.label}
               direction="up"
-              delay={i * 0.08}
-              className={`py-10 px-6 text-center ${i % 2 === 1 ? 'lg:border-l lg:border-neutral-200' : ''}`}
+              className="py-10 px-6 text-center"
             >
               <p className="text-3xl md:text-4xl font-serif font-bold text-forest">{g.value}</p>
               <p className="mt-1.5 text-xs uppercase tracking-widest text-neutral-500">{g.label}</p>
@@ -314,19 +312,17 @@ export default function About() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
                 Our Heritage
               </p>
-              <div className="w-14 h-[3px] bg-forest mx-auto mb-5 rounded-full" />
               <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
                 Over a Century of History
               </h2>
             </div>
           </Reveal>
           <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-0 top-2 bottom-2 w-px bg-neutral-200" />
             <div className="space-y-10">
               {eras.map((era, i) => (
                 <Reveal key={era.title} direction={i % 2 === 0 ? 'right' : 'left'} delay={(i % 2) * 0.1}>
                   <div className="relative pl-10">
-                    <span className="absolute left-0 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-forest border-2 border-white shadow" />
+                    <span className="absolute left-0 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-forest shadow" />
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-forest">
                       {era.period}
                     </p>
@@ -349,12 +345,11 @@ export default function About() {
       </section>
 
       {/* ══ MISSION / VISION / MOTTO ══ */}
-      <section className="section-pad bg-neutral-50 border-y border-neutral-100">
+      <section className="section-pad bg-neutral-50">
         <div className="container-page grid md:grid-cols-3 gap-8">
           {identity.map((item, i) => (
             <Reveal key={item.label} direction="up" delay={i * 0.1}>
-              <div className="bg-white border border-neutral-100 rounded-xl p-7 h-full shadow-sm">
-                <div className="w-10 h-[3px] bg-forest rounded-full mb-5" />
+              <div className="bg-white rounded-xl p-7 h-full shadow-sm">
                 <h3 className="font-serif font-bold text-neutral-900 text-xl mb-3">{item.label}</h3>
                 <p className="text-sm text-neutral-600 leading-relaxed">{item.text}</p>
                 {item.sub && <p className="text-sm text-neutral-500 leading-relaxed mt-3">{item.sub}</p>}
@@ -372,7 +367,6 @@ export default function About() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
                 Academic Performance
               </p>
-              <div className="w-14 h-[3px] bg-forest mx-auto mb-5 rounded-full" />
               <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
                 KCSE Performance
               </h2>
@@ -396,7 +390,7 @@ export default function About() {
               ].map(({ icon: Icon, value, label }) => (
                 <div
                   key={label}
-                  className="bg-neutral-50 border border-neutral-100 rounded-xl p-5 text-center"
+                  className="bg-neutral-50 rounded-xl p-5 text-center"
                 >
                   <Icon size={20} className="mx-auto text-forest mb-2" />
                   <p className="font-serif font-bold text-neutral-900 text-2xl">{value}</p>
@@ -411,7 +405,7 @@ export default function About() {
               <div className="overflow-x-auto">
                 <table className="w-full text-xs md:text-sm border-collapse min-w-[760px]">
                   <thead>
-                    <tr className="border-b border-neutral-200 text-neutral-500">
+                    <tr className="text-neutral-500">
                       <th className="px-4 py-3 text-left font-semibold">Year</th>
                       {kcseColumns.map((c) => (
                         <th key={c} className="px-3 py-3 font-semibold text-center">{c}</th>
@@ -425,9 +419,7 @@ export default function About() {
                     {kcseRows.map((row, ri) => (
                       <tr
                         key={row.year}
-                        className={`border-b border-neutral-100 ${
-                          row.highlight ? 'bg-forest/[0.04]' : ri % 2 === 0 ? 'bg-white' : 'bg-neutral-50/40'
-                        }`}
+                        className={row.highlight ? 'bg-forest/[0.04]' : ri % 2 === 0 ? 'bg-white' : 'bg-neutral-50/40'}
                       >
                         <td className="px-4 py-3.5 font-bold text-neutral-900 whitespace-nowrap">
                           {row.year}
@@ -461,14 +453,13 @@ export default function About() {
       </section>
 
       {/* ══ NOTABLE ALUMNI ══ */}
-      <section className="section-pad bg-neutral-50 border-t border-neutral-100">
+      <section className="section-pad bg-neutral-50">
         <div className="container-page">
           <Reveal>
             <div className="text-center mb-12">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
                 Notable Alumni
               </p>
-              <div className="w-14 h-[3px] bg-forest mx-auto mb-5 rounded-full" />
               <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
                 Distinguished Graduates
               </h2>
@@ -481,8 +472,7 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {alumni.map((a, i) => (
               <Reveal key={a.name} direction="up" delay={(i % 3) * 0.08}>
-                <div className="bg-white border border-neutral-100 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-neutral-200 transition-all h-full flex flex-col">
-                  <div className="w-8 h-[3px] bg-forest rounded-full mb-4" />
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
                   <a
                     href={a.wiki}
                     target="_blank"
@@ -516,7 +506,6 @@ export default function About() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
                 Life at Kitui High School
               </p>
-              <div className="w-14 h-[3px] bg-forest mx-auto mb-5 rounded-full" />
               <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
                 Campus &amp; Community
               </h2>
@@ -526,7 +515,7 @@ export default function About() {
             {campusShots.map((shot, i) => (
               <Reveal key={shot.src} direction="up" delay={(i % 3) * 0.08}>
                 <figure className="group">
-                  <div className="overflow-hidden rounded-xl shadow-sm border border-neutral-100">
+                  <div className="overflow-hidden rounded-xl shadow-sm">
                     <img
                       src={shot.src}
                       alt={shot.caption}
@@ -545,7 +534,7 @@ export default function About() {
       </section>
 
       {/* ══ QUOTE STRIP ══ */}
-      <section className="bg-neutral-50 border-y border-neutral-100 py-14 text-center">
+      <section className="bg-neutral-50 py-14 text-center">
         <div className="container-page">
           <Reveal>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-neutral-900 mb-3">
@@ -563,7 +552,7 @@ export default function About() {
       <section className="section-pad bg-white">
         <div className="container-page">
           <Reveal>
-            <div className="border border-neutral-200 rounded-2xl px-6 py-12 md:p-14 bg-gradient-to-b from-neutral-50 to-white text-center">
+            <div className="rounded-2xl px-6 py-12 md:p-14 bg-gradient-to-b from-neutral-50 to-white text-center">
               <h2 className="font-serif font-bold text-neutral-900 text-2xl md:text-3xl leading-snug">
                 Experience the Kitui High School Difference
               </h2>
@@ -579,7 +568,7 @@ export default function About() {
                 </Link>
                 <Link
                   to="/academics"
-                  className="inline-flex items-center gap-2 border border-neutral-300 text-neutral-700 text-sm font-semibold px-7 py-3.5 rounded-full hover:border-forest hover:text-forest transition-colors"
+                  className="inline-flex items-center gap-2 text-neutral-700 text-sm font-semibold px-7 py-3.5 rounded-full hover:text-forest transition-colors"
                 >
                   Explore Academics
                 </Link>

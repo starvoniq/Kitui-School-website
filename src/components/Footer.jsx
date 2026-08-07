@@ -32,16 +32,13 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white/80 relative z-30 border-t border-white/10">
-      {/* Top accent line */}
-      <div className="h-[3px] w-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-
+    <footer className="bg-[#000000] text-white/80 relative z-30">
       {/* Main footer body */}
       <div className="container-page py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand col */}
         <div className="lg:pr-8">
           <div className="flex items-center gap-3 mb-5">
-            <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white shadow ring-1 ring-white/20 shrink-0">
+            <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white shadow shrink-0">
               <img
                 src={logo}
                 alt="Kitui High School Logo"
@@ -67,7 +64,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 hover:-translate-y-0.5 transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-200"
               >
                 <Icon size={15} />
               </a>
@@ -85,7 +82,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 bg-white/5 border border-white/15 rounded px-3 py-2.5 text-xs text-white placeholder:text-white/35 focus:outline-none focus:border-white/50 focus:bg-white/10 min-w-0"
+                className="flex-1 bg-white/10 rounded px-3 py-2.5 text-xs text-white placeholder:text-white/35 focus:outline-none focus:bg-white/15 min-w-0"
               />
               <button
                 type="submit"
@@ -129,7 +126,7 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-          <div className="mt-6 pt-6 border-t border-white/10">
+          <div className="mt-6 pt-6">
             <p className="text-xs text-white/45 leading-relaxed">
               Office Hours
               <br />Mon-Fri · 8:00 AM to 4:30 PM
@@ -139,7 +136,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 bg-black/60">
+      <div className="bg-[#000000]">
         <div className="container-page py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p className="flex items-center gap-1.5">
             <Landmark size={13} className="text-white/40" />
