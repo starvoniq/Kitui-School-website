@@ -559,30 +559,19 @@ export default function Management() {
                   <p className="text-sm font-semibold text-forest">{a.label}</p>
                   <p className="font-sans text-xs text-slate-500">{a.desc}</p>
                 </div>
-              ))}
-            </div>
-            {/* Office hours */}
-            <div className="card p-5 hover:border-gold/30">
-              <div className="flex items-center gap-2 mb-3">
-                <Clock className="text-gold" size={18} />
-                <p className="font-semibold text-forest">Office Hours</p>
-              </div>
-              <p className="text-sm text-slate-600 font-sans mb-1">
-                Monday-Friday: 8:00 AM to 4:30 PM
-              </p>
-              <div className="h-px bg-slate-100 my-3" />
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
-                  <Phone className="text-gold shrink-0" size={14} />
-                  +254 723 636 536
-                </div>
-                <div className="flex items-center gap-2 text-sm text-slate-600 font-sans">
-                  <Mail className="text-gold shrink-0" size={14} />
-                  info@kituihighschool.sc.ke
-                </div>
-                <div className="flex items-start gap-2 text-sm text-slate-600 font-sans">
-                  <MapPin className="text-gold shrink-0 mt-0.5" size={14} />
-                  Mbusyani Road, P.O. Box 71, Kitui, Kenya
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 md:grid-cols-4">
+            {officeInfo.map(({ icon: Icon, label, value }, i) => (
+              <Reveal
+                key={label}
+                delay={i * 0.08}
+                className="group rounded-xl border border-parchment bg-white p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/30 hover:shadow-lg"
+              >
+                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg border border-gold/20 bg-gold/10 transition-transform duration-300 group-hover:scale-110">
+                  <Icon className="text-gold" size={18} />
                 </div>
                 <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-forest">
                   {label}
@@ -597,16 +586,23 @@ export default function Management() {
       </section>
 
       {/* ══ QUOTE BANNER ══ */}
-      <section className="bg-forest-dark py-16 text-center relative overflow-hidden">
-        <div className="container-page relative z-10 max-w-3xl mx-auto">
-          <p className="text-gold text-5xl font-serif mb-2">&ldquo;</p>
-          <h2 className="text-white font-serif text-2xl md:text-3xl font-semibold mb-2">
-            Leadership is not about position, it is about service, sacrifice and
-            impacting lives.
-          </h2>
-          <p className="text-gold/70 text-sm font-sans mt-3 font-semibold tracking-wider uppercase">
-            Learn To Serve · Since 1938
-          </p>
+      <section className="relative overflow-hidden bg-forest-dark py-16 text-center">
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl animate-pulse-slow"
+          aria-hidden="true"
+        />
+        <CrestPattern className="text-white opacity-[0.04]" />
+        <div className="container-page relative z-10 mx-auto max-w-3xl">
+          <Reveal>
+            <p className="mb-2 font-serif text-5xl text-gold">&ldquo;</p>
+            <h2 className="mb-2 font-serif text-2xl font-semibold text-white md:text-3xl">
+              Leadership is not about position, it is about service, sacrifice
+              and impacting lives.
+            </h2>
+            <p className="mt-3 font-sans text-sm font-semibold uppercase tracking-wider text-gold/70">
+              Learn To Serve — Since 1938
+            </p>
+          </Reveal>
         </div>
       </section>
 
