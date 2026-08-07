@@ -38,13 +38,11 @@ export default function Footer() {
         {/* Brand col */}
         <div className="lg:pr-8">
           <div className="flex items-center gap-3 mb-5">
-            <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white shadow shrink-0">
-              <img
-                src={logo}
-                alt="Kitui High School Logo"
-                className="h-10 w-10 rounded-full object-contain"
-              />
-            </span>
+            <img
+              src={logo}
+              alt="Kitui High School Logo"
+              className="h-12 w-auto object-contain shrink-0"
+            />
             <div>
               <p className="text-white font-semibold text-lg leading-tight tracking-tight">
                 Kitui High School
