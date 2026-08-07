@@ -66,7 +66,6 @@ function App() {
             </Routes>
           </motion.div>
         </AnimatePresence>
->>>>>>> 83e3dfe (feat: enhance academics pages with stream and department details)
       </main>
       <Footer />
     </div>
