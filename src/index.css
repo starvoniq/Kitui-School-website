@@ -168,4 +168,26 @@
     content: '';
     @apply absolute top-5 left-full w-full h-0.5 bg-gold/30 -z-10;
   }
+
+  /* Horizontal scroll area (KCSE table on small screens) */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #1e5631 #ececec;
+  }
+  .table-scroll::-webkit-scrollbar {
+    height: 10px;
+  }
+  .table-scroll::-webkit-scrollbar-track {
+    background: #f5f5f4;
+    border-radius: 8px;
+  }
+  .table-scroll::-webkit-scrollbar-thumb {
+    background: #1e5631;
+    border-radius: 8px;
+  }
+  .table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #143d22;
+  }
 }

@@ -1,5 +1,6 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ChevronRight, MapPin, GraduationCap, Users, Landmark, Award, ExternalLink } from 'lucide-react'
+import { ChevronRight, MapPin, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
@@ -8,6 +9,9 @@ const IMG = {
   gate: '/kitui school gate.jpeg',
   basketball: '/basketball kitui school.jpeg',
   bus: '/kitui school bus.jpeg',
+  rugby: '/kitui school rugby.jpeg',
+  rugbyAction: '/kitui school rugby 1.jpeg',
+  football: '/kitui school football.jpeg',
   principals: '/kitui school list of principals.jpg',
 }
 
@@ -164,11 +168,52 @@ const campusShots = [
   { src: IMG.bus, caption: 'School transport for our students' },
 ]
 
+const sportsShots = [
+  { src: IMG.rugby, label: 'Rugby' },
+  { src: IMG.basketball, label: 'Basketball' },
+  { src: IMG.football, label: 'Football' },
+  { src: IMG.rugbyAction, label: 'Rugby Action' },
+]
+
+function SportsMarquee() {
+  const Group = () => (
+    <div className="flex shrink-0 items-center gap-5 pr-5">
+      {sportsShots.map((s) => (
+        <figure
+          key={s.src}
+          className="group relative w-60 sm:w-72 md:w-80 shrink-0 overflow-hidden rounded-xl shadow-sm transition-shadow duration-500 hover:shadow-xl"
+        >
+          <img
+            src={s.src}
+            alt={`${s.label} at Kitui High School`}
+            className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+        </figure>
+      ))}
+    </div>
+  )
+
+  return (
+    <div className="relative overflow-hidden py-2">
+      <motion.div
+        className="flex w-max"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 36, ease: 'linear', repeat: Infinity }}
+      >
+        <Group />
+        <Group />
+      </motion.div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-36 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-36 bg-gradient-to-l from-white to-transparent" />
+    </div>
+  )
+}
+
 export default function About() {
   return (
     <>
       {/* ══ HERO WITH PHOTO BACKGROUND ══ */}
-      <section className="relative overflow-hidden bg-forest-dark text-white">
+      <section className="relative flex items-center overflow-hidden bg-forest-dark text-white min-h-[92svh] md:min-h-[80vh]">
         <div className="absolute inset-0 z-0">
           <img
             src={IMG.admin}
@@ -179,7 +224,7 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         </div>
 
-        <div className="container-page relative z-10 py-20 md:py-32">
+        <div className="container-page relative z-10 w-full py-16 sm:py-20 lg:py-28">
           {/* Breadcrumb */}
           <Reveal direction="up">
             <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 mb-6 text-sm">
@@ -298,10 +343,11 @@ export default function About() {
       {/* ══ AT A GLANCE ══ */}
       <section className="bg-neutral-50">
         <div className="container-page grid grid-cols-2 lg:grid-cols-4">
-          {glance.map((g) => (
+          {glance.map((g, i) => (
             <Reveal
               key={g.label}
               direction="up"
+              delay={i * 0.1}
               className="py-10 px-6 text-center"
             >
               <p className="text-3xl md:text-4xl font-serif font-bold text-forest">{g.value}</p>
@@ -387,32 +433,39 @@ export default function About() {
           </Reveal>
 
           {/* Key figures */}
-          <Reveal direction="up">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-              {[
-                { icon: GraduationCap, value: '9.72', label: '2025 Mean Grade' },
-                { icon: Award, value: '98.59%', label: 'University Entry' },
-                { icon: Users, value: '354', label: '2025 Candidates' },
-                { icon: Landmark, value: '13th', label: 'National Rank 2025' },
-              ].map(({ icon: Icon, value, label }) => (
-                <div
-                  key={label}
-                  className="bg-neutral-50 rounded-xl p-5 text-center"
-                >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            {[
+              { icon: GraduationCap, value: '9.72', label: '2025 Mean Grade' },
+              { icon: Award, value: '98.59%', label: 'University Entry' },
+              { icon: Users, value: '354', label: '2025 Candidates' },
+              { icon: Landmark, value: '13th', label: 'National Rank 2025' },
+            ].map(({ icon: Icon, value, label }, i) => (
+              <Reveal key={label} direction="up" delay={i * 0.1}>
+                <div className="bg-neutral-50 rounded-xl p-5 text-center h-full">
                   <Icon size={20} className="mx-auto text-forest mb-2" />
                   <p className="font-serif font-bold text-neutral-900 text-2xl">{value}</p>
                   <p className="text-[11px] uppercase tracking-widest text-neutral-500 mt-1">{label}</p>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
 
           <Reveal>
             <div className="bg-white">
-              <div className="overflow-x-auto">
+              <div className="table-scroll">
+                <p className="md:hidden flex items-center justify-end gap-1.5 pb-2 text-xs text-neutral-400">
+                  <MoveHorizontal size={14} className="text-forest" />
+                  Swipe to scroll the full table
+                </p>
                 <table className="w-full text-xs md:text-sm border-collapse min-w-[760px]">
                   <thead>
-                    <tr className="text-neutral-500">
+                    <motion.tr
+                      initial={{ opacity: 0, y: -12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="text-neutral-500"
+                    >
                       <th className="px-4 py-3 text-left font-semibold">Year</th>
                       {kcseColumns.map((c) => (
                         <th key={c} className="px-3 py-3 font-semibold text-center">{c}</th>
@@ -420,12 +473,16 @@ export default function About() {
                       <th className="px-3 py-3 font-semibold text-center">Entry</th>
                       <th className="px-3 py-3 font-semibold text-center">Mean</th>
                       <th className="px-4 py-3 font-semibold text-center">C+ and above (%)</th>
-                    </tr>
+                    </motion.tr>
                   </thead>
                   <tbody>
                     {kcseRows.map((row, ri) => (
-                      <tr
+                      <motion.tr
                         key={row.year}
+                        initial={{ opacity: 0, x: 24 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: ri * 0.07, ease: [0.22, 1, 0.36, 1] }}
                         className={
                           row.highlight
                             ? 'bg-forest/10'
@@ -443,7 +500,7 @@ export default function About() {
                         <td className={`px-3 py-3.5 text-center font-semibold tabular-nums ${row.highlight ? 'text-forest' : 'text-neutral-700'}`}>{row.entry}</td>
                         <td className="px-3 py-3.5 text-center font-bold text-forest tabular-nums">{row.mean}</td>
                         <td className={`px-4 py-3.5 text-center font-semibold tabular-nums ${row.highlight ? 'text-forest' : 'text-neutral-800'}`}>{row.pass}</td>
-                      </tr>
+                      </motion.tr>
                     ))}
                   </tbody>
                 </table>
@@ -524,6 +581,12 @@ export default function About() {
                 Campus &amp; Community
               </h2>
             </div>
+          </Reveal>
+          <Reveal className="mb-10">
+            <p className="text-center text-sm text-neutral-500 mb-6">
+              Sports and talent development on campus
+            </p>
+            <SportsMarquee />
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {campusShots.map((shot, i) => (
