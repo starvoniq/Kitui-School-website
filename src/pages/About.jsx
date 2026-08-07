@@ -118,36 +118,43 @@ const alumni = [
     name: 'Willy Mutunga',
     role: 'Retired Chief Justice of Kenya; first Chief Justice under the 2010 Constitution',
     wiki: 'https://en.wikipedia.org/wiki/Willy_Mutunga',
+    img: '/willy mutunga.jpeg',
   },
   {
     name: 'Kalonzo Musyoka',
     role: '10th Vice-President of Kenya; diplomat and elder statesman',
     wiki: 'https://en.wikipedia.org/wiki/Kalonzo_Musyoka',
+    img: '/kalonzo musyoka.jpeg',
   },
   {
     name: 'Makau Mutua',
     role: 'Former Dean, University at Buffalo Law School; globally recognized legal scholar',
     wiki: 'https://en.wikipedia.org/wiki/Makau_Mutua',
+    img: '/makau mutua.jpeg',
   },
   {
     name: 'Ngala Mwendwa',
     role: 'Independence-era politician; member of the Kenyan delegation to the 1960 Lancaster House Conference',
     wiki: 'https://en.wikipedia.org/wiki/Ngala_Mwendwa',
+    img: '/ngala mwendwa.jpeg',
   },
   {
     name: 'Leonard Mambo Mbotela',
     role: 'Pioneering veteran Kenyan radio and broadcast journalist',
     wiki: 'https://en.wikipedia.org/wiki/Leonard_Mbotela',
+    img: '/mambo mbotela.jpeg',
   },
   {
     name: 'Muthomi Njuki',
     role: "Governor, Tharaka Nithi County; former Chuka-Igambang'ombe MP (taught Biology, coached rugby)",
     wiki: 'https://en.wikipedia.org/wiki/Muthomi_Njuki',
+    img: '/Muthomi Njuki.jpeg',
   },
   {
     name: 'Benjamin Nzimbi',
     role: 'Retired Archbishop and Primate, Anglican Church of Kenya',
     wiki: 'https://en.wikipedia.org/wiki/Benjamin_Nzimbi',
+    img: '/Benjamin Nzimbi.jpeg',
   },
 ]
 
@@ -260,24 +267,24 @@ export default function About() {
           </Reveal>
 
           <Reveal direction="left" delay={0.15} className="space-y-6">
-            <figure className="group">
-              <div className="overflow-hidden rounded-xl shadow-md">
+            <figure className="group transition-all duration-500 hover:-translate-y-1">
+              <div className="overflow-hidden rounded-xl shadow-md transition-shadow duration-500 group-hover:shadow-2xl">
                 <img
                   src={IMG.adminClose}
                   alt="The Administration Block of Kitui High School"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
               </div>
               <figcaption className="mt-3 text-xs text-neutral-500">
                 The Administration Block at Kitui High School
               </figcaption>
             </figure>
-            <figure className="group">
-              <div className="overflow-hidden rounded-xl shadow-md">
+            <figure className="group transition-all duration-500 hover:-translate-y-1">
+              <div className="overflow-hidden rounded-xl shadow-md transition-shadow duration-500 group-hover:shadow-2xl">
                 <img
                   src={IMG.principals}
                   alt="List of Principals of Kitui High School"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
               </div>
               <figcaption className="mt-3 text-xs text-neutral-500">
@@ -472,25 +479,33 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {alumni.map((a, i) => (
               <Reveal key={a.name} direction="up" delay={(i % 3) * 0.08}>
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all h-full flex flex-col group">
                   <a
                     href={a.wiki}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 font-serif font-bold text-neutral-900 text-lg leading-snug hover:text-forest transition-colors"
+                    aria-label={`Read more about ${a.name} on Wikipedia`}
+                    className="relative block overflow-hidden rounded-xl mb-5"
+                  >
+                    <img
+                      src={a.img}
+                      alt={a.name}
+                      className="w-full aspect-[4/5] object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/20 transition-colors duration-300" />
+                    <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ExternalLink size={14} className="text-forest" />
+                    </span>
+                  </a>
+                  <a
+                    href={a.wiki}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-serif font-bold text-neutral-900 text-lg leading-snug hover:text-forest transition-colors"
                   >
                     {a.name}
-                    <ExternalLink size={13} className="text-neutral-300 group-hover:text-forest transition-colors shrink-0" />
                   </a>
                   <p className="text-sm text-neutral-500 leading-relaxed mt-1.5 flex-1">{a.role}</p>
-                  <a
-                    href={a.wiki}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-forest mt-4 hover:text-forest-light transition-colors"
-                  >
-                    Read more on Wikipedia <ExternalLink size={11} />
-                  </a>
                 </div>
               </Reveal>
             ))}
@@ -514,12 +529,12 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {campusShots.map((shot, i) => (
               <Reveal key={shot.src} direction="up" delay={(i % 3) * 0.08}>
-                <figure className="group">
-                  <div className="overflow-hidden rounded-xl shadow-sm">
+                <figure className="group transition-all duration-500 hover:-translate-y-1.5">
+                  <div className="overflow-hidden rounded-xl shadow-sm transition-shadow duration-500 group-hover:shadow-2xl">
                     <img
                       src={shot.src}
                       alt={shot.caption}
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
                   </div>
                   <figcaption className="mt-3 text-xs text-neutral-500 text-center flex items-center justify-center gap-1.5">
