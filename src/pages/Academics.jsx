@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   FlaskConical, Pi, Globe, BookText, Wrench, HeartHandshake,
@@ -10,10 +11,10 @@ import { images } from '../assets/images.js'
 
 /* ─── Data ─── */
 const values = [
-  { icon: Star, label: 'Excellence', desc: 'Upholding the highest standards in all we do.' },
-  { icon: HeartHandshake, label: 'Integrity', desc: 'Grounding ourselves in honesty and respect.' },
-  { icon: TrendingUp, label: 'Innovation', desc: 'Embracing creativity and problem solving.' },
-  { icon: Users, label: 'Service', desc: 'Preparing students to serve self and humanity.' },
+  { icon: Star, label: 'Excellence', desc: 'Upholding the highest standards in all we do.', accent: 'from-[#f4b942] to-[#d46c17]', border: 'border-[#f4b942]/50', iconBg: 'bg-[#f4b942]/20', iconText: 'text-[#ffe09a]' },
+  { icon: HeartHandshake, label: 'Integrity', desc: 'Grounding ourselves in honesty and respect.', accent: 'from-[#ff6f61] to-[#c43e3e]', border: 'border-[#ff6f61]/50', iconBg: 'bg-[#ff6f61]/20', iconText: 'text-[#ffd2c8]' },
+  { icon: TrendingUp, label: 'Innovation', desc: 'Embracing creativity and problem solving.', accent: 'from-[#4fb3d8] to-[#1f6f89]', border: 'border-[#4fb3d8]/50', iconBg: 'bg-[#4fb3d8]/20', iconText: 'text-[#bfe7f4]' },
+  { icon: Users, label: 'Service', desc: 'Preparing students to serve self and humanity.', accent: 'from-[#8bcf7b] to-[#3f7f46]', border: 'border-[#8bcf7b]/50', iconBg: 'bg-[#8bcf7b]/20', iconText: 'text-[#dff5dc]' },
 ]
 
 const streams = [
@@ -91,7 +92,155 @@ const grades = [
   { grade: 'C', count: 5, pct: '1.41%' },
   ]
 
+function usePrefersReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return
+
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches)
+
+    updatePreference()
+    mediaQuery.addEventListener?.('change', updatePreference)
+
+    return () => mediaQuery.removeEventListener?.('change', updatePreference)
+  }, [])
+
+  return prefersReducedMotion
+}
+
+function Reveal({ children, delay = 0, className = '', as: Component = 'div' }) {
+  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+  const reducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setIsVisible(true)
+      return
+    }
+
+    if (typeof IntersectionObserver === 'undefined' || !ref.current) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
+    )
+
+    observer.observe(ref.current)
+
+    return () => observer.disconnect()
+  }, [reducedMotion])
+
+  return (
+    <Component
+      ref={ref}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
+        transition: reducedMotion
+          ? 'none'
+          : `opacity 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}s, transform 700ms cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
+        willChange: 'opacity, transform',
+      }}
+    >
+      {children}
+    </Component>
+  )
+}
+
+function AutoTypeText({ text, className = '', onComplete }) {
+  const [displayedText, setDisplayedText] = useState('')
+  const reducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setDisplayedText(text)
+      onComplete?.()
+      return
+    }
+
+    let intervalId
+    let timeoutId
+    let active = true
+    let index = 0
+
+    const typeNextLetter = () => {
+      if (!active) return
+
+      if (index < text.length) {
+        setDisplayedText(text.slice(0, index + 1))
+        index += 1
+      } else {
+        window.clearInterval(intervalId)
+        onComplete?.()
+      }
+    }
+
+    intervalId = window.setInterval(typeNextLetter, 90)
+
+    return () => {
+      active = false
+      window.clearInterval(intervalId)
+      window.clearTimeout(timeoutId)
+    }
+  }, [reducedMotion, text, onComplete])
+
+  return (
+    <span className={className}>
+      {displayedText.split('').map((char, index) => {
+        const isActiveLetter = index === displayedText.length - 1 && displayedText.length > 0
+
+        return (
+          <span
+            key={`${char}-${index}`}
+            className="inline-block"
+            style={{
+              animation: isActiveLetter ? 'letterJump 420ms ease-out, shimmer 1.2s ease-in-out infinite' : 'none',
+              display: 'inline-block',
+              textShadow: isActiveLetter ? '0 0 10px rgba(255,255,255,0.35)' : 'none',
+            }}
+          >
+            {char}
+          </span>
+        )
+      })}
+      <style>{`
+        @keyframes letterJump {
+          0% { transform: translateY(0); }
+          40% { transform: translateY(-7px); }
+          100% { transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.6; }
+        }
+      `}</style>
+    </span>
+  )
+}
+
 export default function Academics() {
+  const [activeLine, setActiveLine] = useState(0)
+  const reducedMotion = usePrefersReducedMotion()
+
+  const backgroundStyle = reducedMotion
+    ? {
+        background: 'linear-gradient(135deg, #1f2328 0%, #30363d 100%)',
+      }
+    : {
+        background: 'linear-gradient(135deg, #1f2328 0%, #2f4f66 45%, #2f6b4f 100%)',
+        animation: 'sectionGlow 5s ease-in-out infinite alternate',
+      }
+
   return (
     <>
       <PageHero
@@ -103,43 +252,97 @@ export default function Academics() {
       />
 
       {/* ══ PHILOSOPHY ══ */}
-      <section id="overview" className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-center">
-          <div>
-            <p className="section-eyebrow mb-3">Our Academic Philosophy</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">Nurturing Minds. Building Futures.</h2>
-            <p className="section-sub mb-5">
-              At Kitui High School, we believe that every learner has the potential to excel. We
-              provide a supportive environment that promotes curiosity, critical thinking, creativity
-              and character formation to shape responsible young men who are ready to serve both the
-              nation and the world.
-            </p>
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              {values.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="flex gap-3 items-start">
-                  <div className="w-9 h-9 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                    <Icon className="text-gold" size={16} />
+      <section id="overview" className="relative overflow-hidden py-24 text-white sm:py-28 lg:py-32" style={backgroundStyle}>
+        <div className="absolute inset-0 bg-slate-950/25" />
+        <div className="absolute left-[-6rem] top-[-3rem] h-72 w-72 rounded-full bg-[#8da1b4]/20 blur-3xl" />
+        <div className="absolute bottom-[-2rem] right-[-2rem] h-80 w-80 rounded-full bg-[#2f6b4f]/25 blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent" />
+
+        <div className="container-page relative z-10 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="max-w-2xl">
+            <Reveal delay={0.08}>
+              <p className="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#f7d58b] backdrop-blur">
+                Our Academic Philosophy
+              </p>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <div className="mb-4 h-1 w-24 rounded-full bg-gradient-to-r from-[#f7d58b] to-[#ffd978]" />
+            </Reveal>
+            <Reveal delay={0.24}>
+              <h2 className="mb-5 text-4xl font-serif font-bold leading-tight sm:text-5xl lg:text-6xl">
+                <span className="inline-block">
+                  <AutoTypeText
+                    text="Nurturing Minds."
+                    onComplete={() => setActiveLine(1)}
+                  />
+                </span>
+                <br />
+                <span className="inline-block text-[#f7d58b]">
+                  {activeLine >= 1 ? (
+                    <AutoTypeText text="Building Futures." />
+                  ) : null}
+                </span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.32}>
+              <p className="mb-6 max-w-xl text-base leading-8 text-slate-200 sm:text-lg">
+                At Kitui High School, we believe that every learner has the potential to excel. We
+                provide a supportive environment that promotes curiosity, critical thinking, creativity
+                and character formation to shape responsible young men who are ready to serve both the
+                nation and the world.
+              </p>
+            </Reveal>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {values.map(({ icon: Icon, label, desc, accent, border, iconBg, iconText }, index) => (
+                <Reveal key={label} delay={0.45 + index * 0.12}>
+                  <div className={`group relative flex h-full items-start gap-3 overflow-hidden rounded-2xl border border-white/15 bg-slate-900/85 p-4 shadow-lg backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:${border} hover:bg-slate-900/95 hover:shadow-2xl`}>
+                    <div className="absolute inset-0 bg-gradient-to-br opacity-80 transition duration-300 group-hover:opacity-95" style={{ backgroundImage: `linear-gradient(135deg, var(--tw-gradient-stops))` }} />
+                    <div className="absolute inset-0 bg-slate-950/35" />
+                    <div className="relative z-10 flex w-full items-start gap-3">
+                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${border} ${iconBg} transition duration-300 group-hover:rotate-6 group-hover:scale-110`}>
+                        <Icon className={iconText} size={18} />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-white">{label}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-slate-200">{desc}</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-forest text-sm">{label}</p>
-                    <p className="text-xs text-slate-500 font-sans leading-relaxed">{desc}</p>
-                  </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
-          {/* Photo */}
-          <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative group">
-            <img
-              src={images.academics.studentsClass}
-              alt="Students in Class"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/50 via-transparent to-transparent" />
-          </div>
+
+          <Reveal delay={0.28} className="w-full">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-2xl ring-1 ring-white/20">
+              <img
+                src={images.academics.studentsClass}
+                alt="Students in Class"
+                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071b39]/80 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
+                <p className="text-lg font-semibold text-white">Excellence in every lesson</p>
+                <p className="mt-1 text-sm text-slate-200">A learning environment shaped for curiosity, discipline and purpose.</p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
+
+      <style>{`
+        @keyframes sectionGlow {
+          0% {
+            background: linear-gradient(135deg, #1f2328 0%, #30363d 50%, #2f4f66 100%);
+          }
+          50% {
+            background: linear-gradient(135deg, #2f4f66 0%, #3f5f73 50%, #2f6b4f 100%);
+          }
+          100% {
+            background: linear-gradient(135deg, #2f6b4f 0%, #3d5f4b 50%, #1f2328 100%);
+          }
+        }
+      `}</style>
 
       {/* ══ CBC STREAMS ══ */}
       <section id="departments" className="section-pad bg-cream">
