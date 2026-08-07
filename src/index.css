@@ -16,13 +16,13 @@
     @apply font-serif;
   }
   ::selection {
-    background-color: #d4af3733;
-    color: #4a7a3d;
+    background-color: #c19a3b33;
+    color: #1e5631;
   }
   /* Custom scrollbar */
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #f0e8d4; }
-  ::-webkit-scrollbar-thumb { background: #4a7a3d; border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: #eee5d0; }
+  ::-webkit-scrollbar-thumb { background: #1e5631; border-radius: 3px; }
 }
 
 /* =============================================

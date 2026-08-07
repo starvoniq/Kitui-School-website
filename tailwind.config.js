@@ -5,38 +5,39 @@ export default {
     extend: {
       colors: {
         forest: {
-          DEFAULT: '#4a7a3d',
-          light:   '#5e9e50',
-          lighter: '#78c068',
-          dark:    '#2e5228',
+          DEFAULT: '#1e5631',
+          light:   '#2d7044',
+          lighter: '#469060',
+          dark:    '#143d22',
         },
         gold: {
-          DEFAULT: '#d4af37',
-          light:   '#e6c86e',
-          dark:    '#b89324',
-          pale:    '#f7eed2',
+          DEFAULT: '#c19a3b',
+          light:   '#d4b25a',
+          dark:    '#a07f2b',
+          pale:    '#f4ecd6',
         },
-        cream:    '#faf6ee',
-        parchment:'#f0e8d4',
+        cream:    '#f7f4ec',
+        parchment:'#eee5d0',
         // Keep navy as alias for backwards compat while migrating
         navy: {
-          DEFAULT: '#4a7a3d',
-          light:   '#5e9e50',
-          dark:    '#2e5228',
+          DEFAULT: '#1e5631',
+          light:   '#2d7044',
+          dark:    '#143d22',
         },
       },
       fontFamily: {
-        serif:  ['"Playfair Display"', 'Georgia', 'serif'],
-        sans:   ['"Outfit"', '"Inter"', 'system-ui', 'sans-serif'],
-        body:   ['"Inter"', 'system-ui', 'sans-serif'],
+        serif:  ['"Palanquin Dark"', '"Roboto Slab"', 'Georgia', 'serif'],
+        sans:   ['"Palanquin"', '"Inter"', 'system-ui', 'sans-serif'],
+        body:   ['"Palanquin"', 'system-ui', 'sans-serif'],
+        slab:   ['"Roboto Slab"', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'hero-gradient':
-          'linear-gradient(to bottom, rgba(46,82,40,0.15) 0%, rgba(46,82,40,0.35) 60%, rgba(46,82,40,0.55) 100%)',
+          'linear-gradient(to bottom, rgba(20,61,34,0.15) 0%, rgba(20,61,34,0.35) 60%, rgba(20,61,34,0.55) 100%)',
         'forest-gradient':
-          'linear-gradient(135deg, #4a7a3d 0%, #5e9e50 100%)',
+          'linear-gradient(135deg, #1e5631 0%, #143d22 100%)',
         'gold-gradient':
-          'linear-gradient(135deg, #d4af37 0%, #e6c86e 100%)',
+          'linear-gradient(135deg, #c19a3b 0%, #d4b25a 100%)',
       },
       keyframes: {
         fadeUp: {
@@ -65,8 +66,8 @@ export default {
         'slide-right': 'slideRight 0.5s ease-out both',
       },
       boxShadow: {
-        'card':      '0 2px 12px rgba(27,122,67,0.06)',
-        'card-hover':'0 6px 20px rgba(27,122,67,0.12)',
+        'card':      '0 2px 12px rgba(30,86,49,0.06)',
+        'card-hover':'0 6px 20px rgba(30,86,49,0.12)',
         'gold':      'none',
       },
     },
