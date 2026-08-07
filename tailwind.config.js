@@ -26,10 +26,10 @@ export default {
         },
       },
       fontFamily: {
-        serif:  ['"Palanquin Dark"', '"Roboto Slab"', 'Georgia', 'serif'],
-        sans:   ['"Palanquin"', '"Inter"', 'system-ui', 'sans-serif'],
-        body:   ['"Palanquin"', 'system-ui', 'sans-serif'],
-        slab:   ['"Roboto Slab"', 'Georgia', 'serif'],
+        serif:  ['"Playfair Display"', '"Source Serif 4"', 'Georgia', 'serif'],
+        sans:   ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body:   ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        slab:   ['"Source Serif 4"', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'hero-gradient':
