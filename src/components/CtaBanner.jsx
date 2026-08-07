@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import PropTypes from "prop-types";
 
 /**
  * CtaBanner: full-width call-to-action strip.
@@ -11,7 +12,7 @@ import { ArrowRight } from 'lucide-react'
  *  - primaryTo       {string}  route (default /contact)
  *  - secondaryLabel  {string}
  *  - secondaryTo     {string}  route (default /about)
- *  - dark            {boolean} Use lighter (cream on forest) variant
+ *  - dark            {boolean} Use the deeper forest-dark variant instead of the gradient
  *  - transparent     {boolean} Make background transparent
  *  - className       {string}  Additional class names
  */
@@ -19,20 +20,23 @@ export default function CtaBanner({
   title,
   subtitle,
   primaryLabel,
-  primaryTo = '/contact',
+  primaryTo = "/contact",
   secondaryLabel,
-  secondaryTo = '/about',
-  dark,
+  secondaryTo = "/about",
+  dark = false,
   transparent = false,
-  className = '',
+  className = "",
 }) {
+  const backgroundClass = transparent
+    ? "bg-transparent"
+    : dark
+      ? "bg-forest-dark"
+      : "bg-forest-gradient";
+
   return (
     <section
-      className={`relative overflow-hidden ${
-        transparent ? 'bg-transparent' : 'bg-forest-gradient'
-      } ${className}`}
+      className={`relative overflow-hidden ${backgroundClass} ${className}`}
     >
-
       {/* Large decorative quote mark */}
       <div className="absolute right-10 top-1/2 -translate-y-1/2 text-white/5 font-serif text-[180px] leading-none pointer-events-none select-none">
         &ldquo;
@@ -65,5 +69,17 @@ export default function CtaBanner({
         </div>
       </div>
     </section>
-  )
+  );
 }
+
+CtaBanner.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  primaryLabel: PropTypes.string,
+  primaryTo: PropTypes.string,
+  secondaryLabel: PropTypes.string,
+  secondaryTo: PropTypes.string,
+  dark: PropTypes.bool,
+  transparent: PropTypes.bool,
+  className: PropTypes.string,
+};
