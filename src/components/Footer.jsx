@@ -42,7 +42,7 @@ export default function Footer() {
     <footer className="bg-forest-dark text-white/70 relative z-30 border-t border-white/10">
       {/* Main footer body */}
       <div className="container-page py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-        {/* Brand col — spans 2 on lg */}
+        {/* Brand col: spans 2 on lg */}
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-5">
             <img

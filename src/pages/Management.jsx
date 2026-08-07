@@ -391,7 +391,7 @@ export default function Management() {
             impacting lives.
           </h2>
           <p className="text-gold/70 text-sm font-sans mt-3 font-semibold tracking-wider uppercase">
-            Learn To Serve — Since 1938
+            Learn To Serve · Since 1938
           </p>
         </div>
       </section>

@@ -141,7 +141,7 @@
   .text-balance {
     text-wrap: balance;
   }
-  /* Animate on scroll — add 'animate-on-scroll' class, JS adds 'is-visible' */
+  /* Animate on scroll: add 'animate-on-scroll' class, JS adds 'is-visible' */
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(24px);

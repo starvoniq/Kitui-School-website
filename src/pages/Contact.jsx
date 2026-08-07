@@ -59,7 +59,7 @@ export default function Contact() {
         crumbs={['Home', 'Contact']}
         eyebrow="Get in Touch"
         title="We'd Love to Hear From You"
-        subtitle="Whether you have an inquiry about academics, student life, campus visits or fee guidelines — our administration team is here to assist."
+        subtitle="Whether you have an inquiry about academics, student life, campus visits or fee guidelines. Our administration team is here to assist."
         bgImage={images.heroes.contact}
       />
 

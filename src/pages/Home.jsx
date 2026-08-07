@@ -24,7 +24,7 @@ const highlights = [
     tag: 'Academic Performance',
     num: '01',
     title: 'KCSE 2025 Results',
-    body: 'Mean grade 9.80 with 99.6% university transition — among the top nationally.',
+    body: 'Mean grade 9.80 with 99.6% university transition, among the top nationally.',
     items: ['260 Candidates', '40 scored A', '80 scored B+'],
     cta: 'View Full Results',
     to: '/academics#results',
@@ -36,7 +36,7 @@ const highlights = [
     num: '02',
     title: 'Excellence in Action',
     body: 'Our students shine in sports, drama, science and innovation at national level.',
-    items: ['Rugby — National Qualifiers', 'Hockey — Eastern Champions', 'Drama — County Champions'],
+    items: ['Rugby: National Qualifiers', 'Hockey: Eastern Champions', 'Drama: County Champions'],
     cta: 'Explore Student Life',
     to: '/gallery',
     color: 'from-forest/5 to-forest/10',
@@ -47,7 +47,7 @@ const highlights = [
     num: '03',
     title: 'Creating Solutions, Shaping the Future',
     body: '3 projects advanced to nationals at Kenya Science & Engineering Fair 2025.',
-    items: ['Kenya Science & Engineering Fair', 'Robotics Club — Coding, Innovating', 'Programming Club'],
+    items: ['Kenya Science & Engineering Fair', 'Robotics Club: Coding, Innovating', 'Programming Club'],
     cta: 'Explore Innovation',
     to: '/academics',
     color: 'from-sky-50 to-sky-100/50',
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
           <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md">
-            <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School — Since 1938</p>
+            <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School · Since 1938</p>
             <div className="gold-bar mb-5 shadow-sm" />
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight max-w-3xl animate-fade-up-200 drop-shadow-lg">
               Building Character.{' '}
@@ -268,7 +268,7 @@ export default function Home() {
         {/* ══ 3. STORY / PRINCIPAL ══ */}
         <section className="section-pad bg-white">
           <div className="container-page grid lg:grid-cols-5 gap-12 items-center">
-            {/* Left — Our Story */}
+            {/* Left: Our Story */}
             <div className="lg:col-span-2">
               <p className="section-eyebrow mb-3">Our Story</p>
               <div className="gold-bar mb-4" />
@@ -289,7 +289,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Center — School Tower Photo */}
+            {/* Center: School Tower Photo */}
             <div className="lg:col-span-1 flex items-center justify-center">
               <div className="aspect-[3/4] w-full max-w-[240px] mx-auto rounded-2xl overflow-hidden shadow-xl relative group">
                 <img
@@ -301,7 +301,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right — Principal */}
+            {/* Right: Principal */}
             <div className="lg:col-span-2">
               <p className="section-eyebrow mb-3">From the Principal</p>
               <div className="gold-bar mb-4" />
@@ -310,7 +310,7 @@ export default function Home() {
               </h2>
               <p className="section-sub mb-6">
                 We nurture minds, shape character and inspire our students to serve with integrity
-                and purpose. Our school is more than a place of learning — it is a community that
+                and purpose. Our school is more than a place of learning; it is a community that
                 builds tomorrow's leaders.
               </p>
               {/* Principal Signature & Photo */}
@@ -446,7 +446,7 @@ export default function Home() {
               {[
                 { icon: Users, t: 'Holistic Development', b: 'Academic excellence balanced with character, service, sports and arts.' },
                 { icon: Trophy, t: 'Award-Winning Performance', b: 'Consistent top performers nationally in KCSE, sports and co-curriculars.' },
-                { icon: ShieldCheck, t: 'Safe Supervised Boarding', b: 'A home away from home — safe, structured and nurturing.' },
+                { icon: ShieldCheck, t: 'Safe Supervised Boarding', b: 'A home away from home: safe, structured and nurturing.' },
                 { icon: Microscope, t: 'Modern Facilities', b: 'Well-equipped labs, ICT centre, library and sports facilities.' },
                 { icon: BookOpen, t: 'Experienced Faculty', b: '120+ dedicated teachers committed to every learner\'s growth.' },
                 { icon: MapPin, t: 'Serene Campus', b: 'A peaceful, inspiring environment that fosters focus and learning.' },

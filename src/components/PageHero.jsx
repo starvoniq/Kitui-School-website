@@ -1,7 +1,7 @@
 import { ChevronRight } from 'lucide-react'
 
 /**
- * PageHero — full-width header section for inner pages.
+ * PageHero: full-width header section for inner pages.
  *
  * Props:
  *  - eyebrow      {string}   Small uppercase label above title
@@ -33,7 +33,7 @@ export default function PageHero({ eyebrow, title, subtitle, crumbs, bgImage, bg
         </div>
       )}
 
-      {/* Gold accent bar — left edge */}
+      {/* Gold accent bar: left edge */}
       <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
       <div className={`container-page relative z-10 w-full ${compact ? 'py-14 md:py-18' : 'py-20 md:py-28'} drop-shadow-md`}>

@@ -127,7 +127,7 @@ export default function About() {
           {[
             { icon: Target, label: 'Our Mission', color: 'text-gold', text: 'To provide quality education that nurtures holistic development, instils strong moral values and prepares students to excel and serve the society.' },
             { icon: Eye, label: 'Our Vision', color: 'text-sky-300', text: 'To be a leading institution of academic excellence and character development, producing empowered leaders who transform the world.' },
-            { icon: BookOpen, label: 'Our Motto', color: 'text-gold', text: '"Learn To Serve" — A commitment to service, integrity and excellence that defines everything we do at Kitui High School.', italics: true },
+            { icon: BookOpen, label: 'Our Motto', color: 'text-gold', text: '"Learn To Serve": A commitment to service, integrity and excellence that defines everything we do at Kitui High School.', italics: true },
           ].map(({ icon: Icon, label, color, text, italics }) => (
             <div key={label} className="glass rounded-xl p-8 text-center hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-5">
@@ -219,7 +219,7 @@ export default function About() {
                 <h4 className="font-serif font-bold text-forest text-lg mb-1">Sports Excellence</h4>
                 <p className="section-sub text-sm">
                   We cultivate discipline, teamwork and resilience through a wide range of sports,
-                  producing champions at regional and national stages — rugby, athletics, hockey and more.
+                  producing champions at regional and national stages, including rugby, athletics, hockey and more.
                 </p>
               </div>
             </div>
@@ -231,7 +231,7 @@ export default function About() {
                 <h4 className="font-serif font-bold text-forest text-lg mb-1">Clubs & Societies</h4>
                 <p className="section-sub text-sm">
                   Our vibrant clubs and societies nurture leadership, service and innovation
-                  among our students — from Science Club to Drama and Debate.
+                  among our students, from Science Club to Drama and Debate.
                 </p>
               </div>
             </div>
@@ -252,7 +252,7 @@ export default function About() {
           <p className="text-white/70 font-sans text-lg italic">
             More than a motto. A way of life.
           </p>
-          <p className="text-gold/70 text-sm font-sans mt-3 tracking-widest font-semibold">— Since 1938 —</p>
+          <p className="text-gold/70 text-sm font-sans mt-3 tracking-widest font-semibold">Since 1938</p>
         </div>
       </section>
 
