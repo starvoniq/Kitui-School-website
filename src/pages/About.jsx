@@ -439,13 +439,12 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-5 sm:p-8">
-              <div className="table-scroll">
-                <table className="w-full text-xs md:text-sm border-collapse min-w-[560px]">
+                <table className="w-full text-xs md:text-sm border-collapse">
                   <thead>
                     <tr className="text-neutral-400">
-                      <th className="text-left font-semibold py-2.5 pr-4">Name</th>
+                      <th className="text-left font-semibold py-2.5 pr-3">Name</th>
                       <th className="text-left font-semibold py-2.5 px-2">From</th>
-                      <th className="text-left font-semibold py-2.5 pl-4">To</th>
+                      <th className="text-left font-semibold py-2.5 pl-2">To</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -456,13 +455,13 @@ export default function About() {
                           key={p.name}
                           className={current ? 'bg-forest/10' : i % 2 === 0 ? 'bg-neutral-50/40' : 'bg-white'}
                         >
-                          <td className={`py-3 pr-4 font-semibold whitespace-nowrap ${current ? 'text-forest' : 'text-neutral-900'}`}>
+                          <td className={`py-2.5 pr-3 font-semibold whitespace-nowrap ${current ? 'text-forest' : 'text-neutral-900'}`}>
                             {p.name}
                           </td>
-                          <td className={`py-3 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
+                          <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
                             {p.from}
                           </td>
-                          <td className={`py-3 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
+                          <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
                             {p.to}
                           </td>
                         </tr>
@@ -470,7 +469,6 @@ export default function About() {
                     })}
                   </tbody>
                 </table>
-              </div>
             </div>
           </Reveal>
         </div>
