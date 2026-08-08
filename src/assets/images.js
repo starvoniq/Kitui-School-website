@@ -22,6 +22,7 @@ import deputyPrincipalImg from './photos/deputy_principal.png'
 import femaleTeacherImg from './photos/female_teacher.png'
 import studentLeaderImg from './photos/student_leader.png'
 import alumniImg from './photos/alumni.png'
+import academicsBackgroundImg from './acadmics background.jpg'
 
 // Teacher profile images
 import wambuaImg from './teachers-pics/mrs-wambua.jpg'
@@ -70,6 +71,7 @@ export const images = {
     auditorium: dramaImg,
     studentsClass: classroomImg,
     teacherClass: teachersImg,
+    background: academicsBackgroundImg,
   },
   people: {
     principal: principalImg,
