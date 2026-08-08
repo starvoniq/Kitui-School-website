@@ -45,13 +45,181 @@ const streams = [
 ]
 
 const departments = [
-  { icon: FlaskConical, name: 'Sciences', subs: ['Physics', 'Chemistry', 'Biology'] },
-  { icon: Pi, name: 'Mathematics', subs: ['Pure Mathematics', 'Applied Mathematics'] },
-  { icon: Globe, name: 'Languages', subs: ['English', 'Kiswahili', 'French', 'German'] },
-  { icon: BookOpen, name: 'Humanities', subs: ['History', 'Geography', 'CRE', 'Business Studies'] },
-  { icon: Wrench, name: 'Technical & Applied', subs: ['Agriculture', 'Computer Studies', 'Home Science', 'Technical Drawing'] },
-  { icon: HeartHandshake, name: 'Guidance & Counselling', subs: ['Supporting learners in academic, personal and career development.'] },
+  {
+    icon: FlaskConical,
+    name: 'Sciences',
+    subs: ['Physics', 'Chemistry', 'Biology'],
+    accent: 'from-[#f2f9f7] to-[#dcefe7]',
+    border: 'border-[#b7d8c9]/70',
+    iconBg: 'bg-[#e5f4eb]/80',
+    textColor: 'text-[#2f4f4f]',
+  },
+  {
+    icon: Pi,
+    name: 'Mathematics',
+    subs: ['Pure Mathematics', 'Applied Mathematics'],
+    accent: 'from-[#fcf7ee] to-[#f3e4cb]',
+    border: 'border-[#e3c89a]/70',
+    iconBg: 'bg-[#f8ebd7]/80',
+    textColor: 'text-[#5b452f]',
+  },
+  {
+    icon: Globe,
+    name: 'Languages',
+    subs: ['English', 'Kiswahili', 'French', 'German'],
+    accent: 'from-[#f4f8fc] to-[#dfeef8]',
+    border: 'border-[#b8d3e8]/70',
+    iconBg: 'bg-[#e7f2fb]/80',
+    textColor: 'text-[#35576f]',
+  },
+  {
+    icon: BookOpen,
+    name: 'Humanities',
+    subs: ['History', 'Geography', 'CRE', 'Business Studies'],
+    accent: 'from-[#f7fbf2] to-[#e7f0d8]',
+    border: 'border-[#c8d8aa]/70',
+    iconBg: 'bg-[#edf5df]/80',
+    textColor: 'text-[#4d5b33]',
+  },
+  {
+    icon: Wrench,
+    name: 'Technical & Applied',
+    subs: ['Agriculture', 'Computer Studies', 'Home Science', 'Technical Drawing'],
+    accent: 'from-[#fcf6fb] to-[#f1e0eb]',
+    border: 'border-[#e2c3d9]/70',
+    iconBg: 'bg-[#f6e9f2]/80',
+    textColor: 'text-[#623a4d]',
+  },
+  {
+    icon: HeartHandshake,
+    name: 'Guidance & Counselling',
+    subs: ['Academic Guidance', 'Career Guidance'],
+    accent: 'from-[#f5f8fc] to-[#e1ebf6]',
+    border: 'border-[#c2d2e5]/70',
+    iconBg: 'bg-[#eaf2fb]/80',
+    textColor: 'text-[#44586c]',
+  },
 ]
+
+const subjectTeachers = {
+  Physics: [
+    { name: 'Mr. Mutuku', role: 'Physics Teacher' },
+    { name: 'Mr. Mulwa', role: 'Physics Teacher' },
+    { name: 'Mr. Mulukya', role: 'Physics Teacher' },
+    { name: 'Mr. Kioko', role: 'Physics Teacher' },
+  ],
+  Chemistry: [
+    { name: 'Mr. Kilinda', role: 'Chemistry Teacher' },
+    { name: 'Mr. Mulukya', role: 'Chemistry Teacher' },
+    { name: 'Mr. Munene', role: 'Chemistry Teacher' },
+    { name: 'Mr. Orina', role: 'Chemistry Teacher' },
+    { name: 'Mr. Kitua', role: 'Chemistry Teacher' },
+    { name: 'Mr. Mbithuka', role: 'Chemistry Teacher' },
+    { name: 'Md. Makilya', role: 'Chemistry Teacher' },
+  ],
+  Biology: [
+    { name: 'Mr. Kitua', role: 'Biology Teacher' },
+    { name: 'Mr. Mali', role: 'Biology Teacher' },
+    { name: 'Mr. Mulozya', role: 'Biology Teacher' },
+    { name: 'Mrs. Gabriel', role: 'Biology Teacher' },
+    { name: 'Md. Makilya', role: 'Biology Teacher' },
+    { name: 'Md. Silvester', role: 'Biology Teacher' },
+    { name: 'Mr. Mbithuka', role: 'Biology Teacher' },
+  ],
+  'Pure Mathematics': [
+    { name: 'Mrs. Wambua', role: 'Mathematics Teacher' },
+    { name: 'Mr. Katee', role: 'Mathematics Teacher' },
+    { name: 'Mr. Kilinda', role: 'Mathematics Teacher' },
+    { name: 'Mr. Mulwa', role: 'Mathematics Teacher' },
+    { name: 'Mr. Mutuku', role: 'Mathematics Teacher' },
+    { name: 'Mrs. Mutua', role: 'Mathematics Teacher' },
+    { name: 'Mr. Mali', role: 'Mathematics Teacher' },
+  ],
+  'Applied Mathematics': [
+    { name: 'Mrs. Wambua', role: 'Mathematics Teacher' },
+    { name: 'Mr. Katee', role: 'Mathematics Teacher' },
+    { name: 'Mr. Kilinda', role: 'Mathematics Teacher' },
+    { name: 'Mr. Mulwa', role: 'Mathematics Teacher' },
+    { name: 'Mr. Mutuku', role: 'Mathematics Teacher' },
+    { name: 'Mrs. Mutua', role: 'Mathematics Teacher' },
+    { name: 'Mr. Mali', role: 'Mathematics Teacher' },
+  ],
+  English: [
+    { name: 'Mrs. Mutuku', role: 'English Teacher' },
+    { name: 'Mr. James', role: 'English Teacher' },
+    { name: 'Md. John', role: 'English Teacher' },
+    { name: 'Mr. Kavele', role: 'English Teacher' },
+    { name: 'Mr. Musyoki', role: 'English Teacher' },
+  ],
+  Kiswahili: [
+    { name: 'Dummy Teacher', role: 'Kiswahili Teacher' },
+  ],
+  French: [
+    { name: 'Dummy Teacher', role: 'French Teacher' },
+  ],
+  German: [
+    { name: 'Dummy Teacher', role: 'German Teacher' },
+  ],
+  History: [
+    { name: 'Md. Sila', role: 'Humanities Teacher' },
+    { name: 'Mr. Sebastian', role: 'Humanities Teacher' },
+    { name: 'Md. Mulonzi', role: 'Humanities Teacher' },
+  ],
+  Geography: [
+    { name: 'Md. Sila', role: 'Humanities Teacher' },
+    { name: 'Mr. Sebastian', role: 'Humanities Teacher' },
+    { name: 'Md. Mulonzi', role: 'Humanities Teacher' },
+  ],
+  CRE: [
+    { name: 'Md. Sila', role: 'Humanities Teacher' },
+    { name: 'Mr. Sebastian', role: 'Humanities Teacher' },
+    { name: 'Md. Mulonzi', role: 'Humanities Teacher' },
+  ],
+  'Business Studies': [
+    { name: 'Md. Sila', role: 'Humanities Teacher' },
+    { name: 'Mr. Sebastian', role: 'Humanities Teacher' },
+    { name: 'Md. Mulonzi', role: 'Humanities Teacher' },
+  ],
+}
+
+const maleTeacherImage = images.teachers.kavele
+const femaleTeacherImage = images.teachers.mbuva
+const dummyTeacherImage = images.academics.teacherClass
+
+const teacherImageMap = {
+  'Mrs. Wambua': images.teachers.wambua,
+  'Mrs. Gabriel': images.teachers.gabriel,
+  'Mrs. Mutua': images.teachers.mbuva,
+  'Mrs. Mutuku': images.teachers.mbuva,
+  'Md. John': images.teachers.gabriel,
+  'Md. Makilya': images.teachers.gabriel,
+  'Md. Silvester': images.teachers.gabriel,
+  'Md. Sila': images.teachers.gabriel,
+  'Md. Mulonzi': images.teachers.gabriel,
+  'Mr. Kavele': images.teachers.kavele,
+  'Mr. James': images.teachers.njuguna,
+  'Mr. Musyoki': images.teachers.kavele,
+  'Mr. Kilinda': images.teachers.otieno,
+  'Mr. Mulukya': images.teachers.otieno,
+  'Mr. Kioko': images.teachers.otieno,
+  'Mr. Kitua': images.teachers.otieno,
+  'Mr. Mbithuka': images.teachers.otieno,
+  'Mr. Mulozya': images.teachers.kavele,
+  'Mr. Mutuku': images.teachers.kavele,
+  'Mr. Mulwa': images.teachers.kavele,
+  'Mr. Mali': images.teachers.kavele,
+  'Mr. Katee': images.teachers.kavele,
+  'Mr. Munene': images.teachers.otieno,
+  'Mr. Orina': images.teachers.otieno,
+  'Mr. Sebastian': images.teachers.otieno,
+}
+
+const getTeacherImage = (name) => {
+  if (teacherImageMap[name]) return teacherImageMap[name]
+  if (/^Mr\./i.test(name)) return maleTeacherImage
+  if (/^(Mrs|Md)\./i.test(name)) return femaleTeacherImage
+  return dummyTeacherImage
+}
 
 const facilities = [
   { label: 'Physics Laboratory', image: images.academics.physicsLab },
@@ -230,7 +398,44 @@ function AutoTypeText({ text, className = '', onComplete }) {
 
 export default function Academics() {
   const [activeLine, setActiveLine] = useState(0)
+  const [activeView, setActiveView] = useState('departments')
+  const [selectedDept, setSelectedDept] = useState(null)
+  const [selectedSubject, setSelectedSubject] = useState(null)
   const reducedMotion = usePrefersReducedMotion()
+
+  const handleSelectDepartment = (departmentName) => {
+    setSelectedDept(departmentName)
+    setSelectedSubject(null)
+    setActiveView('department')
+  }
+
+  const handleSelectSubject = (subjectName) => {
+    setSelectedSubject(subjectName)
+    setActiveView('subject')
+  }
+
+  const handleBackToDepartments = () => {
+    setSelectedDept(null)
+    setSelectedSubject(null)
+    setActiveView('departments')
+  }
+
+  const handleBackToSubjects = () => {
+    setSelectedSubject(null)
+    setActiveView('department')
+  }
+
+  useEffect(() => {
+    if (activeView === 'department' || activeView === 'subject') {
+      const section = document.getElementById('academic-departments-section')
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }, [activeView])
+
+  const currentDepartment = departments.find((d) => d.name === selectedDept)
+  const currentTeachers = (selectedSubject && subjectTeachers[selectedSubject]) || []
 
   const backgroundStyle = reducedMotion
     ? {
@@ -254,6 +459,7 @@ export default function Academics() {
       {/* ══ PHILOSOPHY ══ */}
       <section id="overview" className="relative overflow-hidden py-24 text-white sm:py-28 lg:py-32" style={backgroundStyle}>
         <div className="absolute inset-0 bg-slate-950/25" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(31, 35, 40, 0.95) 0%, rgba(47, 79, 102, 0.7) 35%, rgba(255, 255, 255, 0.25) 70%, rgba(255, 255, 255, 0) 100%)' }} />
         <div className="absolute left-[-6rem] top-[-3rem] h-72 w-72 rounded-full bg-[#8da1b4]/20 blur-3xl" />
         <div className="absolute bottom-[-2rem] right-[-2rem] h-80 w-80 rounded-full bg-[#2f6b4f]/25 blur-3xl" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent" />
@@ -320,10 +526,9 @@ export default function Academics() {
                 alt="Students in Class"
                 className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071b39]/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                <p className="text-lg font-semibold text-white">Excellence in every lesson</p>
-                <p className="mt-1 text-sm text-slate-200">A learning environment shaped for curiosity, discipline and purpose.</p>
+              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 bg-white">
+                <p className="text-lg font-semibold text-forest">Excellence in every lesson</p>
+                <p className="mt-1 text-sm text-slate-600">A learning environment shaped for curiosity, discipline and purpose.</p>
               </div>
             </div>
           </Reveal>
@@ -377,7 +582,7 @@ export default function Academics() {
       </section>
 
       {/* ══ ACADEMIC DEPARTMENTS ══ */}
-      <section className="section-pad bg-white">
+      <section id="academic-departments-section" className="section-pad bg-[#f8f5eb]">
         <div className="container-page">
           <div className="text-center mb-10">
             <p className="section-eyebrow mb-3">Academic Departments</p>
@@ -387,21 +592,107 @@ export default function Academics() {
               Our departments are dedicated to delivering quality education and nurturing excellence in every learner.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {departments.map((d) => (
-              <div key={d.name} className="card p-5 text-center hover:border-gold/30">
-                <div className="w-12 h-12 rounded-xl bg-forest/5 border border-forest/10 flex items-center justify-center mx-auto mb-3">
-                  <d.icon className="text-forest" size={22} />
+
+          {activeView === 'departments' && (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {departments.map((d) => (
+                <button
+                  key={d.name}
+                  type="button"
+                  onClick={() => handleSelectDepartment(d.name)}
+                  className={`relative overflow-hidden rounded-2xl border p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover ${d.border} bg-gradient-to-br ${d.accent}`}
+                >
+                  <div className={`w-12 h-12 rounded-xl ${d.iconBg} border border-white/40 flex items-center justify-center mx-auto mb-3`}>
+                    <d.icon className={d.textColor} size={22} />
+                  </div>
+                  <p className={`font-serif font-semibold ${d.textColor} text-sm mb-2`}>{d.name}</p>
+                  <ul className="space-y-0.5">
+                    {d.subs.map((s) => (
+                      <li key={s} className="text-[11px] text-slate-500 font-sans">{s}</li>
+                    ))}
+                  </ul>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {activeView === 'department' && currentDepartment && (
+            <div className="mt-8 rounded-[28px] border border-[#e8dcc4] bg-white/95 p-6 shadow-xl">
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <button
+                  type="button"
+                  onClick={handleBackToDepartments}
+                  className="inline-flex items-center gap-2 self-start rounded-full border border-[#e8dcc4] bg-[#fffdf7] px-4 py-2 text-sm font-semibold text-forest transition hover:border-gold/40 hover:bg-[#fef8e8]"
+                >
+                  ← Back to departments
+                </button>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Selected Department</p>
+                  <h3 className="font-serif font-semibold text-forest text-2xl">{currentDepartment.name}</h3>
                 </div>
-                <p className="font-serif font-semibold text-forest text-sm mb-2">{d.name}</p>
-                <ul className="space-y-0.5">
-                  {d.subs.map((s) => (
-                    <li key={s} className="text-[11px] text-slate-500 font-sans">{s}</li>
-                  ))}
-                </ul>
               </div>
-            ))}
-          </div>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {currentDepartment.subs.map((subject) => (
+                  <button
+                    key={subject}
+                    type="button"
+                    onClick={() => handleSelectSubject(subject)}
+                    className="rounded-2xl border border-[#efe4c8] bg-[#fffdf7] p-5 text-left shadow-sm transition-all duration-300 hover:border-gold/40 hover:shadow-card-hover"
+                  >
+                    <h4 className="font-serif font-semibold text-forest text-lg mb-2">{subject}</h4>
+                    <p className="text-sm text-slate-600 font-sans">
+                      Tap to view the teachers supporting this subject area.
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeView === 'subject' && selectedSubject && (
+            <div className="mt-8 rounded-[28px] border border-[#e8dcc4] bg-white/95 p-6 shadow-xl">
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gold font-semibold">Teachers for</p>
+                  <h4 className="font-serif font-semibold text-forest text-xl">{selectedSubject}</h4>
+                </div>
+                <p className="text-sm text-slate-600 font-sans">Experienced teachers supporting this subject area.</p>
+              </div>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {currentTeachers.map((teacher) => {
+                  const teacherImage = getTeacherImage(teacher.name)
+
+                  return (
+                    <div key={teacher.name} className="overflow-hidden rounded-2xl border border-[#efe4c8] bg-white shadow-sm">
+                      <div className="overflow-hidden bg-slate-100">
+                        <img
+                          src={teacherImage}
+                          alt={teacher.name}
+                          className="h-48 w-full object-cover object-top"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h5 className="font-serif font-semibold text-forest">{teacher.name}</h5>
+                        <p className="mt-1 text-sm text-slate-600 font-sans">{teacher.role}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div className="mt-6 flex justify-start">
+                <button
+                  type="button"
+                  onClick={handleBackToSubjects}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#e8dcc4] bg-[#fffdf7] px-4 py-2 text-sm font-semibold text-forest transition hover:border-gold/40 hover:bg-[#fef8e8]"
+                >
+                  ← Back to {currentDepartment?.name || 'departments'}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -489,7 +780,7 @@ export default function Academics() {
       </section>
 
       {/* ══ KCSE RESULTS ══ */}
-      <section id="results" className="section-pad bg-cream">
+      <section id="results" className="section-pad bg-white">
         <div className="container-page">
           <div className="text-center mb-12">
             <p className="section-eyebrow mb-3">Academic Excellence</p>
@@ -576,6 +867,7 @@ export default function Academics() {
         primaryTo="/3d-tour"
         secondaryLabel="Contact Us"
         secondaryTo="/contact"
+        bgImage={images.gate}
       />
     </>
   )
