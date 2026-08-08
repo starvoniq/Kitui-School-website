@@ -5,11 +5,13 @@ import {
   Trophy, Users, ShieldCheck, Star,
   Calendar, MapPin, TrendingUp, BookMarked,
   Quote, ChevronLeft, ChevronRight as ChevronRightIcon,
+  Award, Sparkles, CheckCircle2,
 } from 'lucide-react'
 import { useState } from 'react'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
 import Gate3DHeroBg from '../components/Gate3DHeroBg.jsx'
+import HighlightCard from '../components/HighlightCard.jsx'
 
 /* ─── Data ─── */
 const stats = [
@@ -22,48 +24,84 @@ const stats = [
 
 const highlights = [
   {
-    tag: 'Academic Performance',
-    num: '01',
-    title: 'KCSE 2025 Results',
-    body: 'Mean grade 9.72 with a 98.59% university transition, ranked 13th nationally.',
-    items: ['354 Candidates', '17 scored A', '87 scored A-'],
-    cta: 'View Full Results',
+    id: 'results',
+    tag: 'Academic Excellence',
+    icon: Award,
+    title: 'KCSE 2025 Performance',
+    mainStat: '9.72',
+    gradeBadge: 'B+ Mean',
+    rankBadge: 'Ranked #13 Nationally',
+    pills: [
+      { label: 'Univ. Entry', val: '98.59%' },
+      { label: 'A / A- Grades', val: '104 Students' },
+    ],
+    items: ['354 Total Candidates', '17 Plain A | 87 A- Grades'],
+    cta: 'View KCSE Breakdowns',
     to: '/academics#results',
-    color: 'from-gold/10 to-gold/5',
-    border: 'border-gold/30',
+    accentColor: 'from-gold/20 via-gold/10 to-transparent',
+    borderColor: 'border-gold/40 hover:border-gold',
+    badgeColor: 'bg-gold/15 text-forest border-gold/30',
+    iconColor: 'bg-gold/15 text-gold',
   },
   {
-    tag: 'Beyond the Classroom',
-    num: '02',
-    title: 'Excellence in Action',
-    body: 'Our students shine in sports, drama, science and innovation at national level.',
-    items: ['Rugby: National Qualifiers', 'Hockey: Eastern Champions', 'Drama: County Champions'],
+    id: 'sports',
+    tag: 'Co-Curricular & Talent',
+    icon: Trophy,
+    title: 'Sports & Creative Arts',
+    mainStat: 'National',
+    gradeBadge: 'Stage Finalists',
+    rankBadge: 'Eastern Region Champs',
+    pills: [
+      { label: 'Rugby 7s', val: 'Nationals' },
+      { label: 'Hockey & Drama', val: 'Champions' },
+    ],
+    items: ['Rugby, Hockey & Athletics', 'Drama & Music Festivals'],
     cta: 'Explore Student Life',
     to: '/gallery',
-    color: 'from-forest/5 to-forest/10',
-    border: 'border-forest/20',
+    accentColor: 'from-forest/15 via-forest/5 to-transparent',
+    borderColor: 'border-forest/30 hover:border-forest',
+    badgeColor: 'bg-forest/10 text-forest border-forest/20',
+    iconColor: 'bg-forest/10 text-forest',
   },
   {
+    id: 'stem',
     tag: 'Innovation & STEM',
-    num: '03',
-    title: 'Creating Solutions, Shaping the Future',
-    body: '3 projects advanced to nationals at Kenya Science & Engineering Fair 2025.',
-    items: ['Kenya Science & Engineering Fair', 'Coding & Programming Club', 'Mathematics & Innovation Camps'],
-    cta: 'Explore Innovation',
+    icon: Microscope,
+    title: 'STEM & Science Fairs',
+    mainStat: '3 Projects',
+    gradeBadge: 'At Nationals',
+    rankBadge: 'KSEF 2025 Qualifiers',
+    pills: [
+      { label: 'Coding Lab', val: 'Software Dev' },
+      { label: 'Science Congress', val: 'Finalists' },
+    ],
+    items: ['Kenya Science & Eng. Fair', 'Robotics & Math Camps'],
+    cta: 'Explore STEM',
     to: '/academics',
-    color: 'from-sky-50 to-sky-100/50',
-    border: 'border-sky-200',
+    accentColor: 'from-sky-500/15 via-sky-500/5 to-transparent',
+    borderColor: 'border-sky-300 hover:border-sky-500',
+    badgeColor: 'bg-sky-100 text-sky-800 border-sky-300',
+    iconColor: 'bg-sky-100 text-sky-600',
   },
   {
-    tag: 'CBC Senior School',
-    num: '04',
-    title: 'Grades 10-12, Discover Your Path',
-    body: 'Diverse pathways that help learners discover their strengths and prepare for the future.',
-    items: ['STEM', 'Social Sciences', 'Arts & Sports Science'],
-    cta: 'Explore About CBC',
+    id: 'cbc',
+    tag: 'Senior School Pathways',
+    icon: BookOpen,
+    title: 'CBC Grades 10–12',
+    mainStat: '3 Pathways',
+    gradeBadge: 'Career Ready',
+    rankBadge: 'Personalized Streams',
+    pills: [
+      { label: 'STEM & Tech', val: 'Engineering / Med' },
+      { label: 'Social & Arts', val: 'Biz & Sports' },
+    ],
+    items: ['STEM • Humanities • Arts', 'Structured Mentorship'],
+    cta: 'Explore Pathways',
     to: '/academics#departments',
-    color: 'from-emerald-50 to-emerald-100/50',
-    border: 'border-emerald-200',
+    accentColor: 'from-emerald-500/15 via-emerald-500/5 to-transparent',
+    borderColor: 'border-emerald-300 hover:border-emerald-500',
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+    iconColor: 'bg-emerald-100 text-emerald-700',
   },
 ]
 
@@ -325,42 +363,16 @@ export default function Home() {
         </section>
 
         {/* ══ 4. HIGHLIGHTS OF EXCELLENCE (50% OPACITY OVER FIXED BG) ══ */}
-        {/* Adjust opacity: change /50 to /30 for more transparency, or /80 or bg-cream for more solid */}
         <section className="section-pad bg-cream/80">
           <div className="container-page">
-            <div className="text-center mb-12">
+            <div className="text-center mb-10">
               <p className="section-eyebrow mb-3">Highlights of Excellence</p>
               <div className="gold-bar mx-auto mb-4" />
               <h2 className="section-title">Where Achievement Meets Purpose</h2>
             </div>
-            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
               {highlights.map((h) => (
-                <div
-                  key={h.num}
-                  className={`rounded-xl border ${h.border} bg-white/75 backdrop-blur-sm p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-gold font-sans">
-                      {h.tag}
-                    </span>
-                    <span className="text-3xl font-serif font-bold text-forest/15">{h.num}</span>
-                  </div>
-                  <h3 className="font-serif font-bold text-forest text-lg leading-snug mb-3">
-                    {h.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-4">{h.body}</p>
-                  <ul className="space-y-1.5 mb-5">
-                    {h.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-xs text-forest font-sans">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to={h.to} className="btn-ghost text-xs inline-flex">
-                    {h.cta} <ArrowRight size={12} />
-                  </Link>
-                </div>
+                <HighlightCard key={h.id} h={h} />
               ))}
             </div>
           </div>
