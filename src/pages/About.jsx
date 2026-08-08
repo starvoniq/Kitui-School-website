@@ -166,7 +166,7 @@ const alumni = [
     name: 'Benjamin Nzimbi',
     role: 'Retired Archbishop and Primate, Anglican Church of Kenya',
     wiki: 'https://en.wikipedia.org/wiki/Benjamin_Nzimbi',
-    img: '/benjamin-nzimbi.jpeg',
+    img: '/benjamin nzimbi.jpeg',
   },
 ]
 
