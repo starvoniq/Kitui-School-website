@@ -4,7 +4,7 @@ import {
   ArrowRight, Send, ChevronRight, Landmark,
 } from 'lucide-react'
 
-const logo = '/kitui-school-logo.jpeg'
+const logo = '/kitui%20school%20logo.jpeg'
 
 const quickLinks = [
   { label: 'About Us', to: '/about' },

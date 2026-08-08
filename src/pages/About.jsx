@@ -4,16 +4,16 @@ import { ChevronRight, MoveHorizontal, GraduationCap, Users, Landmark, Award, Ex
 import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
-  admin: '/kitui-school-admin-block.jpg',
-  adminClose: '/kitui-school-admin-close-image.jpeg',
-  gate: '/kitui-school-gate.jpeg',
-  basketball: '/basketball-kitui-school.jpeg',
-  bus: '/kitui-school-bus.jpeg',
-  rugby: '/kitui-school-rugby.jpeg',
-  rugbyAction: '/kitui-school-rugby-1.jpeg',
-  rugbyCourt: '/kitui-school-rugby-2.jpeg',
-  basketballCourt: '/kitui-school-basketball.jpeg',
-  football: '/kitui-school-football.jpeg',
+  admin: '/kitui%20school%20admin%20block.jpg',
+  adminClose: '/kitui%20school%20admin%20close%20image.jpeg',
+  gate: '/kitui%20school%20gate.jpeg',
+  basketball: '/kitui%20school%20basketball.jpeg',
+  bus: '/kitui%20school%20bus.jpeg',
+  rugby: '/kitui%20school%20rugby.jpeg',
+  rugbyAction: '/kitui%20school%20rugby%201.jpeg',
+  rugbyCourt: '/kitui%20school%20rugby%202.jpeg',
+  basketballCourt: '/kitui%20school%20basketball.jpeg',
+  football: '/kitui%20school%20football.jpeg',
 }
 
 const glance = [
@@ -142,31 +142,31 @@ const alumni = [
     name: 'Makau Mutua',
     role: 'Former Dean, University at Buffalo Law School; globally recognized legal scholar',
     wiki: 'https://en.wikipedia.org/wiki/Makau_Mutua',
-    img: '/makau-mutua.jpeg',
+    img: '/makau%20mutua.jpeg',
   },
   {
     name: 'Ngala Mwendwa',
     role: 'Independence-era politician; member of the Kenyan delegation to the 1960 Lancaster House Conference',
     wiki: 'https://en.wikipedia.org/wiki/Ngala_Mwendwa',
-    img: '/ngala-mwendwa.jpeg',
+    img: '/ngala%20mwendwa.jpeg',
   },
   {
     name: 'Leonard Mambo Mbotela',
     role: 'Pioneering veteran Kenyan radio and broadcast journalist',
     wiki: 'https://en.wikipedia.org/wiki/Leonard_Mbotela',
-    img: '/mambo-mbotela.jpeg',
+    img: '/mambo%20mbotela.jpeg',
   },
   {
     name: 'Muthomi Njuki',
     role: "Governor, Tharaka Nithi County; former Chuka-Igambang'ombe MP (taught Biology, coached rugby)",
     wiki: 'https://en.wikipedia.org/wiki/Muthomi_Njuki',
-    img: '/muthomi-njuki.jpeg',
+    img: '/muthomi%20njuki.jpeg',
   },
   {
     name: 'Benjamin Nzimbi',
     role: 'Retired Archbishop and Primate, Anglican Church of Kenya',
     wiki: 'https://en.wikipedia.org/wiki/Benjamin_Nzimbi',
-    img: '/benjamin-nzimbi.jpeg',
+    img: '/benjamin%20nzimbi.jpeg',
   },
 ]
 

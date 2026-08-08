@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Menu, X, ChevronDown, Search } from 'lucide-react'
-const logo = '/kitui-school-logo.jpeg'
+const logo = '/kitui%20school%20logo.jpeg'
 
 const navLinks = [
   { to: '/', label: 'Home' },
