@@ -12,8 +12,9 @@ import {
   Smartphone,
 } from 'lucide-react'
 import * as THREE from 'three'
+import gateModel from '../assets/models/gate.glb'
 
-const MODEL_URL = '/models/gate.glb'
+const MODEL_URL = gateModel
 
 // Default locked configurations
 const MODEL_CONFIG = {
