@@ -4,16 +4,16 @@ import { ChevronRight, MoveHorizontal, GraduationCap, Users, Landmark, Award, Ex
 import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
-  admin: '/kitui-school-admin-block.jpg',
-  adminClose: '/kitui-school-admin-close-image.jpeg',
-  gate: '/kitui-school-gate.jpeg',
-  basketball: '/basketball-kitui-school.jpeg',
-  bus: '/kitui-school-bus.jpeg',
-  rugby: '/kitui-school-rugby.jpeg',
-  rugbyAction: '/kitui-school-rugby-1.jpeg',
-  rugbyCourt: '/kitui-school-rugby-2.jpeg',
-  basketballCourt: '/kitui-school-basketball.jpeg',
-  football: '/kitui-school-football.jpeg',
+  admin: '/kitui school admin block.jpg',
+  adminClose: '/kitui school admin close image.jpeg',
+  gate: '/kitui school gate.jpeg',
+  basketball: '/kitui school basketball.jpeg',
+  bus: '/kitui school bus.jpeg',
+  rugby: '/kitui school rugby.jpeg',
+  rugbyAction: '/kitui school rugby 1.jpeg',
+  rugbyCourt: '/kitui school rugby 2.jpeg',
+  basketballCourt: '/kitui school basketball.jpeg',
+  football: '/kitui school football.jpeg',
 }
 
 const glance = [
@@ -142,25 +142,25 @@ const alumni = [
     name: 'Makau Mutua',
     role: 'Former Dean, University at Buffalo Law School; globally recognized legal scholar',
     wiki: 'https://en.wikipedia.org/wiki/Makau_Mutua',
-    img: '/makau-mutua.jpeg',
+    img: '/makau mutua.jpeg',
   },
   {
     name: 'Ngala Mwendwa',
     role: 'Independence-era politician; member of the Kenyan delegation to the 1960 Lancaster House Conference',
     wiki: 'https://en.wikipedia.org/wiki/Ngala_Mwendwa',
-    img: '/ngala-mwendwa.jpeg',
+    img: '/ngala mwendwa.jpeg',
   },
   {
     name: 'Leonard Mambo Mbotela',
     role: 'Pioneering veteran Kenyan radio and broadcast journalist',
     wiki: 'https://en.wikipedia.org/wiki/Leonard_Mbotela',
-    img: '/mambo-mbotela.jpeg',
+    img: '/mambo mbotela.jpeg',
   },
   {
     name: 'Muthomi Njuki',
     role: "Governor, Tharaka Nithi County; former Chuka-Igambang'ombe MP (taught Biology, coached rugby)",
     wiki: 'https://en.wikipedia.org/wiki/Muthomi_Njuki',
-    img: '/muthomi-njuki.jpeg',
+    img: '/muthomi njuki.jpeg',
   },
   {
     name: 'Benjamin Nzimbi',
