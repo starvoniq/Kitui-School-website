@@ -136,7 +136,7 @@ const alumni = [
     name: 'Kalonzo Musyoka',
     role: '10th Vice-President of Kenya; diplomat and elder statesman',
     wiki: 'https://en.wikipedia.org/wiki/Kalonzo_Musyoka',
-    img: '/kalonzo-musyoka.jpeg',
+    img: '/kalonzo%20musyoka.jpeg',
   },
   {
     name: 'Makau Mutua',
