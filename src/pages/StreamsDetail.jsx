@@ -115,6 +115,7 @@ export default function StreamsDetail() {
         eyebrow={`${s.label} Pathway`}
         title={s.label}
         subtitle={s.full}
+        bgImage={images.academics.background}
       />
 
       {/* ════ Overview Section ════ */}
@@ -164,29 +165,33 @@ export default function StreamsDetail() {
               Master these essential subjects to excel in your {s.label} pathway and prepare for university.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {s.subjects.map((sub, idx) => (
               <div
                 key={sub.subject}
-                className="group relative overflow-hidden rounded-[30px] border border-slate-200 bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
+                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 md:p-10 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
               >
                 <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
                 <div className="absolute right-0 top-0 translate-x-10 -translate-y-8 opacity-5 text-gold">
                   <FlaskConical size={130} />
                 </div>
 
-                {/* Teacher Image */}
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
-                  <img 
-                    src={sub.image}
-                    alt={sub.teacher}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-gold/20 bg-gold/10">
+                    <img
+                      src={sub.image}
+                      alt={sub.teacher}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teacher</p>
+                    <p className="mt-2 text-lg font-semibold text-forest">{sub.teacher}</p>
+                    <p className="text-sm text-gold uppercase tracking-[0.3em]">{sub.focus}</p>
+                  </div>
                 </div>
 
                 <h3 className="text-2xl font-serif font-bold text-forest">{sub.subject}</h3>
-                <p className="mt-2 text-sm text-slate-600 font-semibold">{sub.teacher}</p>
-                <p className="mt-2 text-xs font-semibold text-gold uppercase tracking-[0.3em]">{sub.focus}</p>
                 <p className="mt-5 leading-7 text-slate-600">{sub.details}</p>
               </div>
             ))}
@@ -216,7 +221,7 @@ export default function StreamsDetail() {
             {s.careerPaths.map(({ career, desc }) => (
               <div
                 key={career}
-                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white to-cream p-8 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
+                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white to-cream p-8 shadow-lg min-h-[22rem] transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
               >
                 <div className="absolute right-0 top-0 translate-x-8 -translate-y-8 opacity-5 text-gold">
                   <Rocket size={100} />
@@ -249,7 +254,7 @@ export default function StreamsDetail() {
             {s.achievements.map((achievement, idx) => (
               <div
                 key={achievement}
-                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
+                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-8 shadow-lg min-h-[14rem] transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
               >
                 <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
                 <div className="flex items-start gap-5">
@@ -271,6 +276,7 @@ export default function StreamsDetail() {
         primaryTo="/contact"
         secondaryLabel="Back to Academics"
         secondaryTo="/academics"
+        transparent={true}
       />
     </>
   )

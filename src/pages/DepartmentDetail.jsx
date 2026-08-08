@@ -183,7 +183,7 @@ export default function DepartmentDetail() {
         eyebrow={`${dept.name} Department`}
         title={`${dept.name} Department`}
         subtitle={`Led by ${dept.lead} | Dedicated to academic excellence and student success`}
-        bgImage={images.heroes.academics}
+        bgImage={images.academics.background}
       />
 
       {/* Department Overview */}
@@ -202,7 +202,7 @@ export default function DepartmentDetail() {
           </button>
 
           {/* Header */}
-          <div className="mb-16 grid items-center gap-12 lg:grid-cols-2">
+          <div className="mb-16 grid items-center gap-14 lg:grid-cols-[1.25fr_0.9fr]">
             <div>
               <h1 className="text-5xl font-serif font-bold text-forest lg:text-6xl">
                 {dept.name} Department
@@ -217,11 +217,10 @@ export default function DepartmentDetail() {
               </div>
             </div>
 
-          {/* Icon */}
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center lg:justify-end">
               <div className="relative flex flex-col items-center">
                 {/* Department Lead Image */}
-                <div className="mb-8 flex h-56 w-56 items-center justify-center rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border-4 border-gold overflow-hidden shadow-2xl">
+                <div className="mb-8 flex h-64 w-64 items-center justify-center rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border-4 border-gold/25 overflow-hidden shadow-2xl">
                   <img 
                     src={dept.leadImage} 
                     alt={dept.lead}
@@ -255,7 +254,7 @@ export default function DepartmentDetail() {
             {dept.details.map((item, idx) => (
               <div
                 key={item.subject}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
+                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 md:p-10 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
               >
                 <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
 
@@ -263,13 +262,18 @@ export default function DepartmentDetail() {
                   <Pi size={130} />
                 </div>
 
-                {/* Teacher Image */}
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
-                  <img 
-                    src={item.image}
-                    alt={item.teacher}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
+                    <img 
+                      src={item.image}
+                      alt={item.teacher}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teacher</p>
+                    <p className="mt-2 text-lg font-semibold text-forest">{item.teacher}</p>
+                  </div>
                 </div>
 
                 <h3 className="text-2xl font-serif font-bold text-forest">{item.subject}</h3>
@@ -415,6 +419,7 @@ export default function DepartmentDetail() {
         primaryTo="/contact"
         secondaryLabel="Back to Academics"
         secondaryTo="/academics"
+        transparent={true}
       />
     </>
   )

@@ -207,7 +207,7 @@ export default function Academics() {
             </p>
 
             {/* Values */}
-            <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {values.map(({ icon: Icon, label, desc }) => (
                 <div
                   key={label}
@@ -215,26 +215,26 @@ export default function Academics() {
               group
               relative
               overflow-hidden
-              rounded-3xl
+              rounded-xl
               border border-slate-200
               bg-white
-              p-6
-              shadow-lg
+              p-3
+              shadow-sm
               transition
-              hover:-translate-y-2
+              hover:-translate-y-1
               hover:border-gold/40
-              hover:shadow-2xl
+              hover:shadow-lg
             "
                 >
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold to-yellow-300 scale-x-0 origin-left transition group-hover:scale-x-100" />
 
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                    <Icon size={24} className="text-gold" />
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
+                    <Icon size={16} className="text-gold" />
                   </div>
 
-                  <h4 className="text-lg font-bold text-forest">{label}</h4>
+                  <h4 className="text-sm font-bold text-forest">{label}</h4>
 
-                  <p className="mt-2 text-sm leading-7 text-slate-500">{desc}</p>
+                  <p className="mt-1 text-xs leading-5 text-slate-500">{desc}</p>
                 </div>
               ))}
             </div>
@@ -299,7 +299,7 @@ export default function Academics() {
         <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-yellow-100/40 blur-3xl" />
 
         <div className="container-page relative">
-          <div className="mx-auto mb-20 max-w-3xl text-center">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
               CBC Senior School (Grades 10–12)
             </span>
@@ -318,7 +318,7 @@ export default function Academics() {
             </p>
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-3xl mx-auto lg:max-w-3xl">
             {streams.map((s) => (
               <div
                 key={s.label}
@@ -326,62 +326,63 @@ export default function Academics() {
             group
             relative
             overflow-hidden
-            rounded-[32px]
+            rounded-[18px]
             border
             border-slate-200
             bg-white
-            shadow-xl
+            shadow-md
             transition
-            hover:-translate-y-3
-            hover:shadow-2xl
+            hover:-translate-y-1
+            hover:shadow-lg
           "
               >
                 {/* Top Gradient */}
                 <div
                   className={`
-              h-2
+              h-1
               bg-gradient-to-r
               ${s.color}
             `}
                 />
 
                 {/* Decorative Circle */}
-                <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/40 blur-2xl" />
+                <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/40 blur-2xl" />
 
-                <div className="p-8">
+                <div className="p-4">
                   <div className="
-                mb-8
+                mb-3
                 flex
-                h-20
-                w-20
+                h-10
+                w-10
                 items-center
                 justify-center
-                rounded-3xl
+                rounded-xl
                 bg-gradient-to-br
                 from-white
                 to-slate-100
-                shadow-lg
+                shadow-sm
                 transition
                 group-hover:scale-110
                 group-hover:rotate-6
               ">
-                    <s.icon size={38} className="text-forest" />
+                    <s.icon size={18} className="text-forest" />
                   </div>
 
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-400">{s.full}</p>
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-slate-400 line-clamp-1">{s.full}</p>
 
-                  <h3 className="mt-3 text-3xl font-serif font-bold text-forest">{s.label}</h3>
+                  <h3 className="mt-1 text-base font-serif font-bold text-forest">{s.label}</h3>
 
-                  <p className="mt-6 leading-8 text-slate-600">{s.desc}</p>
+                  <p className="mt-2 text-xs leading-5 text-slate-600">{s.desc}</p>
 
-                  <div className="my-8 h-px bg-slate-200" />
+                  <div className="my-3 h-px bg-slate-200" />
 
                   <Link
                     to={`/academics/streams/${encodeURIComponent(s.label.toLowerCase())}`}
                     className="
                 inline-flex
                 items-center
-                gap-3
+                gap-1.5
+                text-xs
                 font-semibold
                 text-forest
                 transition
@@ -390,9 +391,9 @@ export default function Academics() {
                   >
                     Explore Pathway
                     <span
-                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 transition group-hover:bg-gold group-hover:text-white"
+                      className="flex h-6 w-6 items-center justify-center rounded-full bg-gold/10 transition group-hover:bg-gold group-hover:text-white"
                     >
-                      <ArrowRight size={18} />
+                      <ArrowRight size={12} />
                     </span>
                   </Link>
                 </div>
@@ -412,7 +413,7 @@ export default function Academics() {
         <div className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
         <div className="container-page relative">
-          <div className="mx-auto mb-20 max-w-3xl text-center">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Departments</span>
 
             <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Centres of <span className="text-gold"> Excellence</span></h2>
@@ -422,7 +423,7 @@ export default function Academics() {
             <p className="mt-8 text-lg leading-9 text-slate-600">Every department is committed to inspiring curiosity, nurturing talent and delivering academic excellence through experienced educators and practical learning.</p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
             {departments.map((d) => (
               <div
                 key={d.name}
@@ -430,37 +431,37 @@ export default function Academics() {
             group
             relative
             overflow-hidden
-            rounded-[30px]
+            rounded-[16px]
             border
             border-slate-200
             bg-white
-            p-8
-            shadow-lg
+            p-4
+            shadow-sm
             transition
-            hover:-translate-y-3
+            hover:-translate-y-1
             hover:border-gold/40
-            hover:shadow-2xl
+            hover:shadow-lg
           "
               >
                 <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
 
-                <div className="absolute right-0 top-0 translate-x-10 -translate-y-8 opacity-5">
-                  <d.icon size={130} />
+                <div className="absolute right-0 top-0 translate-x-6 -translate-y-4 opacity-5">
+                  <d.icon size={64} />
                 </div>
 
-                <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                  <d.icon size={38} className="text-gold" />
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
+                  <d.icon size={18} className="text-gold" />
                 </div>
 
-                <h3 className="text-2xl font-serif font-bold text-forest">{d.name}</h3>
-                <p className="mt-3 text-sm text-slate-500">Department Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
+                <h3 className="text-base font-serif font-bold text-forest">{d.name}</h3>
+                <p className="mt-1 text-xs text-slate-500">Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
 
                 <Link
                   to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-forest/20 bg-forest/5 px-4 py-2 text-sm font-semibold text-forest transition hover:border-forest hover:bg-forest/10"
+                  className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-forest/5 px-2.5 py-1 text-[11px] font-semibold text-forest transition hover:border-forest hover:bg-forest/10"
                 >
-                  View all details
-                  <ArrowRight size={16} className="text-gold transition group-hover:translate-x-1" />
+                  View details
+                  <ArrowRight size={12} className="text-gold transition group-hover:translate-x-1" />
                 </Link>
               </div>
             ))}
@@ -480,7 +481,7 @@ export default function Academics() {
         <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
 
         <div className="container-page relative">
-          <div className="mx-auto mb-20 max-w-3xl text-center">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">Learning Facilities</span>
 
             <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Spaces Designed <span className="text-gold"> For Learning</span></h2>
@@ -490,16 +491,16 @@ export default function Academics() {
             <p className="mt-8 text-lg leading-9 text-slate-600">Our modern learning spaces inspire curiosity, innovation and academic excellence through practical experiences.</p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-4 xl:grid-cols-6">
             {facilities.map((facility) => (
               <div key={facility.label} className="
             group
             relative
             overflow-hidden
-            rounded-[30px]
-            shadow-xl
+            rounded-[14px]
+            shadow-md
             cursor-pointer
-            aspect-[4/5]
+            aspect-square
           ">
                 <img src={facility.image} alt={facility.label} className="absolute inset-0 h-full w-full object-cover transition group-hover:scale-110" />
 
@@ -507,10 +508,9 @@ export default function Academics() {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-gold/20 opacity-0 transition group-hover:opacity-100" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <div className="mb-5 h-1 w-12 rounded-full bg-gold transition group-hover:w-24" />
-                  <h3 className="text-2xl font-serif font-bold text-white">{facility.label}</h3>
-                  <p className="mt-3 max-h-0 overflow-hidden text-sm leading-7 text-white/90 transition group-hover:max-h-40">Modern facilities providing students with practical exposure and an engaging learning environment.</p>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="mb-1.5 h-1 w-6 rounded-full bg-gold transition group-hover:w-12" />
+                  <h3 className="text-xs font-serif font-bold text-white leading-tight">{facility.label}</h3>
                 </div>
               </div>
             ))}
@@ -537,21 +537,21 @@ export default function Academics() {
 
             <p className="mt-8 text-lg leading-9 text-slate-600">We embrace innovative teaching approaches that inspire critical thinking, collaboration, creativity and lifelong learning.</p>
 
-            <div className="relative mt-12">
-              <div className="absolute left-5 top-4 h-full w-px bg-gold/30" />
+            <div className="relative mt-8">
+              <div className="absolute left-3.5 top-3 h-full w-px bg-gold/30" />
               {teachingMethods.map((method) => (
-                <div key={method} className="group relative mb-10 flex items-start gap-6">
-                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-gold shadow-lg transition group-hover:scale-110">
-                    <CheckCircle size={18} className="text-white" />
+                <div key={method} className="group relative mb-4 flex items-start gap-3">
+                  <div className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-gold shadow-sm transition group-hover:scale-110">
+                    <CheckCircle size={13} className="text-white" />
                   </div>
-                  <div className="flex-1 rounded-2xl border bg-white p-5 shadow-sm transition group-hover:border-gold/30 group-hover:shadow-lg">
-                    <p className="text-slate-700 leading-7">{method}</p>
+                  <div className="flex-1 rounded-lg border bg-white p-3 shadow-sm transition group-hover:border-gold/30 group-hover:shadow-md">
+                    <p className="text-xs text-slate-700 leading-5">{method}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="group relative mt-16 overflow-hidden rounded-[32px] shadow-2xl">
+            <div className="group relative mt-10 overflow-hidden rounded-[24px] shadow-lg">
               <img src={images.academics.teacherClass} alt="Teacher" className="h-full w-full object-cover transition group-hover:scale-110" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
@@ -567,14 +567,14 @@ export default function Academics() {
 
             <p className="mt-8 text-lg leading-9 text-slate-600">Beyond academics, we provide guidance, mentorship and resources that empower every learner to reach their full potential.</p>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {support.map(({ icon: Icon, t, b }) => (
-                <div key={t} className="group rounded-[28px] border bg-white p-7 shadow-lg transition hover:-translate-y-2 hover:border-gold/30 hover:shadow-2xl">
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                    <Icon size={28} className="text-gold" />
+                <div key={t} className="group rounded-[16px] border bg-white p-3 shadow-sm transition hover:-translate-y-1 hover:border-gold/30 hover:shadow-lg">
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
+                    <Icon size={16} className="text-gold" />
                   </div>
-                  <h3 className="text-lg font-bold text-forest">{t}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">{b}</p>
+                  <h3 className="text-sm font-bold text-forest">{t}</h3>
+                  <p className="mt-1 text-xs leading-5 text-slate-600">{b}</p>
                 </div>
               ))}
             </div>
@@ -585,7 +585,7 @@ export default function Academics() {
       {/* ══ KCSE RESULTS ══ */}
       <section id="results" className="section-pad bg-cream">
         <div className="container-page">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="section-eyebrow mb-3">Academic Excellence</p>
             <div className="gold-bar mx-auto mb-4" />
             <h2 className="section-title">KCSE 2025 Results</h2>
@@ -594,69 +594,69 @@ export default function Academics() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-4">
             {/* Big numbers */}
-            <div className="card p-8 text-center hover:border-gold/30">
-              <p className="section-eyebrow mb-2">KCSE 2025 Results</p>
-              <p className="text-7xl font-serif font-bold text-forest">9.718</p>
-              <p className="text-slate-400 text-sm font-sans mt-1">Mean Grade</p>
-              <div className="h-px bg-slate-100 my-4" />
-              <p className="text-4xl font-serif font-bold text-gold">98.49%</p>
-              <p className="text-slate-400 text-sm font-sans mt-1">University Transition</p>
-              <div className="h-px bg-slate-100 my-4" />
-              <p className="text-3xl font-serif font-bold text-forest">354</p>
-              <p className="text-slate-400 text-sm font-sans mt-1">Candidates</p>
+            <div className="card p-4 text-center hover:border-gold/30">
+              <p className="section-eyebrow mb-1 text-xs">KCSE 2025 Results</p>
+              <p className="text-4xl font-serif font-bold text-forest">9.718</p>
+              <p className="text-slate-400 text-xs font-sans mt-1">Mean Grade</p>
+              <div className="h-px bg-slate-100 my-2" />
+              <p className="text-2xl font-serif font-bold text-gold">98.49%</p>
+              <p className="text-slate-400 text-xs font-sans mt-1">University Transition</p>
+              <div className="h-px bg-slate-100 my-2" />
+              <p className="text-xl font-serif font-bold text-forest">354</p>
+              <p className="text-slate-400 text-xs font-sans mt-1">Candidates</p>
             </div>
 
             {/* Grade distribution */}
-            <div className="card p-6 hover:border-gold/30 hover:bg-cream/50 transition">
-              <h3 className="font-serif font-bold text-forest text-lg mb-5">Grade Distribution</h3>
-              <table className="w-full text-sm font-sans">
+            <div className="card p-4 hover:border-gold/30 hover:bg-cream/50 transition">
+              <h3 className="font-serif font-bold text-forest text-sm mb-3">Grade Distribution</h3>
+              <table className="w-full text-xs font-sans">
                 <thead>
-                  <tr className="text-xs uppercase tracking-wide text-slate-400 border-b border-slate-100">
-                    <th className="text-left pb-2">Grade</th>
-                    <th className="text-center pb-2">Students</th>
-                    <th className="text-right pb-2">%</th>
+                  <tr className="text-[10px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+                    <th className="text-left pb-1.5">Grade</th>
+                    <th className="text-center pb-1.5">Students</th>
+                    <th className="text-right pb-1.5">%</th>
                   </tr>
                 </thead>
                 <tbody>
                   {grades.map((g) => (
                     <tr key={g.grade} className="border-b border-slate-50 hover:bg-gold/5 transition-colors">
-                      <td className="py-2.5 font-semibold text-forest">{g.grade}</td>
-                      <td className="py-2.5 text-center text-slate-500">{g.count}</td>
-                      <td className="py-2.5 text-right">
+                      <td className="py-1.5 font-semibold text-forest">{g.grade}</td>
+                      <td className="py-1.5 text-center text-slate-500">{g.count}</td>
+                      <td className="py-1.5 text-right">
                         <span className="text-gold font-semibold">{g.pct}</span>
                       </td>
                     </tr>
                   ))}
                   <tr className="font-semibold bg-forest/5 rounded-b-lg">
-                    <td className="pt-3 pb-2 text-forest">Total</td>
-                    <td className="pt-3 pb-2 text-center text-forest">354</td>
-                    <td className="pt-3 pb-2 text-right text-forest">100%</td>
+                    <td className="pt-1.5 pb-1.5 text-forest">Total</td>
+                    <td className="pt-1.5 pb-1.5 text-center text-forest">354</td>
+                    <td className="pt-1.5 pb-1.5 text-right text-forest">100%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             {/* Top performers / quote */}
-            <div className="flex flex-col gap-4">
-              <div className="card p-6 hover:border-gold/30 hover:bg-gold/5 transition">
-                <h4 className="font-serif font-bold text-forest mb-3 text-sm uppercase tracking-wide">Top Subject Performers</h4>
-                <ul className="space-y-2">
+            <div className="flex flex-col gap-3">
+              <div className="card p-4 hover:border-gold/30 hover:bg-gold/5 transition">
+                <h4 className="font-serif font-bold text-forest mb-2 text-[11px] uppercase tracking-wide">Top Subject Performers</h4>
+                <ul className="space-y-1">
                   {['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English'].map((s) => (
-                    <li key={s} className="flex items-center gap-2 text-sm text-slate-600 font-sans group hover:text-forest hover:translate-x-1 transition">
-                      <span className="w-2 h-2 rounded-full bg-gold shrink-0 group-hover:scale-150 transition-transform" />
+                    <li key={s} className="flex items-center gap-2 text-xs text-slate-600 font-sans group hover:text-forest hover:translate-x-1 transition">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 group-hover:scale-150 transition-transform" />
                       {s} — <span className="text-gold font-semibold">Outstanding</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="card p-6 bg-forest-gradient text-white hover:border-gold/40 hover:shadow-card-hover transition">
-                <p className="text-gold text-3xl font-serif mb-2">&ldquo;</p>
-                <p className="text-white/85 text-sm italic leading-relaxed font-serif font-light">
+              <div className="card p-4 bg-forest-gradient text-white hover:border-gold/40 hover:shadow-card-hover transition">
+                <p className="text-gold text-xl font-serif mb-1">&ldquo;</p>
+                <p className="text-white/85 text-xs italic leading-relaxed font-serif font-light">
                   Excellence is our tradition. The future is our destination.
                 </p>
-                <p className="text-gold/80 text-xs mt-3 font-sans font-semibold">— Kitui High School</p>
+                <p className="text-gold/80 text-[11px] mt-2 font-sans font-semibold">— Kitui High School</p>
               </div>
             </div>
           </div>
