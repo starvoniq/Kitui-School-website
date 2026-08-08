@@ -5,6 +5,7 @@ import {
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
+import heroBg from '../assets/resultsAcademics.png'
 
 // Import teacher images
 const teacherImages = {
@@ -183,7 +184,7 @@ export default function DepartmentDetail() {
         eyebrow={`${dept.name} Department`}
         title={`${dept.name} Department`}
         subtitle={`Led by ${dept.lead} | Dedicated to academic excellence and student success`}
-        bgImage={images.academics.background}
+        bgImage={heroBg}
       />
 
       {/* Department Overview */}

@@ -3,6 +3,7 @@ import { FlaskConical, Globe, BookText, ArrowLeft, Lightbulb, Users, TrendingUp,
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
+import heroBg from '../assets/resultsAcademics.png'
 
 const streams = [
   {
@@ -115,7 +116,7 @@ export default function StreamsDetail() {
         eyebrow={`${s.label} Pathway`}
         title={s.label}
         subtitle={s.full}
-        bgImage={images.academics.background}
+        bgImage={heroBg}
       />
 
       {/* ════ Overview Section ════ */}
