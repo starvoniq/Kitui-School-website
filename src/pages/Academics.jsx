@@ -1,12 +1,23 @@
 import { Link } from 'react-router-dom'
 import {
-  FlaskConical, Pi, Globe, BookText, Wrench, HeartHandshake,
+  HeartHandshake,
   CheckCircle, ArrowRight, BookOpen, Microscope, Monitor,
   Star, Users, TrendingUp, Trophy,
 } from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
+
+/* ─── Department & Pathway Photos ─── */
+import mathImg from '../assets/photos/Screenshot From 2026-08-07 21-50-45.png'
+import engImg from '../assets/photos/Screenshot From 2026-08-07 21-51-00.png'
+import technicalsImg from '../assets/photos/Screenshot From 2026-08-07 21-51-11.png'
+import sciencesImg from '../assets/photos/Screenshot From 2026-08-07 21-51-23.png'
+import humanitiesImg from '../assets/photos/Screenshot From 2026-08-07 21-51-33.png'
+import stemImg from '../assets/photos/Screenshot From 2026-08-07 21-52-16.png'
+import socialSciencesImg from '../assets/photos/Screenshot From 2026-08-07 21-52-35.png'
+import artsSportsImg from '../assets/photos/Screenshot From 2026-08-07 21-52-55.png'
+import resultsBg from '../assets/resultsAcademics.png'
 
 /* ─── Data ─── */
 const values = [
@@ -18,7 +29,7 @@ const values = [
 
 const streams = [
   {
-    icon: FlaskConical,
+    image: stemImg,
     label: 'STEM',
     full: 'Science, Technology, Engineering & Mathematics',
     desc: 'For learners passionate about innovation, problem solving and shaping the future through science and technology.',
@@ -26,7 +37,7 @@ const streams = [
     border: 'border-sky-200',
   },
   {
-    icon: Globe,
+    image: socialSciencesImg,
     label: 'Social Sciences',
     full: 'Humanities, Business & Social Sciences',
     desc: 'For learners interested in people, society, leadership, governance, business and making a difference in communities.',
@@ -34,7 +45,7 @@ const streams = [
     border: 'border-amber-200',
   },
   {
-    icon: BookText,
+    image: artsSportsImg,
     label: 'Arts & Sports Science',
     full: 'Creative Arts & Physical Education',
     desc: 'For learners with a creative heart and a passion for sports, performing arts and physical education.',
@@ -44,12 +55,78 @@ const streams = [
 ]
 
 const departments = [
-  { icon: FlaskConical, name: 'Sciences', subs: ['Physics', 'Chemistry', 'Biology'] },
-  { icon: Pi, name: 'Mathematics', subs: ['Pure Mathematics', 'Applied Mathematics'] },
-  { icon: Globe, name: 'Languages', subs: ['English', 'Kiswahili', 'French', 'German'] },
-  { icon: BookOpen, name: 'Humanities', subs: ['History', 'Geography', 'CRE', 'Business Studies'] },
-  { icon: Wrench, name: 'Technical & Applied', subs: ['Agriculture', 'Computer Studies', 'Home Science', 'Technical Drawing'] },
-  { icon: HeartHandshake, name: 'Guidance & Counselling', subs: ['Supporting learners in academic, personal and career development.'] },
+  {
+    image: mathImg,
+    name: 'Math',
+    lead: 'Mrs Wambua',
+    details: [
+      { subject: 'Pure Mathematics', teacher: 'Mrs Wambua' },
+      { subject: 'Applied Mathematics', teacher: 'Mr Kavele' },
+      { subject: 'Statistics & Probability', teacher: 'Miss Amina' },
+    ],
+  },
+  {
+    image: engImg,
+    name: 'Eng',
+    lead: 'Mr Kavele',
+    details: [
+      { subject: 'English Literature', teacher: 'Mr Kavele' },
+      { subject: 'English Composition', teacher: 'Miss Njeri' },
+      { subject: 'Communication Skills', teacher: 'Ms Ombado' },
+    ],
+  },
+  {
+    image: technicalsImg,
+    name: 'Technicals',
+    lead: 'Mrs Mbuva',
+    details: [
+      { subject: 'Computer Studies', teacher: 'Mr Njuguna' },
+      { subject: 'Agriculture', teacher: 'Mr Nzomo' },
+      { subject: 'Home Science', teacher: 'Mrs Kagema' },
+    ],
+  },
+  {
+    image: sciencesImg,
+    name: 'Sciences',
+    lead: 'Mrs Gabriel',
+    details: [
+      { subject: 'Physics', teacher: 'Mr Otieno' },
+      { subject: 'Chemistry', teacher: 'Ms Waithera' },
+      { subject: 'Biology', teacher: 'Mr Mwangi' },
+    ],
+  },
+  {
+    image: humanitiesImg,
+    name: 'Humanities',
+    lead: 'Mr Tairus',
+    details: [
+      { subject: 'History', teacher: 'Mr Tairus' },
+      { subject: 'Geography', teacher: 'Ms Nduta' },
+      { subject: 'CRE', teacher: 'Mrs Wanjiru' },
+      { subject: 'Business Studies', teacher: 'Ms Thuo' },
+    ],
+  },
+]
+
+const headOfClubs = 'Wasike'
+
+const clubs = [
+  { name: 'Maths', advisor: 'Mrs. Mulwa' },
+  { name: "St John's", advisor: 'Mr Orina' },
+  { name: 'Debate', advisor: 'BRIAN' },
+  { name: 'Mjadala', advisor: 'Kitemange' },
+  { name: 'Music Festivals', advisor: 'Md Mutuku and Sebastian' },
+  { name: 'Agricultural club', advisor: 'Nzomo' },
+  { name: 'KRA', advisor: 'Mrs Sila' },
+  { name: 'Wildlife', advisor: 'Kitua' },
+]
+
+const sports = [
+  { name: 'Rugby', coach: 'Mr. Kioko' },
+  { name: 'Badminton', coach: 'Mr. Kitonga' },
+  { name: 'Basketball', coach: 'Mr. Musyoki' },
+  { name: 'Volleyball', coach: 'Mr. Mali' },
+  { name: 'Hockey', coach: 'Mr Mark' },
 ]
 
 const facilities = [
@@ -80,7 +157,7 @@ const support = [
   { icon: Star, t: 'Remedial Programs', b: 'Personalized attention to help learners conquer difficult subjects.' },
 ]
 
-/* ─── Grade distribution ─── */
+/* ─── Grade distribution (2025) ─── */
 const grades = [
   { grade: 'A', count: 17, pct: '4.80%' },
   { grade: 'A-', count: 87, pct: '24.58%' },
@@ -91,7 +168,17 @@ const grades = [
   { grade: 'C', count: 5, pct: '1.41%' },
   ]
 
+/* ─── 5-Year KCSE Trend ─── */
+const kcseTrend = [
+  { year: '2025', entry: 354, mean: '9.72', pass: '98.59', rank: '13th Nationally', highlight: true },
+  { year: '2023', entry: 224, mean: '8.91', pass: '91.96' },
+  { year: '2022', entry: 199, mean: '9.31', pass: '96.98' },
+  { year: '2021', entry: 180, mean: '9.50', pass: '99.44' },
+  { year: '2020', entry: 159, mean: '9.15', pass: '96.23' },
+]
+
 export default function Academics() {
+
   return (
     <>
       <PageHero
@@ -102,70 +189,273 @@ export default function Academics() {
         bgImage={images.heroes.academics}
       />
 
-      {/* ══ PHILOSOPHY ══ */}
-      <section id="overview" className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-center">
+      {/* ════════════════════════════════════════════════════════
+    ACADEMIC PHILOSOPHY
+════════════════════════════════════════════════════════ */}
+      <section
+        id="overview"
+        className="relative overflow-hidden bg-gradient-to-b from-white via-cream/30 to-white py-16"
+      >
+        {/* Background decoration */}
+        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
+
+        <div className="container-page relative z-10 grid items-center gap-20 lg:grid-cols-2">
+
+          {/* LEFT */}
           <div>
-            <p className="section-eyebrow mb-3">Our Academic Philosophy</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">Nurturing Minds. Building Futures.</h2>
-            <p className="section-sub mb-5">
-              At Kitui High School, we believe that every learner has the potential to excel. We
-              provide a supportive environment that promotes curiosity, critical thinking, creativity
-              and character formation to shape responsible young men who are ready to serve both the
-              nation and the world.
+
+            <span className="inline-flex items-center rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+              Our Academic Philosophy
+            </span>
+
+            <h2 className="mt-6 text-5xl font-serif font-bold leading-tight text-forest lg:text-6xl">
+              Nurturing
+              <span className="text-gold"> Minds.</span>
+              <br />
+              Building Futures.
+            </h2>
+
+            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+            <p className="mt-8 max-w-xl text-lg leading-9 text-slate-600">
+              At Kitui High School, we believe that every learner possesses
+              extraordinary potential. Through inspiring teaching,
+              character formation, innovation and academic excellence,
+              we prepare responsible young men who will positively impact
+              Kenya and the global community.
             </p>
-            <div className="grid grid-cols-2 gap-4 mt-6">
+
+            {/* Values */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {values.map(({ icon: Icon, label, desc }) => (
-                <div key={label} className="flex gap-3 items-start">
-                  <div className="w-9 h-9 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-                    <Icon className="text-gold" size={16} />
+                <div
+                  key={label}
+                  className="
+              group
+              relative
+              overflow-hidden
+              rounded-xl
+              border border-slate-200
+              bg-white
+              p-3
+              shadow-sm
+              transition duration-500
+              hover:-translate-y-1
+              hover:border-gold/40
+              hover:shadow-lg
+            "
+                >
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold to-yellow-300 scale-x-0 origin-left transition duration-500 group-hover:scale-x-100" />
+
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold/15 to-gold/5 transition duration-500 group-hover:rotate-6 group-hover:scale-110">
+                    <Icon size={16} className="text-gold" />
                   </div>
-                  <div>
-                    <p className="font-semibold text-forest text-sm">{label}</p>
-                    <p className="text-xs text-slate-500 font-sans leading-relaxed">{desc}</p>
-                  </div>
+
+                  <h4 className="text-sm font-bold text-forest">{label}</h4>
+
+                  <p className="mt-1 text-xs leading-5 text-slate-500">{desc}</p>
                 </div>
               ))}
             </div>
           </div>
-          {/* Photo */}
-          <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative group">
-            <img
-              src={images.academics.studentsClass}
-              alt="Students in Class"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/50 via-transparent to-transparent" />
+
+          {/* RIGHT IMAGE */}
+          <div className="relative">
+
+            {/* Floating Badge */}
+            <div className="absolute -left-8 top-10 z-20 rounded-3xl bg-white px-7 py-5 shadow-2xl border">
+              <p className="text-4xl font-bold text-gold">70+</p>
+              <p className="text-xs uppercase tracking-widest text-slate-500">Years of Excellence</p>
+            </div>
+
+            {/* Image */}
+            <div className="group overflow-hidden rounded-[36px] shadow-2xl ring-1 ring-slate-200">
+              <img
+                src={images.academics.studentsClass}
+                alt="Students in Class"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
+            </div>
+
+            {/* Decorative card */}
+            <div
+              className="
+          absolute
+          -bottom-8
+          right-8
+          rounded-3xl
+          bg-white/90
+          backdrop-blur-md
+          px-8
+          py-6
+          shadow-2xl
+          border
+          max-w-xs
+        "
+            >
+              <p className="text-lg font-bold text-forest">Inspiring Excellence</p>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                We nurture confident, disciplined and innovative learners
+                prepared for university and leadership in society.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ══ CBC STREAMS ══ */}
-      <section id="departments" className="section-pad bg-cream">
-        <div className="container-page">
-          <div className="text-center mb-12">
-            <p className="section-eyebrow mb-3">CBC Senior School (Grades 10-12)</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">Diverse Pathways for Every Learner</h2>
-            <p className="text-slate-500 mt-3 max-w-2xl mx-auto font-sans text-sm">
-              Offering diverse content pathways to help learners discover their strengths and prepare for the future.
+
+      {/* ═══════════════════════════════════════════════════════
+    CBC PATHWAYS
+════════════════════════════════════════════════════════ */}
+      <section
+        id="departments"
+        className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-16"
+      >
+        {/* Background Decorations */}
+        <div className="absolute left-0 top-20 h-72 w-72 rounded-full bg-sky-100/40 blur-3xl" />
+        <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-yellow-100/40 blur-3xl" />
+
+        <div className="container-page relative">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+              CBC Senior School (Grades 10–12)
+            </span>
+
+            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">
+              Diverse Academic
+              <span className="text-gold"> Pathways</span>
+            </h2>
+
+            <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+            <p className="mt-8 text-lg leading-9 text-slate-600">
+              Every learner has unique strengths. Our CBC pathways empower students
+              to explore their interests while preparing for university,
+              entrepreneurship and future careers.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-3xl mx-auto lg:max-w-3xl">
             {streams.map((s) => (
               <div
                 key={s.label}
-                className={`rounded-2xl border ${s.border} bg-gradient-to-br ${s.color} p-7 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300`}
+                className="
+            group
+            relative
+            overflow-hidden
+            rounded-[18px]
+            border
+            border-slate-200
+            bg-white
+            shadow-md
+            transition duration-500
+            hover:-translate-y-1
+            hover:shadow-lg
+          "
               >
-                <div className="w-14 h-14 rounded-xl bg-white/80 flex items-center justify-center mb-5 shadow-sm border border-forest/10">
-                  <s.icon className="text-forest" size={26} />
+                {/* Photo Banner */}
+                <div className="relative h-28 w-full overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.label}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/85 via-forest-dark/15 to-transparent" />
+                  <h3 className="absolute bottom-2 left-4 text-lg font-serif font-bold text-white">{s.label}</h3>
                 </div>
-                <p className="text-[10px] uppercase tracking-widest font-semibold text-slate-400 mb-1 font-sans">{s.full}</p>
-                <h3 className="font-serif font-bold text-forest text-xl mb-3">{s.label}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed mb-5">{s.desc}</p>
-                <Link to="/contact" className="btn-ghost text-sm inline-flex">
-                  Inquire About Pathway <ArrowRight size={14} />
+
+                <div className="p-4">
+                  <p className="text-[10px] uppercase tracking-[0.15em] text-slate-400 line-clamp-1">{s.full}</p>
+
+                  <p className="mt-2 text-xs leading-5 text-slate-600">{s.desc}</p>
+
+                  <div className="my-3 h-px bg-slate-200" />
+
+                  <Link
+                    to={`/academics/streams/${encodeURIComponent(s.label.toLowerCase())}`}
+                    className="
+                inline-flex
+                items-center
+                gap-1.5
+                text-xs
+                font-semibold
+                text-forest
+                transition duration-500
+                group-hover:text-gold
+              "
+                  >
+                    Explore Pathway
+                    <span
+                      className="flex h-6 w-6 items-center justify-center rounded-full bg-gold/10 transition duration-500 group-hover:bg-gold group-hover:text-white"
+                    >
+                      <ArrowRight size={12} />
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ════════════════════════════════════════════════
+    ACADEMIC DEPARTMENTS
+═════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-white py-16">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#f8f6ef,transparent_45%)]" />
+        <div className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+
+        <div className="container-page relative">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Departments</span>
+
+            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Centres of <span className="text-gold"> Excellence</span></h2>
+
+            <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+            <p className="mt-8 text-lg leading-9 text-slate-600">Every department is committed to inspiring curiosity, nurturing talent and delivering academic excellence through experienced educators and practical learning.</p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+            {departments.map((d) => (
+              <div
+                key={d.name}
+                className="
+            group
+            relative
+            overflow-hidden
+            rounded-[16px]
+            border
+            border-slate-200
+            bg-white
+            p-4
+            shadow-sm
+            transition duration-500
+            hover:-translate-y-1
+            hover:border-gold/40
+            hover:shadow-lg
+          "
+              >
+                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition duration-500 group-hover:w-full" />
+
+                <div className="mb-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl shadow-sm ring-1 ring-slate-100 transition duration-500 group-hover:scale-110">
+                  <img src={d.image} alt={d.name} className="h-full w-full object-cover" />
+                </div>
+
+                <h3 className="text-base font-serif font-bold text-forest">{d.name}</h3>
+                <p className="mt-1 text-xs text-slate-500">Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
+
+                <Link
+                  to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
+                  className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-forest/5 px-2.5 py-1 text-[11px] font-semibold text-forest transition duration-500 hover:border-forest hover:bg-forest/10"
+                >
+                  View details
+                  <ArrowRight size={12} className="text-gold transition duration-500 group-hover:translate-x-1" />
                 </Link>
               </div>
             ))}
@@ -173,60 +463,48 @@ export default function Academics() {
         </div>
       </section>
 
-      {/* ══ ACADEMIC DEPARTMENTS ══ */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div className="text-center mb-10">
-            <p className="section-eyebrow mb-3">Academic Departments</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">Our Departments</h2>
-            <p className="text-slate-500 mt-3 max-w-xl mx-auto font-sans text-sm">
-              Our departments are dedicated to delivering quality education and nurturing excellence in every learner.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {departments.map((d) => (
-              <div key={d.name} className="card p-5 text-center hover:border-gold/30">
-                <div className="w-12 h-12 rounded-xl bg-forest/5 border border-forest/10 flex items-center justify-center mx-auto mb-3">
-                  <d.icon className="text-forest" size={22} />
-                </div>
-                <p className="font-serif font-semibold text-forest text-sm mb-2">{d.name}</p>
-                <ul className="space-y-0.5">
-                  {d.subs.map((s) => (
-                    <li key={s} className="text-[11px] text-slate-500 font-sans">{s}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ══ LEARNING FACILITIES ══ */}
-      <section id="facilities" className="section-pad bg-cream">
-        <div className="container-page">
-          <div className="text-center mb-10">
-            <p className="section-eyebrow mb-3">Learning Facilities</p>
-            <div className="gold-bar mx-auto mb-4" />
-            <h2 className="section-title">State-of-the-Art Facilities</h2>
-            <p className="text-slate-500 mt-3 max-w-xl mx-auto font-sans text-sm">
-              Well-equipped facilities that support practical learning and academic growth.
-            </p>
+      {/* ═══════════════════════════════════════════════════════
+    LEARNING FACILITIES
+════════════════════════════════════════════════════════ */}
+      <section
+        id="facilities"
+        className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-16"
+      >
+        <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+        <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
+
+        <div className="container-page relative">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">Learning Facilities</span>
+
+            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Spaces Designed <span className="text-gold"> For Learning</span></h2>
+
+            <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+            <p className="mt-8 text-lg leading-9 text-slate-600">Our modern learning spaces inspire curiosity, innovation and academic excellence through practical experiences.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {facilities.map((f) => (
-              <div
-                key={f.label}
-                className="rounded-xl overflow-hidden aspect-[4/3] group cursor-pointer relative shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
-              >
-                <img
-                  src={f.image}
-                  alt={f.label}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3.5">
-                  <p className="text-white text-xs font-semibold font-sans">{f.label}</p>
+
+          <div className="grid gap-3 sm:grid-cols-4 xl:grid-cols-6">
+            {facilities.map((facility) => (
+              <div key={facility.label} className="
+            group
+            relative
+            overflow-hidden
+            rounded-[14px]
+            shadow-md
+            cursor-pointer
+            aspect-square
+          ">
+                <img src={facility.image} alt={facility.label} className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-gold/20 opacity-0 transition duration-500 group-hover:opacity-100" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="mb-1.5 h-1 w-6 rounded-full bg-gold transition duration-500 group-hover:w-12" />
+                  <h3 className="text-xs font-serif font-bold text-white leading-tight">{facility.label}</h3>
                 </div>
               </div>
             ))}
@@ -234,50 +512,63 @@ export default function Academics() {
         </div>
       </section>
 
-      {/* ══ TEACHING & SUPPORT ══ */}
-      <section className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-center">
-          {/* Teaching & Learning */}
+
+      {/* ═══════════════════════════════════════════════════════
+    TEACHING & LEARNING + ACADEMIC SUPPORT
+════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-white py-16">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#f8f6ef,transparent_45%)]" />
+
+        <div className="container-page relative grid gap-20 lg:grid-cols-2">
+
+          {/* LEFT SIDE */}
           <div>
-            <p className="section-eyebrow mb-3">Teaching & Learning</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">Modern Teaching Methods</h2>
-            <p className="section-sub mb-6">
-              We use modern teaching methods that inspire curiosity, creativity and independent
-              thinking at every level.
-            </p>
-            <ul className="space-y-3 mb-6">
-              {teachingMethods.map((m) => (
-                <li key={m} className="flex items-center gap-3">
-                  <CheckCircle className="text-gold shrink-0" size={18} />
-                  <span className="text-sm text-slate-600 font-sans">{m}</span>
-                </li>
+            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-gold">Teaching & Learning</span>
+
+            <h2 className="mt-6 text-5xl font-serif font-bold text-forest">Modern Learning <span className="text-gold"> Experience</span></h2>
+
+            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+            <p className="mt-8 text-lg leading-9 text-slate-600">We embrace innovative teaching approaches that inspire critical thinking, collaboration, creativity and lifelong learning.</p>
+
+            <div className="relative mt-8">
+              <div className="absolute left-3.5 top-3 h-full w-px bg-gold/30" />
+              {teachingMethods.map((method) => (
+                <div key={method} className="group relative mb-4 flex items-start gap-3">
+                  <div className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-gold shadow-sm transition duration-500 group-hover:scale-110">
+                    <CheckCircle size={13} className="text-white" />
+                  </div>
+                  <div className="flex-1 rounded-lg border bg-white p-3 shadow-sm transition duration-500 group-hover:border-gold/30 group-hover:shadow-md">
+                    <p className="text-xs text-slate-700 leading-5">{method}</p>
+                  </div>
+                </div>
               ))}
-            </ul>
-            {/* Photo */}
-            <div className="rounded-xl overflow-hidden aspect-[16/9] relative group shadow-md">
-              <img
-                src={images.academics.teacherClass}
-                alt="Teacher with students in classroom"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/50 via-transparent to-transparent" />
+            </div>
+
+            <div className="group relative mt-10 overflow-hidden rounded-[24px] shadow-lg">
+              <img src={images.academics.teacherClass} alt="Teacher" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           </div>
 
-          {/* Academic Support */}
+          {/* RIGHT SIDE */}
           <div>
-            <p className="section-eyebrow mb-3">Academic Support</p>
-            <div className="gold-bar mb-4" />
-            <h2 className="section-title mb-5">We Go Beyond Teaching</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Support</span>
+
+            <h2 className="mt-6 text-5xl font-serif font-bold text-forest">Every Student <span className="text-gold"> Matters</span></h2>
+
+            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+            <p className="mt-8 text-lg leading-9 text-slate-600">Beyond academics, we provide guidance, mentorship and resources that empower every learner to reach their full potential.</p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {support.map(({ icon: Icon, t, b }) => (
-                <div key={t} className="card p-4 hover:border-gold/30">
-                  <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center mb-3">
-                    <Icon className="text-gold" size={18} />
+                <div key={t} className="group rounded-[16px] border bg-white p-3 shadow-sm transition duration-500 hover:-translate-y-1 hover:border-gold/30 hover:shadow-lg">
+                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold/15 to-gold/5 transition duration-500 group-hover:rotate-6 group-hover:scale-110">
+                    <Icon size={16} className="text-gold" />
                   </div>
-                  <h4 className="font-semibold text-forest text-sm mb-1">{t}</h4>
-                  <p className="text-xs text-slate-500 font-sans leading-relaxed">{b}</p>
+                  <h3 className="text-sm font-bold text-forest">{t}</h3>
+                  <p className="mt-1 text-xs leading-5 text-slate-600">{b}</p>
                 </div>
               ))}
             </div>
@@ -288,7 +579,7 @@ export default function Academics() {
       {/* ══ KCSE RESULTS ══ */}
       <section id="results" className="section-pad bg-cream">
         <div className="container-page">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="section-eyebrow mb-3">Academic Excellence</p>
             <div className="gold-bar mx-auto mb-4" />
             <h2 className="section-title">KCSE 2025 Results</h2>
@@ -297,69 +588,114 @@ export default function Academics() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-4">
             {/* Big numbers */}
-            <div className="card p-8 text-center hover:border-gold/30">
-              <p className="section-eyebrow mb-2">KCSE 2025 Results</p>
-              <p className="text-7xl font-serif font-bold text-forest">9.718</p>
-              <p className="text-slate-400 text-sm font-sans mt-1">Mean Grade</p>
-              <div className="h-px bg-slate-100 my-4" />
-              <p className="text-4xl font-serif font-bold text-gold">98.49%</p>
-              <p className="text-slate-400 text-sm font-sans mt-1">University Transition</p>
-              <div className="h-px bg-slate-100 my-4" />
-              <p className="text-3xl font-serif font-bold text-forest">354</p>
-              <p className="text-slate-400 text-sm font-sans mt-1">Candidates</p>
+            <div className="card p-4 text-center hover:border-gold/30">
+              <p className="section-eyebrow mb-1 text-xs">KCSE 2025 Results</p>
+              <p className="text-4xl font-serif font-bold text-forest">9.718</p>
+              <p className="text-slate-400 text-xs font-sans mt-1">Mean Grade</p>
+              <div className="h-px bg-slate-100 my-2" />
+              <p className="text-2xl font-serif font-bold text-gold">98.49%</p>
+              <p className="text-slate-400 text-xs font-sans mt-1">University Transition</p>
+              <div className="h-px bg-slate-100 my-2" />
+              <p className="text-xl font-serif font-bold text-forest">354</p>
+              <p className="text-slate-400 text-xs font-sans mt-1">Candidates</p>
             </div>
 
             {/* Grade distribution */}
-            <div className="card p-6 hover:border-gold/30">
-              <h3 className="font-serif font-bold text-forest text-lg mb-5">Grade Distribution</h3>
-              <table className="w-full text-sm font-sans">
+            <div className="card p-4 hover:border-gold/30 hover:bg-cream/50 transition duration-500">
+              <h3 className="font-serif font-bold text-forest text-sm mb-3">Grade Distribution</h3>
+              <table className="w-full text-xs font-sans">
                 <thead>
-                  <tr className="text-xs uppercase tracking-wide text-slate-400 border-b border-slate-100">
-                    <th className="text-left pb-2">Grade</th>
-                    <th className="text-center pb-2">Students</th>
-                    <th className="text-right pb-2">%</th>
+                  <tr className="text-[10px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+                    <th className="text-left pb-1.5">Grade</th>
+                    <th className="text-center pb-1.5">Students</th>
+                    <th className="text-right pb-1.5">%</th>
                   </tr>
                 </thead>
                 <tbody>
                   {grades.map((g) => (
-                    <tr key={g.grade} className="border-b border-slate-50">
-                      <td className="py-2 font-semibold text-forest">{g.grade}</td>
-                      <td className="py-2 text-center text-slate-500">{g.count}</td>
-                      <td className="py-2 text-right">
+                    <tr key={g.grade} className="border-b border-slate-50 hover:bg-gold/5 transition-colors">
+                      <td className="py-1.5 font-semibold text-forest">{g.grade}</td>
+                      <td className="py-1.5 text-center text-slate-500">{g.count}</td>
+                      <td className="py-1.5 text-right">
                         <span className="text-gold font-semibold">{g.pct}</span>
                       </td>
                     </tr>
                   ))}
-                  <tr className="font-semibold">
-                    <td className="pt-3 text-forest">Total</td>
-                    <td className="pt-3 text-center text-forest">354</td>
-                    <td className="pt-3 text-right text-forest">100%</td>
+                  <tr className="font-semibold bg-forest/5 rounded-b-lg">
+                    <td className="pt-1.5 pb-1.5 text-forest">Total</td>
+                    <td className="pt-1.5 pb-1.5 text-center text-forest">354</td>
+                    <td className="pt-1.5 pb-1.5 text-right text-forest">100%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
             {/* Top performers / quote */}
-            <div className="flex flex-col gap-4">
-              <div className="card p-6 hover:border-gold/30">
-                <h4 className="font-serif font-bold text-forest mb-3">Top Subject Performers</h4>
-                <ul className="space-y-2">
+            <div className="flex flex-col gap-3">
+              <div className="card p-4 hover:border-gold/30 hover:bg-gold/5 transition duration-500">
+                <h4 className="font-serif font-bold text-forest mb-2 text-[11px] uppercase tracking-wide">Top Subject Performers</h4>
+                <ul className="space-y-1">
                   {['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English'].map((s) => (
-                    <li key={s} className="flex items-center gap-2 text-sm text-slate-600 font-sans">
-                      <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
-                      {s}: Outstanding results
+                    <li key={s} className="flex items-center gap-2 text-xs text-slate-600 font-sans group hover:text-forest hover:translate-x-1 transition duration-500">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 group-hover:scale-150 transition-transform" />
+                      {s} — <span className="text-gold font-semibold">Outstanding</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="card p-6 bg-forest-gradient text-white hover:border-gold/30">
-                <p className="text-gold text-3xl font-serif mb-2">&ldquo;</p>
-                <p className="text-white/80 text-sm italic leading-relaxed">
+              <div className="card p-4 bg-forest-gradient text-white hover:border-gold/40 hover:shadow-card-hover transition duration-500">
+                <p className="text-gold text-xl font-serif mb-1">&ldquo;</p>
+                <p className="text-white/85 text-xs italic leading-relaxed font-serif font-light">
                   Excellence is our tradition. The future is our destination.
                 </p>
-                <p className="text-gold/70 text-xs mt-3 font-sans">Kitui High School</p>
+                <p className="text-gold/80 text-[11px] mt-2 font-sans font-semibold">— Kitui High School</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 5-Year Trend */}
+          <div className="card relative mt-4 overflow-hidden p-4 hover:border-gold/30 transition duration-500">
+            <img
+              src={resultsBg}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-white/40" />
+
+            <div className="relative">
+              <div className="mb-3 flex items-center justify-between">
+                <h3 className="font-serif font-bold text-forest text-sm drop-shadow-sm">5-Year Performance Trend</h3>
+                <span className="text-[10px] uppercase tracking-wide text-slate-600 font-sans drop-shadow-sm">2020 – 2025</span>
+              </div>
+              <div className="overflow-x-auto rounded-lg bg-white/85 backdrop-blur-sm p-3">
+                <table className="w-full text-xs font-sans min-w-[420px]">
+                  <thead>
+                    <tr className="text-[10px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+                      <th className="text-left pb-1.5">Year</th>
+                      <th className="text-center pb-1.5">Candidates</th>
+                      <th className="text-center pb-1.5">Mean Grade</th>
+                      <th className="text-center pb-1.5">C+ & Above</th>
+                      <th className="text-right pb-1.5">Rank</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {kcseTrend.map((row) => (
+                      <tr
+                        key={row.year}
+                        className={`border-b border-slate-50 transition-colors ${row.highlight ? 'bg-gold/10' : 'hover:bg-gold/5'}`}
+                      >
+                        <td className={`py-1.5 font-semibold ${row.highlight ? 'text-gold' : 'text-forest'}`}>{row.year}</td>
+                        <td className="py-1.5 text-center text-slate-500">{row.entry}</td>
+                        <td className={`py-1.5 text-center font-semibold ${row.highlight ? 'text-gold' : 'text-forest'}`}>{row.mean}</td>
+                        <td className="py-1.5 text-center text-slate-500">{row.pass}%</td>
+                        <td className="py-1.5 text-right text-slate-400">{row.rank || '—'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

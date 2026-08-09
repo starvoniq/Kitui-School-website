@@ -6,10 +6,15 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Academics from './pages/Academics.jsx'
+import DepartmentDetail from './pages/DepartmentDetail.jsx'
+import StreamsDetail from './pages/StreamsDetail.jsx'
 import Management from './pages/Management.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Tour3D from './pages/Tour3D.jsx'
 import Contact from './pages/Contact.jsx'
+import StudentLife from './pages/StudentLife.jsx'
+import StudentLifeCategory from './pages/StudentLifeCategory.jsx'
+import StudentLifeDetail from './pages/StudentLifeDetail.jsx'
 import PrivacyPolicy from './pages/Privacy.jsx'
 import TermsOfUse from './pages/TermsOfUse.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -52,9 +57,14 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/academics" element={<Academics />} />
+              <Route path="/academics/streams/:label" element={<StreamsDetail />} />
+              <Route path="/academics/:name" element={<DepartmentDetail />} />
               <Route path="/management" element={<Management />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/3d-tour" element={<Tour3D />} />
+              <Route path="/student-life" element={<StudentLife />} />
+              <Route path="/student-life/:category" element={<StudentLifeCategory />} />
+              <Route path="/student-life/:category/:slug" element={<StudentLifeDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />

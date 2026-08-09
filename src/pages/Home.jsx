@@ -9,13 +9,15 @@ import {
 import { useState } from 'react'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
+import Gate3DHeroBg from '../components/Gate3DHeroBg.jsx'
+import { AnimatedCountSpan } from '../components/Animatedcounter.jsx'
 
 /* ─── Data ─── */
 const stats = [
-  { value: '1908', label: 'Year Founded', icon: Calendar },
+  { value: '1908', label: 'Year Founded', icon: Calendar, to: 1908, suffix: '' },
   { value: 'National', label: 'School Category', icon: Star },
-  { value: '2,300+', label: 'Students Enrolled', icon: Users },
-  { value: '120+', label: 'Teaching Staff', icon: BookMarked },
+  { value: '1,800+', label: 'Students Enrolled', icon: Users, to: 1800, suffix: '+' },
+  { value: '72+', label: 'Teaching Staff', icon: BookMarked, to: 72, suffix: '+' },
   { value: '9.72', label: 'KCSE Mean Grade 2025', icon: TrendingUp },
 ]
 
@@ -203,17 +205,8 @@ export default function Home() {
       <div className="relative z-10">
         {/* ══ 1. HERO WITH GATE IMAGE BACKGROUND (SOLID / OPAQUE) ══ */}
         <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-forest-dark">
-          {/* Background photo: school gate */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={images.gate}
-              alt="Kitui High School Main Gate"
-              className="w-full h-full object-cover object-center scale-100 animate-fade-in brightness-[0.88]"
-            />
-            {/* Subtle directional transparent scrim keeping the gate image clearly visible */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-          </div>
+          {/* 3D Model Background: School Gate */}
+          <Gate3DHeroBg />
 
           {/* Gold accent bar */}
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
@@ -252,10 +245,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
           <div className="container-page relative z-10 py-0">
             <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/10">
-              {stats.map(({ value, label, icon: Icon }) => (
+              {stats.map(({ value, label, icon: Icon, to, suffix }) => (
                 <div key={label} className="flex flex-col items-center md:items-start gap-1 py-7 px-4 first:pl-0 last:pr-0">
                   <Icon size={18} className="text-gold/70 mb-1" />
-                  <p className="stat-value">{value}</p>
+                  <p className="stat-value">
+                    {to !== undefined ? (
+                      <AnimatedCountSpan to={to} suffix={suffix || ''} />
+                    ) : (
+                      value
+                    )}
+                  </p>
                   <p className="stat-label">{label}</p>
                 </div>
               ))}
@@ -448,7 +447,7 @@ export default function Home() {
                 { icon: Trophy, t: 'Award-Winning Performance', b: 'Consistent top performers nationally in KCSE, sports and co-curriculars.' },
                 { icon: ShieldCheck, t: 'Safe Supervised Boarding', b: 'A home away from home: safe, structured and nurturing.' },
                 { icon: Microscope, t: 'Modern Facilities', b: 'Well-equipped labs, ICT centre, library and sports facilities.' },
-                { icon: BookOpen, t: 'Experienced Faculty', b: '120+ dedicated teachers committed to every learner\'s growth.' },
+                { icon: BookOpen, t: 'Experienced Faculty', b: '72 dedicated teachers committed to every learner\'s growth.' },
                 { icon: MapPin, t: 'Serene Campus', b: 'A peaceful, inspiring environment that fosters focus and learning.' },
               ].map(({ icon: Icon, t, b }) => (
                 <div

@@ -1,19 +1,19 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ChevronRight, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink } from 'lucide-react'
+import { ChevronRight, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink, BookOpen, HeartHandshake, Compass } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
-  admin: '/kitui school admin block.jpg',
-  adminClose: '/kitui school admin close image.jpeg',
-  gate: '/kitui school gate.jpeg',
-  basketball: '/basketball kitui school.jpeg',
-  bus: '/kitui school bus.jpeg',
-  rugby: '/kitui school rugby.jpeg',
-  rugbyAction: '/kitui school rugby 1.jpeg',
-  rugbyCourt: '/kitui school rugby 2.jpeg',
-  basketballCourt: '/kitui school basketball.jpeg',
-  football: '/kitui school football.jpeg',
+  admin: '/kitui%20school%20admin%20block.jpg',
+  adminClose: '/kitui%20school%20admin%20close%20image.jpeg',
+  gate: '/kitui%20school%20gate.jpeg',
+  basketball: '/kitui%20school%20basketball.jpeg',
+  bus: '/kitui%20school%20bus.jpeg',
+  rugby: '/kitui%20school%20rugby.jpeg',
+  rugbyAction: '/kitui%20school%20rugby%201.jpeg',
+  rugbyCourt: '/kitui%20school%20rugby%202.jpeg',
+  basketballCourt: '/kitui%20school%20basketball.jpeg',
+  football: '/kitui%20school%20football.jpeg',
 }
 
 const glance = [
@@ -89,6 +89,13 @@ const kcseRows = [
     highlight: true,
   },
   {
+    year: '2024',
+    grades: Array(8).fill('—'),
+    entry: '—',
+    mean: '9.52',
+    pass: '—',
+  },
+  {
     year: '2023',
     grades: [2, 24, 56, 65, 42, 17, 17, 1],
     entry: 224,
@@ -123,43 +130,43 @@ const alumni = [
     name: 'Willy Mutunga',
     role: 'Retired Chief Justice of Kenya; first Chief Justice under the 2010 Constitution',
     wiki: 'https://en.wikipedia.org/wiki/Willy_Mutunga',
-    img: '/willy mutunga.jpeg',
+    img: '/willy-mutunga.jpeg',
   },
   {
     name: 'Kalonzo Musyoka',
     role: '10th Vice-President of Kenya; diplomat and elder statesman',
     wiki: 'https://en.wikipedia.org/wiki/Kalonzo_Musyoka',
-    img: '/kalonzo musyoka.jpeg',
+    img: '/kalonzo-musyoka.jpeg',
   },
   {
     name: 'Makau Mutua',
     role: 'Former Dean, University at Buffalo Law School; globally recognized legal scholar',
     wiki: 'https://en.wikipedia.org/wiki/Makau_Mutua',
-    img: '/makau mutua.jpeg',
+    img: '/makau%20mutua.jpeg',
   },
   {
     name: 'Ngala Mwendwa',
     role: 'Independence-era politician; member of the Kenyan delegation to the 1960 Lancaster House Conference',
     wiki: 'https://en.wikipedia.org/wiki/Ngala_Mwendwa',
-    img: '/ngala mwendwa.jpeg',
+    img: '/ngala%20mwendwa.jpeg',
   },
   {
     name: 'Leonard Mambo Mbotela',
     role: 'Pioneering veteran Kenyan radio and broadcast journalist',
     wiki: 'https://en.wikipedia.org/wiki/Leonard_Mbotela',
-    img: '/mambo mbotela.jpeg',
+    img: '/mambo%20mbotela.jpeg',
   },
   {
     name: 'Muthomi Njuki',
     role: "Governor, Tharaka Nithi County; former Chuka-Igambang'ombe MP (taught Biology, coached rugby)",
     wiki: 'https://en.wikipedia.org/wiki/Muthomi_Njuki',
-    img: '/Muthomi Njuki.jpeg',
+    img: '/muthomi%20njuki.jpeg',
   },
   {
     name: 'Benjamin Nzimbi',
     role: 'Retired Archbishop and Primate, Anglican Church of Kenya',
     wiki: 'https://en.wikipedia.org/wiki/Benjamin_Nzimbi',
-    img: '/Benjamin Nzimbi.jpeg',
+    img: '/benjamin%20nzimbi.jpeg',
   },
 ]
 
@@ -194,6 +201,37 @@ const principals = [
   { name: 'Mr. Baraka Kasoa', from: '2010', to: '2013' },
   { name: 'Mr. Mutua B.M', from: '2013', to: 'Present' },
 ]
+
+function SectionHeading({ eyebrow, title, intro, align = 'center' }) {
+  return (
+    <div className={align === 'left' ? 'max-w-2xl' : 'text-center max-w-3xl mx-auto'}>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-forest mb-3">
+        {eyebrow}
+      </p>
+      <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl leading-tight">
+        {title}
+      </h2>
+      {intro && <p className="mt-4 text-sm md:text-base text-neutral-600 leading-relaxed">{intro}</p>}
+    </div>
+  )
+}
+
+function FoundingSeal() {
+  return (
+    <div className="rounded-[2rem] border border-gold/30 bg-[#f7f4ec] p-6 shadow-[0_12px_40px_rgba(20,61,34,0.08)]">
+      <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-full border-[3px] border-gold/70 bg-white text-center text-forest shadow-inner">
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-gold">Founded</p>
+          <p className="mt-2 font-serif text-4xl font-bold leading-none">1908</p>
+          <p className="mt-2 text-[10px] uppercase tracking-[0.24em] text-neutral-500">Learn To Serve</p>
+        </div>
+      </div>
+      <p className="mt-5 text-center text-sm leading-relaxed text-neutral-600">
+        The institution began as a community-led school and has carried its public purpose through every chapter of its history.
+      </p>
+    </div>
+  )
+}
 
 function SportsMarquee() {
   const Group = () => (
@@ -233,99 +271,157 @@ export default function About() {
   return (
     <>
       {/* ══ HERO WITH PHOTO BACKGROUND ══ */}
-      <section className="relative flex items-center overflow-hidden bg-forest-dark text-white min-h-[92svh] md:min-h-[80vh]">
+      <section className="relative flex min-h-[92svh] items-center overflow-hidden bg-[#143d22] text-white md:min-h-[84vh]">
         <div className="absolute inset-0 z-0">
           <img
             src={IMG.admin}
             alt="Kitui High School Administration Block"
-            className="w-full h-full object-cover object-center animate-fade-in"
+            className="h-full w-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,61,34,0.9)_0%,rgba(20,61,34,0.8)_45%,rgba(20,61,34,0.35)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.18)_100%)]" />
         </div>
 
-        <div className="container-page relative z-10 w-full py-16 sm:py-20 lg:py-28">
-          {/* Breadcrumb */}
+        <div className="container-page relative z-10 w-full py-16 sm:py-20 lg:py-24">
           <Reveal direction="up">
-            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 mb-6 text-sm">
-              <Link to="/" className="text-white/70 hover:text-white transition-colors">Home</Link>
-              <ChevronRight size={14} className="text-white/40" />
-              <span className="text-gold-light font-medium">About</span>
+            <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-sm">
+              <Link to="/" className="text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#143d22]">Home</Link>
+              <ChevronRight size={14} className="text-white/55" />
+              <span className="font-medium text-[#f4ecd6]">About</span>
             </nav>
           </Reveal>
 
-          <div className="max-w-3xl">
-            <Reveal direction="up" delay={0.1}>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light mb-4">
-                About Kitui High School
-              </p>
-            </Reveal>
-            <Reveal direction="up" delay={0.2}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.1] tracking-tight drop-shadow-lg">
-                Our Heritage &amp; Legacy
-              </h1>
-            </Reveal>
-            <Reveal direction="up" delay={0.3}>
-              <div className="w-14 h-[3px] bg-gold mt-6 mb-6 rounded-full" />
-            </Reveal>
-            <Reveal direction="up" delay={0.4}>
-              <p className="text-lg text-white/90 leading-relaxed max-w-xl drop-shadow-md">
-                Over a century of nurturing young men of character, discipline, leadership
-                and academic excellence.
-              </p>
+          <div className="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+            <div className="max-w-3xl">
+              <Reveal direction="up" delay={0.08}>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#d4b25a]">
+                  About Kitui High School
+                </p>
+              </Reveal>
+              <Reveal direction="up" delay={0.12}>
+                <h1 className="font-serif text-4xl font-bold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  A century of character, scholarship and service
+                </h1>
+              </Reveal>
+              <Reveal direction="up" delay={0.16}>
+                <div className="mt-6 h-[3px] w-16 rounded-full bg-[#c19a3b]" />
+              </Reveal>
+              <Reveal direction="up" delay={0.2}>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow-sm">
+                  For over a century, Kitui High School has shaped young men of character,
+                  discipline, leadership and academic excellence in the heart of Kitui County.
+                </p>
+              </Reveal>
+            </div>
+
+            <Reveal direction="left" delay={0.2}>
+              <div className="rounded-[1.75rem] border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#f4ecd6]">
+                  Institutional identity
+                </p>
+                <div className="mt-4 rounded-[1.25rem] border border-gold/35 bg-[#f7f4ec] p-5 text-[#143d22]">
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-[#c19a3b]">Founded</p>
+                  <p className="mt-2 font-serif text-4xl font-bold">1908</p>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-700">
+                    The school is rooted in community partnership, public service and a tradition of excellence.
+                  </p>
+                </div>
+              </div>
             </Reveal>
           </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-6 overflow-hidden z-10">
-          <svg viewBox="0 0 1440 24" fill="#ffffff" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,24 C360,0 1080,0 1440,24 L1440,24 L0,24 Z" />
-          </svg>
         </div>
       </section>
 
       {/* ══ AT A GLANCE ══ */}
-      <section className="bg-neutral-50">
-        <div className="container-page grid grid-cols-2 lg:grid-cols-4">
+      <section className="bg-[#f7f4ec]">
+        <div className="container-page grid grid-cols-2 gap-4 lg:grid-cols-4">
           {glance.map((g, i) => (
             <Reveal
               key={g.label}
               direction="up"
-              delay={i * 0.1}
-              className="py-10 px-6 text-center"
+              delay={i * 0.08}
+              className="rounded-[1.25rem] border border-[#e7dfcc] bg-white/80 px-5 py-8 text-center"
             >
-              <p className="text-3xl md:text-4xl font-serif font-bold text-forest">{g.value}</p>
-              <p className="mt-1.5 text-xs uppercase tracking-widest text-neutral-500">{g.label}</p>
+              <p className="text-3xl font-serif font-bold text-[#143d22] md:text-4xl">{g.value}</p>
+              <p className="mt-1.5 text-[11px] uppercase tracking-[0.24em] text-neutral-600">{g.label}</p>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* ══ HISTORY ══ */}
+      {/* ══ HOW WE SHAPE STUDENTS ══ */}
       <section className="section-pad bg-white">
-        <div className="container-page grid lg:grid-cols-2 gap-14 items-start">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading
+              eyebrow="How we shape students"
+              title="A school experience built around academic depth, discipline and service"
+              intro="The strongest parts of Kitui High School are visible in the daily life of the school: disciplined learning, structured boarding, co-curricular growth and civic responsibility."
+            />
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                icon: GraduationCap,
+                title: 'Academic depth',
+                text: 'A rigorous academic culture, strong examinations preparation and a commitment to intellectual discipline across the curriculum.',
+              },
+              {
+                icon: BookOpen,
+                title: 'Boarding and pastoral care',
+                text: 'Structured routines, teacher mentorship and a living environment that reinforces responsibility and self-management.',
+              },
+              {
+                icon: Compass,
+                title: 'Leadership and co-curriculars',
+                text: 'A broad programme of sports, clubs and student leadership that helps young people grow beyond the classroom.',
+              },
+              {
+                icon: HeartHandshake,
+                title: 'Service and community',
+                text: 'Public purpose is woven into school life through outreach, mentorship and a strong ethic of giving back.',
+              },
+            ].map(({ icon: Icon, title, text }, index) => (
+              <Reveal key={title} direction="up" delay={index * 0.08}>
+                <div className="h-full rounded-[1.5rem] border border-[#e6dfcf] bg-[#f7f4ec] p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#143d22] text-[#f4ecd6]">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="mt-5 font-serif text-xl font-semibold text-[#143d22]">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">{text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ HISTORY ══ */}
+      <section className="section-pad bg-[#fcfaf5]">
+        <div className="container-page grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <Reveal direction="right">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1e5631]">
                 History of the School
               </p>
-              <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl leading-tight mb-6">
-                A Century of Leadership and Service
+              <h2 className="mb-6 font-serif text-3xl font-bold leading-tight text-neutral-900 md:text-4xl">
+                A century of leadership and service
               </h2>
-              <p className="text-neutral-600 leading-relaxed mb-4">
+              <p className="mb-4 leading-relaxed text-neutral-700">
                 Kitui High School is a government-aided national boys' boarding secondary school
                 in Kitui Central Sub-County, Kitui County, and the only national boys' school in
                 the county. Located about two kilometres from Kitui town along the Kitui-Mbusyani
                 road, the school has for over a century served as a crucible for leadership,
                 academic excellence and character development.
               </p>
-              <p className="text-neutral-600 leading-relaxed mb-4">
+              <p className="mb-4 leading-relaxed text-neutral-700">
                 The story begins in 1908, when the British colonial government established a
                 school near the Kitui Police Station. It became the first secular Government
                 African School in the colony, built with the strong backing of local Akamba
                 communities, who volunteered land, food and labour.
               </p>
-              <p className="text-neutral-600 leading-relaxed mb-4">
+              <p className="mb-4 leading-relaxed text-neutral-700">
                 By 1938 the school had outgrown its original site and was relocated to its
                 present permanent grounds, officially renamed Campbell Academy in honour of
                 Provincial Commissioner Mr. Campbell. It became a boarding school in 1948 and
@@ -333,31 +429,30 @@ export default function About() {
                 1960. The A-Level tier was introduced in 1971 and phased out in 1980 when the
                 school adopted the national 8-4-4 system.
               </p>
-              <p className="text-neutral-600 leading-relaxed mb-7">
+              <p className="mb-7 leading-relaxed text-neutral-700">
                 Today the school hosts a vibrant population of over 1,500 students drawn from
                 all 47 counties, recognised nationally for an ultra-competitive academic
                 environment with a strong focus on STEM alongside sports, arts and service,
-                anchored on our motto, <em className="text-forest font-semibold not-italic">Learn To Serve</em>.
+                anchored on our motto, <em className="font-semibold not-italic text-[#143d22]">Learn To Serve</em>.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-forest text-white text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-forest-light transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 rounded-full bg-[#143d22] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1e5631] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#fcfaf5]"
               >
                 Get in Touch
               </Link>
             </div>
           </Reveal>
 
-          <Reveal direction="left" delay={0.15} className="space-y-6">
-            <figure className="group transition-all duration-500 hover:-translate-y-1">
-              <div className="overflow-hidden rounded-xl shadow-md transition-shadow duration-500 group-hover:shadow-2xl">
-                <img
-                  src={IMG.adminClose}
-                  alt="The Administration Block of Kitui High School"
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                />
-              </div>
-              <figcaption className="mt-3 text-xs text-neutral-500">
+          <Reveal direction="left" delay={0.12} className="space-y-6">
+            <FoundingSeal />
+            <figure className="overflow-hidden rounded-[1.5rem] border border-[#e7dfcc] bg-white p-2">
+              <img
+                src={IMG.adminClose}
+                alt="The Administration Block of Kitui High School"
+                className="aspect-[4/3] w-full rounded-[1.15rem] object-cover"
+              />
+              <figcaption className="px-2 pb-2 pt-3 text-sm text-neutral-600">
                 The Administration Block at Kitui High School
               </figcaption>
             </figure>
@@ -369,34 +464,34 @@ export default function About() {
       <section className="section-pad bg-white">
         <div className="container-page">
           <Reveal>
-            <div className="text-center mb-14">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
-                Our Heritage
-              </p>
-              <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
-                Over a Century of History
-              </h2>
-            </div>
+            <SectionHeading
+              eyebrow="Our Heritage"
+              title="Over a century of history, told in four clear chapters"
+              intro="Each era brings a fresh layer of growth, from the school’s colonial beginnings to its present national stature."
+            />
           </Reveal>
-          <div className="relative max-w-3xl mx-auto">
-            <div className="space-y-10">
+          <div className="relative mx-auto mt-12 max-w-4xl">
+            <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-[#e7dfcc] md:left-6" />
+            <div className="space-y-8">
               {eras.map((era, i) => (
-                <Reveal key={era.title} direction={i % 2 === 0 ? 'right' : 'left'} delay={(i % 2) * 0.1}>
-                  <div className="relative pl-10">
-                    <span className="absolute left-0 top-2 -translate-x-1/2 w-3 h-3 rounded-full bg-forest shadow" />
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-forest">
-                      {era.period}
-                    </p>
-                    <h3 className="font-serif font-bold text-neutral-900 text-xl mt-1 mb-3">{era.title}</h3>
-                    <ul className="space-y-2.5">
-                      {era.events.map((e) => (
-                        <li key={e.year}>
-                          <p className="text-sm text-neutral-600 leading-relaxed">
-                            <span className="font-semibold text-neutral-900">{e.year}.</span> {e.text}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
+                <Reveal key={era.title} direction={i % 2 === 0 ? 'right' : 'left'} delay={(i % 2) * 0.08}>
+                  <div className="relative pl-12 md:pl-16">
+                    <span className="absolute left-2 top-2 flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full border-2 border-[#f4ecd6] bg-[#143d22] md:left-4" />
+                    <div className="rounded-[1.5rem] border border-[#ece4d2] bg-[#fcfaf5] p-6">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c19a3b]">
+                        {era.period}
+                      </p>
+                      <h3 className="mt-2 font-serif text-xl font-semibold text-neutral-900">{era.title}</h3>
+                      <ul className="mt-4 space-y-3">
+                        {era.events.map((e) => (
+                          <li key={e.year}>
+                            <p className="text-sm leading-relaxed text-neutral-700">
+                              <span className="mr-2 font-semibold text-[#143d22]">{e.year}.</span> {e.text}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </Reveal>
               ))}
@@ -406,136 +501,163 @@ export default function About() {
       </section>
 
       {/* ══ MISSION / VISION / MOTTO ══ */}
-      <section className="section-pad bg-neutral-50">
-        <div className="container-page grid md:grid-cols-3 gap-8">
-          {identity.map((item, i) => (
-            <Reveal key={item.label} direction="up" delay={i * 0.1}>
-              <div className="bg-white rounded-xl p-7 h-full shadow-sm">
-                <h3 className="font-serif font-bold text-neutral-900 text-xl mb-3">{item.label}</h3>
-                <p className="text-sm text-neutral-600 leading-relaxed">{item.text}</p>
-                {item.sub && <p className="text-sm text-neutral-500 leading-relaxed mt-3">{item.sub}</p>}
-              </div>
-            </Reveal>
-          ))}
+      <section className="section-pad bg-[#f7f4ec]">
+        <div className="container-page">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Institutional statement"
+              title="Our mission, vision and motto remain the compass of the school"
+              intro="These are the formal commitments that guide our work, even as the school’s daily life is shaped by the lived experience above."
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {identity.map((item, i) => (
+              <Reveal key={item.label} direction="up" delay={i * 0.08}>
+                <div className="h-full rounded-[1.5rem] border border-[#e7dfcc] bg-white p-7">
+                  <h3 className="font-serif text-xl font-semibold text-[#143d22]">{item.label}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-700">{item.text}</p>
+                  {item.sub && <p className="mt-3 text-sm leading-relaxed text-neutral-600">{item.sub}</p>}
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ══ PRINCIPALS ══ */}
-      <section className="section-pad bg-neutral-50">
+      <section className="section-pad bg-white">
         <div className="container-page">
           <Reveal>
-            <div className="text-center mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
-                School Leadership
-              </p>
-              <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
-                Our Principals
-              </h2>
-              <p className="text-neutral-500 mt-4 max-w-xl mx-auto text-sm leading-relaxed">
-                The heads who have steered Kitui School since 1957, as recorded on the
-                official school registry board.
-              </p>
-            </div>
+            <SectionHeading
+              eyebrow="School Leadership"
+              title="Our Principals"
+              intro="The heads who have steered Kitui School since 1957, as recorded on the official school registry board."
+            />
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-5 sm:p-8">
-                <table className="w-full text-xs md:text-sm border-collapse">
+            <div className="mx-auto mt-10 max-w-5xl rounded-[1.5rem] border border-[#ece4d2] bg-[#fcfaf5] p-4 sm:p-8">
+              <div className="md:hidden space-y-3">
+                {principals.map((p, i) => {
+                  const current = p.to === 'Present'
+                  return (
+                    <div key={p.name} className={`rounded-[1rem] border p-4 ${current ? 'border-[#c19a3b] bg-[#f7f4ec]' : 'border-[#e7dfcc] bg-white'}`}>
+                      <p className={`font-semibold ${current ? 'text-[#143d22]' : 'text-neutral-900'}`}>{p.name}</p>
+                      <p className="mt-2 text-sm text-neutral-600">
+                        <span className="font-medium text-neutral-900">From:</span> {p.from}
+                      </p>
+                      <p className="text-sm text-neutral-600">
+                        <span className="font-medium text-neutral-900">To:</span> {p.to}
+                      </p>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div className="hidden md:block">
+                <table className="w-full border-collapse text-sm">
+                  <caption className="sr-only">List of principals of Kitui High School from 1957 to the present.</caption>
                   <thead>
-                    <tr className="text-neutral-400">
-                      <th className="text-left font-semibold py-2.5 pr-3">Name</th>
-                      <th className="text-left font-semibold py-2.5 px-2">From</th>
-                      <th className="text-left font-semibold py-2.5 pl-2">To</th>
+                    <tr className="text-left text-neutral-500">
+                      <th className="px-3 py-3 font-semibold">Name</th>
+                      <th className="px-3 py-3 font-semibold">From</th>
+                      <th className="px-3 py-3 font-semibold">To</th>
                     </tr>
                   </thead>
                   <tbody>
                     {principals.map((p, i) => {
                       const current = p.to === 'Present'
                       return (
-                        <tr
-                          key={p.name}
-                          className={current ? 'bg-forest/10' : i % 2 === 0 ? 'bg-neutral-50/40' : 'bg-white'}
-                        >
-                          <td className={`py-2.5 pr-3 font-semibold whitespace-nowrap ${current ? 'text-forest' : 'text-neutral-900'}`}>
-                            {p.name}
-                          </td>
-                          <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
-                            {p.from}
-                          </td>
-                          <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
-                            {p.to}
-                          </td>
+                        <tr key={p.name} className={current ? 'bg-[#f4ecd6]' : i % 2 === 0 ? 'bg-white' : 'bg-[#f7f4ec]'}>
+                          <td className={`px-3 py-3 font-semibold ${current ? 'text-[#143d22]' : 'text-neutral-900'}`}>{p.name}</td>
+                          <td className={`px-3 py-3 tabular-nums ${current ? 'font-semibold text-[#143d22]' : 'text-neutral-700'}`}>{p.from}</td>
+                          <td className={`px-3 py-3 tabular-nums ${current ? 'font-semibold text-[#143d22]' : 'text-neutral-700'}`}>{p.to}</td>
                         </tr>
                       )
                     })}
                   </tbody>
                 </table>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* ══ KCSE PERFORMANCE ══ */}
-      <section id="results" className="section-pad bg-white">
+      <section id="results" className="section-pad bg-[#fcfaf5]">
         <div className="container-page">
           <Reveal>
-            <div className="text-center mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-3">
-                Academic Performance
-              </p>
-              <h2 className="font-serif font-bold text-neutral-900 text-3xl md:text-4xl">
-                KCSE Performance
-              </h2>
-              <p className="text-neutral-500 mt-4 max-w-2xl mx-auto text-sm leading-relaxed">
-                Kitui High School is consistently ranked among the top schools nationally. In the
-                2025 KCSE the school was ranked 13th in Kenya, and 1st in Kitui County, building
-                on a 2024 mean grade of 9.52 and a national rank of 23rd, with the 2nd best
-                performance in Mathematics in the country.
-              </p>
-            </div>
+            <SectionHeading
+              eyebrow="Academic Performance"
+              title="KCSE Performance"
+              intro="Kitui High School is consistently ranked among the top schools nationally. In the 2025 KCSE the school was ranked 13th in Kenya and 1st in Kitui County."
+            />
           </Reveal>
 
-          {/* Key figures */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div className="mt-10 grid gap-4 md:grid-cols-4">
             {[
               { icon: GraduationCap, value: '9.72', label: '2025 Mean Grade' },
               { icon: Award, value: '98.59%', label: 'University Entry' },
               { icon: Users, value: '354', label: '2025 Candidates' },
               { icon: Landmark, value: '13th', label: 'National Rank 2025' },
             ].map(({ icon: Icon, value, label }, i) => (
-              <Reveal key={label} direction="up" delay={i * 0.1}>
-                <div className="bg-neutral-50 rounded-xl p-5 text-center h-full">
-                  <Icon size={20} className="mx-auto text-forest mb-2" />
-                  <p className="font-serif font-bold text-neutral-900 text-2xl">{value}</p>
-                  <p className="text-[11px] uppercase tracking-widest text-neutral-500 mt-1">{label}</p>
+              <Reveal key={label} direction="up" delay={i * 0.08}>
+                <div className="h-full rounded-[1.25rem] border border-[#e7dfcc] bg-white p-5 text-center">
+                  <Icon size={20} className="mx-auto mb-2 text-[#143d22]" />
+                  <p className="font-serif text-2xl font-bold text-neutral-900">{value}</p>
+                  <p className="mt-1 text-[11px] uppercase tracking-[0.24em] text-neutral-600">{label}</p>
                 </div>
               </Reveal>
             ))}
           </div>
 
           <Reveal>
-            <div className="bg-white">
-              <div className="table-scroll">
-                <p className="md:hidden flex items-center justify-end gap-1.5 pb-2 text-xs text-neutral-400">
-                  <MoveHorizontal size={14} className="text-forest" />
-                  Swipe to scroll the full table
-                </p>
-                <table className="w-full text-xs md:text-sm border-collapse min-w-[760px]">
+            <div className="mt-10 rounded-[1.5rem] border border-[#ece4d2] bg-white p-4 sm:p-6">
+              <div className="space-y-3 md:hidden">
+                {kcseRows.map((row, ri) => (
+                  <motion.div
+                    key={row.year}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: ri * 0.05 }}
+                    className={`rounded-[1rem] border p-4 ${row.highlight ? 'border-[#c19a3b] bg-[#f7f4ec]' : 'border-[#e7dfcc] bg-white'}`}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-neutral-900">{row.year}</p>
+                        <p className="mt-1 text-sm text-neutral-600">Mean {row.mean}</p>
+                      </div>
+                      <span className="rounded-full bg-[#143d22] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
+                        {row.entry === '—' ? 'Not published' : `${row.entry} learners`}
+                      </span>
+                    </div>
+                    <div className="mt-3 grid grid-cols-2 gap-2 text-sm text-neutral-700">
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-500">Pass</p>
+                        <p className="font-semibold">{row.pass}</p>
+                      </div>
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-500">Entry</p>
+                        <p className="font-semibold">{row.entry}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="hidden md:block">
+                <table className="w-full border-collapse text-sm">
+                  <caption className="sr-only">KCSE performance data for Kitui High School from 2020 to 2025.</caption>
                   <thead>
-                    <motion.tr
-                      initial={{ opacity: 0, y: -12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      className="text-neutral-500"
-                    >
-                      <th className="px-4 py-3 text-left font-semibold">Year</th>
+                    <tr className="text-left text-neutral-500">
+                      <th className="px-3 py-3 font-semibold">Year</th>
                       {kcseColumns.map((c) => (
-                        <th key={c} className="px-3 py-3 font-semibold text-center">{c}</th>
+                        <th key={c} className="px-3 py-3 text-center font-semibold">{c}</th>
                       ))}
-                      <th className="px-3 py-3 font-semibold text-center">Entry</th>
-                      <th className="px-3 py-3 font-semibold text-center">Mean</th>
-                      <th className="px-4 py-3 font-semibold text-center">C+ and above (%)</th>
-                    </motion.tr>
+                      <th className="px-3 py-3 text-center font-semibold">Entry</th>
+                      <th className="px-3 py-3 text-center font-semibold">Mean</th>
+                      <th className="px-3 py-3 text-center font-semibold">C+ and above (%)</th>
+                    </tr>
                   </thead>
                   <tbody>
                     {kcseRows.map((row, ri) => (
@@ -544,33 +666,28 @@ export default function About() {
                         initial={{ opacity: 0, x: 24 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: ri * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                        className={
-                          row.highlight
-                            ? 'bg-forest/10'
-                            : ri % 2 === 0 ? 'bg-white' : 'bg-neutral-50/40'
-                        }
+                        transition={{ duration: 0.35, delay: ri * 0.05 }}
+                        className={row.highlight ? 'bg-[#f4ecd6]' : ri % 2 === 0 ? 'bg-white' : 'bg-[#f7f4ec]'}
                       >
-                        <td className={`px-4 py-3.5 font-bold whitespace-nowrap ${row.highlight ? 'text-forest' : 'text-neutral-900'}`}>
-                          {row.year}
-                        </td>
+                        <td className={`px-3 py-3 font-semibold ${row.highlight ? 'text-[#143d22]' : 'text-neutral-900'}`}>{row.year}</td>
                         {kcseColumns.map((c, i) => (
-                          <td key={c} className={`px-3 py-3.5 text-center tabular-nums ${row.highlight ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
-                            {row.grades[i]}
+                          <td key={c} className={`px-3 py-3 text-center tabular-nums ${row.highlight ? 'font-semibold text-[#143d22]' : 'text-neutral-700'}`}>
+                            {row.grades[i] ?? '—'}
                           </td>
                         ))}
-                        <td className={`px-3 py-3.5 text-center font-semibold tabular-nums ${row.highlight ? 'text-forest' : 'text-neutral-700'}`}>{row.entry}</td>
-                        <td className="px-3 py-3.5 text-center font-bold text-forest tabular-nums">{row.mean}</td>
-                        <td className={`px-4 py-3.5 text-center font-semibold tabular-nums ${row.highlight ? 'text-forest' : 'text-neutral-800'}`}>{row.pass}</td>
+                        <td className={`px-3 py-3 text-center font-semibold tabular-nums ${row.highlight ? 'text-[#143d22]' : 'text-neutral-700'}`}>{row.entry}</td>
+                        <td className="px-3 py-3 text-center font-semibold text-[#143d22] tabular-nums">{row.mean}</td>
+                        <td className={`px-3 py-3 text-center font-semibold tabular-nums ${row.highlight ? 'text-[#143d22]' : 'text-neutral-800'}`}>{row.pass}</td>
                       </motion.tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-              <p className="pt-5 text-xs leading-relaxed text-neutral-500">
+              <p className="mt-5 text-sm leading-relaxed text-neutral-600">
                 Grade distribution as released by the school and KNEC analysis for the KCSE
                 sittings shown above. In the 2025 sitting, 349 of the 354 candidates who sat the
                 exam earned a grade of C+ or higher, the minimum required for university admission.
+                The 2024 row reflects a reported mean grade of 9.52 and national rank of 23rd; its full grade breakdown was not published.
               </p>
             </div>
           </Reveal>
@@ -603,7 +720,7 @@ export default function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Read more about ${a.name} on Wikipedia`}
-                    className="relative block overflow-hidden rounded-xl mb-5"
+                    className="relative mb-5 block overflow-hidden rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                   >
                     <img
                       src={a.img}
@@ -619,7 +736,7 @@ export default function About() {
                     href={a.wiki}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-serif font-bold text-neutral-900 text-lg leading-snug hover:text-forest transition-colors"
+                    className="font-serif text-lg font-bold leading-snug text-neutral-900 transition-colors hover:text-forest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                   >
                     {a.name}
                   </a>
@@ -690,23 +807,23 @@ export default function About() {
       <section className="section-pad bg-white">
         <div className="container-page">
           <Reveal>
-            <div className="rounded-2xl px-6 py-12 md:p-14 bg-gradient-to-b from-neutral-50 to-white text-center">
-              <h2 className="font-serif font-bold text-neutral-900 text-2xl md:text-3xl leading-snug">
-                Experience the Kitui High School Difference
+            <div className="rounded-[2rem] border border-[#ece4d2] bg-[#fcfaf5] px-6 py-12 text-center md:p-14">
+              <h2 className="font-serif text-2xl font-bold leading-snug text-neutral-900 md:text-3xl">
+                Experience the Kitui High School difference
               </h2>
-              <p className="text-neutral-500 mt-3 text-sm md:text-base max-w-lg mx-auto">
+              <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-neutral-600 md:text-base">
                 Visit our campus, meet our team and discover how we shape future leaders.
               </p>
-              <div className="flex flex-wrap justify-center gap-3 mt-8">
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-forest text-white text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-forest-light transition-colors shadow-sm"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#143d22] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1e5631] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#fcfaf5]"
                 >
                   Book a Visit
                 </Link>
                 <Link
                   to="/academics"
-                  className="inline-flex items-center gap-2 text-neutral-700 text-sm font-semibold px-7 py-3.5 rounded-full hover:text-forest transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#c19a3b] px-7 py-3.5 text-sm font-semibold text-neutral-700 transition-colors hover:border-[#143d22] hover:text-[#143d22] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#fcfaf5]"
                 >
                   Explore Academics
                 </Link>

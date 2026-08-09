@@ -90,7 +90,7 @@ export default function Contact() {
           <div className="bg-white rounded-2xl shadow-card p-8 border border-slate-100">
             <h2 className="font-serif font-bold text-forest text-2xl mb-1">Send Us a Message</h2>
             <p className="text-sm text-slate-500 mb-7 font-sans">
-              Fill out the form and we'll get back to you promptly.
+              Fill out the form and we'll get back to you.
             </p>
 
             {sent ? (
@@ -103,7 +103,7 @@ export default function Contact() {
                   Thank you for reaching out. Our administration team will respond within 24 hours.
                 </p>
                 <button
-                  onClick={() => { setSent(false); setForm({ name:'', email:'', phone:'', subject:'', message:'', agree:false }) }}
+                  onClick={() => { setSent(false); setForm({ name: '', email: '', phone: '', subject: '', message: '', agree: false }) }}
                   className="btn-ghost mt-6"
                 >
                   Send Another Message <ArrowRight size={14} />
