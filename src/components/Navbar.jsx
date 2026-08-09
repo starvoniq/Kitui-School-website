@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Menu, X, ChevronDown, Search } from 'lucide-react'
-const logo = '/kitui school logo.jpeg'
+const logo = '/kitui%20school%20logo.jpeg'
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -25,14 +25,7 @@ const navLinks = [
       { to: '/management#board', label: 'Board of Management' },
     ],
   },
-  {
-    label: 'Campus Life',
-    to: '/3d-tour',
-    dropdown: [
-      { to: '/3d-tour', label: '3D Virtual Tour' },
-      { to: '/gallery', label: 'Photo Gallery' },
-    ],
-  },
+  { to: '/student-life', label: 'Student Life' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/contact', label: 'Contact' },
 ]
@@ -61,13 +54,11 @@ export default function Navbar() {
       <div className="container-page flex items-center justify-between h-[68px]">
         {/* Logo */}
         <NavLink to="/" className="group flex items-center gap-3 shrink-0">
-          <span className="relative inline-flex items-center justify-center h-[54px] w-[54px] rounded-full bg-white shadow-lg ring-2 ring-gold/60 transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110 group-hover:shadow-xl">
-            <img
-              src={logo}
-              alt="Kitui High School Logo"
-              className="h-11 w-11 rounded-full object-contain"
-            />
-          </span>
+          <img
+            src={logo}
+            alt="Kitui High School Logo"
+            className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
           <div className="leading-tight">
             <p className="text-white font-serif font-bold text-base tracking-wide leading-none">
               Kitui High School

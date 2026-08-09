@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import PropTypes from "prop-types";
 
 /**
  * CtaBanner: full-width call-to-action strip.
@@ -11,7 +12,7 @@ import { ArrowRight } from 'lucide-react'
  *  - primaryTo       {string}  route (default /contact)
  *  - secondaryLabel  {string}
  *  - secondaryTo     {string}  route (default /about)
- *  - dark            {boolean} Use lighter (cream on forest) variant
+ *  - dark            {boolean} Use the deeper forest-dark variant instead of the gradient
  *  - transparent     {boolean} Make background transparent
  *  - className       {string}  Additional class names
  */
@@ -19,39 +20,23 @@ export default function CtaBanner({
   title,
   subtitle,
   primaryLabel,
-  primaryTo = '/contact',
+  primaryTo = "/contact",
   secondaryLabel,
-  secondaryTo = '/about',
-  dark,
+  secondaryTo = "/about",
+  dark = false,
   transparent = false,
-  light = false,
-  bgImage,
-  className = '',
+  className = "",
 }) {
-  const isLight = light && !transparent && !bgImage
-  const backgroundClasses = transparent
-    ? 'bg-transparent'
-    : bgImage
-      ? ''
-      : isLight
-        ? 'bg-gradient-to-r from-[#f7efe1] via-[#fcf7ea] to-[#eef6ef] border-y border-slate-200'
-        : 'bg-forest-gradient'
+  const backgroundClass = transparent
+    ? "bg-transparent"
+    : dark
+      ? "bg-forest-dark"
+      : "bg-forest-gradient";
 
   return (
     <section
-      className={`relative overflow-hidden ${backgroundClasses} ${className}`}
-      style={
-        bgImage
-          ? {
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }
-          : undefined
-      }
+      className={`relative overflow-hidden ${backgroundClass} ${className}`}
     >
-      {bgImage && <div className="absolute inset-0 bg-gradient-to-r from-forest/90 via-forest/75 to-forest/80" />}
-
       {/* Large decorative quote mark */}
       <div className={`absolute right-10 top-1/2 -translate-y-1/2 ${isLight ? 'text-forest/10' : 'text-white/5'} font-serif text-[180px] leading-none pointer-events-none select-none`}>
         &ldquo;
@@ -84,5 +69,17 @@ export default function CtaBanner({
         </div>
       </div>
     </section>
-  )
+  );
 }
+
+CtaBanner.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  primaryLabel: PropTypes.string,
+  primaryTo: PropTypes.string,
+  secondaryLabel: PropTypes.string,
+  secondaryTo: PropTypes.string,
+  dark: PropTypes.bool,
+  transparent: PropTypes.bool,
+  className: PropTypes.string,
+};

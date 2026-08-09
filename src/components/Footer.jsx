@@ -4,13 +4,13 @@ import {
   ArrowRight, Send, ChevronRight, Landmark,
 } from 'lucide-react'
 
-const logo = '/kitui school logo.jpeg'
+const logo = '/kitui%20school%20logo.jpeg'
 
 const quickLinks = [
   { label: 'About Us', to: '/about' },
   { label: 'Academics', to: '/academics' },
   { label: 'Leadership', to: '/management' },
-  { label: 'Campus Life', to: '/3d-tour' },
+  { label: 'Student Life', to: '/student-life' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact Us', to: '/contact' },
 ]
@@ -38,13 +38,11 @@ export default function Footer() {
         {/* Brand col */}
         <div className="lg:pr-8">
           <div className="flex items-center gap-3 mb-5">
-            <span className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white shadow shrink-0">
-              <img
-                src={logo}
-                alt="Kitui High School Logo"
-                className="h-10 w-10 rounded-full object-contain"
-              />
-            </span>
+            <img
+              src={logo}
+              alt="Kitui High School Logo"
+              className="h-12 w-auto object-contain shrink-0"
+            />
             <div>
               <p className="text-white font-semibold text-lg leading-tight tracking-tight">
                 Kitui High School
