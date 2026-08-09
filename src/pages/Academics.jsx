@@ -18,6 +18,7 @@ import stemImg from '../assets/photos/Screenshot From 2026-08-07 21-52-16.png'
 import socialSciencesImg from '../assets/photos/Screenshot From 2026-08-07 21-52-35.png'
 import artsSportsImg from '../assets/photos/Screenshot From 2026-08-07 21-52-55.png'
 import resultsBg from '../assets/resultsAcademics.png'
+import academicPhilosophyImage from '../assets/kitui-school-laboratory.png'
 
 /* ─── Data ─── */
 const values = [
@@ -277,8 +278,8 @@ export default function Academics() {
             {/* Image */}
             <div className="group overflow-hidden rounded-[36px] shadow-2xl ring-1 ring-slate-200">
               <img
-                src={images.academics.studentsClass}
-                alt="Students in Class"
+                src={academicPhilosophyImage}
+                alt="Students learning in the Kitui School laboratory"
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
               />
 
