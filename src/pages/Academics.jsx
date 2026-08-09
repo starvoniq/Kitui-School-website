@@ -59,51 +59,56 @@ const departments = [
     image: mathImg,
     name: 'Math',
     lead: 'Mrs Wambua',
-    details: [
-      { subject: 'Pure Mathematics', teacher: 'Mrs Wambua' },
-      { subject: 'Applied Mathematics', teacher: 'Mr Kavele' },
-      { subject: 'Statistics & Probability', teacher: 'Miss Amina' },
+    teachers: [
+      'Mrs Wambua',
+      'Mr Katee',
+      'Mr Kilinda',
+      'Mr Mulwa',
+      'Mr Mutuku',
+      'Mrs Mutua',
+      'Mr Mali',
     ],
   },
   {
     image: engImg,
     name: 'Eng',
     lead: 'Mr Kavele',
-    details: [
-      { subject: 'English Literature', teacher: 'Mr Kavele' },
-      { subject: 'English Composition', teacher: 'Miss Njeri' },
-      { subject: 'Communication Skills', teacher: 'Ms Ombado' },
+    teachers: [
+      'Mrs Mutuku',
+      'Mr James',
+      'Md John',
+      'Mr Kavele',
+      'Mr Musyoki',
     ],
   },
   {
     image: technicalsImg,
     name: 'Technicals',
     lead: 'Mrs Mbuva',
-    details: [
-      { subject: 'Computer Studies', teacher: 'Mr Njuguna' },
-      { subject: 'Agriculture', teacher: 'Mr Nzomo' },
-      { subject: 'Home Science', teacher: 'Mrs Kagema' },
+    subjects: [
+      'Computer Studies',
+      'Agriculture',
+      'Business Studies',
     ],
   },
   {
     image: sciencesImg,
     name: 'Sciences',
     lead: 'Mrs Gabriel',
-    details: [
-      { subject: 'Physics', teacher: 'Mr Otieno' },
-      { subject: 'Chemistry', teacher: 'Ms Waithera' },
-      { subject: 'Biology', teacher: 'Mr Mwangi' },
+    subjects: [
+      'Biology',
+      'Chemistry',
+      'Physics',
     ],
   },
   {
     image: humanitiesImg,
     name: 'Humanities',
     lead: 'Mr Tairus',
-    details: [
-      { subject: 'History', teacher: 'Mr Tairus' },
-      { subject: 'Geography', teacher: 'Ms Nduta' },
-      { subject: 'CRE', teacher: 'Mrs Wanjiru' },
-      { subject: 'Business Studies', teacher: 'Ms Thuo' },
+    subjects: [
+      'Geography',
+      'History',
+      'CRE',
     ],
   },
 ]
