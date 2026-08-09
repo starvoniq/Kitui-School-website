@@ -27,6 +27,7 @@ export default function CtaBanner({
   transparent = false,
   className = "",
 }) {
+  const isLight = transparent && !dark;
   const backgroundClass = transparent
     ? "bg-transparent"
     : dark
