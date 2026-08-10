@@ -246,23 +246,36 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
           <div className="container-page relative z-10 py-0">
             <div className="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/10">
-              {stats.map(({ value, label, icon: Icon, to, suffix }, i) => (
-                <Reveal
-                  key={label}
-                  delay={i * 0.08}
-                  className="flex flex-col items-center md:items-start gap-1 py-7 px-4 first:pl-0 last:pr-0"
-                >
-                  <Icon size={18} className="text-gold/70 mb-1" />
-                  <p className="stat-value">
-                    {to !== undefined ? (
-                      <AnimatedCountSpan to={to} suffix={suffix || ''} />
-                    ) : (
-                      value
-                    )}
-                  </p>
-                  <p className="stat-label">{label}</p>
-                </Reveal>
-              ))}
+              {stats.map(({ value, label, icon: Icon, to, suffix }, i) => {
+                const inner = (
+                  <>
+                    <Icon size={18} className="text-gold/70 mb-1" />
+                    <p className="stat-value">
+                      {to !== undefined ? (
+                        <AnimatedCountSpan to={to} suffix={suffix || ''} />
+                      ) : (
+                        value
+                      )}
+                    </p>
+                    <p className="stat-label">{label}</p>
+                  </>
+                )
+                return to !== undefined ? (
+                  /* Animated stats (students, staff) — fade-in entrance */
+                  <Reveal
+                    key={label}
+                    delay={i * 0.08}
+                    className="flex flex-col items-center md:items-start gap-1 py-7 px-4 first:pl-0 last:pr-0"
+                  >
+                    {inner}
+                  </Reveal>
+                ) : (
+                  /* Static constants (1908, National, 9.72) — always visible, no animation */
+                  <div key={label} className="flex flex-col items-center md:items-start gap-1 py-7 px-4 first:pl-0 last:pr-0">
+                    {inner}
+                  </div>
+                )
+              })}
             </div>
           </div>
           {/* gold accent line */}
