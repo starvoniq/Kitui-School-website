@@ -50,27 +50,27 @@ const deputies = [
 
 const deptHeads = [
   {
-    name: "Mr. John Mwangi",
+    name: "Mrs. Gabriel",
     subject: "Sciences",
     image: images.people.deptSciences,
   },
   {
-    name: "Mrs. Jane Wambui",
+    name: "Mrs. Wambua",
     subject: "Mathematics",
     image: images.people.deptMath,
   },
   {
-    name: "Mr. Martin Mutua",
+    name: "Mr. Kavele",
     subject: "Languages",
     image: images.people.deptLanguages,
   },
   {
-    name: "Mrs. Mercy Nzilani",
+    name: "Mr. Tairus",
     subject: "Humanities",
     image: images.people.deptHumanities,
   },
   {
-    name: "Mr. Joseph Mula",
+    name: "Mrs. Mbuva",
     subject: "Technical & Applied",
     image: images.people.deptTechnical,
   },
