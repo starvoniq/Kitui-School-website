@@ -174,13 +174,18 @@ const grades = [
   { grade: 'C', count: 5, pct: '1.41%' },
   ]
 
-/* ─── 5-Year KCSE Trend ─── */
-const kcseTrend = [
-  { year: '2025', entry: 354, mean: '9.72', pass: '98.59', rank: '13th Nationally', highlight: true },
-  { year: '2023', entry: 224, mean: '8.91', pass: '91.96' },
-  { year: '2022', entry: 199, mean: '9.31', pass: '96.98' },
-  { year: '2021', entry: 180, mean: '9.50', pass: '99.44' },
-  { year: '2020', entry: 159, mean: '9.15', pass: '96.23' },
+/* ─── KCSE Performance ─── */
+const kcseColumns = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-']
+
+const kcseRows = [
+  { year: '2025', grades: [17, 87, 109, 83, 41, 12, 5, 0], entry: 354, mean: '9.72', pass: '98.59', highlight: true },
+  { year: '2023', grades: [2, 24, 56, 65, 42, 17, 17, 1], entry: 224, mean: '8.91', pass: '91.96' },
+  { year: '2022', grades: [5, 42, 48, 50, 29, 19, 6, 0], entry: 199, mean: '9.31', pass: '96.98' },
+  { year: '2021', grades: [2, 43, 52, 43, 27, 12, 1, 0], entry: 180, mean: '9.50', pass: '99.44' },
+  { year: '2020', grades: [2, 22, 40, 49, 32, 8, 6, 0], entry: 159, mean: '9.15', pass: '96.23' },
+  { year: '2019', grades: Array(8).fill('—'), entry: 148, mean: '8.59', pass: '91.89' },
+  { year: '2018', grades: Array(8).fill('—'), entry: '—', mean: '7.63', pass: '—' },
+  { year: '2015', grades: Array(8).fill('—'), entry: '—', mean: '8.50', pass: '—' },
 ]
 
 export default function Academics() {
@@ -674,30 +679,34 @@ export default function Academics() {
             <div className="relative">
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="font-serif font-bold text-forest text-sm drop-shadow-sm">5-Year Performance Trend</h3>
-                <span className="text-[10px] uppercase tracking-wide text-slate-600 font-sans drop-shadow-sm">2020 – 2025</span>
+                <span className="text-[10px] uppercase tracking-wide text-slate-600 font-sans drop-shadow-sm">2015 – 2025</span>
               </div>
               <div className="overflow-x-auto rounded-lg bg-white/85 backdrop-blur-sm p-3">
-                <table className="w-full text-xs font-sans min-w-[420px]">
+                <table className="w-full text-xs font-sans min-w-[760px]">
                   <thead>
                     <tr className="text-[10px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
                       <th className="text-left pb-1.5">Year</th>
-                      <th className="text-center pb-1.5">Candidates</th>
-                      <th className="text-center pb-1.5">Mean Grade</th>
-                      <th className="text-center pb-1.5">C+ & Above</th>
-                      <th className="text-right pb-1.5">Rank</th>
+                      {kcseColumns.map((column) => (
+                        <th key={column} className="text-center pb-1.5">{column}</th>
+                      ))}
+                      <th className="text-center pb-1.5">Entry</th>
+                      <th className="text-center pb-1.5">Mean</th>
+                      <th className="text-right pb-1.5">C+ and above (%)</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {kcseTrend.map((row) => (
+                    {kcseRows.map((row) => (
                       <tr
                         key={row.year}
                         className={`border-b border-slate-50 transition-colors ${row.highlight ? 'bg-gold/10' : 'hover:bg-gold/5'}`}
                       >
                         <td className={`py-1.5 font-semibold ${row.highlight ? 'text-gold' : 'text-forest'}`}>{row.year}</td>
+                        {kcseColumns.map((column, index) => (
+                          <td key={column} className={`py-1.5 text-center ${row.highlight ? 'font-semibold text-gold' : 'text-slate-500'}`}>{row.grades[index]}</td>
+                        ))}
                         <td className="py-1.5 text-center text-slate-500">{row.entry}</td>
                         <td className={`py-1.5 text-center font-semibold ${row.highlight ? 'text-gold' : 'text-forest'}`}>{row.mean}</td>
-                        <td className="py-1.5 text-center text-slate-500">{row.pass}%</td>
-                        <td className="py-1.5 text-right text-slate-400">{row.rank || '—'}</td>
+                        <td className="py-1.5 text-right text-slate-400">{row.pass}</td>
                       </tr>
                     ))}
                   </tbody>
