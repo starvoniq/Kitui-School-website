@@ -122,4 +122,66 @@ AnimatedCounter.propTypes = {
   duration: PropTypes.number,
 };
 
+export function AnimatedCountSpan({
+  to,
+  from = 0,
+  prefix = "",
+  suffix = "",
+  duration = 1600,
+}) {
+  const ref = useRef(null);
+  const [value, setValue] = useState(from);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return undefined;
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) {
+      setValue(to);
+      return undefined;
+    }
+
+    let raf;
+    const startTime = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(from + (to - from) * eased));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [started, from, to, duration]);
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {value.toLocaleString()}
+      {suffix}
+    </span>
+  );
+}
 
