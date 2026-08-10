@@ -9,7 +9,7 @@ import {
   MapPin,
 } from "lucide-react";
 import PageHero from "../components/PageHero.jsx";
-import CtaBanner from "../components/CtaBanner.jsx";
+
 import LeadershipOrgChart from "../components/Leadershiporgchart.jsx";
 import Reveal from "../components/Reveal.jsx";
 import SectionDivider from "../components/Sectiondivider.jsx";
@@ -93,7 +93,7 @@ const board = [
     image: images.people.bomVice,
   },
   {
-    name: "Mr. Bernard M. Mutua",
+    name: "Mr. Benard M. Mutua",
     role: "Secretary / Chief Principal",
     image: images.people.principal,
   },
@@ -366,7 +366,7 @@ export default function Management() {
                   <div className="absolute inset-0 rounded-full ring-4 ring-gold/0 transition-all duration-500 group-hover:ring-gold/20" />
                 </div>
                 <h3 className="mt-5 font-serif text-xl font-bold text-forest">
-                  Mr. Bernard M. Mutua, OGW
+                  Mr. Benard M. Mutua
                 </h3>
                 <p className="mt-1 font-sans text-sm font-semibold text-gold">
                   Chief Principal
@@ -385,7 +385,7 @@ export default function Management() {
                   transformative changemakers in Kenya and across the globe.
                 </p>
                 <div className="mb-4 w-fit border-b border-forest/20 pb-2 font-serif text-lg italic text-forest">
-                  Bernard M. Mutua
+                  Benard M. Mutua
                 </div>
                 <p className="font-sans text-xs text-slate-400">
                   Chief Principal & Secretary to BOM
@@ -449,7 +449,7 @@ export default function Management() {
           <Reveal delay={0.1} className="mx-auto max-w-3xl">
             <LeadershipOrgChart
               principal={{
-                name: "Bernard M. Mutua, OGW",
+                name: "Benard M. Mutua",
                 image: images.people.principal,
                 title: "Chief Principal",
               }}
@@ -586,34 +586,65 @@ export default function Management() {
       </section>
 
       {/* ══ QUOTE BANNER ══ */}
-      <section className="relative overflow-hidden bg-forest-dark py-16 text-center">
+      <section className="relative overflow-hidden bg-[#0B0E14] py-24 text-center">
+        {/* Layered gradient base — replaces flat forest-dark */}
         <div
-          className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl animate-pulse-slow"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(201,162,39,0.14),transparent_70%),linear-gradient(180deg,#0B0E14_0%,#12161F_45%,#0B0E14_100%)]"
           aria-hidden="true"
         />
-        <CrestPattern className="text-white opacity-[0.04]" />
-        <div className="container-page relative z-10 mx-auto max-w-3xl">
+
+        {/* Floating gold glow orbs */}
+        <div
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[100px] animate-pulse-slow"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-gold/[0.07] blur-3xl animate-pulse-slow"
+          style={{ animationDelay: "1.5s" }}
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -right-16 bottom-10 h-72 w-72 rounded-full bg-gold/[0.06] blur-3xl animate-pulse-slow"
+          style={{ animationDelay: "2.5s" }}
+          aria-hidden="true"
+        />
+
+        {/* Faint crest texture, white-on-dark */}
+        <CrestPattern className="text-white opacity-[0.035]" />
+
+        {/* Subtle top & bottom hairline frame */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+        <div className="container-page relative z-10 mx-auto max-w-3xl px-6">
           <Reveal>
-            <p className="mb-2 font-serif text-5xl text-gold">&ldquo;</p>
-            <h2 className="mb-2 font-serif text-2xl font-semibold text-white md:text-3xl">
-              Leadership is not about position, it is about service, sacrifice
+            {/* Ornamental top mark */}
+            <div className="mx-auto mb-6 flex w-32 items-center justify-center gap-2">
+              <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gold/50" />
+              <span className="h-1.5 w-1.5 rotate-45 bg-gold" />
+              <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gold/50" />
+            </div>
+
+            <p className="mb-3 font-serif text-6xl leading-none text-gold/80 drop-shadow-[0_0_18px_rgba(201,162,39,0.35)]">
+              &ldquo;
+            </p>
+
+            <h2 className="mb-6 font-serif text-2xl font-semibold leading-snug text-white md:text-3xl md:leading-snug">
+              Leadership is not about position, it is about{" "}
+              <span className="bg-gradient-to-r from-gold via-[#E9D28C] to-gold bg-clip-text text-transparent">
+                service, sacrifice
+              </span>{" "}
               and impacting lives.
             </h2>
-            <p className="mt-3 font-sans text-sm font-semibold uppercase tracking-wider text-gold/70">
+
+            <div className="mx-auto mb-4 h-px w-16 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
+
+            <p className="font-sans text-xs font-semibold uppercase tracking-[0.25em] text-gold/70">
               Learn To Serve — Since 1938
             </p>
           </Reveal>
         </div>
       </section>
-
-      <CtaBanner
-        title="Connect With Our Leadership Team"
-        subtitle="We're here to partner with you in your child's education journey."
-        primaryLabel="Contact Us"
-        primaryTo="/contact"
-        secondaryLabel="Book a Visit"
-        secondaryTo="/contact"
-      />
     </>
   );
 }
