@@ -26,10 +26,8 @@ import academicsBackgroundImg from './acadmics background.jpg'
 
 // Teacher profile images
 import wambuaImg from './teachers-pics/mrs-wambua.jpg'
-import kaveleImg from './teachers-pics/mr-kavele.jpg'
 import mbuvuaImg from './teachers-pics/mrs-mbuva.jpg'
 import gabrielImg from './teachers-pics/mrs-gabriel.jpg'
-import tairusImg from './teachers-pics/mr-tairus.jpg'
 import aminaImg from './teachers-pics/miss-amina.jpg'
 import njeriImg from './teachers-pics/miss-njeri.jpg'
 import ombadoImg from './teachers-pics/ms-ombado.jpg'
@@ -118,10 +116,14 @@ export const images = {
   },
   teachers: {
     wambua: wambuaImg,
-    kavele: kaveleImg,
+    // Staff photos supplied in public/ are served from the site root.
+    kavele: '/Kavele.jpeg',
+    katee: '/Chalbi.jpeg',
+    mutuku: '/rambo.jpeg',
     mbuva: mbuvuaImg,
     gabriel: gabrielImg,
-    tairus: tairusImg,
+    tairus: '/Tyro.jpeg',
+    tyrus: '/Tyro.jpeg',
     amina: aminaImg,
     njeri: njeriImg,
     ombado: ombadoImg,
