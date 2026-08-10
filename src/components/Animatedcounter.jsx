@@ -122,4 +122,3 @@ AnimatedCounter.propTypes = {
   duration: PropTypes.number,
 };
 
-
