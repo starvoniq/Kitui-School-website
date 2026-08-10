@@ -5,7 +5,7 @@ import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
   admin: '/kitui school admin block.jpg',
-  adminClose: '/kitui school admin close image.jpeg',
+  adminClose: '/kitui school admin block.jpg',
   gate: '/kitui school gate.jpeg',
   basketball: '/basketball kitui school.jpeg',
   bus: '/kitui school bus.jpeg',
