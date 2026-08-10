@@ -41,7 +41,7 @@ const streams = [
     desc: 'For learners interested in people, society, leadership, governance, business and making a difference in communities.',
     longDesc: 'The Social Sciences pathway equips students with understanding of human behavior, societies, economics and governance. Students develop leadership skills, critical analysis of global issues, and entrepreneurial thinking for impactful careers in business, government, education and social sectors.',
     subjects: [
-      { subject: 'History', teacher: 'Mr Tairus', focus: 'Modern & African History', details: 'Analyzing historical events, cultural movements, political evolution and their impact on contemporary society.', image: images.teachers.tairus },
+      { subject: 'History', teacher: 'Mr Tyrus', focus: 'Modern & African History', details: 'Analyzing historical events, cultural movements, political evolution and their impact on contemporary society.', image: images.teachers.tyrus },
       { subject: 'Geography', teacher: 'Ms Nduta', focus: 'Physical & Human', details: 'Studying Earth\'s physical systems, population dynamics, economic activities and environmental sustainability.', image: images.teachers.njeri },
       { subject: 'Business Studies', teacher: 'Ms Thuo', focus: 'Commerce & Entrepreneurship', details: 'Learning business principles, management, marketing, finance and launching ventures.', image: images.teachers.kagema },
     ],
