@@ -132,6 +132,7 @@ export default function LeadershipOrgChart({
   deputies,
   board,
   deptHeads,
+  seniorMaster,
 }) {
   return (
     <div className="relative flex flex-col items-center gap-0 font-sans py-4">
@@ -177,7 +178,12 @@ export default function LeadershipOrgChart({
             }}
           />
           <OrgLink h="h-4" />
-          <OrgNode label="Senior Master" tone="forestLight" size="sm" />
+          <OrgNode
+            label="Senior Master"
+            tone="forestLight"
+            size="sm"
+            person={seniorMaster}
+          />
         </div>
 
         <div className="flex flex-col items-center gap-0">
@@ -224,4 +230,9 @@ LeadershipOrgChart.propTypes = {
   deputies: PropTypes.arrayOf(personShape).isRequired,
   board: PropTypes.arrayOf(personShape).isRequired,
   deptHeads: PropTypes.arrayOf(personShape).isRequired,
+  seniorMaster: personShape,
+};
+
+LeadershipOrgChart.defaultProps = {
+  seniorMaster: null,
 };

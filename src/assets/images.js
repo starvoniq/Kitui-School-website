@@ -26,6 +26,7 @@ import academicsBackgroundImg from './acadmics background.jpg'
 
 // Teacher profile images
 import wambuaImg from './teachers-pics/mrs-wambua.jpg'
+import kaveleImg from './teachers-pics/mr-kavele.jpeg'
 import mbuvuaImg from './teachers-pics/mrs-mbuva.jpg'
 import gabrielImg from './teachers-pics/mrs-gabriel.jpg'
 import aminaImg from './teachers-pics/miss-amina.jpg'
@@ -35,6 +36,8 @@ import njugunaImg from './teachers-pics/mr-njuguna.jpg'
 import nzomoImg from './teachers-pics/mr-nzomo.jpg'
 import kagemaImg from './teachers-pics/mrs-kagema.jpg'
 import otienoImg from './teachers-pics/mr-otieno.jpg'
+import seniorMasterImg from './teachers-pics/senior master.jpeg'
+import mrtairusImg from './teachers-pics/mr-tairus.jpeg'
 
 export const images = {
   gate: gateImg,
@@ -131,5 +134,7 @@ export const images = {
     nzomo: nzomoImg,
     kagema: kagemaImg,
     otieno: otienoImg,
+    seniorMaster: seniorMasterImg,
+    mrtairus: mrtairusImg,
   },
 }
