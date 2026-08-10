@@ -50,27 +50,27 @@ const deputies = [
 
 const deptHeads = [
   {
-    name: "Mr. John Mwangi",
+    name: "Mrs. Gabriel",
     subject: "Sciences",
     image: images.people.deptSciences,
   },
   {
-    name: "Mrs. Jane Wambui",
+    name: "Mrs. Wambua",
     subject: "Mathematics",
     image: images.people.deptMath,
   },
   {
-    name: "Mr. Martin Mutua",
+    name: "Mr. Kavele",
     subject: "Languages",
     image: images.people.deptLanguages,
   },
   {
-    name: "Mrs. Mercy Nzilani",
+    name: "Mr. Tairus",
     subject: "Humanities",
     image: images.people.deptHumanities,
   },
   {
-    name: "Mr. Joseph Mula",
+    name: "Mrs. Mbuva",
     subject: "Technical & Applied",
     image: images.people.deptTechnical,
   },
@@ -80,6 +80,13 @@ const deptHeads = [
     image: images.people.deptGuidance,
   },
 ];
+
+/* Senior Master — shown separately in the org chart, not in the dept-heads grid */
+const seniorMaster = {
+  name: "Mr. Daniel Katee",
+  title: "Senior Master",
+  image: images.teachers.seniorMaster,
+};
 
 const board = [
   {
@@ -360,7 +367,7 @@ export default function Management() {
                   <div className="absolute -inset-2 rounded-full bg-gold/0 blur-md transition-all duration-500 group-hover:bg-gold/20" />
                   <img
                     src={images.people.principal}
-                    alt="Mr. Bernard M. Mutua, Chief Principal"
+                    alt="Mr. Benard M. Mutua, Chief Principal"
                     className="relative h-36 w-36 rounded-full border-4 border-gold/30 object-cover shadow-lg transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 rounded-full ring-4 ring-gold/0 transition-all duration-500 group-hover:ring-gold/20" />
@@ -456,6 +463,7 @@ export default function Management() {
               deputies={deputies}
               board={board}
               deptHeads={deptHeads}
+              seniorMaster={seniorMaster}
             />
           </Reveal>
         </div>
