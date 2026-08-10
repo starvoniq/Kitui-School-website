@@ -27,7 +27,6 @@ export default function CtaBanner({
   transparent = false,
   className = "",
 }) {
-  const isLight = transparent && !dark;
   const backgroundClass = transparent
     ? "bg-transparent"
     : dark
@@ -39,17 +38,17 @@ export default function CtaBanner({
       className={`relative overflow-hidden ${backgroundClass} ${className}`}
     >
       {/* Large decorative quote mark */}
-      <div className={`absolute right-10 top-1/2 -translate-y-1/2 ${isLight ? 'text-forest/10' : 'text-white/5'} font-serif text-[180px] leading-none pointer-events-none select-none`}>
+      <div className="absolute right-10 top-1/2 -translate-y-1/2 text-white/5 font-serif text-[180px] leading-none pointer-events-none select-none">
         &ldquo;
       </div>
 
       <div className="container-page relative z-10 py-12 md:py-14 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="text-center md:text-left">
-          <h2 className={`${isLight ? 'text-forest' : 'text-white'} font-serif font-bold text-2xl md:text-3xl leading-snug`}>
+          <h2 className="text-white font-serif font-bold text-2xl md:text-3xl leading-snug">
             {title}
           </h2>
           {subtitle && (
-            <p className={`${isLight ? 'text-slate-600' : 'text-white/65'} mt-2 font-sans text-sm md:text-base max-w-lg`}>
+            <p className="text-white/65 mt-2 font-sans text-sm md:text-base max-w-lg">
               {subtitle}
             </p>
           )}
@@ -63,7 +62,7 @@ export default function CtaBanner({
             </Link>
           )}
           {secondaryLabel && (
-            <Link to={secondaryTo} className={isLight ? 'btn-outline-dark' : 'btn-outline'}>
+            <Link to={secondaryTo} className="btn-outline">
               {secondaryLabel}
             </Link>
           )}
