@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import {
   FlaskConical, Pi, Globe, BookOpen, Wrench, ArrowLeft, Award, TrendingUp, Users, Star
@@ -8,7 +7,21 @@ import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
 import heroBg from '../assets/resultsAcademics.png'
 
-const teacher = (name, image = images.teachers.kavele) => ({ name, image })
+// Import teacher images
+const teacherImages = {
+  'Mrs Wambua': images.teachers.wambua,
+  'Mr Kavele': images.teachers.kavele,
+  'Mrs Mbuva': images.teachers.mbuva,
+  'Mrs Gabriel': images.teachers.gabriel,
+  'Mr Tairus': images.teachers.tairus,
+  'Miss Amina': images.teachers.amina,
+  'Miss Njeri': images.teachers.njeri,
+  'Ms Ombado': images.teachers.ombado,
+  'Mr Njuguna': images.teachers.njuguna,
+  'Mr Nzomo': images.teachers.nzomo,
+  'Mrs Kagema': images.teachers.kagema,
+  'Mr Otieno': images.teachers.otieno,
+}
 
 const departments = [
   {
@@ -19,14 +32,10 @@ const departments = [
     color: 'from-blue-50 to-blue-100',
     borderColor: 'border-blue-200',
     accentColor: 'text-blue-600 bg-blue-50',
-    teachers: [
-      teacher('Mrs Wambua', images.teachers.wambua),
-      teacher('Mr Katee'),
-      teacher('Mr Kilinda'),
-      teacher('Mr Mulwa'),
-      teacher('Mr Mutuku'),
-      teacher('Mrs Mutua', images.teachers.mbuva),
-      teacher('Mr Mali'),
+    details: [
+      { subject: 'Pure Mathematics', teacher: 'Mrs Wambua', image: images.teachers.wambua, specialty: 'Calculus & Analysis' },
+      { subject: 'Applied Mathematics', teacher: 'Mr Kavele', image: images.teachers.kavele, specialty: 'Mechanics & Statistics' },
+      { subject: 'Statistics & Probability', teacher: 'Miss Amina', image: images.teachers.amina, specialty: 'Data Analysis' },
     ],
     achievements: [
       'Top 5% performance in national mathematics examinations',
@@ -49,12 +58,10 @@ const departments = [
     color: 'from-purple-50 to-purple-100',
     borderColor: 'border-purple-200',
     accentColor: 'text-purple-600 bg-purple-50',
-    teachers: [
-      teacher('Mrs Mutuku', images.teachers.mbuva),
-      teacher('Mr James'),
-      teacher('Md John'),
-      teacher('Mr Kavele', images.teachers.kavele),
-      teacher('Mr Musyoki'),
+    details: [
+      { subject: 'English Literature', teacher: 'Mr Kavele', image: images.teachers.kavele, specialty: 'Literary Analysis' },
+      { subject: 'English Composition', teacher: 'Miss Njeri', image: images.teachers.njeri, specialty: 'Creative Writing' },
+      { subject: 'Communication Skills', teacher: 'Ms Ombado', image: images.teachers.ombado, specialty: 'Public Speaking' },
     ],
     achievements: [
       'Consistent high performance in English language examinations',
@@ -77,10 +84,10 @@ const departments = [
     color: 'from-amber-50 to-amber-100',
     borderColor: 'border-amber-200',
     accentColor: 'text-amber-600 bg-amber-50',
-    subjects: [
-      { name: 'Computer Studies', teachers: [{ name: 'Mr Njuguna', image: images.teachers.njuguna }] },
-      { name: 'Agriculture', teachers: [{ name: 'Mr Nzomo', image: images.teachers.nzomo }] },
-      { name: 'Business Studies', teachers: [{ name: 'Ms Thuo', image: images.teachers.ombado }] },
+    details: [
+      { subject: 'Computer Studies', teacher: 'Mr Njuguna', image: images.teachers.njuguna, specialty: 'Programming & Web Dev' },
+      { subject: 'Agriculture', teacher: 'Mr Nzomo', image: images.teachers.nzomo, specialty: 'Sustainable Farming' },
+      { subject: 'Home Science', teacher: 'Mrs Kagema', image: images.teachers.kagema, specialty: 'Food & Nutrition' },
     ],
     achievements: [
       'State-of-the-art computer labs with latest technology',
@@ -103,40 +110,10 @@ const departments = [
     color: 'from-green-50 to-green-100',
     borderColor: 'border-green-200',
     accentColor: 'text-green-600 bg-green-50',
-    subjects: [
-      {
-        name: 'Biology',
-        teachers: [
-          teacher('Mr Kitua'),
-          teacher('Mr Mali'),
-          teacher('Mr Mulozya'),
-          teacher('Mrs Gabriel', images.teachers.gabriel),
-          teacher('Md Makilya'),
-          teacher('Md Silvester'),
-          teacher('Mr Mbithuka'),
-        ],
-      },
-      {
-        name: 'Chemistry',
-        teachers: [
-          teacher('Mr Kilinda'),
-          teacher('Mr Mulukya'),
-          teacher('Mr Munene'),
-          teacher('Mr Orina'),
-          teacher('Mr Kitua'),
-          teacher('Mr Mbithuka'),
-          teacher('Md Makilya'),
-        ],
-      },
-      {
-        name: 'Physics',
-        teachers: [
-          teacher('Mr Mutuku'),
-          teacher('Mr Mulwa'),
-          teacher('Mr Mulukya'),
-          teacher('Mr Kioko'),
-        ],
-      },
+    details: [
+      { subject: 'Physics', teacher: 'Mr Otieno', image: images.teachers.otieno, specialty: 'Experimental Physics' },
+      { subject: 'Chemistry', teacher: 'Ms Waithera', image: images.teachers.ombado, specialty: 'Organic Chemistry' },
+      { subject: 'Biology', teacher: 'Mr Mwangi', image: images.teachers.njuguna, specialty: 'Molecular Biology' },
     ],
     achievements: [
       'Excellence in science practical examinations',
@@ -159,17 +136,11 @@ const departments = [
     color: 'from-red-50 to-red-100',
     borderColor: 'border-red-200',
     accentColor: 'text-red-600 bg-red-50',
-    subjects: [
-      {
-        name: 'Geography',
-        teachers: [
-          teacher('Md Sila'),
-          teacher('Mr Sebastian'),
-          teacher('Md Mulonzi'),
-        ],
-      },
-      { name: 'History', teachers: [{ name: 'Mr Tairus', image: images.teachers.tairus }] },
-      { name: 'CRE', teachers: [{ name: 'Mrs Wanjiru', image: images.teachers.kagema }] },
+    details: [
+      { subject: 'History', teacher: 'Mr Tairus', image: images.teachers.tairus, specialty: 'African & World History' },
+      { subject: 'Geography', teacher: 'Ms Nduta', image: images.teachers.njeri, specialty: 'Physical & Human Geography' },
+      { subject: 'CRE', teacher: 'Mrs Wanjiru', image: images.teachers.kagema, specialty: 'Religious Studies & Ethics' },
+      { subject: 'Business Studies', teacher: 'Ms Thuo', image: images.teachers.ombado, specialty: 'Commerce & Entrepreneurship' },
     ],
     achievements: [
       'Excellent essay writing and analytical skills development',
@@ -189,7 +160,6 @@ const departments = [
 export default function DepartmentDetail() {
   const { name } = useParams()
   const navigate = useNavigate()
-  const [selectedSubject, setSelectedSubject] = useState(null)
 
   const dept = departments.find((d) => d.name.toLowerCase() === name.toLowerCase())
 
@@ -206,21 +176,6 @@ export default function DepartmentDetail() {
   }
 
   const Icon = dept.icon
-  const isDepartmentTeacherList = Array.isArray(dept.teachers)
-  const displayItems = isDepartmentTeacherList
-    ? dept.teachers.map((teacher) => ({
-        subject: teacher.name,
-        teacher: teacher.name,
-        image: teacher.image,
-        specialty: 'Department faculty',
-      }))
-    : dept.subjects.map((subject) => ({
-        subject: subject.name,
-        teacher: subject.teachers[0]?.name,
-        image: subject.teachers[0]?.image,
-        specialty: 'Subject faculty',
-        teachers: subject.teachers,
-      }))
 
   return (
     <>
@@ -288,29 +243,18 @@ export default function DepartmentDetail() {
               Curriculum
             </span>
             <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              {isDepartmentTeacherList ? 'Department Teachers' : 'Subjects & Teachers'}
+              Subjects & Expert Teachers
             </h2>
             <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
             <p className="mt-8 text-lg leading-9 text-slate-600">
-              {isDepartmentTeacherList
-                ? 'Meet the teachers in this department.'
-                : 'Select a subject card to view the teachers assigned to it.'}
+              Our dedicated team of expert educators brings years of experience and passion to every subject, ensuring personalized attention and academic excellence for every student.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {displayItems.map((item) => (
+            {dept.details.map((item, idx) => (
               <div
                 key={item.subject}
-                onClick={() => !isDepartmentTeacherList && setSelectedSubject(selectedSubject === item.subject ? null : item.subject)}
-                role={!isDepartmentTeacherList ? 'button' : undefined}
-                tabIndex={!isDepartmentTeacherList ? 0 : undefined}
-                onKeyDown={(event) => {
-                  if (!isDepartmentTeacherList && (event.key === 'Enter' || event.key === ' ')) {
-                    event.preventDefault()
-                    setSelectedSubject(selectedSubject === item.subject ? null : item.subject)
-                  }
-                }}
                 className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 md:p-10 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
               >
                 <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
@@ -346,19 +290,9 @@ export default function DepartmentDetail() {
                   </div>
                 </div>
 
-                {!isDepartmentTeacherList && selectedSubject === item.subject && (
-                  <div className="mt-6 border-t border-slate-100 pt-4">
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teachers</p>
-                    <div className="mt-3 space-y-2">
-                      {item.teachers.map((teacher) => (
-                        <div key={teacher.name} className="flex items-center gap-3">
-                          <img src={teacher.image} alt={teacher.name} className="h-10 w-10 rounded-full object-cover" />
-                          <span className="text-sm font-semibold text-forest">{teacher.name}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <p className="mt-6 text-sm leading-7 text-slate-600">
+                  Expert instruction with a focus on conceptual understanding, practical application and personalized learning support.
+                </p>
               </div>
             ))}
           </div>
