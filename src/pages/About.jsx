@@ -74,9 +74,10 @@ const identity = [
   },
 ]
 
-/* Verified KCSE data, grade distribution published by the school and KNEC analysis.
-   2024 is intentionally omitted from the table because the full grade distribution was
-   not published; its mean (9.52) and national rank (23rd) are noted separately below. */
+/* Verified KCSE data from school/KNEC sources. Years 2015, 2018 and 2019 are shown
+   with published mean scores; their full grade distributions were not made public.
+   2016, 2017 and 2024 are omitted — no official grade breakdown was published (2024's
+   mean of 9.52 and national rank of 23rd are noted separately). */
 const kcseColumns = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-']
 
 const kcseRows = [
@@ -115,6 +116,27 @@ const kcseRows = [
     entry: 159,
     mean: '9.15',
     pass: '96.23',
+  },
+  {
+    year: '2019',
+    grades: Array(8).fill('—'),
+    entry: 148,
+    mean: '8.59',
+    pass: '91.89',
+  },
+  {
+    year: '2018',
+    grades: Array(8).fill('—'),
+    entry: '—',
+    mean: '7.63',
+    pass: '—',
+  },
+  {
+    year: '2015',
+    grades: Array(8).fill('—'),
+    entry: '—',
+    mean: '8.50',
+    pass: '—',
   },
 ]
 
