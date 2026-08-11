@@ -33,7 +33,6 @@ export default function CtaBanner({
     : dark
       ? "bg-forest-dark"
       : "bg-forest-gradient";
-  const isLight = transparent;
 
   return (
     <section
