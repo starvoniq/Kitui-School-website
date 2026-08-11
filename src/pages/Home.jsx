@@ -12,6 +12,7 @@ import { images } from '../assets/images.js'
 import Gate3DHeroBg from '../components/Gate3DHeroBg.jsx'
 import { AnimatedCountSpan } from '../components/Animatedcounter.jsx'
 import Reveal from '../components/Reveal.jsx'
+import CalendarModal from '../components/CalendarModal.jsx'
 
 /* ─── Data ─── */
 const stats = [
@@ -180,6 +181,7 @@ function TestimonialCard({ t }) {
 /* ─── Page ─── */
 export default function Home() {
   const [tIdx, setTIdx] = useState(0)
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const prev = () => setTIdx((i) => (i - 1 + testimonials.length) % testimonials.length)
   const next = () => setTIdx((i) => (i + 1) % testimonials.length)
 
@@ -562,9 +564,12 @@ export default function Home() {
               <div className="lg:col-span-4">
                 <div className="flex items-end justify-between mb-6 border-b border-slate-200 pb-3">
                   <h2 className="font-sans font-bold text-slate-800 text-sm uppercase tracking-widest">UPCOMING EVENTS</h2>
-                  <span className="text-[10px] font-bold text-slate-500 tracking-widest uppercase hidden sm:block">
+                  <button 
+                    onClick={() => setIsCalendarOpen(true)}
+                    className="text-[10px] font-bold text-slate-500 hover:text-forest tracking-widest uppercase hidden sm:block transition-colors"
+                  >
                     VIEW CALENDAR
-                  </span>
+                  </button>
                 </div>
                 <div className="space-y-6">
                   <div className="flex gap-4 items-start">
@@ -721,6 +726,11 @@ export default function Home() {
           transparent
         />
       </div>
+
+      <CalendarModal 
+        isOpen={isCalendarOpen} 
+        onClose={() => setIsCalendarOpen(false)} 
+      />
     </>
   )
 }
