@@ -23,6 +23,11 @@ import femaleTeacherImg from './photos/female_teacher.png'
 import studentLeaderImg from './photos/student_leader.png'
 import alumniImg from './photos/alumni.png'
 import academicsBackgroundImg from './acadmics background.jpg'
+import rugbyImg from './photos/rugby.jpg'
+import ogambaImg from './photos/Ogamba.jpeg'
+import ksefImg from './photos/ksef.jpeg'
+import dormsImg from './photos/dorms.jpg'
+import sportsGroundImg from './photos/sports-ground.jpg'
 
 // Teacher profile images
 import wambuaImg from './teachers-pics/mrs-wambua.jpg'
@@ -56,8 +61,8 @@ export const images = {
     adminTower: adminImg,
     aerialCampus: compoundImg,
     compound: compoundImg,
-    boarding: compoundImg,
-    sportsField: sportsImg,
+    boarding: dormsImg,
+    sportsField: sportsGroundImg,
     dining: compoundImg,
     diningHall: compoundImg,
   },
@@ -108,9 +113,10 @@ export const images = {
   },
   news: {
     exam: classroomImg,
-    rugby: sportsImg,
-    science: scienceLabImg,
+    rugby: rugbyImg,
+    science: ksefImg,
     robotics: computerLabImg,
+    ogamba: ogambaImg,
   },
   testimonials: {
     alumni: alumniImg,
