@@ -4,7 +4,7 @@ import {
   Microscope, BookOpen, Sigma, Palette,
   Trophy, Users, ShieldCheck, Star,
   Calendar, MapPin, TrendingUp, BookMarked,
-  Quote, ChevronLeft, ChevronRight as ChevronRightIcon,
+  Quote, ChevronLeft, ChevronRight as ChevronRightIcon, Music
 } from 'lucide-react'
 import { useState } from 'react'
 import CtaBanner from '../components/CtaBanner.jsx'
@@ -71,13 +71,6 @@ const highlights = [
 
 const news = [
   {
-    tag: 'Academics',
-    tagColor: 'bg-forest text-white',
-    title: 'KCSE Mock Examinations Timetable Released',
-    date: 'May 15, 2026',
-    image: images.news.exam,
-  },
-  {
     tag: 'Sports',
     tagColor: 'bg-gold text-forest font-bold',
     title: 'Rugby Team Departs for National Stages',
@@ -87,7 +80,7 @@ const news = [
   {
     tag: 'Events',
     tagColor: 'bg-sky-600 text-white',
-    title: 'Science Congress 2026 Success',
+    title: 'Kenya Science and Engineering Fair',
     date: 'May 10, 2026',
     image: images.news.science,
   },
@@ -96,7 +89,7 @@ const news = [
     tagColor: 'bg-sky-600 text-white',
     title: 'Education CS Julius Migos Ogamba Opens 2025 KCSE Exams',
     date: 'Nov 6, 2025',
-    image: images.news.exam,
+    image: images.news.ogamba,
   },
 ]
 
@@ -104,8 +97,7 @@ const campus = [
   { label: 'Administration Block', image: images.campus.adminTower },
   { label: 'Science Laboratories', image: images.academics.physicsLab },
   { label: 'School Library', image: images.academics.library },
-  { label: 'Boarding Houses', image: images.campus.boarding },
-  { label: 'School Chapel', image: images.campus.chapel },
+  { label: 'Dormitories', image: images.campus.boarding },
   { label: 'Sports Grounds', image: images.campus.sportsField },
 ]
 
@@ -349,68 +341,265 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══ 4. HIGHLIGHTS OF EXCELLENCE (50% OPACITY OVER FIXED BG) ══ */}
-        {/* Adjust opacity: change /50 to /30 for more transparency, or /80 or bg-cream for more solid */}
-        <section className="section-pad bg-cream/80">
+        {/* ══ 4. HIGHLIGHTS OF EXCELLENCE ══ */}
+        <section className="section-pad bg-white">
           <div className="container-page">
-            <div className="text-center mb-12">
-              <p className="section-eyebrow mb-3">Highlights of Excellence</p>
-              <div className="gold-bar mx-auto mb-4" />
-              <h2 className="section-title">Where Achievement Meets Purpose</h2>
+            <div className="text-center mb-12 flex items-center justify-center gap-4">
+              <div className="h-px bg-slate-200 flex-1 hidden sm:block"></div>
+              <h2 className="font-serif font-bold text-forest text-xl uppercase tracking-widest">
+                HIGHLIGHTS OF <span className="text-gold">EXCELLENCE</span>
+              </h2>
+              <div className="h-px bg-slate-200 flex-1 hidden sm:block"></div>
             </div>
-            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
-              {highlights.map((h) => (
-                <div
-                  key={h.num}
-                  className={`rounded-xl border ${h.border} bg-white/75 backdrop-blur-sm p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-[10px] uppercase tracking-widest font-semibold text-gold font-sans">
-                      {h.tag}
-                    </span>
-                    <span className="text-3xl font-serif font-bold text-forest/15">{h.num}</span>
+
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+              
+              {/* Card 1 */}
+              <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">1. ACADEMIC PERFORMANCE</span>
+                  <TrendingUp size={16} className="text-slate-300" />
+                </div>
+                <h3 className="font-serif font-bold text-forest text-lg mb-6 leading-tight">KCSE 2024 RESULTS</h3>
+                
+                <div className="flex gap-6 mb-6">
+                  <div>
+                    <p className="text-4xl font-bold text-forest tracking-tighter">9.80</p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Mean Grade</p>
                   </div>
-                  <h3 className="font-serif font-bold text-forest text-lg leading-snug mb-3">
-                    {h.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-4">{h.body}</p>
-                  <ul className="space-y-1.5 mb-5">
-                    {h.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-xs text-forest font-sans">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to={h.to} className="btn-ghost text-xs inline-flex">
-                    {h.cta} <ArrowRight size={12} />
+                  <div>
+                    <p className="text-4xl font-bold text-forest tracking-tighter">99.6<span className="text-2xl">%</span></p>
+                    <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">University Transition</p>
+                  </div>
+                </div>
+
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">GRADE DISTRIBUTION</p>
+                <table className="w-full text-xs text-left mb-6 font-sans">
+                  <thead className="border-b border-slate-100 text-slate-500">
+                    <tr>
+                      <th className="py-2 font-semibold">Grade</th>
+                      <th className="py-2 font-semibold text-right">Students</th>
+                      <th className="py-2 font-semibold text-right">%</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-50 text-forest">
+                    <tr><td className="py-2">A</td><td className="py-2 text-right">40</td><td className="py-2 text-right">10.8%</td></tr>
+                    <tr><td className="py-2">A-</td><td className="py-2 text-right">85</td><td className="py-2 text-right">23.0%</td></tr>
+                    <tr><td className="py-2">B+</td><td className="py-2 text-right">95</td><td className="py-2 text-right">25.7%</td></tr>
+                    <tr><td className="py-2">B</td><td className="py-2 text-right">75</td><td className="py-2 text-right">20.3%</td></tr>
+                    <tr><td className="py-2">B-</td><td className="py-2 text-right">45</td><td className="py-2 text-right">12.2%</td></tr>
+                    <tr><td className="py-2">C+</td><td className="py-2 text-right">20</td><td className="py-2 text-right">5.4%</td></tr>
+                    <tr><td className="py-2">Below C+</td><td className="py-2 text-right">10</td><td className="py-2 text-right">2.7%</td></tr>
+                  </tbody>
+                  <tfoot className="border-t border-slate-200 font-bold text-forest">
+                    <tr><td className="py-2">Total</td><td className="py-2 text-right">370</td><td className="py-2 text-right">100%</td></tr>
+                  </tfoot>
+                </table>
+                
+                <div className="mt-auto">
+                  <Link to="/academics#results" className="bg-forest text-white text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-forest-dark transition-colors font-semibold">
+                    VIEW FULL RESULTS <ArrowRight size={14} />
                   </Link>
                 </div>
-              ))}
+              </div>
+
+              {/* Card 2 */}
+              <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-2 block">2. BEYOND THE CLASSROOM</span>
+                <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Excellence in Action</h3>
+                
+                <div className="aspect-video w-full rounded-lg overflow-hidden mb-5 bg-slate-100 shrink-0">
+                  <img src={images.news.rugby} alt="Rugby" className="w-full h-full object-cover" />
+                </div>
+
+                <ul className="space-y-4 mb-6 flex-1">
+                  <li className="flex items-start gap-3">
+                    <Trophy size={18} className="text-slate-400 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Rugby Team</p>
+                      <p className="text-xs text-slate-500">Qualified for Nationals 2025</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Star size={18} className="text-slate-400 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Hockey Team</p>
+                      <p className="text-xs text-slate-500">Eastern Region Champions</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Music size={18} className="text-slate-400 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Music Festival</p>
+                      <p className="text-xs text-slate-500">National Finalists</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Palette size={18} className="text-slate-400 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Drama Festival</p>
+                      <p className="text-xs text-slate-500">County Champions</p>
+                    </div>
+                  </li>
+                </ul>
+                
+                <div className="mt-auto">
+                  <Link to="/gallery" className="bg-forest text-white text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-forest-dark transition-colors font-semibold">
+                    EXPLORE STUDENT LIFE <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
+                <span className="text-xs font-bold text-gold uppercase tracking-wide mb-2 block">3. INNOVATION & STEM</span>
+                <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Creating Solutions, Shaping the Future</h3>
+                
+                <div className="aspect-video w-full rounded-lg overflow-hidden mb-5 bg-slate-100 shrink-0">
+                  <img src={images.news.science} alt="Science" className="w-full h-full object-cover" />
+                </div>
+
+                <ul className="space-y-4 mb-6 flex-1">
+                  <li className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400"><Microscope size={16} /></div>
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Kenya Science & Engineering Fair 2025</p>
+                      <p className="text-xs text-slate-500 mt-0.5">3 Projects Advanced to Nationals</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400"><Sigma size={16} /></div>
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Robotics Club</p>
+                      <p className="text-xs text-slate-500 mt-0.5">Building, Coding, Innovating</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 text-slate-400"><BookOpen size={16} /></div>
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Programming Club</p>
+                      <p className="text-xs text-slate-500 mt-0.5">Developing the next generation of tech leaders</p>
+                    </div>
+                  </li>
+                </ul>
+                
+                <div className="mt-auto">
+                  <Link to="/academics" className="bg-gold text-forest text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-yellow-500 transition-colors font-bold">
+                    EXPLORE INNOVATION <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 4 */}
+              <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-2 block">4. CBC SENIOR SCHOOL</span>
+                <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Grades 10 - 12<br/>Discover Your Path</h3>
+                
+                <div className="aspect-video w-full rounded-lg overflow-hidden mb-5 bg-slate-100 shrink-0">
+                  <img src={images.academics.studentsClass} alt="CBC" className="w-full h-full object-cover" />
+                </div>
+
+                <p className="text-xs text-slate-600 mb-5 leading-relaxed">
+                  We offer diverse pathways to help learners explore their strengths and prepare for their future.
+                </p>
+
+                <ul className="space-y-4 mb-6 flex-1">
+                  <li className="flex items-start gap-3">
+                    <Microscope size={18} className="text-forest mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">STEM</p>
+                      <p className="text-[10px] text-slate-500">Science, Technology, Engineering, Mathematics</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Users size={18} className="text-forest mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Social Sciences</p>
+                      <p className="text-[10px] text-slate-500">Humanities, Business & Social Sciences</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Palette size={18} className="text-forest mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-bold text-forest leading-tight">Arts & Sports Science</p>
+                      <p className="text-[10px] text-slate-500">Creative Arts & Physical Education</p>
+                    </div>
+                  </li>
+                </ul>
+                
+                <div className="mt-auto">
+                  <Link to="/academics#departments" className="bg-forest text-white text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-forest-dark transition-colors font-semibold">
+                    EXPLORE CBC PATHWAYS <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
 
-        {/* ══ 5. LATEST NEWS ══ */}
-        <section className="section-pad bg-white">
+        {/* ══ 5. LATEST NEWS & EVENTS ══ */}
+        <section className="section-pad bg-slate-50">
           <div className="container-page">
-            <div className="flex items-end justify-between mb-10">
-              <div>
-                <p className="section-eyebrow mb-2">Latest News & Events</p>
-                <div className="gold-bar mb-3" />
-                <h2 className="section-title">What's Happening at KHS</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8">
+              
+              {/* LATEST NEWS */}
+              <div className="lg:col-span-8">
+                <div className="flex items-end justify-between mb-6 border-b border-slate-200 pb-3">
+                  <h2 className="font-sans font-bold text-slate-800 text-sm uppercase tracking-widest">LATEST NEWS & EVENTS</h2>
+                  <Link to="/gallery" className="text-[10px] font-bold text-slate-500 hover:text-gold tracking-widest uppercase hidden sm:block">
+                    VIEW ALL NEWS
+                  </Link>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {news.slice(0,3).map((n) => (
+                    <NewsCard key={n.title} item={n} />
+                  ))}
+                </div>
               </div>
-              <Link to="/gallery" className="btn-ghost hidden md:flex">
-                View All News <ArrowRight size={16} />
-              </Link>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {news.map((n) => (
-                <NewsCard key={n.title} item={n} />
-              ))}
-            </div>
-            <div className="text-center mt-8 md:hidden">
-              <Link to="/gallery" className="btn-outline-dark">View All News</Link>
+
+              {/* UPCOMING EVENTS */}
+              <div className="lg:col-span-4">
+                <div className="flex items-end justify-between mb-6 border-b border-slate-200 pb-3">
+                  <h2 className="font-sans font-bold text-slate-800 text-sm uppercase tracking-widest">UPCOMING EVENTS</h2>
+                  <span className="text-[10px] font-bold text-slate-500 tracking-widest uppercase hidden sm:block">
+                    VIEW CALENDAR
+                  </span>
+                </div>
+                <div className="space-y-6">
+                  <div className="flex gap-4 items-start">
+                    <div className="w-12 h-12 shrink-0 rounded border border-slate-200 flex flex-col items-center justify-center bg-white shadow-sm">
+                      <span className="text-lg font-bold text-forest leading-none">22</span>
+                      <span className="text-[9px] font-bold text-slate-500 uppercase mt-0.5">May</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-forest text-sm leading-tight">End of Term Examinations</h4>
+                      <p className="text-xs text-slate-500 mt-1">May 22 - June 4, 2025</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-start">
+                    <div className="w-12 h-12 shrink-0 rounded border border-slate-200 flex flex-col items-center justify-center bg-white shadow-sm">
+                      <span className="text-lg font-bold text-forest leading-none">07</span>
+                      <span className="text-[9px] font-bold text-slate-500 uppercase mt-0.5">Jun</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-forest text-sm leading-tight">AGM</h4>
+                      <p className="text-xs text-slate-500 mt-1">June 7, 2025</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4 items-start">
+                    <div className="w-12 h-12 shrink-0 rounded border border-slate-200 flex flex-col items-center justify-center bg-white shadow-sm">
+                      <span className="text-lg font-bold text-forest leading-none">21</span>
+                      <span className="text-[9px] font-bold text-slate-500 uppercase mt-0.5">Jun</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-forest text-sm leading-tight">Academic Clinic</h4>
+                      <p className="text-xs text-slate-500 mt-1">June 21, 2025</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
