@@ -21,10 +21,10 @@ const departments = [
     accentColor: 'text-blue-600 bg-blue-50',
     teachers: [
       teacher('Mrs Wambua', images.teachers.wambua),
-      teacher('Mr Katee'),
+      teacher('Mr Katee', images.teachers.katee),
       teacher('Mr Kilinda'),
       teacher('Mr Mulwa'),
-      teacher('Mr Mutuku'),
+      teacher('Mr Mutuku', images.teachers.mutuku),
       teacher('Mrs Mutua', images.teachers.mbuva),
       teacher('Mr Mali'),
     ],
@@ -131,7 +131,7 @@ const departments = [
       {
         name: 'Physics',
         teachers: [
-          teacher('Mr Mutuku'),
+          teacher('Mr Mutuku', images.teachers.mutuku),
           teacher('Mr Mulwa'),
           teacher('Mr Mulukya'),
           teacher('Mr Kioko'),
@@ -154,8 +154,8 @@ const departments = [
   {
     icon: Globe,
     name: 'Humanities',
-    lead: 'Mr Tairus',
-    leadImage: images.teachers.tairus,
+    lead: 'Mr Tyrus',
+    leadImage: images.teachers.tyrus,
     color: 'from-red-50 to-red-100',
     borderColor: 'border-red-200',
     accentColor: 'text-red-600 bg-red-50',
@@ -168,7 +168,7 @@ const departments = [
           teacher('Md Mulonzi'),
         ],
       },
-      { name: 'History', teachers: [{ name: 'Mr Tairus', image: images.teachers.tairus }] },
+      { name: 'History', teachers: [{ name: 'Mr Tyrus', image: images.teachers.tyrus }] },
       { name: 'CRE', teachers: [{ name: 'Mrs Wanjiru', image: images.teachers.kagema }] },
     ],
     achievements: [

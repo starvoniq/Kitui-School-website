@@ -105,7 +105,7 @@ const departments = [
   {
     image: humanitiesImg,
     name: 'Humanities',
-    lead: 'Mr Tairus',
+    lead: 'Mr Tyrus',
     subjects: [
       'Geography',
       'History',
@@ -143,7 +143,6 @@ const facilities = [
   { label: 'School Library', image: images.academics.library },
   { label: 'Smart Classrooms', image: images.academics.smartClass },
   { label: 'ICT Centre', image: images.academics.ictCentre },
-  { label: 'Auditorium & Arts', image: images.academics.auditorium },
 ]
 
 const teachingMethods = [
