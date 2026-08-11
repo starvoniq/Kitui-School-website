@@ -179,6 +179,7 @@ const kcseColumns = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-']
 
 const kcseRows = [
   { year: '2025', grades: [17, 87, 109, 83, 41, 12, 5, 0], entry: 354, mean: '9.72', pass: '98.59', highlight: true },
+  {year: '2024', grades: [12, 65, 98, 75, 38, 15, 6, 0], entry: 309, mean: '9.45', pass: '97.73' },
   { year: '2023', grades: [2, 24, 56, 65, 42, 17, 17, 1], entry: 224, mean: '8.91', pass: '91.96' },
   { year: '2022', grades: [5, 42, 48, 50, 29, 19, 6, 0], entry: 199, mean: '9.31', pass: '96.98' },
   { year: '2021', grades: [2, 43, 52, 43, 27, 12, 1, 0], entry: 180, mean: '9.50', pass: '99.44' },
