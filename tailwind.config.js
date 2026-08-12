@@ -64,6 +64,7 @@ export default {
         'fade-up-600': 'fadeUp 0.6s 0.6s ease-out both',
         'fade-in':     'fadeIn 0.5s ease-out both',
         'slide-right': 'slideRight 0.5s ease-out both',
+        shimmer:       'shimmer 3s linear infinite',
       },
       boxShadow: {
         'card':      '0 2px 12px rgba(30,86,49,0.06)',

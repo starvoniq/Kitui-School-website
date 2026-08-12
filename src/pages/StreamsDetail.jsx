@@ -13,10 +13,10 @@ const streams = [
     desc: 'For learners passionate about innovation, problem solving and shaping the future through science and technology.',
     longDesc: 'The STEM pathway prepares students for careers at the forefront of innovation and technological advancement. Through rigorous coursework in science and mathematics, students develop critical thinking, analytical skills, and practical problem-solving abilities essential for success in today\'s technology-driven world.',
     subjects: [
-      { subject: 'Physics', teacher: 'Mr Otieno', focus: 'Mechanics & Electricity', details: 'Exploring fundamental laws of motion, energy, waves, electricity and magnetism through practical experiments.', image: images.teachers.otieno },
-      { subject: 'Chemistry', teacher: 'Ms Waithera', focus: 'Organic & Inorganic', details: 'Understanding chemical reactions, bonding, periodic trends and real-world applications in industry and environment.', image: images.teachers.ombado },
-      { subject: 'Biology', teacher: 'Mr Mwangi', focus: 'Cell Biology & Ecology', details: 'Investigating living organisms, cellular processes, genetics, evolution and ecological relationships.', image: images.teachers.nzomo },
-      { subject: 'Mathematics', teacher: 'Mrs Wambua', focus: 'Pure & Applied', details: 'Developing advanced mathematical concepts in calculus, algebra, statistics and their practical applications.', image: images.teachers.wambua },
+      { subject: 'Physics', teacher: 'Mr Otieno', image: images.teachers.otieno },
+      { subject: 'Chemistry', teacher: 'Ms Waithera', image: images.teachers.ombado },
+      { subject: 'Biology', teacher: 'Mr Mwangi', image: images.teachers.nzomo },
+      { subject: 'Mathematics', teacher: 'Mrs Wambua', image: images.teachers.wambua },
     ],
     careerPaths: [
       { career: 'Engineer', desc: 'Civil, Mechanical, Electrical, Software - building and innovating infrastructure and systems' },
@@ -41,9 +41,9 @@ const streams = [
     desc: 'For learners interested in people, society, leadership, governance, business and making a difference in communities.',
     longDesc: 'The Social Sciences pathway equips students with understanding of human behavior, societies, economics and governance. Students develop leadership skills, critical analysis of global issues, and entrepreneurial thinking for impactful careers in business, government, education and social sectors.',
     subjects: [
-      { subject: 'History', teacher: 'Mr Tyrus', focus: 'Modern & African History', details: 'Analyzing historical events, cultural movements, political evolution and their impact on contemporary society.', image: images.teachers.tyrus },
-      { subject: 'Geography', teacher: 'Ms Nduta', focus: 'Physical & Human', details: 'Studying Earth\'s physical systems, population dynamics, economic activities and environmental sustainability.', image: images.teachers.njeri },
-      { subject: 'Business Studies', teacher: 'Ms Thuo', focus: 'Commerce & Entrepreneurship', details: 'Learning business principles, management, marketing, finance and launching ventures.', image: images.teachers.kagema },
+      { subject: 'History', teacher: 'Mr Tyrus',image: images.teachers.tyrus },
+      { subject: 'Geography', teacher: 'Ms Nduta',image: images.teachers.njeri },
+      { subject: 'Business Studies', teacher: 'Ms Thuo',image: images.teachers.kagema },
     ],
     careerPaths: [
       { career: 'Entrepreneur', desc: 'Starting and managing successful business ventures' },
@@ -68,9 +68,9 @@ const streams = [
     desc: 'For learners with a creative heart and a passion for sports, performing arts and physical education.',
     longDesc: 'The Arts & Sports Science pathway nurtures creativity, physical excellence and artistic expression. Students develop confidence, discipline, collaboration and cultural awareness while pursuing excellence in the arts, sports and wellness.',
     subjects: [
-      { subject: 'Art', teacher: 'Mr Njuguna', focus: 'Visual & Performing', details: 'Exploring visual art techniques, design principles, sculpture, painting, drama and performing arts.', image: images.teachers.njuguna },
-      { subject: 'Physical Education', teacher: 'Mrs Mbuva', focus: 'Sports Science', details: 'Understanding human physiology, sports performance, nutrition, fitness training and athletic development.', image: images.teachers.mbuva },
-      { subject: 'Music', teacher: 'Mr Kavele', focus: 'Ensemble & Theory', details: 'Learning music theory, instrument mastery, composition and ensemble performance.', image: images.teachers.kavele },
+      { subject: 'Art', teacher: 'Mr Njuguna',image: images.teachers.njuguna },
+      { subject: 'Physical Education', teacher: 'Mrs Mbuva',image: images.teachers.mbuva },
+      { subject: 'Music', teacher: 'Mr Kavele',image: images.teachers.kavele },
     ],
     careerPaths: [
       { career: 'Professional Athlete', desc: 'Competing and excelling in various sports disciplines' },
