@@ -66,8 +66,15 @@ export function AnimatedCountSpan({
 
   return (
     <span ref={ref}>
+      {/*
+        BUGFIX: initial paint must show `from` (the starting value), not `to`.
+        Previously this rendered `to`, so the final number flashed on first
+        paint and then visibly reset down to `from` once the IntersectionObserver
+        fired and the RAF loop kicked in. Rendering `from` here keeps the
+        pre-animation state consistent with what the RAF loop starts from.
+      */}
       {prefix}
-      {to.toLocaleString()}
+      {from.toLocaleString()}
       {suffix}
     </span>
   );
@@ -121,4 +128,3 @@ AnimatedCounter.propTypes = {
   label: PropTypes.string,
   duration: PropTypes.number,
 };
-

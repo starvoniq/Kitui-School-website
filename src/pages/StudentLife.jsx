@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Reveal from "../components/Reveal.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
+import { AnimatedCountSpan } from "../components/AnimatedCounter.jsx";
 import { sports, clubs, faithGroups, IMAGES } from "../data/studentLifeData.js";
 
 // ─── Global styles (add the equivalent keyframes to index.css if you'd rather
@@ -440,8 +441,16 @@ function SectionHead({
 }
 
 // ─── Animated stat ───────────────────────────────────────────────────────────
+// Combines the section's own scroll-reveal fade (useInView) with the
+// AnimatedCountSpan digit count-up (its own IntersectionObserver, imported
+// from AnimatedCounter.jsx). `value` accepts either a plain string (old
+// behavior, e.g. static labels with no numeric part) OR a { to, prefix,
+// suffix } object to drive the animated count. This keeps StatBlock's
+// existing fade-in/hover styling fully intact.
 function StatBlock({ value, label, delay }) {
   const [ref, inView] = useInView();
+  const isAnimated = value && typeof value === "object";
+
   return (
     <div
       ref={ref}
@@ -453,7 +462,15 @@ function StatBlock({ value, label, delay }) {
       }
     >
       <p className="text-3xl md:text-4xl font-serif font-bold text-forest transition-colors duration-300 group-hover:text-gold">
-        {value}
+        {isAnimated ? (
+          <AnimatedCountSpan
+            to={value.to}
+            prefix={value.prefix || ""}
+            suffix={value.suffix || ""}
+          />
+        ) : (
+          value
+        )}
       </p>
       <p className="text-xs uppercase tracking-widest text-slate-500 mt-1">
         {label}
@@ -567,13 +584,18 @@ export default function StudentLife() {
       </section>
 
       {/* ── STATS STRIP ─────────────────────────────────────────────────── */}
+      {/*
+        Values are now { to, suffix } objects so StatBlock can drive them
+        through AnimatedCountSpan (see StatBlock above). "15+" -> to:15,
+        suffix:"+"; "100%" -> to:100, suffix:"%"; "3" -> to:3, no suffix.
+      */}
       <div className="bg-white border-b border-slate-100 py-6">
         <div className="container-page grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[
-            { value: "15+", label: "Clubs & Societies" },
-            { value: "9+", label: "Sports Disciplines" },
-            { value: "3", label: "Faith Denominations" },
-            { value: "100%", label: "Student Participation" },
+            { value: { to: 15, suffix: "+" }, label: "Clubs & Societies" },
+            { value: { to: 9, suffix: "+" }, label: "Sports Disciplines" },
+            { value: { to: 3, suffix: "" }, label: "Faith Denominations" },
+            { value: { to: 100, suffix: "%" }, label: "Student Participation" },
           ].map(({ value, label }, i) => (
             <StatBlock
               key={label}
