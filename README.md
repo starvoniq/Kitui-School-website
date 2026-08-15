@@ -1,6 +1,6 @@
 # 🏫 Kitui High School Website
 
-A modern digital platform built to give **Kitui High School** — a National Boys' Boarding School in Kitui, Kenya — a professional online presence. The site provides students, parents, staff, alumni, prospective students, and visitors with easy access to the school's identity, information, and activities.
+A modern digital platform built to give **Kitui High School** — a national boys' boarding school in Kitui County, Kenya, with roots tracing back to **1908** — a professional online presence. The site provides students, parents, staff, alumni, prospective students, and visitors with easy access to the school's heritage, KCSE academic performance, admissions information, academics, and campus life.
 
 > **Learn To Serve**
 
@@ -23,16 +23,19 @@ A modern digital platform built to give **Kitui High School** — a National Boy
 
 ## ✨ Features
 
-- 🏠 **Home** — A hero-driven landing page that introduces the school and directs visitors into the rest of the site.
-- 🏫 **About** — Presents the school's background and institutional identity.
+- 🏠 **Home** — A cinematic hero section built around a 3D-rendered school gate, with the headline *"Building Character. Inspiring Excellence."* and copy introducing the school's **1908 heritage**, backed by "Discover Our Story" and "Explore Campus in 3D" calls to action.
+- 🏫 **About** — Presents the school's background and institutional identity as a national boys' boarding school.
+- 📚 **Academics** — A dropdown-driven navigation section covering the school's academic programs.
+- 👔 **Leadership** — A dropdown-driven navigation section for the school's leadership structure.
+- 🎓 **Student Life** — A fully designed page ("Life at Kitui School") highlighting sports, clubs, drama and music, and co-curricular activities beyond the classroom, with "Explore Sports" and "Discover Clubs" calls to action.
 - 🖼️ **Gallery** — A visual showcase of campus life and school activities.
-- 🧭 **3D Tour** — A dedicated route for an interactive campus tour, currently scaffolded with a placeholder viewer ready to be swapped for a real 360° integration.
-- 📞 **Contact** — Lets visitors reach the school through a contact form, with client-side state ready to be wired to a backend or email service.
-- 🧭 **Responsive navigation & footer** — A shared `Navbar` and `Footer` keep navigation and branding consistent across every page.
-- 🎨 **Branded shared UI** — A reusable `PageHero` banner and `CtaBanner` ("Book a visit / Apply now") give inner pages a consistent visual language.
+- 📞 **Contact** — Lets visitors reach the school, backed by a persistent "Contact Us" button in the navigation bar.
+- 🔍 **Site search** — A search icon in the navigation bar for locating content across the site.
+- 🧭 **Responsive navigation** — A sticky top navbar with dropdown menus for Academics and Leadership, active-state underlines, and a branded "Contact Us" button.
 - 📱 **Mobile-responsive layouts** — Built entirely with Tailwind CSS's utility system so pages adapt cleanly across screen sizes.
 - ⚡ **Fast frontend experience** — Powered by Vite for near-instant local development and an optimized production build.
-- 🔗 **Client-side routing** — React Router v6 manages navigation across Home, About, Academics, Management, Gallery, 3D Tour, Contact, and a custom Not Found page.
+- 🔗 **Client-side routing** — React Router v6 manages navigation across Home, About, Academics, Leadership, Student Life, Gallery, and Contact.
+- 🔍 **SEO-ready metadata** — The homepage ships with a complete meta tag set (title, description, Open Graph, Twitter Card, geo tags, theme color) targeting the school's identity, heritage, and location — `Kitui High School | National Boys' Boarding School, Kitui`, geo-tagged to Kitui, Kenya.
 
 ---
 
@@ -69,7 +72,7 @@ The overall visual style is **traditional, prestigious, academic, modern, and we
 | 🧭 **React Router v6** | Client-side routing between pages |
 | 🎨 **Tailwind CSS 3** | Utility-first, theme-driven styling |
 | 🎞️ **Framer Motion** | Animation and interaction design |
-| 🧊 **Three.js** + **@react-three/fiber** + **@react-three/drei** | 3D rendering foundation for the campus tour experience |
+| 🧊 **Three.js** + **@react-three/fiber** + **@react-three/drei** | Powers the 3D-rendered school gate featured in the homepage hero |
 | 🎛️ **leva** | Lightweight controls panel used alongside the 3D tooling |
 | 🖼️ **lucide-react** | Icon set used throughout the interface |
 | 🟨 **JavaScript (ESM)** | Application logic |
@@ -86,18 +89,14 @@ kitui-high-school/
 ├── public/                 # Static assets (favicon, images, etc.)
 ├── src/
 │   ├── assets/              # Images and illustrations imported into components
-│   ├── components/          # Shared/reusable UI pieces
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │   ├── PageHero.jsx      # Dark hero banner used on inner pages
-│   │   └── CtaBanner.jsx     # "Book a visit / Apply now" banner used across pages
+│   ├── components/          # Shared/reusable UI pieces (navigation, hero sections, buttons)
 │   ├── pages/                # One file per route
-│   │   ├── Home.jsx
+│   │   ├── Home.jsx           # Hero with 3D-rendered gate, "Discover Our Story" / "Explore Campus in 3D"
 │   │   ├── About.jsx
-│   │   ├── Academics.jsx      # placeholder: mockup not yet provided
-│   │   ├── Management.jsx     # placeholder: mockup not yet provided
+│   │   ├── Academics.jsx      # Dropdown-linked academics section
+│   │   ├── Leadership.jsx     # Dropdown-linked leadership section
+│   │   ├── StudentLife.jsx    # "Life at Kitui School" — sports, clubs, co-curricular activities
 │   │   ├── Gallery.jsx
-│   │   ├── Tour3D.jsx
 │   │   ├── Contact.jsx
 │   │   └── NotFound.jsx
 │   ├── App.jsx               # Route definitions
@@ -111,10 +110,12 @@ kitui-high-school/
 └── package.json
 ```
 
-- **`components/`** — Shared UI used across multiple pages (navigation, footer, hero banner, CTA banner), keeping styling and structure consistent site-wide.
+- **`components/`** — Shared UI used across multiple pages (navigation bar with dropdowns, hero sections), keeping styling and structure consistent site-wide.
 - **`pages/`** — One component per route, each corresponding to a section of the school website.
 - **`assets/`** — Images and illustrations consumed directly by components.
 - **`public/`** — Static files served as-is, such as the favicon.
+
+> Note: exact file names are inferred from the live site's navigation and rendered pages; refer to the repository's `src/` directory for the authoritative file layout.
 
 ---
 
@@ -196,11 +197,11 @@ This ensures a consistent, usable experience for prospective students, parents, 
 The site is built around a few core principles:
 
 - **Strong institutional identity** — The dark green navigation, paired with gold interactive elements and white typography, creates a distinctive, prestigious institutional appearance appropriate for a national school.
-- **Clear information hierarchy** — Dedicated routes for About, Academics, Management, Gallery, and Contact keep information easy to locate.
-- **Consistent shared UI** — A common `Navbar`, `Footer`, `PageHero`, and `CtaBanner` are reused across pages rather than rebuilt per-page.
+- **Cinematic storytelling on the homepage** — A 3D-rendered gate anchors the hero section, immediately establishing a sense of place before visitors scroll further.
+- **Clear information hierarchy** — Dedicated navigation for About, Academics, Leadership, Student Life, Gallery, and Contact keeps information easy to locate, with dropdown menus grouping related content under Academics and Leadership.
+- **Consistent shared UI** — A common navigation bar and hero banner styling are reused across pages for a cohesive experience.
 - **Responsive by default** — Tailwind's utility classes are used throughout to ensure the layout holds up across screen sizes.
-- **Accessible, readable typography** — White and black text against the forest green base is used to maintain contrast and readability.
-- **Room to grow** — The `Academics` and `Management` pages exist as routed stubs, structured so they can be filled in as designs are finalized, without disrupting the rest of the site.
+- **Accessible, readable typography** — White and gold text against the forest green base is used to maintain contrast and readability.
 
 ---
 
@@ -245,8 +246,8 @@ The following are **proposed directions**, not currently implemented functionali
 
 - 📚 Completed **Academics** page with curriculum and subject details
 - 👨‍🏫 Completed **Management** page profiling school leadership
-- 🧭 A fully integrated 360° **3D campus tour** (e.g. via Pannellum or a custom Three.js scene) in place of the current placeholder
-- 📬 A backend-connected **contact form** (the form currently only logs submissions client-side)
+- 🧭 An expanded interactive 3D campus experience beyond the homepage gate, such as a full walkthrough tour
+- 📬 A backend-connected **contact form**
 - 📢 Online announcements / news section
 - 📅 School events calendar
 - 🎓 Alumni portal
