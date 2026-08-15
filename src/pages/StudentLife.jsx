@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import Reveal from "../components/Reveal.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
-import { AnimatedCountSpan } from "../components/AnimatedCounter.jsx";
+import { AnimatedCountSpan } from "../components/Animatedcounter.jsx";
 import { sports, clubs, faithGroups, IMAGES } from "../data/studentLifeData.js";
 
 // ─── Global styles (add the equivalent keyframes to index.css if you'd rather
