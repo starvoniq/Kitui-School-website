@@ -53,7 +53,7 @@ function ActivityCard({ item, isClub }) {
     <Link
       to={linkTo}
       className={`group rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 flex flex-col ${
-        isClub ? 'bg-[#3d3d3d] border border-white/10' : 'bg-white'
+        isClub ? 'bg-white border border-slate-200/80' : 'bg-white border border-slate-100'
       }`}
     >
       {/* Image */}
@@ -68,7 +68,7 @@ function ActivityCard({ item, isClub }) {
         {/* Accent badge */}
         <div className="absolute top-3 left-3">
           <span
-            className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white"
+            className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white shadow-sm"
             style={{ backgroundColor: item.accentColor }}
           >
             {item.tag}
@@ -91,9 +91,7 @@ function ActivityCard({ item, isClub }) {
         {/* Poem quote (sports) */}
         {item.poem && (
           <div className="mb-3 p-3 rounded-lg bg-cream border border-gold/25">
-            <p className={`text-xs italic font-serif leading-relaxed line-clamp-3 ${
-              isClub ? 'bg-gradient-to-r from-forest-dark via-forest-light to-forest-dark bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer' : 'text-forest-dark'
-            }`}>
+            <p className="text-xs italic font-serif leading-relaxed line-clamp-3 text-forest-dark">
               "{item.poem}"
             </p>
           </div>
@@ -101,32 +99,22 @@ function ActivityCard({ item, isClub }) {
 
         {/* Club quote */}
         {item.quote && !item.poem && (
-          <div className={isClub ? 'max-h-0 overflow-hidden opacity-0 -translate-y-1 transition-all duration-300 group-hover:max-h-32 group-hover:opacity-100 group-hover:translate-y-0 group-focus:max-h-32 group-focus:opacity-100 group-focus:translate-y-0' : ''}>
-            <div className={`mb-3 p-3 rounded-lg border ${isClub ? 'bg-white/10 border-white/15' : 'bg-gold/10 border-gold/20'}`}>
-              <p className={`text-xs italic font-serif leading-relaxed line-clamp-3 ${
-                isClub ? 'font-sans text-white/90' : 'text-forest-dark'
-              }`}>
-                {item.quote}
-              </p>
-            </div>
+          <div className="mb-3 p-3 rounded-lg bg-gold/10 border border-gold/20">
+            <p className="text-xs italic font-serif leading-relaxed line-clamp-3 text-forest-dark">
+              "{item.quote}"
+            </p>
           </div>
         )}
 
-        <p className={`text-sm leading-relaxed mb-4 flex-1 line-clamp-3 ${
-          isClub
-            ? 'font-sans font-medium text-white/90 line-clamp-2 transition-all duration-300 group-hover:line-clamp-none group-focus:line-clamp-none'
-            : 'text-slate-600'
-        }`}>
+        <p className="text-sm leading-relaxed text-slate-600 mb-4 flex-1">
           {item.description}
         </p>
 
         {/* Highlights preview */}
         {item.highlights && item.highlights.length > 0 && (
-          <ul className={`space-y-1 mb-4 ${
-            isClub ? 'max-h-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-h-24 group-hover:opacity-100 group-focus:max-h-24 group-focus:opacity-100' : ''
-          }`}>
+          <ul className="space-y-1.5 mb-4">
             {item.highlights.slice(0, 2).map((h, i) => (
-              <li key={i} className={`flex items-start gap-2 text-xs ${isClub ? 'text-white/75' : 'text-slate-500'}`}>
+              <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
                 <span className="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: item.accentColor }} />
                 {h}
               </li>
@@ -135,17 +123,15 @@ function ActivityCard({ item, isClub }) {
         )}
 
         {/* Footer */}
-        <div
-          className={`flex items-center justify-between text-xs border-t pt-3 mt-auto ${isClub ? 'border-white/15' : 'border-slate-100'}`}
-        >
+        <div className="flex items-center justify-between text-xs border-t border-slate-100 pt-3 mt-auto">
           <div>
-            <span className={isClub ? 'text-white/60' : 'text-slate-400'}>Patron / In Charge: </span>
-            <span className={isClub ? 'font-semibold text-white' : 'font-semibold text-forest'}>
+            <span className="text-slate-400">Patron / In Charge: </span>
+            <span className="font-semibold text-forest">
               {item.patronShort || item.patron}
             </span>
           </div>
           <span
-            className={`inline-flex items-center gap-1 rounded-md px-3 py-1.5 font-bold transition-all group-hover:gap-2 ${isClub ? 'bg-white/15 text-white group-hover:bg-white/25' : 'bg-slate-300 text-slate-800 group-hover:bg-slate-400'}`}
+            className="inline-flex items-center gap-1 rounded-md px-3 py-1.5 font-bold transition-all bg-slate-100 text-forest group-hover:bg-forest group-hover:text-white"
             style={{ color: item.accentColor }}
           >
             Learn More <ArrowRight size={13} />

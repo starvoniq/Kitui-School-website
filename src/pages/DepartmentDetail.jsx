@@ -78,14 +78,13 @@ const departments = [
     borderColor: 'border-amber-200',
     accentColor: 'text-amber-600 bg-amber-50',
     subjects: [
-      { name: 'Computer Studies', teachers: [{ name: 'Mr Njuguna', image: images.teachers.njuguna }] },
+      { name: 'Computer Studies', teachers: [{ name: 'Mr Kitonga', image: images.teachers.njuguna }] },
       { name: 'Agriculture', teachers: [{ name: 'Mr Nzomo', image: images.teachers.nzomo }] },
-      { name: 'Business Studies', teachers: [{ name: 'Ms Thuo', image: images.teachers.ombado }] },
+      { name: 'Business Studies', teachers: [{ name: 'Mrs Mbuva', image: images.teachers.mbuva }] },
     ],
     achievements: [
       'State-of-the-art computer labs with latest technology',
       'Innovative agricultural projects with community impact',
-      'Students launching tech startups and businesses',
       'National recognition for practical skills training',
       '94% employment rate for technical graduates',
     ],
@@ -198,8 +197,8 @@ export default function DepartmentDetail() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-white">
         <h1 className="text-4xl font-serif font-bold text-forest">Department Not Found</h1>
         <p className="mt-4 text-slate-600">The department you're looking for doesn't exist.</p>
-        <Link to="/academics" className="mt-6 btn-primary">
-          Back to Academics
+        <Link to="/academics#academic-departments" className="mt-6 btn-primary">
+          Back to Academic Departments
         </Link>
       </div>
     )
@@ -240,11 +239,11 @@ export default function DepartmentDetail() {
         <div className="container-page relative z-10">
           {/* Back Button */}
           <button
-            onClick={() => navigate('/academics')}
+            onClick={() => navigate('/academics#academic-departments')}
             className="mb-8 inline-flex items-center gap-2 rounded-full bg-forest/5 px-5 py-2 text-sm font-semibold text-forest border border-forest/20 hover:bg-forest/10 transition"
           >
             <ArrowLeft size={16} />
-            Back to Academics
+            Back to Academic Departments
           </button>
 
           {/* Header */}
@@ -484,8 +483,8 @@ export default function DepartmentDetail() {
         subtitle="Explore our full academic programs and discover how we can help you achieve your goals."
         primaryLabel="Contact Us"
         primaryTo="/contact"
-        secondaryLabel="Back to Academics"
-        secondaryTo="/academics"
+        secondaryLabel="Back to Academic Departments"
+        secondaryTo="/academics#academic-departments"
         transparent={true}
       />
     </>

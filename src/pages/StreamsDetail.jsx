@@ -43,7 +43,7 @@ const streams = [
     subjects: [
       { subject: 'History', teacher: 'Mr Tyrus',image: images.teachers.tyrus },
       { subject: 'Geography', teacher: 'Ms Nduta',image: images.teachers.njeri },
-      { subject: 'Business Studies', teacher: 'Ms Thuo',image: images.teachers.kagema },
+      { subject: 'Business Studies', teacher: 'Mrs Mbuva', image: images.teachers.mbuva },
     ],
     careerPaths: [
       { career: 'Entrepreneur', desc: 'Starting and managing successful business ventures' },
