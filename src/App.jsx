@@ -30,11 +30,22 @@ function App() {
 
   useEffect(() => {
     if (location.hash) {
-      const element = document.querySelector(location.hash)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        return
+      const scrollToHash = () => {
+        const element = document.querySelector(location.hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return true
+        }
+        return false
       }
+
+      if (!scrollToHash()) {
+        const timer = setTimeout(() => {
+          scrollToHash()
+        }, 150)
+        return () => clearTimeout(timer)
+      }
+      return
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' })

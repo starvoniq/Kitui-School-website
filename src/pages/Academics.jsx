@@ -322,7 +322,7 @@ export default function Academics() {
     CBC PATHWAYS
 ════════════════════════════════════════════════════════ */}
       <section
-        id="departments"
+        id="pathways"
         className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-16"
       >
         {/* Background Decorations */}
@@ -416,7 +416,7 @@ export default function Academics() {
       {/* ════════════════════════════════════════════════
     ACADEMIC DEPARTMENTS
 ═════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white py-16">
+      <section id="academic-departments-section" className="relative overflow-hidden bg-white py-16">
         {/* Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#f8f6ef,transparent_45%)]" />
         <div className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
@@ -425,7 +425,7 @@ export default function Academics() {
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Departments</span>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Centres of <span className="text-gold"> Excellence</span></h2>
+            <h2 id="academic-departments" className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl scroll-mt-24">Centres of <span className="text-gold"> Excellence</span></h2>
 
             <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
 
