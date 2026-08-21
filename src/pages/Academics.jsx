@@ -60,6 +60,7 @@ const departments = [
     image: mathImg,
     name: 'Math',
     lead: 'Mrs Wambua',
+    leadImage: images.teachers.wambua,
     teachers: [
       'Mrs Wambua',
       'Mr Katee',
@@ -74,6 +75,7 @@ const departments = [
     image: engImg,
     name: 'Eng',
     lead: 'Mr Kavele',
+    leadImage: images.teachers.kavele,
     teachers: [
       'Mrs Mutuku',
       'Mr James',
@@ -86,6 +88,7 @@ const departments = [
     image: technicalsImg,
     name: 'Technicals',
     lead: 'Mrs Mbuva',
+    leadImage: images.teachers.mbuva,
     subjects: [
       'Computer Studies',
       'Agriculture',
@@ -96,6 +99,7 @@ const departments = [
     image: sciencesImg,
     name: 'Sciences',
     lead: 'Mrs Gabriel',
+    leadImage: images.teachers.gabriel,
     subjects: [
       'Biology',
       'Chemistry',
@@ -106,6 +110,7 @@ const departments = [
     image: humanitiesImg,
     name: 'Humanities',
     lead: 'Mr Tyrus',
+    leadImage: images.teachers.tyrus,
     subjects: [
       'Geography',
       'History',
@@ -257,8 +262,6 @@ export default function Academics() {
               hover:shadow-lg
             "
                 >
-                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold to-yellow-300 scale-x-0 origin-left transition duration-500 group-hover:scale-x-100" />
-
                   <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold/15 to-gold/5 transition duration-500 group-hover:rotate-6 group-hover:scale-110">
                     <Icon size={16} className="text-gold" />
                   </div>
@@ -434,41 +437,50 @@ export default function Academics() {
 
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
             {departments.map((d) => (
-              <div
+              <Link
                 key={d.name}
-                className="
-            group
-            relative
-            overflow-hidden
-            rounded-[16px]
-            border
-            border-slate-200
-            bg-white
-            p-4
-            shadow-sm
-            transition duration-500
-            hover:-translate-y-1
-            hover:border-gold/40
-            hover:shadow-lg
-          "
+                to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
+                className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition duration-500 group-hover:w-full" />
 
-                <div className="mb-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl shadow-sm ring-1 ring-slate-100 transition duration-500 group-hover:scale-110">
-                  <img src={d.image} alt={d.name} className="h-full w-full object-cover" />
+                {/* Photo Banner */}
+                <div className="relative h-28 w-full overflow-hidden">
+                  <img
+                    src={d.image}
+                    alt={d.name}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/85 via-forest-dark/15 to-transparent" />
+                  <h3 className="absolute bottom-2 left-4 text-lg font-serif font-bold text-white">{d.name}</h3>
                 </div>
 
-                <h3 className="text-base font-serif font-bold text-forest">{d.name}</h3>
-                <p className="mt-1 text-xs text-slate-500">Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
+                {/* CONTENT */}
+                <div className="flex flex-col p-6 sm:p-7">
 
-                <Link
-                  to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
-                  className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-forest/5 px-2.5 py-1 text-[11px] font-semibold text-forest transition duration-500 hover:border-forest hover:bg-forest/10"
-                >
-                  View details
-                  <ArrowRight size={12} className="text-gold transition duration-500 group-hover:translate-x-1" />
-                </Link>
-              </div>
+                  <div className="flex items-center gap-3">
+                    <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-100">
+                      <img
+                        src={d.leadImage}
+                        alt={d.lead}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-slate-400">Head of Department</p>
+                      <p className="text-sm font-semibold text-forest">{d.lead}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 border-t border-slate-100 pt-4">
+                    <span className="text-sm font-semibold text-forest transition-colors group-hover:text-gold">
+                      Explore Department
+                      <span className="ml-2">→</span>
+                    </span>
+                  </div>
+
+                </div>
+
+              </Link>
             ))}
           </div>
         </div>
@@ -514,7 +526,6 @@ export default function Academics() {
                 <div className="absolute inset-0 bg-gradient-to-t from-gold/20 opacity-0 transition duration-500 group-hover:opacity-100" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="mb-1.5 h-1 w-6 rounded-full bg-gold transition duration-500 group-hover:w-12" />
                   <h3 className="text-xs font-serif font-bold text-white leading-tight">{facility.label}</h3>
                 </div>
               </div>
@@ -532,34 +543,105 @@ export default function Academics() {
 
         <div className="container-page relative grid gap-20 lg:grid-cols-2">
 
-          {/* LEFT SIDE */}
-          <div>
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-gold">Teaching & Learning</span>
+          {/* LEFT SIDE — TEACHING & LEARNING */}
+          <div className="relative">
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest">Modern Learning <span className="text-gold"> Experience</span></h2>
+            {/* Section heading */}
+            <div className="max-w-xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+                Teaching & Learning
+              </span>
 
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+              <h2 className="mt-5 font-serif text-5xl font-bold leading-[1.05] text-forest lg:text-6xl">
+                Modern Learning
+                <span className="text-gold"> Experience</span>
+              </h2>
 
-            <p className="mt-8 text-lg leading-9 text-slate-600">We embrace innovative teaching approaches that inspire critical thinking, collaboration, creativity and lifelong learning.</p>
+              <div className="mt-6 h-px w-20 bg-gold" />
 
-            <div className="relative mt-8">
-              <div className="absolute left-3.5 top-3 h-full w-px bg-gold/30" />
-              {teachingMethods.map((method) => (
-                <div key={method} className="group relative mb-4 flex items-start gap-3">
-                  <div className="relative z-10 flex h-7 w-7 items-center justify-center rounded-full bg-gold shadow-sm transition duration-500 group-hover:scale-110">
-                    <CheckCircle size={13} className="text-white" />
-                  </div>
-                  <div className="flex-1 rounded-lg border bg-white p-3 shadow-sm transition duration-500 group-hover:border-gold/30 group-hover:shadow-md">
-                    <p className="text-xs text-slate-700 leading-5">{method}</p>
-                  </div>
+              <p className="mt-7 text-base leading-8 text-slate-600 lg:text-lg lg:leading-9">
+                We embrace innovative teaching approaches that inspire critical thinking, collaboration, creativity and lifelong learning.
+              </p>
+            </div>
+
+            {/* Teaching methods */}
+            <div className="mt-10 border-t border-slate-200">
+
+              {teachingMethods.map((method, index) => (
+                <div
+                  key={method}
+                  className="
+                    group
+                    flex
+                    items-center
+                    gap-5
+                    border-b
+                    border-slate-200
+                    py-5
+                    transition-all
+                    duration-300
+                    hover:border-gold/50
+                    hover:pl-2
+                  "
+                >
+
+                  {/* Number */}
+                  <span
+                    className="
+                      w-8
+                      shrink-0
+                      font-serif
+                      text-sm
+                      font-bold
+                      text-gold
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1
+                    "
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  {/* Method */}
+                  <p
+                    className="
+                      flex-1
+                      text-sm
+                      leading-6
+                      text-slate-700
+                      transition-colors
+                      duration-300
+                      group-hover:text-forest
+                      sm:text-base
+                    "
+                  >
+                    {method}
+                  </p>
                 </div>
               ))}
+
             </div>
 
-            <div className="group relative mt-10 overflow-hidden rounded-[24px] shadow-lg">
-              <img src={images.academics.teacherClass} alt="Teacher" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            {/* Teaching image */}
+            <div className="group relative mt-12 overflow-hidden rounded-[28px]">
+              <img
+                src={images.heroes.academics}
+                alt="Teacher"
+                className="
+                  h-[320px]
+                  w-full
+                  object-cover
+                  transition-transform
+                  duration-700
+                  group-hover:scale-[1.03]
+                  lg:h-[380px]
+                "
+              />
+
+              {/* Very subtle image overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/25 via-transparent to-transparent" />
             </div>
+
           </div>
 
           {/* RIGHT SIDE */}

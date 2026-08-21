@@ -231,252 +231,491 @@ export default function DepartmentDetail() {
         bgImage={heroBg}
       />
 
-      {/* Department Overview */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-cream/30 to-white py-28">
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
+      {/* =========================================================
+          DEPARTMENT INTRODUCTION
+      ========================================================= */}
+      <section className="bg-white py-20 sm:py-24 lg:py-32">
+        <div className="container-page">
 
-        <div className="container-page relative z-10">
-          {/* Back Button */}
-          <button
-            onClick={() => navigate('/academics#academic-departments')}
-            className="mb-8 inline-flex items-center gap-2 rounded-full bg-forest/5 px-5 py-2 text-sm font-semibold text-forest border border-forest/20 hover:bg-forest/10 transition"
-          >
-            <ArrowLeft size={16} />
-            Back to Academic Departments
-          </button>
+          <div className="mb-10">
+            <button
+              onClick={() => navigate('/academics#academic-departments')}
+              className="group inline-flex items-center gap-3 text-sm font-semibold text-forest transition-colors hover:text-gold"
+            >
+              <ArrowLeft
+                size={17}
+                className="transition-transform duration-300 group-hover:-translate-x-1"
+              />
+              Back to Academic Departments
+            </button>
+          </div>
 
-          {/* Header */}
-          <div className="mb-16 grid items-center gap-14 lg:grid-cols-[1.25fr_0.9fr]">
+          <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+
+            {/* TEXT */}
             <div>
-              <h1 className="text-5xl font-serif font-bold text-forest lg:text-6xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
                 {dept.name} Department
-              </h1>
-              <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-              <p className="mt-8 text-lg leading-9 text-slate-600">
-                The {dept.name} Department is committed to inspiring curiosity, nurturing talent, and delivering academic excellence through experienced educators and practical learning.
               </p>
-              <div className="mt-8 rounded-2xl bg-gradient-to-br from-gold/10 to-gold/5 p-6 border border-gold/20">
-                <p className="text-sm uppercase tracking-[0.3em] text-forest/60 font-semibold">Department Lead</p>
-                <p className="mt-3 text-2xl font-bold text-forest">{dept.lead}</p>
+
+              <h1 className="mt-5 max-w-3xl font-serif text-5xl font-bold leading-[1.05] text-forest sm:text-6xl lg:text-7xl">
+                Inspiring
+                <span className="block text-gold">
+                  Excellence
+                </span>
+              </h1>
+
+              <div className="mt-8 h-px w-20 bg-gold" />
+
+              <p className="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+                The {dept.name} Department is committed to inspiring curiosity,
+                nurturing talent, and delivering academic excellence through
+                experienced educators and practical learning.
+              </p>
+
+              <div className="mt-10 flex items-center gap-5 border-t border-slate-200 pt-7">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                    Department Lead
+                  </p>
+
+                  <p className="mt-2 font-serif text-xl font-bold text-forest">
+                    {dept.lead}
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center justify-center lg:justify-end">
-              <div className="relative flex flex-col items-center">
-                {/* Department Lead Image */}
-                <div className="mb-8 flex h-64 w-64 items-center justify-center rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border-4 border-gold/25 overflow-hidden shadow-2xl">
-                  <img 
-                    src={dept.leadImage} 
-                    alt={dept.lead}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-center text-sm uppercase tracking-[0.3em] text-forest/60 font-semibold">Department Lead</p>
+            {/* LEAD IMAGE */}
+            <div className="relative lg:pl-8">
+              <div className="overflow-hidden rounded-[2rem]">
+                <img
+                  src={dept.leadImage}
+                  alt={dept.lead}
+                  className="
+                    h-[430px]
+                    w-full
+                    object-cover
+                    transition-transform
+                    duration-700
+                    hover:scale-[1.025]
+                    sm:h-[500px]
+                  "
+                />
+              </div>
+
+              <div className="absolute -bottom-5 left-6 bg-white px-6 py-5 shadow-xl sm:left-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+                  Department Lead
+                </p>
+
+                <p className="mt-1 font-serif text-lg font-bold text-forest">
+                  {dept.lead}
+                </p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Subjects & Teachers */}
-      <section className="relative overflow-hidden bg-cream py-28">
+
+      {/* =========================================================
+          SUBJECTS & TEACHERS
+      ========================================================= */}
+      <section className="bg-cream py-20 sm:py-24 lg:py-32">
         <div className="container-page">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-              Curriculum
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              {isDepartmentTeacherList ? 'Department Teachers' : 'Subjects & Teachers'}
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-            <p className="mt-8 text-lg leading-9 text-slate-600">
-              {isDepartmentTeacherList
-                ? 'Meet the teachers in this department.'
-                : 'Select a subject card to view the teachers assigned to it.'}
-            </p>
-          </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {displayItems.map((item) => (
-              <div
-                key={item.subject}
-                onClick={() => !isDepartmentTeacherList && setSelectedSubject(selectedSubject === item.subject ? null : item.subject)}
-                role={!isDepartmentTeacherList ? 'button' : undefined}
-                tabIndex={!isDepartmentTeacherList ? 0 : undefined}
-                onKeyDown={(event) => {
-                  if (!isDepartmentTeacherList && (event.key === 'Enter' || event.key === ' ')) {
-                    event.preventDefault()
-                    setSelectedSubject(selectedSubject === item.subject ? null : item.subject)
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+
+            {/* SECTION INTRO */}
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Curriculum
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-forest sm:text-5xl">
+                {isDepartmentTeacherList
+                  ? 'Department Teachers'
+                  : 'Subjects & Teachers'}
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+
+              <p className="mt-7 max-w-md text-base leading-8 text-slate-600">
+                {isDepartmentTeacherList
+                  ? 'Meet the teachers in this department.'
+                  : 'Select a subject card to view the teachers assigned to it.'}
+              </p>
+            </div>
+
+
+            {/* CONTENT */}
+            <div className="border-t border-slate-300">
+
+              {displayItems.map((item, index) => (
+                <div
+                  key={item.subject}
+                  onClick={() =>
+                    !isDepartmentTeacherList &&
+                    setSelectedSubject(
+                      selectedSubject === item.subject
+                        ? null
+                        : item.subject
+                    )
                   }
-                }}
-                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 md:p-10 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
-              >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
+                  role={!isDepartmentTeacherList ? 'button' : undefined}
+                  tabIndex={!isDepartmentTeacherList ? 0 : undefined}
+                  onKeyDown={(event) => {
+                    if (
+                      !isDepartmentTeacherList &&
+                      (event.key === 'Enter' || event.key === ' ')
+                    ) {
+                      event.preventDefault()
 
-                <div className="absolute right-0 top-0 translate-x-10 -translate-y-8 opacity-5 text-gold">
-                  <Pi size={130} />
-                </div>
+                      setSelectedSubject(
+                        selectedSubject === item.subject
+                          ? null
+                          : item.subject
+                      )
+                    }
+                  }}
+                  className="
+                    group
+                    border-b
+                    border-slate-300
+                    py-8
+                    transition-all
+                    duration-300
+                    hover:bg-white/60
+                    sm:py-10
+                  "
+                >
 
-                <div className="mb-6 flex items-center gap-4">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
-                    <img 
-                      src={item.image}
-                      alt={item.teacher}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teacher</p>
-                    <p className="mt-2 text-lg font-semibold text-forest">{item.teacher}</p>
-                  </div>
-                </div>
+                  <div className="flex gap-6 sm:gap-8">
 
-                <h3 className="text-2xl font-serif font-bold text-forest">{item.subject}</h3>
+                    {/* NUMBER */}
+                    <span className="hidden w-10 shrink-0 pt-1 font-serif text-sm font-bold text-gold sm:block">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
 
-                <div className="mt-6 space-y-4">
-                  <div className="rounded-2xl bg-forest/5 p-4 border border-forest/10">
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Lead Instructor</p>
-                    <p className="mt-2 text-lg font-bold text-forest">{item.teacher}</p>
-                  </div>
-                  <div className="rounded-2xl bg-gold/5 p-4 border border-gold/10">
-                    <p className="text-xs uppercase tracking-[0.3em] text-gold/60 font-semibold">Specialty</p>
-                    <p className="mt-2 text-sm font-semibold text-forest">{item.specialty}</p>
-                  </div>
-                </div>
+                    {/* IMAGE */}
+                    <div className="h-20 w-20 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-white sm:h-24 sm:w-24">
+                      <img
+                        src={item.image}
+                        alt={item.teacher}
+                        className="
+                          h-full
+                          w-full
+                          object-cover
+                          grayscale-[15%]
+                          transition-transform
+                          duration-500
+                          group-hover:scale-105
+                        "
+                      />
+                    </div>
 
-                {!isDepartmentTeacherList && selectedSubject === item.subject && (
-                  <div className="mt-6 border-t border-slate-100 pt-4">
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teachers</p>
-                    <div className="mt-3 space-y-2">
-                      {item.teachers.map((teacher) => (
-                        <div key={teacher.name} className="flex items-center gap-3">
-                          <img src={teacher.image} alt={teacher.name} className="h-10 w-10 rounded-full object-cover" />
-                          <span className="text-sm font-semibold text-forest">{teacher.name}</span>
+                    {/* CONTENT */}
+                    <div className="min-w-0 flex-1">
+
+                      <div className="flex flex-wrap items-start justify-between gap-4">
+
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                            {isDepartmentTeacherList
+                              ? 'Teacher'
+                              : 'Subject'}
+                          </p>
+
+                          <h3 className="mt-2 font-serif text-2xl font-bold text-forest sm:text-3xl">
+                            {item.subject}
+                          </h3>
                         </div>
-                      ))}
+
+                        {!isDepartmentTeacherList && (
+                          <span className="pt-1 text-sm text-gold transition-transform duration-300 group-hover:translate-x-1">
+                            View
+                          </span>
+                        )}
+
+                      </div>
+
+                      <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-600">
+
+                        <span>
+                          <span className="font-semibold text-forest">
+                            Teacher:
+                          </span>{' '}
+                          {item.teacher}
+                        </span>
+
+                        <span>
+                          <span className="font-semibold text-forest">
+                            {item.specialty}
+                          </span>
+                        </span>
+
+                      </div>
+
+
+                      {/* SUBJECT TEACHERS */}
+                      {!isDepartmentTeacherList &&
+                        selectedSubject === item.subject && (
+                          <div className="mt-7 border-t border-slate-200 pt-6">
+
+                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+                              Teachers
+                            </p>
+
+                            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+
+                              {item.teachers.map((teacher) => (
+                                <div
+                                  key={teacher.name}
+                                  className="flex items-center gap-3"
+                                >
+                                  <img
+                                    src={teacher.image}
+                                    alt={teacher.name}
+                                    className="h-11 w-11 rounded-full object-cover"
+                                  />
+
+                                  <span className="text-sm font-semibold text-forest">
+                                    {teacher.name}
+                                  </span>
+                                </div>
+                              ))}
+
+                            </div>
+                          </div>
+                        )}
+
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Key Features */}
-      <section className="relative overflow-hidden bg-white py-28">
-        <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
-
-        <div className="container-page relative">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              Approach
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              Our Teaching Philosophy
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {[
-              { title: 'Practical Learning', desc: 'Hands-on laboratory work and real-world applications that deepen understanding.' },
-              { title: 'Student-Centered', desc: 'Personalized attention and differentiated instruction for every learner.' },
-              { title: 'Innovation', desc: 'Embracing technology and modern teaching methods for engagement.' },
-              { title: 'Collaboration', desc: 'Group projects and peer learning that build teamwork and communication skills.' },
-            ].map(({ title, desc }) => (
-              <div key={title} className="rounded-2xl bg-gradient-to-br from-cream to-white p-8 border border-slate-200">
-                <h3 className="text-xl font-bold text-forest">{title}</h3>
-                <p className="mt-3 text-slate-600 leading-7">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════ Department Results ════ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-28">
-        <div className="container-page">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-              Performance Metrics
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              Department Results & Excellence
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-[30px] border border-slate-200 bg-white p-8 shadow-lg hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl transition">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5">
-                <TrendingUp size={32} className="text-gold" />
-              </div>
-              <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Average Grade</p>
-              <p className="mt-3 text-4xl font-serif font-bold text-forest">{dept.results.avgGrade}</p>
-              <p className="mt-2 text-sm text-slate-600">KCSE Performance</p>
-            </div>
-
-            <div className="rounded-[30px] border border-slate-200 bg-white p-8 shadow-lg hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl transition">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5">
-                <Star size={32} className="text-gold" />
-              </div>
-              <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">University Placement</p>
-              <p className="mt-3 text-4xl font-serif font-bold text-gold">{dept.results.universityPlacement}</p>
-              <p className="mt-2 text-sm text-slate-600">of graduates placed</p>
-            </div>
-
-            <div className="rounded-[30px] border border-slate-200 bg-white p-8 shadow-lg hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl transition">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5">
-                <Award size={32} className="text-gold" />
-              </div>
-              <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Top Performers</p>
-              <p className="mt-3 text-4xl font-serif font-bold text-forest">{dept.results.topPerformers}</p>
-              <p className="mt-2 text-sm text-slate-600">A grade achievers</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ════ Achievements Section ════ */}
-      <section className="relative overflow-hidden bg-white py-28">
-        <div className="absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute left-0 bottom-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
-
-        <div className="container-page relative">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              Recognition
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              Accomplishments & Achievements
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-            <p className="mt-8 text-lg leading-9 text-slate-600">
-              The {dept.name} Department has earned recognition for its commitment to excellence, innovation, and student success.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {dept.achievements.map((achievement, idx) => (
-              <div
-                key={achievement}
-                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white to-cream p-8 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
-              >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
-                <div className="flex items-start gap-5">
-                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:scale-110">
-                    <Award size={24} className="text-gold" />
-                  </div>
-                  <p className="text-lg leading-8 text-slate-700 font-semibold">{achievement}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================================================
+          TEACHING PHILOSOPHY
+      ========================================================= */}
+      <section className="bg-white py-20 sm:py-24 lg:py-32">
+        <div className="container-page">
+
+          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Approach
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-forest sm:text-5xl">
+                Our Teaching Philosophy
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+            </div>
+
+
+            <div className="border-t border-slate-300">
+
+              {[
+                {
+                  title: 'Practical Learning',
+                  desc: 'Hands-on laboratory work and real-world applications that deepen understanding.',
+                },
+                {
+                  title: 'Student-Centered',
+                  desc: 'Personalized attention and differentiated instruction for every learner.',
+                },
+                {
+                  title: 'Innovation',
+                  desc: 'Embracing technology and modern teaching methods for engagement.',
+                },
+                {
+                  title: 'Collaboration',
+                  desc: 'Group projects and peer learning that build teamwork and communication skills.',
+                },
+              ].map(({ title, desc }, index) => (
+                <div
+                  key={title}
+                  className="
+                    group
+                    grid
+                    gap-4
+                    border-b
+                    border-slate-300
+                    py-8
+                    sm:grid-cols-[60px_1fr]
+                  "
+                >
+
+                  <span className="font-serif text-sm font-bold text-gold">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <div>
+                    <h3 className="font-serif text-2xl font-bold text-forest transition-colors group-hover:text-gold">
+                      {title}
+                    </h3>
+
+                    <p className="mt-3 max-w-2xl leading-8 text-slate-600">
+                      {desc}
+                    </p>
+                  </div>
+
+                </div>
+              ))}
+
+            </div>
+
           </div>
         </div>
       </section>
+
+
+      {/* =========================================================
+          RESULTS
+      ========================================================= */}
+      <section className="bg-forest py-20 text-white sm:py-24 lg:py-28">
+        <div className="container-page">
+
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Performance Metrics
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight sm:text-5xl">
+                Department Results & Excellence
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+            </div>
+
+
+            <div className="grid grid-cols-1 border-t border-white/20 sm:grid-cols-3 sm:border-t-0">
+
+              <div className="border-b border-white/20 py-7 sm:border-b-0 sm:border-l sm:px-7">
+                <p className="text-xs uppercase tracking-[0.25em] text-white/60">
+                  Average Grade
+                </p>
+
+                <p className="mt-3 font-serif text-5xl font-bold text-gold">
+                  {dept.results.avgGrade}
+                </p>
+
+                <p className="mt-2 text-sm text-white/60">
+                  KCSE Performance
+                </p>
+              </div>
+
+
+              <div className="border-b border-white/20 py-7 sm:border-b-0 sm:border-l sm:px-7">
+                <p className="text-xs uppercase tracking-[0.25em] text-white/60">
+                  University Placement
+                </p>
+
+                <p className="mt-3 font-serif text-5xl font-bold text-gold">
+                  {dept.results.universityPlacement}
+                </p>
+
+                <p className="mt-2 text-sm text-white/60">
+                  of graduates placed
+                </p>
+              </div>
+
+
+              <div className="py-7 sm:border-l sm:px-7">
+                <p className="text-xs uppercase tracking-[0.25em] text-white/60">
+                  Top Performers
+                </p>
+
+                <p className="mt-3 font-serif text-5xl font-bold text-gold">
+                  {dept.results.topPerformers}
+                </p>
+
+                <p className="mt-2 text-sm text-white/60">
+                  A grade achievers
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================================================
+          ACHIEVEMENTS
+      ========================================================= */}
+      <section className="bg-cream py-20 sm:py-24 lg:py-32">
+        <div className="container-page">
+
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Recognition
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-forest sm:text-5xl">
+                Accomplishments & Achievements
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+
+              <p className="mt-7 max-w-md leading-8 text-slate-600">
+                The {dept.name} Department has earned recognition for its
+                commitment to excellence, innovation, and student success.
+              </p>
+            </div>
+
+
+            <div className="border-t border-slate-300">
+
+              {dept.achievements.map((achievement, index) => (
+                <div
+                  key={achievement}
+                  className="
+                    group
+                    grid
+                    gap-4
+                    border-b
+                    border-slate-300
+                    py-7
+                    sm:grid-cols-[60px_1fr]
+                  "
+                >
+
+                  <span className="font-serif text-sm font-bold text-gold">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <p className="text-lg leading-8 text-slate-700 transition-colors group-hover:text-forest">
+                    {achievement}
+                  </p>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
 
       <CtaBanner
         title="Ready to Excel in This Department?"
@@ -489,5 +728,4 @@ export default function DepartmentDetail() {
       />
     </>
   )
-  
 }
