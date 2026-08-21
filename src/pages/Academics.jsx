@@ -4,7 +4,6 @@ import {
   CheckCircle, ArrowRight, BookOpen, Microscope, Monitor,
   Star, Users, TrendingUp, Trophy,
 } from 'lucide-react'
-import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
 import { images } from '../assets/images.js'
 
@@ -197,13 +196,269 @@ export default function Academics() {
 
   return (
     <>
-      <PageHero
-        crumbs={['Home', 'Academics']}
-        eyebrow="Academic Pathways & Excellence"
-        title="Academics at Kitui High School"
-        subtitle="Empowering learners through quality teaching, practical experiences and a proven culture of academic excellence."
-        bgImage={images.heroes.academics}
-      />
+      <style>{`
+        @keyframes gentleRock {
+          0%, 100% {
+            transform: rotate(-5deg) translateY(0) translateX(0);
+          }
+          50% {
+            transform: rotate(5deg) translateY(-10px) translateX(3px);
+          }
+        }
+        .gentle-rock {
+          animation: gentleRock 5s ease-in-out infinite;
+          transform-origin: bottom center;
+        }
+        @keyframes heroZoom {
+          0% {
+            transform: scale(1);
+          }
+          100% {
+            transform: scale(1.05);
+          }
+        }
+        @keyframes heroText {
+          from {
+            opacity: 0;
+            transform: translateY(25px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes scrollLine {
+          0% {
+            transform: translateY(-20px);
+            opacity: 0;
+          }
+          30% {
+            opacity: 1;
+          }
+          70% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(55px);
+            opacity: 0;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .gentle-rock,
+          [class*="animate-\\[hero"],
+          [class*="animate-\\[scrollLine"] {
+            animation: none !important;
+          }
+        }
+      `}</style>
+      <section className="relative isolate min-h-[620px] overflow-hidden bg-forest sm:min-h-[680px] lg:min-h-[720px]">
+
+        {/* Background image */}
+        <div className="absolute inset-0">
+
+          <img
+            src={images.heroes.academics}
+            alt=""
+            className="
+              h-full
+              w-full
+              object-cover
+              animate-[heroZoom_16s_ease-in-out_infinite_alternate]
+            "
+          />
+
+          {/* Overall image overlay */}
+          <div className="absolute inset-0 bg-black/30" />
+
+          {/* Stronger left-side overlay for readability */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-r
+              from-black/75
+              via-black/40
+              to-transparent
+            "
+          />
+
+          {/* Bottom fade */}
+          <div
+            className="
+              absolute
+              inset-x-0
+              bottom-0
+              h-48
+              bg-gradient-to-t
+              from-black/45
+              to-transparent
+            "
+          />
+
+        </div>
+
+
+        {/* Main content */}
+        <div className="relative z-10 flex min-h-[620px] items-end sm:min-h-[680px] lg:min-h-[720px]">
+
+          <div className="container-page w-full pb-20 sm:pb-24 lg:pb-28">
+
+            {/* Breadcrumbs */}
+            <nav
+              className="
+                mb-10
+                flex
+                flex-wrap
+                items-center
+                gap-2
+                text-xs
+                font-sans
+                font-medium
+                uppercase
+                tracking-[0.18em]
+                text-white/70
+                animate-[heroText_0.9s_ease-out_both]
+              "
+            >
+              {['Home', 'Academics'].map((crumb, index) => (
+                <span key={`${crumb}-${index}`} className="inline-flex items-center gap-2">
+
+                  {index > 0 && (
+                    <span className="text-gold/70">
+                      /
+                    </span>
+                  )}
+
+                  <span
+                    className={
+                      index === ['Home', 'Academics'].length - 1
+                        ? "text-white"
+                        : ""
+                    }
+                  >
+                    {crumb}
+                  </span>
+
+                </span>
+              ))}
+            </nav>
+
+
+            {/* Eyebrow */}
+            <div
+              className="
+                mb-6
+                flex
+                items-center
+                gap-4
+                animate-[heroText_0.9s_0.15s_ease-out_both]
+              "
+            >
+              <span className="h-px w-12 bg-gold sm:w-16" />
+
+              <span className="text-xs font-sans font-semibold uppercase tracking-[0.3em] text-gold">
+                Academic Pathways & Excellence
+              </span>
+            </div>
+
+
+            {/* Title */}
+            <h1
+              className="
+                max-w-5xl
+                font-serif
+                text-5xl
+                font-bold
+                leading-[0.95]
+                tracking-tight
+                text-white
+                sm:text-6xl
+                md:text-7xl
+                lg:text-8xl
+                xl:text-[7rem]
+                animate-[heroText_1s_0.25s_ease-out_both]
+              "
+            >
+              Academics at Kitui High School
+            </h1>
+
+
+            {/* Subtitle */}
+            <p
+              className="
+                mt-7
+                max-w-2xl
+                text-base
+                font-sans
+                leading-8
+                text-white/85
+                sm:text-lg
+                sm:leading-9
+                lg:text-xl
+                animate-[heroText_1s_0.4s_ease-out_both]
+              "
+            >
+              Empowering learners through quality teaching, practical experiences and a proven culture of academic excellence.
+            </p>
+
+
+            {/* Bottom identity line */}
+            <div
+              className="
+                mt-10
+                flex
+                items-center
+                gap-5
+                animate-[heroText_1s_0.55s_ease-out_both]
+              "
+            >
+              <div className="h-px w-16 bg-gold" />
+
+              <span className="text-xs font-sans font-semibold uppercase tracking-[0.25em] text-white/60">
+                Kitui School
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+
+        {/* Scroll indicator */}
+        <div
+          className="
+            absolute
+            bottom-10
+            right-8
+            z-20
+            hidden
+            flex-col
+            items-center
+            gap-3
+            text-white/60
+            lg:flex
+          "
+        >
+
+          <span
+            className="
+              text-[10px]
+              font-sans
+              font-semibold
+              uppercase
+              tracking-[0.3em]
+              [writing-mode:vertical-rl]
+            "
+          >
+            Scroll
+          </span>
+
+          <span className="h-14 w-px overflow-hidden bg-white/20">
+            <span className="block h-5 w-px bg-gold animate-[scrollLine_2s_ease-in-out_infinite]" />
+          </span>
+
+        </div>
+
+      </section>
 
       {/* ════════════════════════════════════════════════════════
     ACADEMIC PHILOSOPHY
@@ -221,20 +476,20 @@ export default function Academics() {
           {/* LEFT */}
           <div>
 
-            <span className="inline-flex items-center rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+            <p className="section-eyebrow mb-3">
               Our Academic Philosophy
-            </span>
+            </p>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold leading-tight text-forest lg:text-6xl">
+            <h2 className="section-title mb-5">
               Nurturing
               <span className="text-gold"> Minds.</span>
               <br />
               Building Futures.
             </h2>
 
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+            <div className="gold-bar mb-4" />
 
-            <p className="mt-8 max-w-xl text-lg leading-9 text-slate-600">
+            <p className="section-sub max-w-xl">
               At Kitui High School, we believe that every learner possesses
               extraordinary potential. Through inspiring teaching,
               character formation, innovation and academic excellence,
@@ -278,7 +533,7 @@ export default function Academics() {
           <div className="relative">
 
             {/* Floating Badge */}
-            <div className="absolute -left-8 top-10 z-20 rounded-3xl bg-white px-7 py-5 shadow-2xl border">
+            <div className="gentle-rock absolute -left-8 top-10 z-20 rounded-3xl bg-white px-7 py-5 shadow-2xl border">
               <p className="text-4xl font-bold text-gold">70+</p>
               <p className="text-xs uppercase tracking-widest text-slate-500">Years of Excellence</p>
             </div>
@@ -334,18 +589,18 @@ export default function Academics() {
 
         <div className="container-page relative">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+            <p className="section-eyebrow mb-3">
               CBC Senior School (Grades 10–12)
-            </span>
+            </p>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">
+            <h2 className="section-title mb-5">
               Diverse Academic
               <span className="text-gold"> Pathways</span>
             </h2>
 
-            <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+            <div className="gold-bar mx-auto mb-4" />
 
-            <p className="mt-8 text-lg leading-9 text-slate-600">
+            <p className="section-sub">
               Every learner has unique strengths. Our CBC pathways empower students
               to explore their interests while preparing for university,
               entrepreneurship and future careers.
@@ -426,13 +681,13 @@ export default function Academics() {
 
         <div className="container-page relative">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Departments</span>
+            <p className="section-eyebrow mb-3">Academic Departments</p>
 
-            <h2 id="academic-departments" className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl scroll-mt-24">Centres of <span className="text-gold"> Excellence</span></h2>
+            <h2 id="academic-departments" className="section-title mb-5 scroll-mt-24">Centres of <span className="text-gold"> Excellence</span></h2>
 
-            <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+            <div className="gold-bar mx-auto mb-4" />
 
-            <p className="mt-8 text-lg leading-9 text-slate-600">Every department is committed to inspiring curiosity, nurturing talent and delivering academic excellence through experienced educators and practical learning.</p>
+            <p className="section-sub">Every department is committed to inspiring curiosity, nurturing talent and delivering academic excellence through experienced educators and practical learning.</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
@@ -499,13 +754,13 @@ export default function Academics() {
 
         <div className="container-page relative">
           <div className="mx-auto mb-10 max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">Learning Facilities</span>
+            <p className="section-eyebrow mb-3">Learning Facilities</p>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">Spaces Designed <span className="text-gold"> For Learning</span></h2>
+            <h2 className="section-title mb-5">Spaces Designed <span className="text-gold"> For Learning</span></h2>
 
-            <div className="mx-auto mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+            <div className="gold-bar mx-auto mb-4" />
 
-            <p className="mt-8 text-lg leading-9 text-slate-600">Our modern learning spaces inspire curiosity, innovation and academic excellence through practical experiences.</p>
+            <p className="section-sub">Our modern learning spaces inspire curiosity, innovation and academic excellence through practical experiences.</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-4 xl:grid-cols-6">
@@ -548,18 +803,18 @@ export default function Academics() {
 
             {/* Section heading */}
             <div className="max-w-xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-gold">
+              <p className="section-eyebrow mb-3">
                 Teaching & Learning
-              </span>
+              </p>
 
-              <h2 className="mt-5 font-serif text-5xl font-bold leading-[1.05] text-forest lg:text-6xl">
+              <h2 className="section-title mb-5">
                 Modern Learning
                 <span className="text-gold"> Experience</span>
               </h2>
 
-              <div className="mt-6 h-px w-20 bg-gold" />
+              <div className="gold-bar mb-4" />
 
-              <p className="mt-7 text-base leading-8 text-slate-600 lg:text-lg lg:leading-9">
+              <p className="section-sub">
                 We embrace innovative teaching approaches that inspire critical thinking, collaboration, creativity and lifelong learning.
               </p>
             </div>
@@ -646,13 +901,13 @@ export default function Academics() {
 
           {/* RIGHT SIDE */}
           <div>
-            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs uppercase tracking-[0.3em] font-semibold text-forest">Academic Support</span>
+            <p className="section-eyebrow mb-3">Academic Support</p>
 
-            <h2 className="mt-6 text-5xl font-serif font-bold text-forest">Every Student <span className="text-gold"> Matters</span></h2>
+            <h2 className="section-title mb-5">Every Student <span className="text-gold"> Matters</span></h2>
 
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+            <div className="gold-bar mb-4" />
 
-            <p className="mt-8 text-lg leading-9 text-slate-600">Beyond academics, we provide guidance, mentorship and resources that empower every learner to reach their full potential.</p>
+            <p className="section-sub">Beyond academics, we provide guidance, mentorship and resources that empower every learner to reach their full potential.</p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {support.map(({ icon: Icon, t, b }) => (
