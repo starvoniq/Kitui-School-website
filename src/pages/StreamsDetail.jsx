@@ -112,163 +112,327 @@ export default function StreamsDetail() {
   return (
     <>
       <PageHero
-        crumbs={[ 'Home', 'Academics', s.label ]}
+        crumbs={['Home', 'Academics', s.label]}
         eyebrow={`${s.label} Pathway`}
         title={s.label}
         subtitle={s.full}
         bgImage={heroBg}
       />
 
-      {/* ════ Overview Section ════ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-cream/30 to-white py-28">
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
-        <div className="container-page relative z-10">
-          <button
-            onClick={() => navigate('/academics')}
-            className="mb-8 inline-flex items-center gap-2 rounded-full bg-forest/5 px-5 py-2 text-sm font-semibold text-forest border border-forest/20 hover:bg-forest/10 transition"
-          >
-            <ArrowLeft size={16} />
-            Back to Academics
-          </button>
+      {/* =========================================================
+          PATHWAY INTRODUCTION
+      ========================================================= */}
+      <section className="bg-white py-20 sm:py-24 lg:py-32">
+        <div className="container-page">
 
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="mb-10">
+            <button
+              onClick={() => navigate('/academics')}
+              className="group inline-flex items-center gap-3 text-sm font-semibold text-forest transition-colors hover:text-gold"
+            >
+              <ArrowLeft
+                size={17}
+                className="transition-transform duration-300 group-hover:-translate-x-1"
+              />
+              Back to Academics
+            </button>
+          </div>
+
+          <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+
             <div>
-              <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
                 Academic Pathway
-              </span>
-              <h1 className="mt-6 text-5xl font-serif font-bold text-forest lg:text-6xl">{s.label}</h1>
-              <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-              <p className="mt-8 text-lg text-slate-600 leading-9">{s.desc}</p>
-              <p className="mt-6 text-slate-600 leading-9">{s.longDesc}</p>
+              </p>
+
+              <h1 className="mt-5 font-serif text-5xl font-bold leading-[1.05] text-forest sm:text-6xl lg:text-7xl">
+                {s.label}
+              </h1>
+
+              <p className="mt-5 max-w-2xl font-serif text-2xl leading-relaxed text-forest/80">
+                {s.full}
+              </p>
+
+              <div className="mt-8 h-px w-20 bg-gold" />
+
+              <p className="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+                {s.desc}
+              </p>
+
+              <p className="mt-6 max-w-2xl leading-8 text-slate-600">
+                {s.longDesc}
+              </p>
             </div>
-            <div className="flex items-center justify-center">
-              <div className="flex h-56 w-56 items-center justify-center rounded-3xl bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20 shadow-2xl">
-                <Icon size={120} className="text-gold" />
+
+
+            {/* IMAGE-LED SIDE */}
+            <div className="relative">
+
+              <div className="overflow-hidden rounded-[2rem]">
+                <img
+                  src={images.heroes.academics}
+                  alt={s.label}
+                  className="
+                    h-[430px]
+                    w-full
+                    object-cover
+                    transition-transform
+                    duration-700
+                    hover:scale-[1.025]
+                    sm:h-[500px]
+                  "
+                />
               </div>
+
+              <div className="absolute -bottom-5 left-6 bg-white px-6 py-5 shadow-xl sm:left-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+                  Pathway
+                </p>
+
+                <p className="mt-1 font-serif text-lg font-bold text-forest">
+                  {s.label}
+                </p>
+              </div>
+
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ════ Core Subjects Section ════ */}
-      <section className="relative overflow-hidden bg-cream py-28">
-        <div className="container-page">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-              Curriculum
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              Core Subjects
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-            <p className="mt-8 text-lg leading-9 text-slate-600">
-              Master these essential subjects to excel in your {s.label} pathway and prepare for university.
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {s.subjects.map((sub, idx) => (
-              <div
-                key={sub.subject}
-                className="group relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 md:p-10 shadow-lg transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
-              >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
-                <div className="absolute right-0 top-0 translate-x-10 -translate-y-8 opacity-5 text-gold">
-                  <FlaskConical size={130} />
-                </div>
 
-                <div className="mb-6 flex items-center gap-4">
-                  <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-gold/20 bg-gold/10">
-                    <img
-                      src={sub.image}
-                      alt={sub.teacher}
-                      className="w-full h-full object-cover"
-                    />
+      {/* =========================================================
+          CORE SUBJECTS
+      ========================================================= */}
+      <section className="bg-cream py-20 sm:py-24 lg:py-32">
+        <div className="container-page">
+
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Curriculum
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-forest sm:text-5xl">
+                Core Subjects
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+
+              <p className="mt-7 max-w-md leading-8 text-slate-600">
+                Master these essential subjects to excel in your {s.label}
+                pathway and prepare for university.
+              </p>
+            </div>
+
+
+            <div className="border-t border-slate-300">
+
+              {s.subjects.map((sub, index) => (
+                <div
+                  key={sub.subject}
+                  className="
+                    group
+                    border-b
+                    border-slate-300
+                    py-8
+                    transition-colors
+                    hover:bg-white/60
+                    sm:py-10
+                  "
+                >
+
+                  <div className="grid gap-6 sm:grid-cols-[60px_90px_1fr] sm:items-center">
+
+                    <span className="font-serif text-sm font-bold text-gold">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+
+                    <div className="h-20 w-20 overflow-hidden rounded-full border border-slate-200 bg-white">
+                      <img
+                        src={sub.image}
+                        alt={sub.teacher}
+                        className="
+                          h-full
+                          w-full
+                          object-cover
+                          transition-transform
+                          duration-500
+                          group-hover:scale-105
+                        "
+                      />
+                    </div>
+
+                    <div>
+
+                      <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                        Subject
+                      </p>
+
+                      <h3 className="mt-2 font-serif text-2xl font-bold text-forest sm:text-3xl">
+                        {sub.subject}
+                      </h3>
+
+                      <p className="mt-3 text-sm text-slate-600">
+                        <span className="font-semibold text-forest">
+                          Teacher:
+                        </span>{' '}
+                        {sub.teacher}
+                      </p>
+
+                      {sub.focus && (
+                        <p className="mt-1 text-xs uppercase tracking-[0.2em] text-gold">
+                          {sub.focus}
+                        </p>
+                      )}
+
+                      {sub.details && (
+                        <p className="mt-4 max-w-2xl leading-7 text-slate-600">
+                          {sub.details}
+                        </p>
+                      )}
+
+                    </div>
+
                   </div>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* =========================================================
+          CAREER OPPORTUNITIES
+      ========================================================= */}
+      <section className="bg-white py-20 sm:py-24 lg:py-32">
+        <div className="container-page">
+
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Future Pathways
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-forest sm:text-5xl">
+                Career Opportunities
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+
+              <p className="mt-7 max-w-md leading-8 text-slate-600">
+                Graduates of the {s.label} pathway pursue diverse careers that
+                shape industries and change the world.
+              </p>
+            </div>
+
+
+            <div className="border-t border-slate-300">
+
+              {s.careerPaths.map(({ career, desc }, index) => (
+                <div
+                  key={career}
+                  className="
+                    group
+                    grid
+                    gap-4
+                    border-b
+                    border-slate-300
+                    py-8
+                    sm:grid-cols-[60px_1fr]
+                  "
+                >
+
+                  <span className="font-serif text-sm font-bold text-gold">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teacher</p>
-                    <p className="mt-2 text-lg font-semibold text-forest">{sub.teacher}</p>
-                    <p className="text-sm text-gold uppercase tracking-[0.3em]">{sub.focus}</p>
+
+                    <h3 className="font-serif text-2xl font-bold text-forest transition-colors group-hover:text-gold">
+                      {career}
+                    </h3>
+
+                    <p className="mt-3 max-w-2xl leading-8 text-slate-600">
+                      {desc}
+                    </p>
+
                   </div>
-                </div>
 
-                <h3 className="text-2xl font-serif font-bold text-forest">{sub.subject}</h3>
-                <p className="mt-5 leading-7 text-slate-600">{sub.details}</p>
-              </div>
-            ))}
+                </div>
+              ))}
+
+            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ════ Career Paths Section ════ */}
-      <section className="relative overflow-hidden bg-white py-28">
-        <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
-        <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-forest/5 blur-3xl" />
-        <div className="container-page relative">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-forest/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-forest">
-              Future Pathways
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              Career Opportunities
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
-            <p className="mt-8 text-lg leading-9 text-slate-600">
-              Graduates of the {s.label} pathway pursue diverse careers that shape industries and change the world.
-            </p>
-          </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {s.careerPaths.map(({ career, desc }) => (
-              <div
-                key={career}
-                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white to-cream p-8 shadow-lg min-h-[22rem] transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
-              >
-                <div className="absolute right-0 top-0 translate-x-8 -translate-y-8 opacity-5 text-gold">
-                  <Rocket size={100} />
-                </div>
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110">
-                  <Rocket size={28} className="text-gold" />
-                </div>
-                <h3 className="text-xl font-bold text-forest">{career}</h3>
-                <p className="mt-3 text-slate-600 leading-7">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════ Achievements Section ════ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-cream via-white to-cream py-28">
+      {/* =========================================================
+          ACHIEVEMENTS
+      ========================================================= */}
+      <section className="bg-cream py-20 sm:py-24 lg:py-32">
         <div className="container-page">
-          <div className="mb-16 max-w-3xl">
-            <span className="inline-flex rounded-full bg-gold/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gold">
-              Our Excellence
-            </span>
-            <h2 className="mt-6 text-4xl font-serif font-bold text-forest lg:text-5xl">
-              Stream Achievements
-            </h2>
-            <div className="mt-6 h-1 w-28 rounded-full bg-gradient-to-r from-gold to-yellow-300" />
+
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">
+                Our Excellence
+              </p>
+
+              <h2 className="mt-5 font-serif text-4xl font-bold leading-tight text-forest sm:text-5xl">
+                Stream Achievements
+              </h2>
+
+              <div className="mt-6 h-px w-16 bg-gold" />
+            </div>
+
+
+            <div className="border-t border-slate-300">
+
+              {s.achievements.map((achievement, index) => (
+                <div
+                  key={achievement}
+                  className="
+                    group
+                    grid
+                    gap-4
+                    border-b
+                    border-slate-300
+                    py-7
+                    sm:grid-cols-[60px_1fr]
+                  "
+                >
+
+                  <span className="font-serif text-sm font-bold text-gold">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
+                  <p className="text-lg leading-8 text-slate-700 transition-colors group-hover:text-forest">
+                    {achievement}
+                  </p>
+
+                </div>
+              ))}
+
+            </div>
+
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {s.achievements.map((achievement, idx) => (
-              <div
-                key={achievement}
-                className="group relative overflow-hidden rounded-[28px] border border-slate-200 bg-white p-8 shadow-lg min-h-[14rem] transition hover:-translate-y-2 hover:border-gold/40 hover:shadow-2xl"
-              >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition group-hover:w-full" />
-                <div className="flex items-start gap-5">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:scale-110">
-                    <Award size={24} className="text-gold" />
-                  </div>
-                  <p className="text-lg leading-8 text-slate-700 font-semibold">{achievement}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
+
 
       <CtaBanner
         title="Ready to Join This Pathway?"
