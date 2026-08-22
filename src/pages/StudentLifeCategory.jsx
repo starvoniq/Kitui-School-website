@@ -11,7 +11,7 @@ import {
 import PageHero from "../components/PageHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
-import { TiltWrap } from "../components/Effects.jsx";
+import { TiltWrap } from "../components/effects.jsx";
 import { useInView } from "../hooks/useInView.js";
 import {
   getCategoryItems,
@@ -304,15 +304,3 @@ export default function StudentLifeCategory() {
     </div>
   );
 }
-
-/*
-  NOTE:
-  - TiltWrap lives in ../components/Effects.jsx, useInView lives in
-    ../hooks/useInView.js (split apart so Effects.jsx only exports a
-    component — keeps react-refresh/only-export-components happy).
-  - Needs '../styles/studentLife.css' imported (same file already used
-    on the hub page) for .tilt-card, .sheen, .shine-sweep, .badge-glow,
-    and .quote-panel. If your CSS file lives somewhere else, just fix
-    the import path at the top.
-  - `Reveal`'s delay is in seconds, matching how the hub page uses it.
-*/

@@ -49,3 +49,4 @@ TiltWrap.defaultProps = {
   className: "",
   maxTilt: 6,
 };
+//effects
