@@ -11,7 +11,7 @@ import {
 import PageHero from "../components/PageHero.jsx";
 import Reveal from "../components/Reveal.jsx";
 import CtaBanner from "../components/CtaBanner.jsx";
-import { TiltWrap } from "../components/effects.jsx";
+import { TiltWrap } from "../components/Effects.jsx";
 import { useInView } from "../hooks/useInView.js";
 import {
   getCategoryItems,
