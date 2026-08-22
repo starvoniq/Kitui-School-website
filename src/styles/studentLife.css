@@ -1,0 +1,161 @@
+/* ─── Student Life page — animations & effects ──────────────────────────── */
+
+@keyframes kenburns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-1%, -1%); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%      { transform: translateY(-18px) translateX(6px); }
+}
+@keyframes floatSlower {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(14px); }
+}
+@keyframes shimmerText {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes sweep {
+  0%   { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+@keyframes drawLine {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: .35; transform: scale(1); }
+  50%      { opacity: .65; transform: scale(1.06); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+@keyframes countUpFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.kenburns-img { animation: kenburns 18s ease-in-out infinite alternate; }
+.float-slow   { animation: floatSlow 7s ease-in-out infinite; }
+.float-slower { animation: floatSlower 9s ease-in-out infinite; }
+.spin-slow    { animation: spinSlow 14s linear infinite; }
+.bounce-soft  { animation: bounceSoft 2s ease-in-out infinite; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #F5C542 0%, #ffffff 25%, #F5C542 50%, #ffffff 75%, #F5C542 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerText 5s linear infinite;
+}
+
+.underline-draw {
+  position: relative;
+  display: inline-block;
+}
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #F5C542, transparent);
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.underline-draw.in-view::after { width: 60%; }
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+.tilt-card .sheen {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.35), transparent 60%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.tilt-card:hover .sheen { opacity: 1; }
+
+.shine-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: translateX(-120%) skewX(-15deg);
+  pointer-events: none;
+}
+.group:hover .shine-sweep { animation: sweep 0.9s ease forwards; }
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+}
+.btn-shine:hover::before { left: 140%; }
+
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes ringPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--glow-color, rgba(245, 197, 66, 0.45)); }
+  50%      { box-shadow: 0 0 0 6px rgba(245, 197, 66, 0); }
+}
+.badge-glow { animation: ringPulse 2.4s ease-in-out infinite; }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.quote-panel {
+  position: relative;
+  overflow: hidden;
+}
+.quote-panel::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #F5C542, transparent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.quote-panel.in-view::before { transform: scaleY(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .kenburns-img, .float-slow, .float-slower, .spin-slow, .bounce-soft,
+  .shimmer-text, .tilt-card, .shine-sweep, .btn-shine::before,
+  .badge-glow, .quote-panel::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
