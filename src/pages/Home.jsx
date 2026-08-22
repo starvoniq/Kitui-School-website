@@ -104,25 +104,46 @@ const campus = [
 
 const testimonials = [
   {
-    quote:
-      'Kitui High School gave me the discipline, knowledge and confidence to excel at university and in life. Truly a school of excellence.',
-    name: 'John K.',
-    role: 'Alumnus, Class of 2019',
+    quote: 'Kitui High School gave me the discipline and knowledge to excel in my engineering career. Truly a school of excellence.',
+    name: 'Joseph Seko',
+    role: 'Class of 2023 · Mechatronic Engineer',
     image: images.testimonials.alumni,
   },
   {
-    quote:
-      'A safe, nurturing environment where our son is challenged academically and growing in character. We are proud parents.',
-    name: 'Mary W.',
-    role: 'Parent',
-    image: images.testimonials.parent,
+    quote: 'The rigorous academic foundation I received here perfectly prepared me for the fast-paced world of technology.',
+    name: 'Matthias Kieti',
+    role: 'Class of 2021 · Computer Science',
+    image: images.testimonials.alumni,
   },
   {
-    quote:
-      'The teachers here believe in us and push us to become the best we can be. The spirit of "Learn to Serve" is real.',
-    name: 'Brian M.',
-    role: 'Form 3 Student',
-    image: images.testimonials.student,
+    quote: 'A nurturing environment where we were challenged academically and grew in character. I am proud to be part of the alumni.',
+    name: 'Ibrahim Mutua',
+    role: 'Class of 2023 · Mechanical Engineer',
+    image: images.testimonials.alumni,
+  },
+  {
+    quote: 'The teachers believe in us and push us to become the best we can be. The spirit of "Learn to Serve" is real.',
+    name: 'Ronald M. Mwau',
+    role: 'Class of 2022 · Mechatronic Engineer',
+    image: images.testimonials.alumni,
+  },
+  {
+    quote: 'Kitui School shaped my logical thinking and problem-solving skills which are invaluable in my studies today.',
+    name: 'Cyril Mutua',
+    role: 'Class of 2025 · Computer Science',
+    image: images.testimonials.alumni,
+  },
+  {
+    quote: 'I will forever cherish the brotherhood and the strong values instilled in me during my time here.',
+    name: 'Alex',
+    role: 'Class of 2025 · Computer Science',
+    image: images.testimonials.alumni,
+  },
+  {
+    quote: 'An excellent institution that creates well-rounded individuals ready to take on the world of tech and business.',
+    name: 'Steve',
+    role: 'Class of 2024 · BBIT',
+    image: images.testimonials.alumni,
   },
 ]
 
@@ -180,10 +201,7 @@ function TestimonialCard({ t }) {
 
 /* ─── Page ─── */
 export default function Home() {
-  const [tIdx, setTIdx] = useState(0)
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
-  const prev = () => setTIdx((i) => (i - 1 + testimonials.length) % testimonials.length)
-  const next = () => setTIdx((i) => (i + 1) % testimonials.length)
 
   return (
     <>
@@ -206,30 +224,27 @@ export default function Home() {
           {/* Gold accent bar */}
           <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
-          <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md">
-            <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School · Since 1908</p>
-            <div className="gold-bar mb-5 shadow-sm" />
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight max-w-3xl animate-fade-up-200 drop-shadow-lg">
-              Building Character.{' '}
-              <span className="text-gold-light">Inspiring Excellence.</span>
-            </h1>
-            <p className="text-white/95 mt-6 max-w-xl text-lg leading-relaxed animate-fade-up-400 font-sans drop-shadow-md">
-              Since 1908, Kitui High School has been shaping generations of young men of integrity,
-              discipline and service to the nation.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-600">
-              <Link to="/about" className="btn-primary-lg">
-                Discover Our Story <ArrowRight size={18} />
-              </Link>
-              <Link to="/3d-tour" className="btn-outline flex items-center gap-2 !px-7 !py-4 backdrop-blur-sm bg-white/10 hover:bg-white/20">
-                <Play size={16} className="fill-white" /> Explore Campus in 3D
-              </Link>
-            </div>
+          <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md pointer-events-none">
+            <div className="pointer-events-auto max-w-[85%] md:max-w-full">
+              <p className="section-eyebrow mb-4 animate-fade-up text-gold-light drop-shadow-sm">National Boys&rsquo; Boarding School · Since 1908</p>
+              <div className="gold-bar mb-5 shadow-sm" />
+              <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight max-w-3xl animate-fade-up-200 drop-shadow-lg">
+                Building Character.{' '}
+                <span className="text-gold-light">Inspiring Excellence.</span>
+              </h1>
+              <p className="text-white/95 mt-6 max-w-xl text-lg leading-relaxed animate-fade-up-400 font-sans drop-shadow-md">
+                Since 1908, Kitui High School has been shaping generations of young men of integrity,
+                discipline and service to the nation.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-600">
+                <Link to="/about" className="btn-primary-lg">
+                  Discover Our Story <ArrowRight size={18} />
+                </Link>
+                <Link to="/3d-tour" className="btn-outline flex items-center gap-2 !px-7 !py-4 backdrop-blur-sm bg-white/10 hover:bg-white/20">
+                  <Play size={16} className="fill-white" /> Explore Campus in 3D
+                </Link>
+              </div>
 
-            {/* Scroll cue */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/50 animate-bounce">
-              <p className="text-[10px] uppercase tracking-widest font-sans">Scroll to explore</p>
-              <ChevronDown size={16} />
             </div>
           </div>
         </section>
@@ -355,7 +370,7 @@ export default function Home() {
             </div>
 
             <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
-              
+
               {/* Card 1 */}
               <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
                 <div className="flex justify-between items-start mb-2">
@@ -363,7 +378,7 @@ export default function Home() {
                   <TrendingUp size={16} className="text-slate-300" />
                 </div>
                 <h3 className="font-serif font-bold text-forest text-lg mb-6 leading-tight">KCSE 2024 RESULTS</h3>
-                
+
                 <div className="flex gap-6 mb-6">
                   <div>
                     <p className="text-4xl font-bold text-forest tracking-tighter">9.80</p>
@@ -397,7 +412,7 @@ export default function Home() {
                     <tr><td className="py-2">Total</td><td className="py-2 text-right">370</td><td className="py-2 text-right">100%</td></tr>
                   </tfoot>
                 </table>
-                
+
                 <div className="mt-auto">
                   <Link to="/academics#results" className="bg-forest text-white text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-forest-dark transition-colors font-semibold">
                     VIEW FULL RESULTS <ArrowRight size={14} />
@@ -409,7 +424,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-2 block">2. BEYOND THE CLASSROOM</span>
                 <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Excellence in Action</h3>
-                
+
                 <div className="aspect-video w-full rounded-lg overflow-hidden mb-5 bg-slate-100 shrink-0">
                   <img src={images.news.rugby} alt="Rugby" className="w-full h-full object-cover" />
                 </div>
@@ -444,7 +459,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                
+
                 <div className="mt-auto">
                   <Link to="/gallery" className="bg-forest text-white text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-forest-dark transition-colors font-semibold">
                     EXPLORE STUDENT LIFE <ArrowRight size={14} />
@@ -456,7 +471,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
                 <span className="text-xs font-bold text-gold uppercase tracking-wide mb-2 block">3. INNOVATION & STEM</span>
                 <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Creating Solutions, Shaping the Future</h3>
-                
+
                 <div className="aspect-video w-full rounded-lg overflow-hidden mb-5 bg-slate-100 shrink-0">
                   <img src={images.news.science} alt="Science" className="w-full h-full object-cover" />
                 </div>
@@ -484,7 +499,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                
+
                 <div className="mt-auto">
                   <Link to="/academics" className="bg-gold text-forest text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-yellow-500 transition-colors font-bold">
                     EXPLORE INNOVATION <ArrowRight size={14} />
@@ -495,8 +510,8 @@ export default function Home() {
               {/* Card 4 */}
               <div className="bg-white rounded-xl shadow-card border border-slate-100 p-6 flex flex-col hover:shadow-card-hover transition-all">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-2 block">4. CBC SENIOR SCHOOL</span>
-                <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Grades 10 - 12<br/>Discover Your Path</h3>
-                
+                <h3 className="font-serif font-bold text-forest text-lg mb-4 leading-tight">Grades 10 - 12<br />Discover Your Path</h3>
+
                 <div className="aspect-video w-full rounded-lg overflow-hidden mb-5 bg-slate-100 shrink-0">
                   <img src={images.academics.studentsClass} alt="CBC" className="w-full h-full object-cover" />
                 </div>
@@ -528,7 +543,7 @@ export default function Home() {
                     </div>
                   </li>
                 </ul>
-                
+
                 <div className="mt-auto">
                   <Link to="/academics#departments" className="bg-forest text-white text-xs px-5 py-2.5 rounded-full inline-flex items-center gap-2 hover:bg-forest-dark transition-colors font-semibold">
                     EXPLORE CBC PATHWAYS <ArrowRight size={14} />
@@ -544,7 +559,7 @@ export default function Home() {
         <section className="section-pad bg-slate-50">
           <div className="container-page">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8">
-              
+
               {/* LATEST NEWS */}
               <div className="lg:col-span-8">
                 <div className="flex items-end justify-between mb-6 border-b border-slate-200 pb-3">
@@ -554,7 +569,7 @@ export default function Home() {
                   </Link>
                 </div>
                 <div className="grid sm:grid-cols-3 gap-4">
-                  {news.slice(0,3).map((n) => (
+                  {news.slice(0, 3).map((n) => (
                     <NewsCard key={n.title} item={n} />
                   ))}
                 </div>
@@ -680,37 +695,26 @@ export default function Home() {
 
         {/* ══ 8. TESTIMONIALS (SOLID BG-WHITE) ══ */}
         <section className="section-pad bg-white relative z-10">
-          <div className="container-page">
-            <div className="text-center mb-12">
+          <div className="container-page mb-12">
+            <div className="text-center">
               <p className="section-eyebrow mb-3">What Our Community Says</p>
               <div className="gold-bar mx-auto mb-4" />
               <h2 className="section-title">Voices from Our Community</h2>
             </div>
-            {/* Desktop: 3 cards */}
-            <div className="hidden md:grid md:grid-cols-3 gap-6">
-              {testimonials.map((t) => (
-                <TestimonialCard key={t.name} t={t} />
+          </div>
+
+          <div className="relative flex overflow-hidden group">
+            {/* Fade overlays for smooth entry/exit effect */}
+            <div className="absolute top-0 left-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+            {/* Scrolling track - duplicated for seamless loop */}
+            <div className="flex gap-6 animate-marquee pause-on-hover py-4 w-max pl-6">
+              {[...testimonials, ...testimonials].map((t, idx) => (
+                <div key={`${t.name}-${idx}`} className="w-[300px] md:w-[400px]">
+                  <TestimonialCard t={t} />
+                </div>
               ))}
-            </div>
-            {/* Mobile: 1 card with arrows */}
-            <div className="md:hidden">
-              <TestimonialCard t={testimonials[tIdx]} />
-              <div className="flex justify-center gap-3 mt-6">
-                <button
-                  onClick={prev}
-                  className="w-10 h-10 rounded-full border border-forest/20 flex items-center justify-center hover:border-forest hover:bg-forest hover:text-white transition-all"
-                  aria-label="Previous testimonial"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  onClick={next}
-                  className="w-10 h-10 rounded-full border border-forest/20 flex items-center justify-center hover:border-forest hover:bg-forest hover:text-white transition-all"
-                  aria-label="Next testimonial"
-                >
-                  <ChevronRightIcon size={18} />
-                </button>
-              </div>
             </div>
           </div>
         </section>
@@ -724,6 +728,8 @@ export default function Home() {
           secondaryLabel="Explore Academics"
           secondaryTo="/academics"
           transparent
+          dark
+          className="bg-forest-dark/20  border-t border-white/10"
         />
       </div>
 
