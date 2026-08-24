@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import {
-  FlaskConical, Pi, Globe, BookOpen, Wrench, ArrowLeft, Award, TrendingUp, Users, Star
+  FlaskConical, Pi, Globe, BookOpen, Wrench, ArrowLeft, Award, TrendingUp, Users, Star, Languages, ClipboardCheck, GraduationCap
 } from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
 import CtaBanner from '../components/CtaBanner.jsx'
@@ -13,14 +13,16 @@ const teacher = (name, image = images.teachers.kavele) => ({ name, image })
 const departments = [
   {
     icon: Pi,
-    name: 'Math',
-    lead: 'Mrs Wambua',
+    name: 'Mathematics',
+    slug: 'math',
+    aliases: ['math', 'mathematics'],
+    lead: 'Mrs Phylis Wambua',
     leadImage: images.teachers.wambua,
     color: 'from-blue-50 to-blue-100',
     borderColor: 'border-blue-200',
     accentColor: 'text-blue-600 bg-blue-50',
     teachers: [
-      teacher('Mrs Wambua', images.teachers.wambua),
+      teacher('Mrs Phylis Wambua', images.teachers.wambua),
       teacher('Mr Katee', images.teachers.katee),
       teacher('Mr Kilinda'),
       teacher('Mr Mulwa'),
@@ -29,82 +31,91 @@ const departments = [
       teacher('Mr Mali'),
     ],
     achievements: [
-      'Top 5% performance in national mathematics examinations',
-      '15 students secured A grades in KCSE Mathematics',
-      'Winners of Inter-School Mathematics Olympiad 2024',
-      'Multiple scholarships awarded to graduates',
-      '98% university placement rate',
+      'Flagship academic subject and second-best ranking mathematics department nationally',
+      'Consistent outstanding performance in KCSE Mathematics examinations',
+      'Winners of Inter-School Mathematics Olympiad and regional mathematical contests',
+      'Over 98.5% university qualification rate for mathematics students',
+      'Innovative problem-solving methodologies unlocking endless academic possibilities',
     ],
     results: {
       avgGrade: 'A-',
-      universityPlacement: '98%',
-      topPerformers: 15,
+      universityPlacement: '98.6%',
+      topPerformers: 104,
     },
   },
   {
     icon: BookOpen,
-    name: 'Eng',
-    lead: 'Mr Kavele',
+    name: 'English',
+    slug: 'eng',
+    aliases: ['eng', 'english'],
+    lead: 'Mr John Kavele',
     leadImage: images.teachers.kavele,
     color: 'from-purple-50 to-purple-100',
     borderColor: 'border-purple-200',
     accentColor: 'text-purple-600 bg-purple-50',
     teachers: [
+      teacher('Mr John Kavele', images.teachers.kavele),
       teacher('Mrs Mutuku', images.teachers.mbuva),
       teacher('Mr James'),
       teacher('Md John'),
-      teacher('Mr Kavele', images.teachers.kavele),
       teacher('Mr Musyoki'),
     ],
     achievements: [
-      'Consistent high performance in English language examinations',
-      'Award-winning debate team representing school nationally',
-      'Student publications recognized in national media',
-      'Excellence in communication and oratory skills',
-      '96% university placement in humanities courses',
+      'Achieved a stellar KCSE 2025 Mean Score of 10.19',
+      'Award-winning debate team representing the school at the national level',
+      'Empowering learners with critical thinking, creativity, and effective communication',
+      'Exceptional performance in English language mastery and literary analysis',
+      '96% university placement in humanities, law, and communication fields',
     ],
     results: {
-      avgGrade: 'A',
-      universityPlacement: '96%',
-      topPerformers: 18,
+      avgGrade: '10.19',
+      universityPlacement: '98.5%',
+      topPerformers: 86,
     },
   },
   {
-    icon: Wrench,
-    name: 'Technicals',
-    lead: 'Mrs Mbuva',
-    leadImage: images.teachers.mbuva,
+    icon: Languages,
+    name: 'Kiswahili',
+    slug: 'kiswahili',
+    aliases: ['kiswahili', 'swahili', 'idara-ya-kiswahili'],
+    lead: 'Mrs Mugambi',
+    leadImage: images.teachers.mugambi,
     color: 'from-amber-50 to-amber-100',
     borderColor: 'border-amber-200',
     accentColor: 'text-amber-600 bg-amber-50',
-    subjects: [
-      { name: 'Computer Studies', teachers: [{ name: 'Mr Kitonga', image: images.teachers.njuguna }] },
-      { name: 'Agriculture', teachers: [{ name: 'Mr Nzomo', image: images.teachers.nzomo }] },
-      { name: 'Business Studies', teachers: [{ name: 'Mrs Mbuva', image: images.teachers.mbuva }] },
+    teachers: [
+      teacher('Mrs Mugambi (Mkuu wa Idara)', images.teachers.mugambi),
+      teacher('Mr Kitemange'),
+      teacher('Mrs Wasike'),
+      teacher('Mrs Mugombi'),
+      teacher('Walimu wa Idara ya Kiswahili'),
     ],
     achievements: [
-      'State-of-the-art computer labs with latest technology',
-      'Innovative agricultural projects with community impact',
-      'National recognition for practical skills training',
-      '94% employment rate for technical graduates',
+      'Kukuza vipawa vya wanafunzi kupitia vilabu vya lugha na mijadala (Mjadala)',
+      'Uhamasishaji wa uandishi wa kidijitali, blogu, na majarida ya shule',
+      'Kukuza umilisi wa lugha ya Kiswahili kitaifa na kimataifa',
+      'Kujenga uzalendo, utambulisho na mshikamano thabiti wa kitaifa kupitia lugha',
+      'Matokeo bora na ufaulu wa hali ya juu katika mtihani wa KCSE',
     ],
     results: {
-      avgGrade: 'A-',
-      universityPlacement: '94%',
-      topPerformers: 12,
+      avgGrade: 'B+',
+      universityPlacement: '97.5%',
+      topPerformers: 72,
     },
   },
   {
     icon: FlaskConical,
     name: 'Sciences',
-    lead: 'Mrs Gabriel',
+    slug: 'sciences',
+    aliases: ['sciences', 'science'],
+    lead: 'Mrs Lilian Gabriel',
     leadImage: images.teachers.gabriel,
     color: 'from-green-50 to-green-100',
     borderColor: 'border-green-200',
     accentColor: 'text-green-600 bg-green-50',
     subjects: [
       {
-        name: 'Biology',
+        name: 'Biology (Mean: 9.60)',
         teachers: [
           teacher('Mr Kitua'),
           teacher('Mr Mali'),
@@ -116,7 +127,7 @@ const departments = [
         ],
       },
       {
-        name: 'Chemistry',
+        name: 'Chemistry (Mean: 8.10)',
         teachers: [
           teacher('Mr Kilinda'),
           teacher('Mr Mulukya'),
@@ -128,7 +139,7 @@ const departments = [
         ],
       },
       {
-        name: 'Physics',
+        name: 'Physics (Mean: 8.65)',
         teachers: [
           teacher('Mr Mutuku', images.teachers.mutuku),
           teacher('Mr Mulwa'),
@@ -138,22 +149,24 @@ const departments = [
       },
     ],
     achievements: [
-      'Excellence in science practical examinations',
-      'Winners of National Science Fair 2024',
-      'Research projects recognized internationally',
-      'Partnership with research institutions',
-      '99% university placement rate',
+      'Biology recorded an outstanding KCSE mean score of 9.60',
+      'Physics earned a commendable KCSE mean score of 8.65',
+      'Chemistry achieved a solid KCSE mean score of 8.10',
+      'Hands-on practical laboratory work nurturing analytical minds and scientific inquiry',
+      'Consistent championship in the Kenya Science & Engineering Fair (KSEF)',
     ],
     results: {
-      avgGrade: 'A',
+      avgGrade: 'A-',
       universityPlacement: '99%',
-      topPerformers: 20,
+      topPerformers: 94,
     },
   },
   {
     icon: Globe,
     name: 'Humanities',
-    lead: 'Mr Tyrus',
+    slug: 'humanities',
+    aliases: ['humanities', 'humanity', 'social-sciences'],
+    lead: 'Mr Kyalo Tirus',
     leadImage: images.teachers.tyrus,
     color: 'from-red-50 to-red-100',
     borderColor: 'border-red-200',
@@ -162,25 +175,146 @@ const departments = [
       {
         name: 'Geography',
         teachers: [
-          teacher('Md Sila'),
-          teacher('Mr Sebastian'),
-          teacher('Md Mulonzi'),
+          teacher('Mr Sebastian (HOS Geography)', images.teachers.kavele),
+          teacher('Ms Silo'),
+          teacher('Ms Mulonzi (Dean of Studies)', images.teachers.mulonzi),
         ],
       },
-      { name: 'History', teachers: [{ name: 'Mr Tyrus', image: images.teachers.tyrus }] },
-      { name: 'CRE', teachers: [{ name: 'Mrs Wanjiru', image: images.teachers.kagema }] },
+      {
+        name: 'History & Citizenship',
+        teachers: [
+          teacher('Mr Kitemange (HOS History)'),
+          teacher('Mrs Mbithi'),
+          teacher('Ms Kanyolu'),
+          teacher('Ms Mutie'),
+          teacher('Mr Simbo (B.O.M)'),
+          teacher('Mr Shiholo (B.O.M)'),
+          teacher('Mrs Mugombi'),
+        ],
+      },
+      {
+        name: 'Christian Religious Education (CRE)',
+        teachers: [
+          teacher('Ms Job (HOS CRE)'),
+          teacher('Mr Kimani'),
+          teacher('Mrs Wasike'),
+          teacher('Ms Muema'),
+          teacher('Mr Mbuvi (B.O.M)'),
+          teacher('Ms Charity'),
+          teacher('Ms Catherine'),
+        ],
+      },
+      {
+        name: 'Community Service Learning (CSL)',
+        teachers: [
+          teacher('Humanities Faculty & CSL Coordinators'),
+        ],
+      },
     ],
     achievements: [
-      'Excellent essay writing and analytical skills development',
-      'Award-winning historical research projects',
-      'Student entrepreneurs launching businesses',
-      'High performance in humanities subjects',
-      '95% university placement rate',
+      'Over 300 CBC Senior School learners transitioning into Humanities & Social Sciences',
+      'Annual educational field trips to Coast region for History and Geography exploration',
+      'Successful integration of compulsory Community Service Learning (CSL)',
+      'High analytical skills and essay writing excellence across all humanities disciplines',
+      '97% university placement into law, international relations, and humanities',
     ],
     results: {
       avgGrade: 'A-',
-      universityPlacement: '95%',
-      topPerformers: 16,
+      universityPlacement: '97%',
+      topPerformers: 90,
+    },
+  },
+  {
+    icon: Wrench,
+    name: 'Technical & Creative',
+    slug: 'technicals',
+    aliases: ['technicals', 'technical', 'technical-creative', 'technical & creative'],
+    lead: 'Mrs Beatrice Mbuva',
+    leadImage: images.teachers.mbuva,
+    color: 'from-amber-50 to-amber-100',
+    borderColor: 'border-amber-200',
+    accentColor: 'text-amber-600 bg-amber-50',
+    subjects: [
+      {
+        name: 'Computer Studies (KCSE Mean: 10.87)',
+        teachers: [
+          teacher('Mr Patrick'),
+          teacher('Mr Kavoi'),
+          teacher('Mr Kitonga', images.teachers.njuguna),
+          teacher('Mr Mwendwa Mark'),
+        ],
+      },
+      {
+        name: 'French (KCSE Mean: 10.36)',
+        teachers: [
+          teacher('Ms Musyoka'),
+        ],
+      },
+      {
+        name: 'Agriculture (KCSE Mean: 9.05)',
+        teachers: [
+          teacher('Mr Munyao'),
+          teacher('Mr Nzomo', images.teachers.nzomo),
+          teacher('Mrs Gabriel', images.teachers.gabriel),
+          teacher('Mr Kisangau'),
+        ],
+      },
+      {
+        name: 'Business Studies (KCSE Mean: 7.85)',
+        teachers: [
+          teacher('Mrs Sila'),
+          teacher('Mrs Mbuva', images.teachers.mbuva),
+          teacher('Mr Kyalo D'),
+          teacher('Ms Sharon'),
+          teacher('Mr Dominic'),
+          teacher('Mr Kelvin'),
+        ],
+      },
+      {
+        name: 'Music & Performing Arts',
+        teachers: [
+          teacher('Mr Shiholo'),
+        ],
+      },
+    ],
+    achievements: [
+      'Computer Studies recorded stellar KCSE Mean score of 10.866 (20 As, 35 A-s)',
+      'French achieved an outstanding KCSE Mean score of 10.360',
+      'Agriculture recorded a strong KCSE Mean score of 9.046 with 176 candidates',
+      'State-of-the-art ICT centre, French language room, and practical agricultural farm',
+      'Ambitious 2026 Target Means: Computer 12.00, French 11.00, Agriculture 11.00, Business 9.80',
+    ],
+    results: {
+      avgGrade: '10.87',
+      universityPlacement: '98.5%',
+      topPerformers: 55,
+    },
+  },
+  {
+    icon: ClipboardCheck,
+    name: 'Examination & Dean of Studies',
+    slug: 'examination',
+    aliases: ['examination', 'examinations', 'dean-of-studies', 'dean'],
+    lead: 'Madam Jackline Mulonzi',
+    leadImage: images.teachers.mulonzi,
+    color: 'from-indigo-50 to-indigo-100',
+    borderColor: 'border-indigo-200',
+    accentColor: 'text-indigo-600 bg-indigo-50',
+    teachers: [
+      teacher('Md. Jacqueline M. Mulonzi (Dean of Studies / HOD Examination)', images.teachers.mulonzi),
+      teacher('Mr. Jeremiah W. Munyao (Assistant HOD Examination)'),
+    ],
+    achievements: [
+      'Attained an overall school KCSE 2025 Mean Score of 9.718 (Mean Grade B+), up from 9.534 in 2024',
+      '98.59% of the 355 candidates achieved direct university qualifying grades (C+ and above)',
+      'Rigorous continuous assessment system stirring curiosity, creativity and intellectual growth',
+      'Balanced academic ethos encouraging co-curricular participation alongside academic rigor',
+      'Exemplary teamwork between teachers, students, parents, and school administration',
+    ],
+    results: {
+      avgGrade: '9.718',
+      universityPlacement: '98.59%',
+      topPerformers: 350,
     },
   },
 ]
@@ -190,7 +324,11 @@ export default function DepartmentDetail() {
   const navigate = useNavigate()
   const [selectedSubject, setSelectedSubject] = useState(null)
 
-  const dept = departments.find((d) => d.name.toLowerCase() === name.toLowerCase())
+  const dept = departments.find((d) =>
+    d.name.toLowerCase() === name.toLowerCase() ||
+    (d.slug && d.slug.toLowerCase() === name.toLowerCase()) ||
+    (d.aliases && d.aliases.some((a) => a.toLowerCase() === name.toLowerCase()))
+  )
 
   if (!dept) {
     return (

@@ -57,11 +57,12 @@ const streams = [
 const departments = [
   {
     image: mathImg,
-    name: 'Math',
-    lead: 'Mrs Wambua',
+    name: 'Mathematics',
+    slug: 'math',
+    lead: 'Mrs Phylis Wambua',
     leadImage: images.teachers.wambua,
     teachers: [
-      'Mrs Wambua',
+      'Mrs Phylis Wambua',
       'Mr Katee',
       'Mr Kilinda',
       'Mr Mulwa',
@@ -72,32 +73,36 @@ const departments = [
   },
   {
     image: engImg,
-    name: 'Eng',
-    lead: 'Mr Kavele',
+    name: 'English',
+    slug: 'eng',
+    lead: 'Mr John Kavele',
     leadImage: images.teachers.kavele,
     teachers: [
+      'Mr John Kavele',
       'Mrs Mutuku',
       'Mr James',
       'Md John',
-      'Mr Kavele',
       'Mr Musyoki',
     ],
   },
   {
-    image: technicalsImg,
-    name: 'Technicals',
-    lead: 'Mrs Mbuva',
-    leadImage: images.teachers.mbuva,
-    subjects: [
-      'Computer Studies',
-      'Agriculture',
-      'Business Studies',
+    image: images.departments.kiswahili,
+    name: 'Kiswahili',
+    slug: 'kiswahili',
+    lead: 'Mrs Mugambi',
+    leadImage: images.teachers.mugambi,
+    teachers: [
+      'Mrs Mugambi',
+      'Mr Kitemange',
+      'Mrs Wasike',
+      'Mrs Mugombi',
     ],
   },
   {
     image: sciencesImg,
     name: 'Sciences',
-    lead: 'Mrs Gabriel',
+    slug: 'sciences',
+    lead: 'Mrs Lilian Gabriel',
     leadImage: images.teachers.gabriel,
     subjects: [
       'Biology',
@@ -108,27 +113,59 @@ const departments = [
   {
     image: humanitiesImg,
     name: 'Humanities',
-    lead: 'Mr Tyrus',
+    slug: 'humanities',
+    lead: 'Mr Kyalo Tirus',
     leadImage: images.teachers.tyrus,
     subjects: [
       'Geography',
-      'History',
+      'History & Citizenship',
       'CRE',
+      'Community Service Learning',
+    ],
+  },
+  {
+    image: technicalsImg,
+    name: 'Technical & Creative',
+    slug: 'technicals',
+    lead: 'Mrs Beatrice Mbuva',
+    leadImage: images.teachers.mbuva,
+    subjects: [
+      'Computer Studies',
+      'Agriculture',
+      'Business Studies',
+      'French',
+      'Music',
+    ],
+  },
+  {
+    image: images.departments.examination,
+    name: 'Examination & Dean of Studies',
+    slug: 'examination',
+    lead: 'Madam Jackline Mulonzi',
+    leadImage: images.teachers.mulonzi,
+    teachers: [
+      'Md. Jacqueline M. Mulonzi',
+      'Mr. Jeremiah W. Munyao',
+      'Continuous Evaluation Team',
     ],
   },
 ]
 
-const headOfClubs = 'Wasike'
+const headOfClubs = 'Mrs Wasike'
 
 const clubs = [
-  { name: 'Maths', advisor: 'Mrs. Mulwa' },
-  { name: "St John's", advisor: 'Mr Orina' },
-  { name: 'Debate', advisor: 'BRIAN' },
-  { name: 'Mjadala', advisor: 'Kitemange' },
-  { name: 'Music Festivals', advisor: 'Md Mutuku and Sebastian' },
-  { name: 'Agricultural club', advisor: 'Nzomo' },
-  { name: 'KRA', advisor: 'Mrs Sila' },
-  { name: 'Wildlife', advisor: 'Kitua' },
+  { name: 'Mathematics Club', advisor: 'Mr Osiemo' },
+  { name: 'Debate & Mjadala', advisor: 'Mr Kitemange, Mrs Mugambi & Mr Brian' },
+  { name: 'Drama & Music', advisor: 'Md Mutuku, Mr Sebastian & Mr James' },
+  { name: 'Journalism Club', advisor: 'Mr Kavele' },
+  { name: "St John's Ambulance", advisor: 'Md Job' },
+  { name: 'Kenya Red Cross', advisor: 'Md Mutua & Mr Mark' },
+  { name: 'Young Farmers (Agric)', advisor: 'Mr Nzomo' },
+  { name: 'Science & Innovation Fair', advisor: 'Mr Kitua' },
+  { name: 'Integrity Club', advisor: 'Md Makilya & Mr Mbithuka' },
+  { name: 'Scouts Movement', advisor: 'Mr Kyalo Tirus' },
+  { name: 'Amani Club', advisor: 'Mrs Wasike' },
+  { name: 'Wildlife Club', advisor: 'Mr Kitua' },
 ]
 
 const sports = [
@@ -690,11 +727,11 @@ export default function Academics() {
             <p className="section-sub">Every department is committed to inspiring curiosity, nurturing talent and delivering academic excellence through experienced educators and practical learning.</p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {departments.map((d) => (
               <Link
                 key={d.name}
-                to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
+                to={`/academics/${encodeURIComponent((d.slug || d.name).toLowerCase())}`}
                 className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
 
@@ -706,7 +743,7 @@ export default function Academics() {
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/85 via-forest-dark/15 to-transparent" />
-                  <h3 className="absolute bottom-2 left-4 text-lg font-serif font-bold text-white">{d.name}</h3>
+                  <h3 className="absolute bottom-2 left-4 right-4 text-base font-serif font-bold text-white leading-tight">{d.name}</h3>
                 </div>
 
                 {/* CONTENT */}
