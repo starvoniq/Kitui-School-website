@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import {
   HeartHandshake,
-  CheckCircle, ArrowRight, BookOpen, Microscope, Monitor,
+  CheckCircle, ArrowRight, BookOpen, Microscope,
   Star, Users, TrendingUp, Trophy,
 } from 'lucide-react'
 import PageHero from '../components/PageHero.jsx'
@@ -155,11 +155,9 @@ const teachingMethods = [
 
 const support = [
   { icon: HeartHandshake, t: 'Guidance & Counselling', b: 'Emotional, academic and moral support for every learner.' },
-  { icon: BookOpen, t: 'Library & Research Hub', b: 'Over 20,000 physical volumes and access to e-resources.' },
-  { icon: Monitor, t: 'Digital Resource Centre', b: 'High-speed internet access for research and past paper revision.' },
+  { icon: BookOpen, t: 'Library & Research Hub', b: "A well-stocked collection of books and journals to support students' academic and research needs." },
   { icon: Users, t: 'Academic Mentorship', b: 'One-on-one coaching by experienced teachers for target achievement.' },
   { icon: Microscope, t: 'Career Guidance', b: 'Helping learners discover their career paths and university choices.' },
-  { icon: Star, t: 'Remedial Programs', b: 'Personalized attention to help learners conquer difficult subjects.' },
 ]
 
 /* ─── Grade distribution (2025) ─── */
