@@ -142,5 +142,11 @@ export const images = {
     otieno: otienoImg,
     seniorMaster: seniorMasterImg,
     mrtairus: mrtairusImg,
+    mugambi: '/mrs-mugambi.jpeg',
+    mulonzi: '/madam-mulonzi.jpeg',
+  },
+  departments: {
+    kiswahili: '/kiswahili-dept.jpeg',
+    examination: '/examination-dept.jpeg',
   },
 }
