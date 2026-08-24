@@ -13,8 +13,9 @@ const teacher = (name, image = images.teachers.kavele) => ({ name, image })
 const departments = [
   {
     icon: Pi,
-    name: 'Math',
-    lead: 'Mrs Wambua',
+    name: 'Mathematics',
+    slug: 'math',
+    lead: 'Mrs Phylis Wambua',
     leadImage: images.teachers.wambua,
     color: 'from-blue-50 to-blue-100',
     borderColor: 'border-blue-200',
@@ -30,7 +31,7 @@ const departments = [
     ],
     achievements: [
       'Top 5% performance in national mathematics examinations',
-      '15 students secured A grades in KCSE Mathematics',
+      'Over 130 students secured A grades in KCSE Mathematics',
       'Winners of Inter-School Mathematics Olympiad 2024',
       'Multiple scholarships awarded to graduates',
       '98% university placement rate',
@@ -38,13 +39,14 @@ const departments = [
     results: {
       avgGrade: 'A-',
       universityPlacement: '98%',
-      topPerformers: 15,
+      topPerformers: 104,
     },
   },
   {
     icon: BookOpen,
-    name: 'Eng',
-    lead: 'Mr Kavele',
+    name: 'English',
+    slug: 'eng',
+    lead: 'Mr John Kavele',
     leadImage: images.teachers.kavele,
     color: 'from-purple-50 to-purple-100',
     borderColor: 'border-purple-200',
@@ -70,34 +72,34 @@ const departments = [
     },
   },
   {
-    icon: Wrench,
-    name: 'Technicals',
-    lead: 'Mrs Mbuva',
+    icon: BookOpen,
+    name: 'Kiswahili',
+    slug: 'kiswahili',
+    lead: 'Mrs Mugambi',
     leadImage: images.teachers.mbuva,
-    color: 'from-amber-50 to-amber-100',
-    borderColor: 'border-amber-200',
-    accentColor: 'text-amber-600 bg-amber-50',
-    subjects: [
-      { name: 'Computer Studies', teachers: [{ name: 'Mr Kitonga', image: images.teachers.njuguna }] },
-      { name: 'Agriculture', teachers: [{ name: 'Mr Nzomo', image: images.teachers.nzomo }] },
-      { name: 'Business Studies', teachers: [{ name: 'Mrs Mbuva', image: images.teachers.mbuva }] },
+    color: 'from-orange-50 to-orange-100',
+    borderColor: 'border-orange-200',
+    accentColor: 'text-orange-600 bg-orange-50',
+    teachers: [
+      teacher('Mrs Mugambi'),
+      teacher('Mr Kitemange'),
     ],
     achievements: [
-      'State-of-the-art computer labs with latest technology',
-      'Innovative agricultural projects with community impact',
-      'National recognition for practical skills training',
-      '94% employment rate for technical graduates',
+      'Outstanding performance in KCSE Kiswahili Lugha & Insha',
+      'Top awards in National Swahili Essay & Oratory competitions',
+      'Consistent university qualification rate',
     ],
     results: {
       avgGrade: 'A-',
-      universityPlacement: '94%',
-      topPerformers: 12,
+      universityPlacement: '97%',
+      topPerformers: 14,
     },
   },
   {
     icon: FlaskConical,
     name: 'Sciences',
-    lead: 'Mrs Gabriel',
+    slug: 'sciences',
+    lead: 'Mrs Lilian Gabriel',
     leadImage: images.teachers.gabriel,
     color: 'from-green-50 to-green-100',
     borderColor: 'border-green-200',
@@ -153,7 +155,8 @@ const departments = [
   {
     icon: Globe,
     name: 'Humanities',
-    lead: 'Mr Tyrus',
+    slug: 'humanities',
+    lead: 'Mr Kyalo Tirus',
     leadImage: images.teachers.tyrus,
     color: 'from-red-50 to-red-100',
     borderColor: 'border-red-200',
@@ -183,6 +186,55 @@ const departments = [
       topPerformers: 16,
     },
   },
+  {
+    icon: Wrench,
+    name: 'Technical & Creative',
+    slug: 'technicals',
+    lead: 'Mrs Beatrice Mbuva',
+    leadImage: images.teachers.mbuva,
+    color: 'from-amber-50 to-amber-100',
+    borderColor: 'border-amber-200',
+    accentColor: 'text-amber-600 bg-amber-50',
+    subjects: [
+      { name: 'Computer Studies', teachers: [{ name: 'Mr Kitonga', image: images.teachers.njuguna }] },
+      { name: 'Agriculture', teachers: [{ name: 'Mr Nzomo', image: images.teachers.nzomo }] },
+      { name: 'Business Studies', teachers: [{ name: 'Mrs Mbuva', image: images.teachers.mbuva }] },
+    ],
+    achievements: [
+      'State-of-the-art computer labs with latest technology',
+      'Innovative agricultural projects with community impact',
+      'National recognition for practical skills training',
+      '94% employment rate for technical graduates',
+    ],
+    results: {
+      avgGrade: 'A-',
+      universityPlacement: '94%',
+      topPerformers: 12,
+    },
+  },
+  {
+    icon: Award,
+    name: 'Examination & Dean of Studies',
+    slug: 'examination',
+    lead: 'Madam Jackline Mulonzi',
+    leadImage: images.teachers.mbuva,
+    color: 'from-emerald-50 to-emerald-100',
+    borderColor: 'border-emerald-200',
+    accentColor: 'text-emerald-600 bg-emerald-50',
+    teachers: [
+      teacher('Madam Jackline Mulonzi'),
+    ],
+    achievements: [
+      'Flawless coordination of internal and national examinations',
+      'Data-driven academic tracking and student performance analysis',
+      'Excellence in academic scheduling and curriculum implementation',
+    ],
+    results: {
+      avgGrade: 'A-',
+      universityPlacement: '98%',
+      topPerformers: 25,
+    },
+  },
 ]
 
 export default function DepartmentDetail() {
@@ -190,7 +242,11 @@ export default function DepartmentDetail() {
   const navigate = useNavigate()
   const [selectedSubject, setSelectedSubject] = useState(null)
 
-  const dept = departments.find((d) => d.name.toLowerCase() === name.toLowerCase())
+  const dept = departments.find(
+    (d) =>
+      d.name.toLowerCase() === name.toLowerCase() ||
+      (d.slug && d.slug.toLowerCase() === name.toLowerCase())
+  )
 
   if (!dept) {
     return (
@@ -211,13 +267,11 @@ export default function DepartmentDetail() {
         subject: teacher.name,
         teacher: teacher.name,
         image: teacher.image,
-        specialty: 'Department faculty',
       }))
     : dept.subjects.map((subject) => ({
         subject: subject.name,
         teacher: subject.teachers[0]?.name,
         image: subject.teachers[0]?.image,
-        specialty: 'Subject faculty',
         teachers: subject.teachers,
       }))
 
@@ -318,7 +372,11 @@ export default function DepartmentDetail() {
                   <Pi size={130} />
                 </div>
 
-                <div className="mb-6 flex items-center gap-4">
+                {!isDepartmentTeacherList && (
+                  <h3 className="mb-4 text-2xl font-serif font-bold text-forest">{item.subject}</h3>
+                )}
+
+                <div className="flex items-center gap-4">
                   <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-gold/15 to-gold/5 transition group-hover:rotate-6 group-hover:scale-110 overflow-hidden border-2 border-gold/20">
                     <img 
                       src={item.image}
@@ -327,21 +385,10 @@ export default function DepartmentDetail() {
                     />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Teacher</p>
-                    <p className="mt-2 text-lg font-semibold text-forest">{item.teacher}</p>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-serif font-bold text-forest">{item.subject}</h3>
-
-                <div className="mt-6 space-y-4">
-                  <div className="rounded-2xl bg-forest/5 p-4 border border-forest/10">
-                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">Lead Instructor</p>
-                    <p className="mt-2 text-lg font-bold text-forest">{item.teacher}</p>
-                  </div>
-                  <div className="rounded-2xl bg-gold/5 p-4 border border-gold/10">
-                    <p className="text-xs uppercase tracking-[0.3em] text-gold/60 font-semibold">Specialty</p>
-                    <p className="mt-2 text-sm font-semibold text-forest">{item.specialty}</p>
+                    <p className="text-xs uppercase tracking-[0.3em] text-forest/60 font-semibold">
+                      {isDepartmentTeacherList ? 'Teacher' : 'Lead Instructor'}
+                    </p>
+                    <p className="mt-1 text-xl font-serif font-bold text-forest">{item.teacher}</p>
                   </div>
                 </div>
 

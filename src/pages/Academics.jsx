@@ -58,59 +58,45 @@ const streams = [
 const departments = [
   {
     image: mathImg,
-    name: 'Math',
-    lead: 'Mrs Wambua',
-    teachers: [
-      'Mrs Wambua',
-      'Mr Katee',
-      'Mr Kilinda',
-      'Mr Mulwa',
-      'Mr Mutuku',
-      'Mrs Mutua',
-      'Mr Mali',
-    ],
+    name: 'Mathematics',
+    slug: 'math',
+    lead: 'Mrs Phylis Wambua',
   },
   {
     image: engImg,
-    name: 'Eng',
-    lead: 'Mr Kavele',
-    teachers: [
-      'Mrs Mutuku',
-      'Mr James',
-      'Md John',
-      'Mr Kavele',
-      'Mr Musyoki',
-    ],
+    name: 'English',
+    slug: 'eng',
+    lead: 'Mr John Kavele',
   },
   {
-    image: technicalsImg,
-    name: 'Technicals',
-    lead: 'Mrs Mbuva',
-    subjects: [
-      'Computer Studies',
-      'Agriculture',
-      'Business Studies',
-    ],
+    image: engImg,
+    name: 'Kiswahili',
+    slug: 'kiswahili',
+    lead: 'Mrs Mugambi',
   },
   {
     image: sciencesImg,
     name: 'Sciences',
-    lead: 'Mrs Gabriel',
-    subjects: [
-      'Biology',
-      'Chemistry',
-      'Physics',
-    ],
+    slug: 'sciences',
+    lead: 'Mrs Lilian Gabriel',
   },
   {
     image: humanitiesImg,
     name: 'Humanities',
-    lead: 'Mr Tyrus',
-    subjects: [
-      'Geography',
-      'History',
-      'CRE',
-    ],
+    slug: 'humanities',
+    lead: 'Mr Kyalo Tirus',
+  },
+  {
+    image: technicalsImg,
+    name: 'Technical & Creative',
+    slug: 'technicals',
+    lead: 'Mrs Beatrice Mbuva',
+  },
+  {
+    image: mathImg,
+    name: 'Examination & Dean of Studies',
+    slug: 'examination',
+    lead: 'Madam Jackline Mulonzi',
   },
 ]
 
@@ -430,7 +416,7 @@ export default function Academics() {
             <p className="mt-8 text-lg leading-9 text-slate-600">Every department is committed to inspiring curiosity, nurturing talent and delivering academic excellence through experienced educators and practical learning.</p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {departments.map((d) => (
               <div
                 key={d.name}
@@ -438,34 +424,56 @@ export default function Academics() {
             group
             relative
             overflow-hidden
-            rounded-[16px]
+            rounded-[18px]
             border
             border-slate-200
             bg-white
-            p-4
-            shadow-sm
+            shadow-md
             transition duration-500
             hover:-translate-y-1
-            hover:border-gold/40
             hover:shadow-lg
           "
               >
-                <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-gold to-yellow-300 transition duration-500 group-hover:w-full" />
-
-                <div className="mb-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl shadow-sm ring-1 ring-slate-100 transition duration-500 group-hover:scale-110">
-                  <img src={d.image} alt={d.name} className="h-full w-full object-cover" />
+                {/* Top Background Image Banner */}
+                <div className="relative h-28 w-full overflow-hidden">
+                  <img
+                    src={d.image}
+                    alt={d.name}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/85 via-forest-dark/15 to-transparent" />
+                  <h3 className="absolute bottom-2 left-4 text-base font-serif font-bold text-white">{d.name}</h3>
                 </div>
 
-                <h3 className="text-base font-serif font-bold text-forest">{d.name}</h3>
-                <p className="mt-1 text-xs text-slate-500">Lead: <span className="font-semibold text-forest">{d.lead}</span></p>
+                <div className="p-4">
+                  <p className="text-[11px] uppercase tracking-wider text-slate-500 font-medium">
+                    Head of Department
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-forest">{d.lead}</p>
 
-                <Link
-                  to={`/academics/${encodeURIComponent(d.name.toLowerCase())}`}
-                  className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-forest/5 px-2.5 py-1 text-[11px] font-semibold text-forest transition duration-500 hover:border-forest hover:bg-forest/10"
-                >
-                  View details
-                  <ArrowRight size={12} className="text-gold transition duration-500 group-hover:translate-x-1" />
-                </Link>
+                  <div className="my-3 h-px bg-slate-100" />
+
+                  <Link
+                    to={`/academics/${d.slug}`}
+                    className="
+                      inline-flex
+                      items-center
+                      gap-1.5
+                      text-xs
+                      font-semibold
+                      text-forest
+                      transition duration-500
+                      group-hover:text-gold
+                    "
+                  >
+                    Explore Department
+                    <span
+                      className="flex h-6 w-6 items-center justify-center rounded-full bg-gold/10 transition duration-500 group-hover:bg-gold group-hover:text-white"
+                    >
+                      <ArrowRight size={12} />
+                    </span>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
