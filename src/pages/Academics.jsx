@@ -823,8 +823,8 @@ export default function Academics() {
 
 
       {/* ═══════════════════════════════════════════════════════
-    TEACHING & LEARNING + ACADEMIC SUPPORT
-════════════════════════════════════════════════════════ */}
+     TEACHING & LEARNING + ACADEMIC SUPPORT
+      ════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-white py-16">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#f8f6ef,transparent_45%)]" />
 
