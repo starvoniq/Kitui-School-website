@@ -730,20 +730,9 @@ export default function Academics() {
               <Link
                 key={d.name}
                 to={`/academics/${encodeURIComponent((d.slug || d.name).toLowerCase())}`}
-                className="
-            group
-            relative
-            overflow-hidden
-            rounded-[18px]
-            border
-            border-slate-200
-            bg-white
-            shadow-md
-            transition duration-500
-            hover:-translate-y-1
-            hover:shadow-lg
-          "
+                className="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
+
                 {/* Photo Banner */}
                 <div className="relative h-28 w-full overflow-hidden">
                   <img
