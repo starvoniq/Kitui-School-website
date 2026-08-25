@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import * as THREE from 'three'
 import gateModel from '../assets/models/gate.glb'
+import { images } from '../assets/images'
 
 const MODEL_URL = gateModel
 
@@ -78,6 +79,7 @@ function UniversalCameraController({
   cameraZRef,
   gyroXRef,
   gyroZRef,
+  mouseXRef,
   controlsRef,
 }) {
   const { camera } = useThree()
@@ -99,8 +101,10 @@ function UniversalCameraController({
     )
     camera.position.z = currentCameraZ.current
 
-    // Combine base target X with gyroscope roll offset
-    const targetX = targetXRef.current + (gyroXRef.current || 0)
+    // Combine base target X with gyroscope roll offset and global mouse offset
+    // mouseXRef.current ranges from -1 (left) to 1 (right)
+    const pointerOffsetX = (mouseXRef?.current || 0) * 3.0
+    const targetX = targetXRef.current + (gyroXRef.current || 0) + pointerOffsetX
     currentTargetX.current = THREE.MathUtils.damp(
       currentTargetX.current,
       targetX,
@@ -127,11 +131,13 @@ function UniversalCameraController({
 
 function Loader() {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center bg-forest-dark/80 backdrop-blur-sm z-10 transition-opacity duration-700">
-      <div className="w-12 h-12 rounded-full border-2 border-gold border-t-transparent animate-spin mb-3" />
-      <p className="text-gold-light text-xs font-sans uppercase tracking-widest">
-        Loading 3D Campus Gate...
-      </p>
+    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center overflow-hidden transition-opacity duration-700 bg-forest-dark">
+      <img 
+        src={images.gate} 
+        alt="Loading Campus Gate" 
+        className="absolute inset-0 w-full h-full object-cover animate-pulse opacity-70" 
+      />
+      <div className="absolute inset-0 bg-forest-dark/60" />
     </div>
   )
 }
@@ -144,11 +150,14 @@ export default function Gate3DHeroBg() {
   const cameraZRef = useRef(CAMERA_CONFIG.initialPosition[2])
   const gyroXRef = useRef(0)
   const gyroZRef = useRef(0)
+  const mouseXRef = useRef(0)
 
   // Floating mobile controller toggle
-  const [showMobilePad, setShowMobilePad] = useState(false)
   const [gyroEnabled, setGyroEnabled] = useState(false)
-  const repeatIntervalRef = useRef(null)
+  
+  // Slider input refs for syncing
+  const panInputRef = useRef(null)
+  const zoomInputRef = useRef(null)
 
   // Touch tracking refs
   const touchStartRef = useRef(null)
@@ -176,6 +185,15 @@ export default function Gate3DHeroBg() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
+  /* ── 1.5 Global Mouse Tracking (overrides z-index blocking) ── */
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouseXRef.current = (e.clientX / window.innerWidth) * 2 - 1
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
   /* ── 2. Device Gyroscope / Tilt Tracking ── */
@@ -232,6 +250,7 @@ export default function Gate3DHeroBg() {
       // Horizontal drag smoothly shifts target X
       targetXRef.current =
         touchStartRef.current.startX - (deltaX / window.innerWidth) * 10
+      if (panInputRef.current) panInputRef.current.value = targetXRef.current
     } else if (e.touches.length === 2 && pinchStartRef.current) {
       const dx = e.touches[0].clientX - e.touches[1].clientX
       const dy = e.touches[0].clientY - e.touches[1].clientY
@@ -242,6 +261,7 @@ export default function Gate3DHeroBg() {
         3.5,
         Math.min(20.0, pinchStartRef.current.startZ - diff * 0.03)
       )
+      if (zoomInputRef.current) zoomInputRef.current.value = CAMERA_CONFIG.initialPosition[2] - cameraZRef.current
     }
   }
 
@@ -250,39 +270,7 @@ export default function Gate3DHeroBg() {
     pinchStartRef.current = null
   }
 
-  /* ── 4. Mobile Floating Controller Actions (Tap & Continuous Hold) ── */
-  const startContinuousAction = useCallback((action) => {
-    action()
-    clearInterval(repeatIntervalRef.current)
-    repeatIntervalRef.current = setInterval(() => {
-      action()
-    }, 80)
-  }, [])
 
-  const stopContinuousAction = useCallback(() => {
-    clearInterval(repeatIntervalRef.current)
-  }, [])
-
-  const shiftTargetLeft = () => {
-    targetXRef.current -= 0.4
-  }
-
-  const shiftTargetRight = () => {
-    targetXRef.current += 0.4
-  }
-
-  const zoomCameraIn = () => {
-    cameraZRef.current = Math.max(3.5, cameraZRef.current - 0.4)
-  }
-
-  const zoomCameraOut = () => {
-    cameraZRef.current = Math.min(20.0, cameraZRef.current + 0.4)
-  }
-
-  const resetCamera = () => {
-    targetXRef.current = CAMERA_CONFIG.initialTarget[0]
-    cameraZRef.current = CAMERA_CONFIG.initialPosition[2]
-  }
 
   return (
     <div
@@ -307,6 +295,7 @@ export default function Gate3DHeroBg() {
             cameraZRef={cameraZRef}
             gyroXRef={gyroXRef}
             gyroZRef={gyroZRef}
+            mouseXRef={mouseXRef}
             controlsRef={orbitControlsRef}
           />
 
@@ -347,100 +336,34 @@ export default function Gate3DHeroBg() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
       </div>
 
-      {/* ── 5. Mobile Floating 3D Control Widget (Mobile / Tablet Only) ── */}
-      <div className="md:hidden absolute bottom-6 right-4 z-30 flex flex-col items-end gap-2 pointer-events-auto">
-        {/* Expandable Control Pad */}
-        {showMobilePad ? (
-          <div className="bg-forest-dark/90 backdrop-blur-xl border border-gold/40 rounded-2xl p-3 shadow-2xl flex flex-col items-center gap-2.5 animate-scale-up text-white">
-            <div className="flex items-center justify-between w-full pb-1 border-b border-white/10 gap-4">
-              <span className="text-[11px] font-semibold tracking-wider text-gold flex items-center gap-1.5">
-                <Compass size={13} className="text-gold animate-spin-slow" /> 3D Controls
-              </span>
-              <button
-                onClick={() => setShowMobilePad(false)}
-                className="text-white/60 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
-                aria-label="Close Controls"
-              >
-                <X size={14} />
-              </button>
-            </div>
+      {/* ── 5. Mobile Edge Sliders (Mobile / Tablet Only) ── */}
+      {/* Horizontal Pan Slider */}
+      <div className="md:hidden absolute bottom-6 left-6 right-16 z-30 pointer-events-auto flex items-center shadow-lg">
+        <input 
+          type="range" 
+          ref={panInputRef}
+          min="-6" 
+          max="6" 
+          step="0.1"
+          defaultValue={0}
+          onChange={(e) => { targetXRef.current = parseFloat(e.target.value) }}
+          className="w-full h-1.5 bg-white/20 backdrop-blur-md rounded-lg appearance-none cursor-pointer accent-gold border border-white/10"
+        />
+      </div>
 
-            {/* D-Pad Buttons */}
-            <div className="grid grid-cols-3 gap-1.5 items-center justify-items-center my-1">
-              {/* Top: Zoom In (ArrowUp equivalent) */}
-              <div />
-              <button
-                onPointerDown={() => startContinuousAction(zoomCameraIn)}
-                onPointerUp={stopContinuousAction}
-                onPointerLeave={stopContinuousAction}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gold hover:text-forest active:scale-95 border border-white/15 flex flex-col items-center justify-center transition-all shadow-md"
-                title="Zoom In"
-              >
-                <ChevronUp size={18} />
-              </button>
-              <div />
-
-              {/* Left: Target X - (Shift+R equivalent) */}
-              <button
-                onPointerDown={() => startContinuousAction(shiftTargetLeft)}
-                onPointerUp={stopContinuousAction}
-                onPointerLeave={stopContinuousAction}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gold hover:text-forest active:scale-95 border border-white/15 flex items-center justify-center transition-all shadow-md"
-                title="Pan Left"
-              >
-                <ChevronLeft size={18} />
-              </button>
-
-              {/* Center: Reset Button */}
-              <button
-                onClick={resetCamera}
-                className="w-10 h-10 rounded-xl bg-gold/20 hover:bg-gold hover:text-forest text-gold active:scale-95 border border-gold/40 flex items-center justify-center transition-all shadow-md"
-                title="Reset View"
-              >
-                <RotateCcw size={15} />
-              </button>
-
-              {/* Right: Target X + (R equivalent) */}
-              <button
-                onPointerDown={() => startContinuousAction(shiftTargetRight)}
-                onPointerUp={stopContinuousAction}
-                onPointerLeave={stopContinuousAction}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gold hover:text-forest active:scale-95 border border-white/15 flex items-center justify-center transition-all shadow-md"
-                title="Pan Right"
-              >
-                <ChevronRight size={18} />
-              </button>
-
-              {/* Bottom: Zoom Out (ArrowDown equivalent) */}
-              <div />
-              <button
-                onPointerDown={() => startContinuousAction(zoomCameraOut)}
-                onPointerUp={stopContinuousAction}
-                onPointerLeave={stopContinuousAction}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gold hover:text-forest active:scale-95 border border-white/15 flex flex-col items-center justify-center transition-all shadow-md"
-                title="Zoom Out"
-              >
-                <ChevronDown size={18} />
-              </button>
-              <div />
-            </div>
-
-            {/* Gesture Hint */}
-            <div className="text-[9px] text-white/60 font-sans text-center border-t border-white/10 pt-1.5 w-full flex items-center justify-center gap-1">
-              <Smartphone size={10} className="text-gold" />
-              <span>Swipe: Pan • Pinch: Zoom{gyroEnabled ? ' • Tilt: 3D' : ''}</span>
-            </div>
-          </div>
-        ) : (
-          /* Floating Pill Toggle Button */
-          <button
-            onClick={() => setShowMobilePad(true)}
-            className="flex items-center gap-2 px-3.5 py-2 bg-forest-dark/85 backdrop-blur-md border border-gold/40 text-gold-light rounded-full text-xs font-semibold shadow-xl hover:bg-forest-dark active:scale-95 transition-all"
-          >
-            <Compass size={14} className="text-gold animate-spin-slow" />
-            <span>3D Controls</span>
-          </button>
-        )}
+      {/* Vertical Zoom Slider */}
+      <div className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 h-48 w-8 z-30 pointer-events-auto flex justify-center items-center shadow-lg">
+        <input 
+          type="range" 
+          ref={zoomInputRef}
+          min="-6" 
+          max="6" 
+          step="0.1"
+          defaultValue={0}
+          onChange={(e) => { cameraZRef.current = CAMERA_CONFIG.initialPosition[2] - parseFloat(e.target.value) }}
+          className="w-48 h-1.5 bg-white/20 backdrop-blur-md rounded-lg appearance-none cursor-pointer accent-gold border border-white/10"
+          style={{ transform: 'rotate(-90deg)' }}
+        />
       </div>
     </div>
   )
