@@ -577,22 +577,26 @@ export default function DepartmentDetail() {
 
                       </div>
 
-                      <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-600">
+                      {!isDepartmentTeacherList && (
+                        <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-600">
 
-                        <span>
-                          <span className="font-semibold text-forest">
-                            Teacher:
-                          </span>{' '}
-                          {item.teacher}
-                        </span>
-
-                        <span>
-                          <span className="font-semibold text-forest">
-                            {item.specialty}
+                          <span>
+                            <span className="font-semibold text-forest">
+                              Teacher:
+                            </span>{' '}
+                            {item.teacher}
                           </span>
-                        </span>
 
-                      </div>
+                          {item.specialty && (
+                            <span>
+                              <span className="font-semibold text-forest">
+                                {item.specialty}
+                              </span>
+                            </span>
+                          )}
+
+                        </div>
+                      )}
 
 
                       {/* SUBJECT TEACHERS */}
