@@ -317,55 +317,6 @@ const departments = [
       topPerformers: 350,
     },
   },
-  {
-    icon: Wrench,
-    name: 'Technical & Creative',
-    slug: 'technicals',
-    lead: 'Mrs Beatrice Mbuva',
-    leadImage: images.teachers.mbuva,
-    color: 'from-amber-50 to-amber-100',
-    borderColor: 'border-amber-200',
-    accentColor: 'text-amber-600 bg-amber-50',
-    subjects: [
-      { name: 'Computer Studies', teachers: [{ name: 'Mr Kitonga', image: images.teachers.njuguna }] },
-      { name: 'Agriculture', teachers: [{ name: 'Mr Nzomo', image: images.teachers.nzomo }] },
-      { name: 'Business Studies', teachers: [{ name: 'Mrs Mbuva', image: images.teachers.mbuva }] },
-    ],
-    achievements: [
-      'State-of-the-art computer labs with latest technology',
-      'Innovative agricultural projects with community impact',
-      'National recognition for practical skills training',
-      '94% employment rate for technical graduates',
-    ],
-    results: {
-      avgGrade: 'A-',
-      universityPlacement: '94%',
-      topPerformers: 12,
-    },
-  },
-  {
-    icon: Award,
-    name: 'Examination & Dean of Studies',
-    slug: 'examination',
-    lead: 'Madam Jackline Mulonzi',
-    leadImage: images.teachers.mbuva,
-    color: 'from-emerald-50 to-emerald-100',
-    borderColor: 'border-emerald-200',
-    accentColor: 'text-emerald-600 bg-emerald-50',
-    teachers: [
-      teacher('Madam Jackline Mulonzi'),
-    ],
-    achievements: [
-      'Flawless coordination of internal and national examinations',
-      'Data-driven academic tracking and student performance analysis',
-      'Excellence in academic scheduling and curriculum implementation',
-    ],
-    results: {
-      avgGrade: 'A-',
-      universityPlacement: '98%',
-      topPerformers: 25,
-    },
-  },
 ]
 
 export default function DepartmentDetail() {
@@ -395,16 +346,16 @@ export default function DepartmentDetail() {
   const isDepartmentTeacherList = Array.isArray(dept.teachers)
   const displayItems = isDepartmentTeacherList
     ? dept.teachers.map((teacher) => ({
-        subject: teacher.name,
-        teacher: teacher.name,
-        image: teacher.image,
-      }))
+      subject: teacher.name,
+      teacher: teacher.name,
+      image: teacher.image,
+    }))
     : dept.subjects.map((subject) => ({
-        subject: subject.name,
-        teacher: subject.teachers[0]?.name,
-        image: subject.teachers[0]?.image,
-        teachers: subject.teachers,
-      }))
+      subject: subject.name,
+      teacher: subject.teachers[0]?.name,
+      image: subject.teachers[0]?.image,
+      teachers: subject.teachers,
+    }))
 
   return (
     <>

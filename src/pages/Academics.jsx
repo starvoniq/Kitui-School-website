@@ -210,14 +210,14 @@ const grades = [
   { grade: 'B-', count: 41, pct: '11.58%' },
   { grade: 'C+', count: 12, pct: '3.39%' },
   { grade: 'C', count: 5, pct: '1.41%' },
-  ]
+]
 
 /* ─── KCSE Performance ─── */
 const kcseColumns = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-']
 
 const kcseRows = [
   { year: '2025', grades: [17, 87, 109, 83, 41, 12, 5, 0], entry: 354, mean: '9.72', pass: '98.59', highlight: true },
-  {year: '2024', grades: [12, 65, 98, 75, 38, 15, 6, 0], entry: 309, mean: '9.45', pass: '97.73' },
+  { year: '2024', grades: [12, 65, 98, 75, 38, 15, 6, 0], entry: 309, mean: '9.45', pass: '97.73' },
   { year: '2023', grades: [2, 24, 56, 65, 42, 17, 17, 1], entry: 224, mean: '8.91', pass: '91.96' },
   { year: '2022', grades: [5, 42, 48, 50, 29, 19, 6, 0], entry: 199, mean: '9.31', pass: '96.98' },
   { year: '2021', grades: [2, 43, 52, 43, 27, 12, 1, 0], entry: 180, mean: '9.50', pass: '99.44' },
@@ -745,8 +745,7 @@ export default function Academics() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="flex flex-col p-6 sm:p-7">
-
+                <div className="flex flex-col p-4">
                   <div className="flex items-center gap-3">
                     <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-100">
                       <img
@@ -767,9 +766,7 @@ export default function Academics() {
                       <span className="ml-2">→</span>
                     </span>
                   </div>
-
                 </div>
-
               </Link>
             ))}
           </div>
@@ -826,8 +823,8 @@ export default function Academics() {
 
 
       {/* ═══════════════════════════════════════════════════════
-    TEACHING & LEARNING + ACADEMIC SUPPORT
-════════════════════════════════════════════════════════ */}
+     TEACHING & LEARNING + ACADEMIC SUPPORT
+      ════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden bg-white py-16">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#f8f6ef,transparent_45%)]" />
 
