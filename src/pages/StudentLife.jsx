@@ -531,9 +531,6 @@ export default function StudentLife() {
         <div className="absolute inset-0 bg-gradient-to-r from-forest-dark/95 via-forest-dark/75 to-forest-dark/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/80 via-transparent to-forest-dark/30" />
 
-        {/* Gold accent */}
-        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-gold-light to-gold z-10" />
-
         {/* Hero content */}
         <div className="container-page relative z-10 py-24 md:py-32">
           <p className="section-eyebrow text-gold-light mb-3 animate-fade-up flex items-center gap-2">

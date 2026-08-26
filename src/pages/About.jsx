@@ -1,6 +1,7 @@
+import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ChevronRight, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink } from 'lucide-react'
+import { ChevronRight, ChevronLeft, MoveHorizontal, GraduationCap, Users, Landmark, Award, ExternalLink, Quote } from 'lucide-react'
 import Reveal from '../components/Reveal.jsx'
 
 const IMG = {
@@ -85,7 +86,7 @@ const kcseRows = [
     year: '2025',
     grades: [17, 87, 109, 83, 41, 12, 5, 0],
     entry: 354,
-    mean: '9.72',
+    mean: '9.718',
     pass: '98.59',
     highlight: true,
   },
@@ -241,6 +242,179 @@ function SportsMarquee() {
       </motion.div>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-36 bg-gradient-to-r from-white to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-36 bg-gradient-to-l from-white to-transparent" />
+    </div>
+  )
+}
+
+function AlumniCareersCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  const youngAlumni = [
+    {
+      name: 'Matthias Kieti',
+      classYear: 'Class of 2021',
+      career: 'Computer Science',
+      quote: 'The rigorous academic foundation and brotherhood I received at Kitui School perfectly prepared me for the fast-paced world of technology.',
+      img: '/alumni/matthias-kieti.png',
+      badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    },
+    {
+      name: 'Alex',
+      classYear: 'Class of 2025',
+      career: 'Computer Science',
+      quote: 'I will forever cherish the strong values, discipline, and problem-solving mindset instilled in me during my time at Kitui School.',
+      img: '/alumni/alex.png',
+      badgeColor: 'bg-sky-50 text-sky-700 border-sky-200',
+    },
+    {
+      name: 'Mark Sila',
+      classYear: 'Class of 2024',
+      career: 'Mechatronic Engineering',
+      quote: 'Kitui School shaped my passion for engineering and practical innovation. The mentorship here prepares you for real-world excellence.',
+      img: '/alumni/mark-sila.png',
+      badgeColor: 'bg-cyan-50 text-cyan-700 border-cyan-200',
+    },
+    {
+      name: 'Ibrahim Mutua',
+      classYear: 'Class of 2023',
+      career: 'Mechanical Engineering',
+      quote: 'A nurturing environment where we were challenged academically and grew in character. I am proud to be part of the alumni.',
+      img: '/alumni/ibrahim-mutua.png',
+      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+    },
+    {
+      name: 'Ronald Mutua Mwau',
+      classYear: 'Class of 2021',
+      career: 'Mechatronic Engineering',
+      quote: 'The teachers believe in us and push us to become the best we can be. The spirit of "Learn to Serve" stays with you for life.',
+      img: '/alumni/ronald-mwau.jpg',
+      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    },
+    {
+      name: 'James Mukuvi',
+      classYear: 'Class of 2021',
+      career: 'Computer Science',
+      quote: 'Kitui School cultivated my curiosity for computer science and innovation, empowering me to build impactful digital solutions.',
+      img: '/alumni/james-mukuvi.jpg',
+      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
+    },
+  ]
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % youngAlumni.length)
+  }, [youngAlumni.length])
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + youngAlumni.length) % youngAlumni.length)
+  }, [youngAlumni.length])
+
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(nextSlide, 4500)
+    return () => clearInterval(timer)
+  }, [isPaused, nextSlide])
+
+  return (
+    <div 
+      className="mt-16 pt-12 border-t border-neutral-200/80"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-forest mb-2 flex items-center gap-1.5">
+            Next Generation Leadership
+          </p>
+          <h3 className="font-serif font-bold text-forest text-2xl md:text-3xl">
+            Alumni in Industry &amp; Technology
+          </h3>
+          <p className="text-neutral-500 text-sm mt-1 max-w-xl">
+            Recent graduates transforming technology, engineering, finance, and enterprise worldwide.
+          </p>
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="flex items-center gap-2 self-start md:self-auto">
+          <button
+            type="button"
+            onClick={prevSlide}
+            aria-label="Previous Alumni"
+            className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-forest hover:bg-forest hover:text-white hover:border-forest transition-all flex items-center justify-center shadow-sm active:scale-95"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Next Alumni"
+            className="w-10 h-10 rounded-full border border-neutral-300 bg-white text-forest hover:bg-forest hover:text-white hover:border-forest transition-all flex items-center justify-center shadow-sm active:scale-95"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+
+      {/* Carousel Viewport */}
+      <div className="relative overflow-hidden rounded-2xl">
+        <div 
+          className="flex transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {youngAlumni.map((alum, idx) => (
+            <div key={`${alum.name}-${idx}`} className="w-full shrink-0 px-1">
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-neutral-200/90 shadow-sm flex flex-col md:flex-row gap-6 md:items-center justify-between">
+                <div className="flex items-center gap-5">
+                  {/* Passport Photo */}
+                  <div className="relative shrink-0">
+                    <img
+                      src={alum.img}
+                      alt={alum.name}
+                      className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover object-top border-4 border-gold/30 shadow-md"
+                    />
+                    <span className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-forest text-gold border-2 border-white flex items-center justify-center text-[10px] font-bold">
+                      ✓
+                    </span>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h4 className="font-serif font-bold text-forest text-xl md:text-2xl">
+                        {alum.name}
+                      </h4>
+                      <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${alum.badgeColor}`}>
+                        {alum.classYear}
+                      </span>
+                    </div>
+                    <p className="text-forest font-sans font-semibold text-sm md:text-base">
+                      {alum.career}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="md:max-w-md border-t md:border-t-0 md:border-l border-neutral-100 pt-4 md:pt-0 md:pl-8">
+                  <p className="text-neutral-600 text-sm leading-relaxed italic">
+                    &ldquo;{alum.quote}&rdquo;
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex justify-center gap-2 mt-6">
+        {youngAlumni.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              currentIndex === i ? 'w-8 bg-forest' : 'w-2 bg-neutral-300 hover:bg-neutral-400'
+            }`}
+          />
+        ))}
+      </div>
     </div>
   )
 }
@@ -513,7 +687,7 @@ export default function About() {
           {/* Key figures */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {[
-              { icon: GraduationCap, value: '9.72', label: '2025 Mean Grade' },
+              { icon: GraduationCap, value: '9.718', label: '2025 Mean Grade' },
               { icon: Award, value: '98.59%', label: 'University Entry' },
               { icon: Users, value: '354', label: '2025 Candidates' },
               { icon: Landmark, value: '13th', label: 'National Rank 2025' },
@@ -639,6 +813,9 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+
+          {/* ══ RECENT ALUMNI CAREERS CAROUSEL ══ */}
+          <AlumniCareersCarousel />
         </div>
       </section>
 
