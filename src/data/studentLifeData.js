@@ -378,7 +378,7 @@ export const clubs = [
     description:
       'First aid certification, blood drives, emergency response drills, and community humanitarian aid — the Kenya Red Cross Society at Kitui School saves lives and shapes compassionate leaders.',
     fullDescription:
-      'The Kenya Red Cross Society chapter at Kitui School is one of the most active humanitarian organisations in the school. Members receive certified first aid training, participate in blood donation drives, and respond to emergency scenarios on campus. The club also engages in community outreach programs during school holidays.',
+      'The Kenya Red Cross Society chapter at Kitui School is one of the most active humanitarian organisations in the school. Members receive certified first aid training, participate in blood donation drives, and respond to emergency scenarios in school. The club also engages in community outreach programs during school holidays.',
     highlights: [
       'Certified first aid training for all members',
       'Annual blood donation drives and awareness campaigns',
@@ -410,7 +410,7 @@ export const clubs = [
     highlights: [
       'CPR, patient assessment, and emergency response training',
       'Ceremonial parade participation at school functions',
-      'Health awareness campaigns on campus',
+      'Health awareness campaigns at school',
       'Regular assessments and badging',
     ],
     achievements: [
@@ -576,7 +576,7 @@ export const clubs = [
     fullDescription:
       'The Peer Counselling Programme at Kitui School equips trained student counsellors with the skills to support their fellow students through emotional challenges, peer pressure, academic stress, and life transitions. Under Mrs. David\'s guidance, peer counsellors offer a confidential, compassionate, and non-judgmental space for all students.',
     highlights: [
-      'Trained student counsellors available on campus',
+      'Trained student counsellors available in school',
       'Mental health awareness campaigns and workshops',
       'Confidential one-on-one peer support sessions',
       'Anti-bullying programs and social inclusion drives',
@@ -686,7 +686,7 @@ export const clubs = [
     tag: 'Peace & Harmony',
     tagline: 'Amani — Peace for All.',
     description:
-      'Peaceful coexistence, conflict resolution, social harmony, and cohesion — the Amani Club creates a campus where every student belongs and is valued.',
+      'Peaceful coexistence, conflict resolution, social harmony, and cohesion — the Amani Club creates a school environment where every student belongs and is valued.',
     fullDescription:
       'The Amani Club promotes a culture of peace, respect, and mutual understanding at Kitui School. Through dialogue circles, conflict mediation training, and cross-cultural events, the club creates a safe and inclusive environment for all students. Mrs. Wasike leads the club with a vision of a harmonious school community.',
     highlights: [
@@ -748,7 +748,7 @@ export const faithGroups = [
     description:
       'Energetic praise & worship sessions, Bible study groups, annual missions, and weekend challenge events — the Christian Union is where faith meets fellowship.',
     fullDescription:
-      'The Christian Union (CU) at Kitui School is one of the largest and most active student organisations on campus. Members gather regularly for vibrant praise and worship sessions, structured Bible study, and prayer meetings. Annual missions weeks and weekend retreats deepen students\' faith and provide opportunities for spiritual growth and community bonding.',
+      'The Christian Union (CU) at Kitui School is one of the largest and most active student organisations in the school. Members gather regularly for vibrant praise and worship sessions, structured Bible study, and prayer meetings. Annual missions weeks and weekend retreats deepen students\' faith and provide opportunities for spiritual growth and community bonding.',
     highlights: [
       'Weekly praise & worship and Bible study sessions',
       'Annual missions week and school-wide evangelism events',

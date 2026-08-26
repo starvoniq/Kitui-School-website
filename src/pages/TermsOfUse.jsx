@@ -84,7 +84,7 @@ export default function TermsOfUse() {
 
       <CtaBanner
         title="Learn More About Our School"
-        subtitle="Explore our rich heritage, academic programmes and vibrant campus life."
+        subtitle="Explore our rich heritage, academic programmes and vibrant school life."
         primaryLabel="About Us"
         primaryTo="/about"
         secondaryLabel="Book a Visit"

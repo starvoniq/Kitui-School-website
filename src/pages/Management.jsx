@@ -126,7 +126,7 @@ const adminOffice = [
   },
   {
     label: "Reception & Helpdesk",
-    desc: "Visitor management, parent inquiries and campus tours",
+    desc: "Visitor management, parent inquiries and school tours",
   },
 ];
 
