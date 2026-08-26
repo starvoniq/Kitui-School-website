@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight, Play, ChevronDown,
+  ArrowRight, ChevronDown,
   Microscope, BookOpen, Sigma, Palette,
   Trophy, Users, ShieldCheck, Star,
   Calendar, MapPin, TrendingUp, BookMarked,
@@ -20,7 +20,7 @@ const stats = [
   { value: 'National', label: 'School Category', icon: Star },
   { value: '1,200+', label: 'Students Enrolled', icon: Users, to: 1200, suffix: '+' },
   { value: '65+', label: 'Teaching Staff', icon: BookMarked, to: 65, suffix: '+' },
-  { value: '9.72', label: 'KCSE Mean Grade 2025', icon: TrendingUp },
+  { value: '9.718', label: 'KCSE Mean Grade 2025', icon: TrendingUp },
 ]
 
 const highlights = [
@@ -28,7 +28,7 @@ const highlights = [
     tag: 'Academic Performance',
     num: '01',
     title: 'KCSE 2025 Results',
-    body: 'Mean grade 9.72 with a 98.59% university transition, ranked 13th nationally.',
+    body: 'Mean grade 9.718 with a 98.59% university transition, ranked 13th nationally.',
     items: ['354 Candidates', '17 scored A', '87 scored A-'],
     cta: 'View Full Results',
     to: '/academics#results',
@@ -102,48 +102,33 @@ const campus = [
   { label: 'Sports Grounds', image: images.campus.sportsField },
 ]
 
-const testimonials = [
+const communityVoices = [
   {
-    quote: 'Kitui High School gave me the discipline and knowledge to excel in my engineering career. Truly a school of excellence.',
-    name: 'Joseph Seko',
-    role: 'Class of 2023 · Mechatronic Engineer',
-    image: images.testimonials.alumni,
+    type: 'Teacher',
+    quote: 'At Kitui School, our commitment goes beyond academic excellence; we nurture discipline, intellectual curiosity, and moral integrity so that every young man realizes his highest potential.',
+    name: 'Madam Mulonzi',
+    role: 'Geography Teacher & HOD of Examination Department',
+    image: '/madam-mulonzi.jpeg',
+    badge: 'Faculty & HOD',
+    badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
   },
   {
-    quote: 'The rigorous academic foundation I received here perfectly prepared me for the fast-paced world of technology.',
-    name: 'Matthias Kieti',
-    role: 'Class of 2021 · Computer Science',
-    image: images.testimonials.alumni,
+    type: 'Student',
+    quote: 'The environment here challenges you to lead with purpose. Between dedicated teachers who believe in us and a supportive brotherhood, you are shaped into someone ready to serve the nation.',
+    name: 'Brian Kioko',
+    role: 'School Captain · Class of 2025',
+    image: images.testimonials.student,
+    badge: 'Student Leader',
+    badgeColor: 'bg-gold/15 text-forest border-gold/30',
   },
   {
-    quote: 'A nurturing environment where we were challenged academically and grew in character. I am proud to be part of the alumni.',
-    name: 'Ibrahim Mutua',
-    role: 'Class of 2023 · Mechanical Engineer',
-    image: images.testimonials.alumni,
-  },
-  {
-    quote: 'The teachers believe in us and push us to become the best we can be. The spirit of "Learn to Serve" is real.',
-    name: 'Ronald M. Mwau',
-    role: 'Class of 2022 · Mechatronic Engineer',
-    image: images.testimonials.alumni,
-  },
-  {
-    quote: 'Kitui School shaped my logical thinking and problem-solving skills which are invaluable in my studies today.',
-    name: 'Cyril Mutua',
-    role: 'Class of 2025 · Computer Science',
-    image: images.testimonials.alumni,
-  },
-  {
-    quote: 'I will forever cherish the brotherhood and the strong values instilled in me during my time here.',
-    name: 'Alex',
-    role: 'Class of 2025 · Computer Science',
-    image: images.testimonials.alumni,
-  },
-  {
-    quote: 'An excellent institution that creates well-rounded individuals ready to take on the world of tech and business.',
-    name: 'Steve',
-    role: 'Class of 2024 · BBIT',
-    image: images.testimonials.alumni,
+    type: 'Parent',
+    quote: 'Entrusting my son to Kitui School has been an extraordinary journey. The structured boarding, character mentorship, and top-tier academics provide total peace of mind for parents.',
+    name: 'Mrs. Catherine Mwende',
+    role: 'PTA Representative & Parent',
+    image: images.testimonials.parent,
+    badge: 'Parent Community',
+    badgeColor: 'bg-sky-100 text-sky-800 border-sky-200',
   },
 ]
 
@@ -177,36 +162,12 @@ function NewsCard({ item }) {
   )
 }
 
-function TestimonialCard({ t }) {
-  return (
-    <div className="bg-white rounded-xl shadow-card p-6 border border-slate-100 flex flex-col hover:border-gold/30 transition-all duration-300">
-      <Quote className="text-gold/40 mb-3 shrink-0" size={32} />
-      <p className="text-slate-600 text-sm leading-relaxed italic flex-1">
-        "{t.quote}"
-      </p>
-      <div className="flex items-center gap-3 mt-5 pt-4 border-t border-slate-100">
-        <img
-          src={t.image}
-          alt={t.name}
-          className="w-11 h-11 rounded-full object-cover border-2 border-gold/30 shrink-0"
-        />
-        <div>
-          <p className="font-semibold text-forest text-sm">{t.name}</p>
-          <p className="text-xs text-slate-400 font-sans">{t.role}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 /* ─── Page ─── */
 export default function Home() {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
 
   return (
     <>
-      {/* ══ FIXED FULL-PAGE BACKGROUND (ADMIN BUILDING IMAGE) ══ */}
-      {/* This fixed background stays static while all sections float/scroll over it */}
       <div
         className="fixed inset-0 z-0 bg-cover bg-center pointer-events-none brightness-[0.80]"
         style={{ backgroundImage: `url(${images.admin})` }}
@@ -220,9 +181,6 @@ export default function Home() {
         <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-forest-dark">
           {/* 3D Model Background: School Gate */}
           <Gate3DHeroBg />
-
-          {/* Gold accent bar */}
-          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
           <div className="container-page relative z-10 py-24 md:py-32 drop-shadow-md pointer-events-none">
             <div className="pointer-events-auto max-w-[85%] md:max-w-full">
@@ -239,9 +197,6 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 mt-10 animate-fade-up-600">
                 <Link to="/about" className="btn-primary-lg">
                   Discover Our Story <ArrowRight size={18} />
-                </Link>
-                <Link to="/3d-tour" className="btn-outline flex items-center gap-2 !px-7 !py-4 backdrop-blur-sm bg-white/10 hover:bg-white/20">
-                  <Play size={16} className="fill-white" /> Explore Campus in 3D
                 </Link>
               </div>
 
@@ -377,15 +332,15 @@ export default function Home() {
                   <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">1. ACADEMIC PERFORMANCE</span>
                   <TrendingUp size={16} className="text-slate-300" />
                 </div>
-                <h3 className="font-serif font-bold text-forest text-lg mb-6 leading-tight">KCSE 2024 RESULTS</h3>
+                <h3 className="font-serif font-bold text-forest text-lg mb-6 leading-tight">KCSE 2025 RESULTS</h3>
 
                 <div className="flex gap-6 mb-6">
                   <div>
-                    <p className="text-4xl font-bold text-forest tracking-tighter">9.80</p>
+                    <p className="text-4xl font-bold text-forest tracking-tighter">9.718</p>
                     <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Mean Grade</p>
                   </div>
                   <div>
-                    <p className="text-4xl font-bold text-forest tracking-tighter">99.6<span className="text-2xl">%</span></p>
+                    <p className="text-4xl font-bold text-forest tracking-tighter">98.59<span className="text-2xl">%</span></p>
                     <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">University Transition</p>
                   </div>
                 </div>
@@ -394,22 +349,22 @@ export default function Home() {
                 <table className="w-full text-xs text-left mb-6 font-sans">
                   <thead className="border-b border-slate-100 text-slate-500">
                     <tr>
-                      <th className="py-2 font-semibold">Grade</th>
-                      <th className="py-2 font-semibold text-right">Students</th>
-                      <th className="py-2 font-semibold text-right">%</th>
+                      <th className="py-1 font-semibold">Grade</th>
+                      <th className="py-1 font-semibold text-right">Students</th>
+                      <th className="py-1 font-semibold text-right">%</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-50 text-forest">
-                    <tr><td className="py-2">A</td><td className="py-2 text-right">40</td><td className="py-2 text-right">10.8%</td></tr>
-                    <tr><td className="py-2">A-</td><td className="py-2 text-right">85</td><td className="py-2 text-right">23.0%</td></tr>
-                    <tr><td className="py-2">B+</td><td className="py-2 text-right">95</td><td className="py-2 text-right">25.7%</td></tr>
-                    <tr><td className="py-2">B</td><td className="py-2 text-right">75</td><td className="py-2 text-right">20.3%</td></tr>
-                    <tr><td className="py-2">B-</td><td className="py-2 text-right">45</td><td className="py-2 text-right">12.2%</td></tr>
-                    <tr><td className="py-2">C+</td><td className="py-2 text-right">20</td><td className="py-2 text-right">5.4%</td></tr>
-                    <tr><td className="py-2">Below C+</td><td className="py-2 text-right">10</td><td className="py-2 text-right">2.7%</td></tr>
+                    <tr><td className="py-1">A</td><td className="py-1 text-right font-medium">17</td><td className="py-1 text-right">4.8%</td></tr>
+                    <tr><td className="py-1">A-</td><td className="py-1 text-right font-medium">87</td><td className="py-1 text-right">24.6%</td></tr>
+                    <tr><td className="py-1">B+</td><td className="py-1 text-right font-medium">109</td><td className="py-1 text-right">30.8%</td></tr>
+                    <tr><td className="py-1">B</td><td className="py-1 text-right font-medium">83</td><td className="py-1 text-right">23.4%</td></tr>
+                    <tr><td className="py-1">B-</td><td className="py-1 text-right font-medium">41</td><td className="py-1 text-right">11.6%</td></tr>
+                    <tr><td className="py-1">C+</td><td className="py-1 text-right font-medium">12</td><td className="py-1 text-right">3.4%</td></tr>
+                    <tr><td className="py-1">C</td><td className="py-1 text-right font-medium">5</td><td className="py-1 text-right">1.4%</td></tr>
                   </tbody>
                   <tfoot className="border-t border-slate-200 font-bold text-forest">
-                    <tr><td className="py-2">Total</td><td className="py-2 text-right">370</td><td className="py-2 text-right">100%</td></tr>
+                    <tr><td className="py-1.5">Total</td><td className="py-1.5 text-right">354</td><td className="py-1.5 text-right">100%</td></tr>
                   </tfoot>
                 </table>
 
@@ -579,7 +534,7 @@ export default function Home() {
               <div className="lg:col-span-4">
                 <div className="flex items-end justify-between mb-6 border-b border-slate-200 pb-3">
                   <h2 className="font-sans font-bold text-slate-800 text-sm uppercase tracking-widest">UPCOMING EVENTS</h2>
-                  <button 
+                  <button
                     onClick={() => setIsCalendarOpen(true)}
                     className="text-[10px] font-bold text-slate-500 hover:text-forest tracking-widest uppercase hidden sm:block transition-colors"
                   >
@@ -693,26 +648,52 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══ 8. TESTIMONIALS (SOLID BG-WHITE) ══ */}
+        {/* ══ 8. VOICES OF OUR COMMUNITY (TEACHER, STUDENT, PARENT) ══ */}
         <section className="section-pad bg-white relative z-10">
-          <div className="container-page mb-12">
-            <div className="text-center">
-              <p className="section-eyebrow mb-3">What Our Community Says</p>
+          <div className="container-page">
+            <div className="text-center mb-12">
+              <p className="section-eyebrow mb-3">Community Perspectives</p>
               <div className="gold-bar mx-auto mb-4" />
               <h2 className="section-title">Voices from Our Community</h2>
+              <p className="text-slate-500 mt-3 font-sans text-sm max-w-xl mx-auto">
+                Hear firsthand from the teachers, students, and parents who make up the vibrant Kitui School family.
+              </p>
             </div>
-          </div>
 
-          <div className="relative flex overflow-hidden group">
-            {/* Fade overlays for smooth entry/exit effect */}
-            <div className="absolute top-0 left-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 right-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="grid md:grid-cols-3 gap-8">
+              {communityVoices.map((voice) => (
+                <div
+                  key={voice.name}
+                  className="bg-neutral-50 rounded-2xl p-7 border border-slate-100 flex flex-col justify-between hover:border-gold/40 hover:shadow-card-hover transition-all duration-300 relative group"
+                >
+                  <div className="absolute top-6 right-6">
+                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${voice.badgeColor}`}>
+                      {voice.badge}
+                    </span>
+                  </div>
 
-            {/* Scrolling track - duplicated for seamless loop */}
-            <div className="flex gap-6 animate-marquee pause-on-hover py-4 w-max pl-6">
-              {[...testimonials, ...testimonials].map((t, idx) => (
-                <div key={`${t.name}-${idx}`} className="w-[300px] md:w-[400px]">
-                  <TestimonialCard t={t} />
+                  <div>
+                    <Quote className="text-gold/40 mb-4" size={36} />
+                    <p className="text-slate-700 text-sm md:text-base leading-relaxed italic mb-6">
+                      &ldquo;{voice.quote}&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-4 pt-4 border-t border-slate-200/70">
+                    <img
+                      src={voice.image}
+                      alt={voice.name}
+                      className="w-14 h-14 rounded-full object-cover border-2 border-gold/40 shadow-sm shrink-0"
+                    />
+                    <div>
+                      <h4 className="font-serif font-bold text-forest text-base leading-snug">
+                        {voice.name}
+                      </h4>
+                      <p className="text-xs text-slate-500 font-sans mt-0.5 leading-tight">
+                        {voice.role}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -733,9 +714,9 @@ export default function Home() {
         />
       </div>
 
-      <CalendarModal 
-        isOpen={isCalendarOpen} 
-        onClose={() => setIsCalendarOpen(false)} 
+      <CalendarModal
+        isOpen={isCalendarOpen}
+        onClose={() => setIsCalendarOpen(false)}
       />
     </>
   )

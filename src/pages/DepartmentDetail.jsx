@@ -306,7 +306,7 @@ const departments = [
     ],
     achievements: [
       'Attained an overall school KCSE 2025 Mean Score of 9.718 (Mean Grade B+), up from 9.534 in 2024',
-      '98.59% of the 355 candidates achieved direct university qualifying grades (C+ and above)',
+      '98.59% of the 354 candidates achieved direct university qualifying grades (C+ and above)',
       'Rigorous continuous assessment system stirring curiosity, creativity and intellectual growth',
       'Balanced academic ethos encouraging co-curricular participation alongside academic rigor',
       'Exemplary teamwork between teachers, students, parents, and school administration',

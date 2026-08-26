@@ -28,7 +28,6 @@ export default function Tour3D() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/15" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
         </div>
-        <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold z-10" />
 
         <div className="container-page py-20 md:py-24 relative z-10 drop-shadow-md">
           <p className="section-eyebrow mb-3 animate-fade-up text-gold-light drop-shadow-sm">Virtual Campus Experience</p>
