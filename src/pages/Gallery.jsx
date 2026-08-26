@@ -9,7 +9,7 @@ const categories = [
   { key: 'academics', label: 'Academics', icon: FlaskConical },
   { key: 'sports', label: 'Sports', icon: Trophy },
   { key: 'arts', label: 'Arts & Culture', icon: Drama },
-  { key: 'campus', label: 'Campus', icon: Landmark },
+  { key: 'campus', label: 'School Grounds', icon: Landmark },
   { key: 'events', label: 'Events & Life', icon: CalendarDays },
 ]
 
@@ -21,7 +21,7 @@ const photos = [
   { key: 'events', title: 'Annual Prize Giving Ceremony', image: images.gallery.prizeGiving },
   { key: 'academics', title: 'Modern ICT & Coding Lab', image: images.gallery.computerLab },
   { key: 'sports', title: 'Inter-House Rugby & Football Match', span: 'col-span-2', image: images.gallery.football },
-  { key: 'campus', title: 'Serene Campus Green Lawns', image: images.gallery.grounds },
+  { key: 'campus', title: 'Serene School Green Lawns', image: images.gallery.grounds },
   { key: 'arts', title: 'Fine Art & Creative Design Exhibition', image: images.gallery.art },
   { key: 'events', title: 'Career & University Mentorship Day', image: images.gallery.career },
   { key: 'campus', title: 'Boarding Houses & Living Wing', image: images.gallery.boarding },
@@ -37,9 +37,9 @@ export default function Gallery() {
     <>
       <PageHero
         crumbs={['Home', 'Gallery']}
-        eyebrow="Campus Life in Focus"
+        eyebrow="School Life in Focus"
         title="School Gallery"
-        subtitle="Explore life at Kitui High School through academic discovery, sporting glory and vibrant campus moments."
+        subtitle="Explore life at Kitui High School through academic discovery, sporting glory and vibrant school moments."
         bgImage={images.heroes.gallery}
       />
 
@@ -147,7 +147,7 @@ export default function Gallery() {
 
       <CtaBanner
         title="See it. Feel it. Belong."
-        subtitle="Experience the Kitui High School difference in person by scheduling a campus visit."
+        subtitle="Experience the Kitui High School difference in person by scheduling a school visit."
         primaryLabel="Book a Visit"
         primaryTo="/contact"
         secondaryLabel="Explore Academics"

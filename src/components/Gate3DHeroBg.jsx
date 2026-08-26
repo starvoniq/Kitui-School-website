@@ -203,7 +203,7 @@ function Loader() {
     <div className="absolute inset-0 z-10 flex flex-col items-center justify-center overflow-hidden transition-opacity duration-700 bg-forest-dark">
       <img
         src={images.gate}
-        alt="Loading Campus Gate"
+        alt="Loading School Gate"
         className="absolute inset-0 w-full h-full object-cover animate-pulse opacity-70"
       />
       <div className="absolute inset-0 bg-forest-dark/60" />

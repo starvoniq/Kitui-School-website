@@ -1089,7 +1089,7 @@ export default function Academics() {
       <CtaBanner
         title="See Where Learning Comes to Life"
         subtitle="Take a virtual tour of our facilities and experience our environment of excellence."
-        primaryLabel="Explore Our Campus in 3D"
+        primaryLabel="Explore Our School in 3D"
         primaryTo="/3d-tour"
         secondaryLabel="Contact Us"
         secondaryTo="/contact"

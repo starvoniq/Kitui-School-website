@@ -71,7 +71,6 @@ const identity = [
   {
     label: 'Our Motto',
     text: '“Learn To Serve” is a commitment to service, integrity and excellence that defines everything we do.',
-    sub: '“Umiisyo na Wia” (Perseverance and Work) is a Kamba saying that reflects our deep cultural roots and hard-working academic culture.',
   },
 ]
 
@@ -182,7 +181,7 @@ const alumni = [
 
 const campusShots = [
   { src: IMG.gate, caption: 'The main gate of Kitui High School' },
-  { src: IMG.basketball, caption: 'Sports and talent development on campus' },
+  { src: IMG.basketball, caption: 'Sports and talent development at school' },
   { src: IMG.bus, caption: 'School transport for our students' },
 ]
 
@@ -316,7 +315,7 @@ function AlumniCareersCarousel() {
   }, [isPaused, nextSlide])
 
   return (
-    <div 
+    <div
       className="mt-16 pt-12 border-t border-neutral-200/80"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -357,7 +356,7 @@ function AlumniCareersCarousel() {
 
       {/* Carousel Viewport */}
       <div className="relative overflow-hidden rounded-2xl">
-        <div 
+        <div
           className="flex transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
@@ -409,9 +408,8 @@ function AlumniCareersCarousel() {
             key={i}
             onClick={() => setCurrentIndex(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              currentIndex === i ? 'w-8 bg-forest' : 'w-2 bg-neutral-300 hover:bg-neutral-400'
-            }`}
+            className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? 'w-8 bg-forest' : 'w-2 bg-neutral-300 hover:bg-neutral-400'
+              }`}
           />
         ))}
       </div>
@@ -629,36 +627,36 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-md p-5 sm:p-8">
-                <table className="w-full text-xs md:text-sm border-collapse">
-                  <thead>
-                    <tr className="text-neutral-400">
-                      <th className="text-left font-semibold py-2.5 pr-3">Name</th>
-                      <th className="text-left font-semibold py-2.5 px-2">From</th>
-                      <th className="text-left font-semibold py-2.5 pl-2">To</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {principals.map((p, i) => {
-                      const current = p.to === 'Present'
-                      return (
-                        <tr
-                          key={p.name}
-                          className={current ? 'bg-forest/10' : i % 2 === 0 ? 'bg-neutral-50/40' : 'bg-white'}
-                        >
-                          <td className={`py-2.5 pr-3 font-semibold whitespace-nowrap ${current ? 'text-forest' : 'text-neutral-900'}`}>
-                            {p.name}
-                          </td>
-                          <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
-                            {p.from}
-                          </td>
-                          <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
-                            {p.to}
-                          </td>
-                        </tr>
-                      )
-                    })}
-                  </tbody>
-                </table>
+              <table className="w-full text-xs md:text-sm border-collapse">
+                <thead>
+                  <tr className="text-neutral-400">
+                    <th className="text-left font-semibold py-2.5 pr-3">Name</th>
+                    <th className="text-left font-semibold py-2.5 px-2">From</th>
+                    <th className="text-left font-semibold py-2.5 pl-2">To</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {principals.map((p, i) => {
+                    const current = p.to === 'Present'
+                    return (
+                      <tr
+                        key={p.name}
+                        className={current ? 'bg-forest/10' : i % 2 === 0 ? 'bg-neutral-50/40' : 'bg-white'}
+                      >
+                        <td className={`py-2.5 pr-3 font-semibold whitespace-nowrap ${current ? 'text-forest' : 'text-neutral-900'}`}>
+                          {p.name}
+                        </td>
+                        <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
+                          {p.from}
+                        </td>
+                        <td className={`py-2.5 px-2 tabular-nums ${current ? 'font-semibold text-forest' : 'text-neutral-700'}`}>
+                          {p.to}
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
             </div>
           </Reveal>
         </div>
@@ -828,13 +826,13 @@ export default function About() {
                 Life at Kitui High School
               </p>
               <h2 className="font-serif font-bold text-forest text-3xl md:text-4xl">
-                Campus &amp; Community
+                School &amp; Community
               </h2>
             </div>
           </Reveal>
           <Reveal className="mb-10">
             <p className="text-center text-sm text-neutral-500 mb-6">
-              Sports and talent development on campus
+              Sports and talent development at school
             </p>
             <SportsMarquee />
           </Reveal>
@@ -883,7 +881,7 @@ export default function About() {
                 Experience the Kitui High School Difference
               </h2>
               <p className="text-neutral-500 mt-3 text-sm md:text-base max-w-lg mx-auto">
-                Visit our campus, meet our team and discover how we shape future leaders.
+                Visit our school, meet our team and discover how we shape future leaders.
               </p>
               <div className="flex flex-wrap justify-center gap-3 mt-8">
                 <Link

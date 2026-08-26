@@ -275,7 +275,7 @@ export default function Home() {
               <div className="aspect-[3/4] w-full max-w-[240px] mx-auto rounded-2xl overflow-hidden shadow-xl relative group">
                 <img
                   src={images.campus.adminTower}
-                  alt="Kitui High School Campus"
+                  alt="Kitui High School"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-transparent" />
@@ -584,7 +584,7 @@ export default function Home() {
           <div className="container-page">
             <div className="flex items-end justify-between mb-8">
               <div>
-                <p className="section-eyebrow mb-2">Our Campus</p>
+                <p className="section-eyebrow mb-2">Our School</p>
                 <div className="gold-bar mb-3" />
                 <h2 className="section-title">A World-Class Learning Environment</h2>
               </div>
@@ -630,7 +630,7 @@ export default function Home() {
                 { icon: ShieldCheck, t: 'Safe Supervised Boarding', b: 'A home away from home: safe, structured and nurturing.' },
                 { icon: Microscope, t: 'Modern Facilities', b: 'Well-equipped labs, ICT centre, library and sports facilities.' },
                 { icon: BookOpen, t: 'Experienced Faculty', b: '72 dedicated teachers committed to every learner\'s growth.' },
-                { icon: MapPin, t: 'Serene Campus', b: 'A peaceful, inspiring environment that fosters focus and learning.' },
+                { icon: MapPin, t: 'Serene School Grounds', b: 'A peaceful, inspiring environment that fosters focus and learning.' },
               ].map(({ icon: Icon, t, b }) => (
                 <div
                   key={t}

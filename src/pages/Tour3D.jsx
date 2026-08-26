@@ -30,13 +30,13 @@ export default function Tour3D() {
         </div>
 
         <div className="container-page py-20 md:py-24 relative z-10 drop-shadow-md">
-          <p className="section-eyebrow mb-3 animate-fade-up text-gold-light drop-shadow-sm">Virtual Campus Experience</p>
+          <p className="section-eyebrow mb-3 animate-fade-up text-gold-light drop-shadow-sm">Virtual School Experience</p>
           <div className="gold-bar mb-4 shadow-sm" />
           <h1 className="text-4xl md:text-6xl font-serif font-bold max-w-2xl leading-tight mb-5 animate-fade-up-200 text-white drop-shadow-lg">
             Explore Kitui High School in <span className="text-gold-light">3D</span>
           </h1>
           <p className="text-white/95 max-w-xl mb-8 font-sans leading-relaxed text-base animate-fade-up-400 drop-shadow-md">
-            Step inside our campus from anywhere in the world. Explore our classrooms, science
+            Step inside our school from anywhere in the world. Explore our classrooms, science
             laboratories, library and boarding facilities in interactive 3D.
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-up-600">
@@ -61,7 +61,7 @@ export default function Tour3D() {
                 <Play size={32} className="text-gold fill-gold ml-1" />
               </div>
               <div>
-                <p className="text-white font-serif font-bold text-2xl drop-shadow">360° Virtual Campus Tour</p>
+                <p className="text-white font-serif font-bold text-2xl drop-shadow">360° Virtual School Tour</p>
                 <p className="text-white/70 text-sm font-sans mt-1">
                   Click to launch interactive panoramic walk-through
                 </p>
@@ -75,7 +75,7 @@ export default function Tour3D() {
       <section className="section-pad bg-white pt-16">
         <div className="container-page">
           <div className="text-center mb-12">
-            <p className="section-eyebrow mb-3">Campus Locations</p>
+            <p className="section-eyebrow mb-3">School Locations</p>
             <div className="gold-bar mx-auto mb-4" />
             <h2 className="section-title">Experience KHS Like Never Before</h2>
             <p className="text-slate-500 mt-3 max-w-xl mx-auto font-sans text-sm">
@@ -109,7 +109,7 @@ export default function Tour3D() {
 
       <CtaBanner
         title="Visit Us In Person"
-        subtitle="We'd love to welcome you to our campus. Book a physical visit or speak to our team."
+        subtitle="We'd love to welcome you to our school. Book a physical visit or speak to our team."
         primaryLabel="Book a Visit"
         primaryTo="/contact"
         secondaryLabel="Explore Academics"
