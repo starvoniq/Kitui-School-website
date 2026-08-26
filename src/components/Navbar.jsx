@@ -25,14 +25,7 @@ const navLinks = [
       { to: '/management#board', label: 'Board of Management' },
     ],
   },
-  {
-    label: 'Campus Life',
-    to: '/3d-tour',
-    dropdown: [
-      { to: '/3d-tour', label: '3D Virtual Tour' },
-      { to: '/gallery', label: 'Photo Gallery' },
-    ],
-  },
+  { to: '/student-life', label: 'Student Life' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/contact', label: 'Contact' },
 ]

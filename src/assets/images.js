@@ -31,10 +31,9 @@ import sportsGroundImg from './photos/sports-ground.jpg'
 
 // Teacher profile images
 import wambuaImg from './teachers-pics/mrs-wambua.jpg'
-import kaveleImg from './teachers-pics/mr-kavele.jpg'
+import kaveleImg from './teachers-pics/mr-kavele.jpeg'
 import mbuvuaImg from './teachers-pics/mrs-mbuva.jpg'
 import gabrielImg from './teachers-pics/mrs-gabriel.jpg'
-import tairusImg from './teachers-pics/mr-tairus.jpg'
 import aminaImg from './teachers-pics/miss-amina.jpg'
 import njeriImg from './teachers-pics/miss-njeri.jpg'
 import ombadoImg from './teachers-pics/ms-ombado.jpg'
@@ -42,6 +41,8 @@ import njugunaImg from './teachers-pics/mr-njuguna.jpg'
 import nzomoImg from './teachers-pics/mr-nzomo.jpg'
 import kagemaImg from './teachers-pics/mrs-kagema.jpg'
 import otienoImg from './teachers-pics/mr-otieno.jpg'
+import seniorMasterImg from './teachers-pics/senior master.jpeg'
+import mrtairusImg from './teachers-pics/mr-tairus.jpeg'
 
 export const images = {
   gate: gateImg,
@@ -124,10 +125,14 @@ export const images = {
   },
   teachers: {
     wambua: wambuaImg,
-    kavele: kaveleImg,
+    // Staff photos supplied in public/ are served from the site root.
+    kavele: '/Kavele.jpeg',
+    katee: '/Chalbi.jpeg',
+    mutuku: '/rambo.jpeg',
     mbuva: mbuvuaImg,
     gabriel: gabrielImg,
-    tairus: tairusImg,
+    tairus: '/Tyro.jpeg',
+    tyrus: '/Tyro.jpeg',
     amina: aminaImg,
     njeri: njeriImg,
     ombado: ombadoImg,
@@ -135,5 +140,13 @@ export const images = {
     nzomo: nzomoImg,
     kagema: kagemaImg,
     otieno: otienoImg,
+    seniorMaster: seniorMasterImg,
+    mrtairus: mrtairusImg,
+    mugambi: '/mrs-mugambi.jpeg',
+    mulonzi: '/madam-mulonzi.jpeg',
+  },
+  departments: {
+    kiswahili: '/kiswahili-dept.jpeg',
+    examination: '/examination-dept.jpeg',
   },
 }

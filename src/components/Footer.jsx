@@ -10,7 +10,7 @@ const quickLinks = [
   { label: 'About Us', to: '/about' },
   { label: 'Academics', to: '/academics' },
   { label: 'Leadership', to: '/management' },
-  { label: 'Campus Life', to: '/3d-tour' },
+  { label: 'Student Life', to: '/student-life' },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact Us', to: '/contact' },
 ]

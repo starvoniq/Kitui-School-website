@@ -12,6 +12,9 @@ import Management from './pages/Management.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Tour3D from './pages/Tour3D.jsx'
 import Contact from './pages/Contact.jsx'
+import StudentLife from './pages/StudentLife.jsx'
+import StudentLifeCategory from './pages/StudentLifeCategory.jsx'
+import StudentLifeDetail from './pages/StudentLifeDetail.jsx'
 import PrivacyPolicy from './pages/Privacy.jsx'
 import TermsOfUse from './pages/TermsOfUse.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -27,11 +30,22 @@ function App() {
 
   useEffect(() => {
     if (location.hash) {
-      const element = document.querySelector(location.hash)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        return
+      const scrollToHash = () => {
+        const element = document.querySelector(location.hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          return true
+        }
+        return false
       }
+
+      if (!scrollToHash()) {
+        const timer = setTimeout(() => {
+          scrollToHash()
+        }, 150)
+        return () => clearTimeout(timer)
+      }
+      return
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -59,6 +73,9 @@ function App() {
               <Route path="/management" element={<Management />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/3d-tour" element={<Tour3D />} />
+              <Route path="/student-life" element={<StudentLife />} />
+              <Route path="/student-life/:category" element={<StudentLifeCategory />} />
+              <Route path="/student-life/:category/:slug" element={<StudentLifeDetail />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />
